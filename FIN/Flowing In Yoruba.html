@@ -109,39 +109,25 @@
 
 <hr style="margin-top: 2rem;">
 
-<h2 style="text-align:center; margin-top: 40px;">Tone Practice</h2>
+<!-- TONE PRACTICE SECTION -->
+<h2 style="text-align:center; font-style: italic;">Tone Practice</h2>
 
 <div id="tonePractice" style="text-align:center; margin-top:20px;">
-  <div class="tone-item">
-    <p><strong>O lú yọ́ lé</strong></p>
-    <p>Re mi do mi</p>
-    <button>🔊 Play Audio</button>
+  <!-- First row: Yoruba words -->
+  <div id="wordRow" 
+       style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap; margin-bottom:10px;">
   </div>
 
-  <div class="tone-item" style="display:none;">
-    <p><strong>Ẹlẹ́yẹ́lẹ́</strong></p>
-    <p>Re mi re mi</p>
-    <button>🔊 Play Audio</button>
+  <!-- Second row: Tones -->
+  <div id="toneRow" 
+       style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap; margin-bottom:20px;">
   </div>
 
-  <div class="tone-item" style="display:none;">
-    <p><strong>Í Jò ko dó</strong></p>
-    <p>Mi do re mi</p>
-    <button>🔊 Play Audio</button>
-  </div>
-
-  <div class="tone-item" style="display:none;">
-    <p><strong>O pọ̀ ilé ó sá</strong></p>
-    <p>Re do re mi mi mi</p>
-    <button>🔊 Play Audio</button>
-  </div>
-
-  <div style="margin-top:20px;">
-    <button id="prevBtn">⬅ Previous</button>
-    <button id="nextBtn">Next ➡</button>
-  </div>
+  <!-- Buttons -->
+  <button id="playToneAudio" style="margin:10px; font-size:16px;">🔊 Play Audio</button><br>
+  <button id="prevTone" style="font-size:16px;">⬅️ Previous</button>
+  <button id="nextTone" style="font-size:16px;">Next ➡️</button>
 </div>
-
 
 
 
@@ -291,40 +277,6 @@
 </div>
 
   
-
-
-
-
-
-
-<<<<<<< HEAD
-=======
-          <tr>
-            <td>
-              <button onclick="playTone('do')">🔊<audio></audio></button>
-            </td>
-            <td>o (stress)</td>
-            <td>ti</td>
-            <td>lọ</td>
-            <td>ò ti lọ</td>
-          </tr>
->>>>>>> 3f9fe33c8e5aa433c354afd3809a5222b39b04d6
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   
     
@@ -515,6 +467,83 @@ document.getElementById('prevBtn').addEventListener('click', () => {
 });
 
 showItem(current); // show first on load
+
+
+// 🎵 Tone Practice Data
+const tonePracticeData = [
+  {
+    words: ["Ìwọ", "ń", "lọ", "sí ilé"],
+    tones: ["DO", "RE", "MI", "DO"]
+  },
+  {
+    words: ["Mo", "ń", "jẹun", "ní ilé"],
+    tones: ["RE", "MI", "DO", "RE"]
+  },
+  {
+    words: ["A", "ń", "sọ̀rọ̀", "nípò"],
+    tones: ["MI", "DO", "RE", "MI"]
+  }
+];
+
+let toneIndex = 0;
+const wordRow = document.getElementById("wordRow");
+const toneRow = document.getElementById("toneRow");
+
+// Function to render boxes
+function renderTonePractice() {
+  wordRow.innerHTML = "";
+  toneRow.innerHTML = "";
+
+  const current = tonePracticeData[toneIndex];
+
+  current.words.forEach(word => {
+    const wordBox = document.createElement("div");
+    wordBox.style.cssText = `
+      width:100px; height:60px; border:1px solid gray; border-radius:6px;
+      display:flex; justify-content:center; align-items:center;
+      font-size:18px; background:#f8f8f8;
+    `;
+    wordBox.textContent = word;
+    wordRow.appendChild(wordBox);
+  });
+
+  current.tones.forEach(tone => {
+    const toneBox = document.createElement("div");
+    toneBox.style.cssText = `
+      width:100px; height:60px; border:1px solid #aaa; border-radius:6px;
+      display:flex; justify-content:center; align-items:center;
+      font-size:16px; background:#eaeaea;
+    `;
+    toneBox.textContent = tone;
+    toneRow.appendChild(toneBox);
+  });
+}
+
+// Button events
+document.getElementById("prevTone").addEventListener("click", () => {
+  toneIndex = (toneIndex - 1 + tonePracticeData.length) % tonePracticeData.length;
+  renderTonePractice();
+});
+
+document.getElementById("nextTone").addEventListener("click", () => {
+  toneIndex = (toneIndex + 1) % tonePracticeData.length;
+  renderTonePractice();
+});
+
+document.getElementById("playToneAudio").addEventListener("click", () => {
+  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  const oscillator = audioCtx.createOscillator();
+  oscillator.type = "sine";
+  oscillator.frequency.value = 392.00; // G tone (example)
+  oscillator.connect(audioCtx.destination);
+  oscillator.start();
+  oscillator.stop(audioCtx.currentTime + 0.5);
+});
+
+document.addEventListener("DOMContentLoaded", renderTonePractice);
+
+
+
 </script>
 
 </body>
