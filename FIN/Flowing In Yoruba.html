@@ -113,18 +113,18 @@
 <h2 style="text-align:center; font-style: italic;">Tone Practice</h2>
 
 <div id="tonePractice" style="text-align:center; margin-top:20px;">
-  <!-- First row: Yoruba words -->
+  <!-- Yoruba words row -->
   <div id="wordRow" 
        style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap; margin-bottom:10px;">
   </div>
 
-  <!-- Second row: Tones -->
+  <!-- Tones row -->
   <div id="toneRow" 
        style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap; margin-bottom:20px;">
   </div>
 
   <!-- Buttons -->
-  <button id="playToneAudio" style="margin:10px; font-size:16px;">🔊 Play Audio</button><br>
+  <button id="playToneAudio" style="margin:10px; font-size:16px;">▶️ Play Audio</button><br>
   <button id="prevTone" style="font-size:16px;">⬅️ Previous</button>
   <button id="nextTone" style="font-size:16px;">Next ➡️</button>
 </div>
@@ -472,16 +472,20 @@ showItem(current); // show first on load
 // 🎵 Tone Practice Data
 const tonePracticeData = [
   {
-    words: ["Ìwọ", "ń", "lọ", "sí ilé"],
-    tones: ["DO", "RE", "MI", "DO"]
+    words: ["O", "lú", "yọ̀", "lé"],
+    tones: ["RE", "MI", "DO", "MI"]
   },
   {
-    words: ["Mo", "ń", "jẹun", "ní ilé"],
-    tones: ["RE", "MI", "DO", "RE"]
+    words: ["Ẹl", "ẹ́y", "ẹl", "ẹ́"],
+    tones: ["RE", "MI", "RE", "MI"]
   },
   {
-    words: ["A", "ń", "sọ̀rọ̀", "nípò"],
+    words: ["Í", "Jò", "ko", "dó"],
     tones: ["MI", "DO", "RE", "MI"]
+  },
+  {
+    words: ["O", "pò", "il", "é", "ó", "sá"],
+    tones: ["RE", "DO", "RE", "MI", "MI", "MI"]
   }
 ];
 
@@ -489,37 +493,39 @@ let toneIndex = 0;
 const wordRow = document.getElementById("wordRow");
 const toneRow = document.getElementById("toneRow");
 
-// Function to render boxes
+// Function to render current tone set
 function renderTonePractice() {
   wordRow.innerHTML = "";
   toneRow.innerHTML = "";
 
   const current = tonePracticeData[toneIndex];
 
+  // Render Yoruba word boxes
   current.words.forEach(word => {
     const wordBox = document.createElement("div");
     wordBox.style.cssText = `
-      width:100px; height:60px; border:1px solid gray; border-radius:6px;
+      width:80px; height:50px; border:1px solid gray; border-radius:6px;
       display:flex; justify-content:center; align-items:center;
-      font-size:18px; background:#f8f8f8;
+      font-size:18px; background:#fff;
     `;
     wordBox.textContent = word;
     wordRow.appendChild(wordBox);
   });
 
+  // Render tone boxes
   current.tones.forEach(tone => {
     const toneBox = document.createElement("div");
     toneBox.style.cssText = `
-      width:100px; height:60px; border:1px solid #aaa; border-radius:6px;
+      width:80px; height:50px; border:1px solid #aaa; border-radius:6px;
       display:flex; justify-content:center; align-items:center;
-      font-size:16px; background:#eaeaea;
+      font-size:16px; background:#f0f0f0;
     `;
     toneBox.textContent = tone;
     toneRow.appendChild(toneBox);
   });
 }
 
-// Button events
+// Navigation buttons
 document.getElementById("prevTone").addEventListener("click", () => {
   toneIndex = (toneIndex - 1 + tonePracticeData.length) % tonePracticeData.length;
   renderTonePractice();
@@ -530,16 +536,18 @@ document.getElementById("nextTone").addEventListener("click", () => {
   renderTonePractice();
 });
 
+// Audio button (dummy tone)
 document.getElementById("playToneAudio").addEventListener("click", () => {
   const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   const oscillator = audioCtx.createOscillator();
   oscillator.type = "sine";
-  oscillator.frequency.value = 392.00; // G tone (example)
+  oscillator.frequency.value = 392; // Example tone
   oscillator.connect(audioCtx.destination);
   oscillator.start();
   oscillator.stop(audioCtx.currentTime + 0.5);
 });
 
+// Initial render
 document.addEventListener("DOMContentLoaded", renderTonePractice);
 
 
