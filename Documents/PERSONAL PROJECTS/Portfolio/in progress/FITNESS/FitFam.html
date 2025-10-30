@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitFam Clone</title>
+  <link rel="stylesheet" href="FitFam.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-content">
+      <div class="logo">FITFAM</div>
+
+      <!-- Hamburger Icon -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="nav-menu" id="nav-menu">
+        <ul class="nav-links">
+          <li><a href="#">Our Mission</a></li>
+          <li><a href="#">Trainings</a></li>
+          <li><a href="#">Cities</a></li>
+          <li><a href="#">Online Schedule</a></li>
+          <li><a href="#">Stories</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </nav>
+
+      <!-- Contact Button -->
+      <a href="#" class="btn">Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-overlay">
+      <div class="hero-text">
+        <h1>
+          We build meaningful <br />
+          communities with free <br />
+          quality fitness
+        </h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- JavaScript -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
