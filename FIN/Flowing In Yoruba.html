@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FLOWING IN YORUBA</title>
-    <link rel="stylesheet" href="Untitled-1.css" />
+    <link rel="stylesheet" href="Flowing in Yoruba.css" />
+    <!-- JavaScript files -->
+
   </head>
   <body>
     <h1 style="text-align: center">Flowing in Yoruba (FIN)</h1>
@@ -439,181 +441,36 @@
       <button id="nextTone" style="font-size: 16px">Next ➡️</button>
     </div>
 
-    <!-- Container for both tables -->
-    <h2 style="text-align: left; font-style: oblique; margin-top: 2rem">
-      The Argument Game
-    </h2>
-    <div
-      style="
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-        margin-top: 20px;
-      "
-    >
-      <!-- LEFT TABLE (Speaker) -->
-      <table border="1" cellpadding="8">
-        <thead>
-          <tr>
-            <th>Audio</th>
-            <th>Pronoun</th>
-            <th>Tense</th>
-            <th>Verb</th>
-            <th>Sentence</th>
-          </tr>
-        </thead>
-        <tbody id="speakerTable">
-          <tr>
-            <td><button onclick="playTone('re')">🔊</button></td>
-            <td>Mo</td>
-            <td>ti</td>
-            <td>lọ</td>
-            <td>Mo ti lọ sí ilé</td>
-          </tr>
-          <tr>
-            <td><button onclick="playTone('re')">🔊</button></td>
-            <td>o (iwo)</td>
-            <td>ti</td>
-            <td>lọ</td>
-            <td>Ìwọ ti lọ sí ilé</td>
-          </tr>
-          <tr>
-            <td><button onclick="playTone('re')">🔊</button></td>
-            <td>o/e (older)</td>
-            <td>ti</td>
-            <td>lọ</td>
-            <td>e lọ sí ilé</td>
-          </tr>
-          <tr>
-            <td><button onclick="playTone('re')">🔊</button></td>
-            <td>a(wa)</td>
-            <td>ti</td>
-            <td>lọ</td>
-            <td>awa lọ sí ilé</td>
-          </tr>
-          <tr>
-            <td><button onclick="playTone('re')">🔊</button></td>
-            <td>(A)won</td>
-            <td>ti</td>
-            <td>lọ</td>
-            <td>awon ti lọ sí ilé</td>
-          </tr>
-        </tbody>
-      </table>
+<hr style="margin-top: 10px; margin-bottom: 10px;">
 
-      <!-- RIGHT TABLE (Negation) -->
-      <table border="1" cellpadding="8">
-        <thead>
-          <tr>
-            <th>Audio</th>
-            <th>Negation</th>
-            <th>Tense</th>
-            <th>Verb</th>
-            <th>Sentence</th>
-          </tr>
-        </thead>
+  
+  <section id="argument-section">
+    <h2> Argument game </h2>
 
-        <tbody id="negationTable">
-          <tr>
-            <td><button onclick="playTone('re')">🔊</button></td>
-            <td>Mi o</td>
-            <td>ti</td>
-            <td>lọ</td>
-            <td>Mi o ti lọ</td>
-          </tr>
-
-          <tr>
-            <td>
-              <button onclick="playTone('do')">🔊<audio></audio></button>
-            </td>
-            <td>o (stress)</td>
-            <td>ti</td>
-            <td>lọ</td>
-            <td>ò ti lọ</td>
-          </tr>
-
-          <tr>
-            <td>
-              <button onclick="playTone('do')">🔊<audio></audio></button>
-            </td>
-            <td>o/ ko/e (older) (stress)</td>
-            <td>ti</td>
-            <td>lọ</td>
-            <td>ò ti lọ</td>
-          </tr>
-
-          <tr>
-            <td>
-              <button onclick="playTone('do')">🔊<audio></audio></button>
-            </td>
-            <td>A (stress)</td>
-            <td>ti</td>
-            <td>lọ</td>
-            <td>A ti lọ</td>
-          </tr>
-
-          <tr>
-            <td>
-              <button onclick="playTone('do')">🔊<audio></audio></button>
-            </td>
-            <td>Won (stress)</td>
-            <td>ti</td>
-            <td>lọ</td>
-            <td>Ìwọ ò lọ</td>
-            <!-- <td>sí ilé</td> -->
-          </tr>
-        </tbody>
-      </table>
+    <div id="tables">
+      <!-- Tables will be generated here -->
     </div>
 
-    <!-- Buttons -->
-    <div style="text-align: center; margin-top: 30px">
-      <button
-        onclick="showPastTense()"
-        style="font-size: large; margin-right: 10px"
-      >
-        Past Tense
-      </button>
-      <button
-        onclick="showPresentTense()"
-        style="font-size: large; margin-left: 10px"
-      >
-        Present Tense
-      </button>
+    <!-- Present & Past buttons (not functional yet, just visible) -->
+    <div id="tense-buttons">
+      <button> Present</button>
+      <button>Past</button>
     </div>
 
-    <div style="text-align: center; margin-top: 30px">
-      <button
-        onclick="showPastTense()"
-        style="font-size: 29px; margin-right: 10px"
-      >
-        Jeun
-      </button>
-      <button
-        onclick="showPresentTense()"
-        style="font-size: 30px; margin-right: 10px"
-      >
-        lo
-      </button>
-      <button
-        onclick="showPastTense()"
-        style="font-size: 30px; margin-left: 10px"
-      >
-        de
-      </button>
-      <button
-        onclick="showPresentTense()"
-        style="font-size: 30px; margin-left: 10px"
-      >
-        sun
-      </button>
-      <button
-        onclick="showPresentTense()"
-        style="font-size: 30px; margin-left: 10px"
-      >
-        ka
-      </button>
+    <!-- Yoruba Verb Buttons -->
+    <div id="verb-buttons">
+      <button onclick="updateTables('jẹun')">Jẹun</button>
+      <button onclick="updateTables('lọ')">Lọ</button>
+      <button onclick="updateTables('dé')">Dé</button>
+      <button onclick="updateTables('sùn')">Sùn</button>
+      <button onclick="updateTables('kà')">Kà</button>
     </div>
+  </section>
+
+  <script src="argument.js"></script>
+
+
+
 
     <hr style="margin-top: 2rem" />
     <h2 style="margin-top: 4rem; text-align: center">
@@ -641,6 +498,10 @@
       <button id="prevBtn" style="font-size: large">⬅️ Prev</button>
       <button id="nextBtn" style="font-size: large">Next ➡️</button>
     </div>
+
+
+    <script src="verb.js"></script>
+   <script src="argument.js"></script>
 
     <script>
       // -------------------- ALPHABET PRACTICE --------------------

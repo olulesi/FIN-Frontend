@@ -1,4 +1,38 @@
-.arg{
-    margin-top: 2rem;
-    text-align: left;
-}
+ #argument-section {
+      text-align: center;
+      margin-top: 40px;
+      font-family: Arial, sans-serif;
+    }
+
+    #argument-section table {
+      border-collapse: collapse;
+      margin: 10px;
+      display: inline-block; /* ✅ Side-by-side tables */
+      vertical-align: top;
+    }
+
+    #argument-section th, #argument-section td {
+      border: 1px solid #333;
+      padding: 8px 12px;
+    }
+
+    #argument-section th {
+      font-weight: bold;
+    }
+
+    /* Buttons layout */
+    #verb-buttons {
+      margin-top: 20px;
+    }
+
+    #verb-buttons button,
+    #tense-buttons button {
+      margin: 5px;
+      padding: 6px 14px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #tense-buttons {
+      margin-top: 20px;
+    }
