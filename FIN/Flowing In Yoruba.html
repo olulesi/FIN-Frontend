@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -334,7 +335,9 @@
 
     <hr style="margin-top: 2rem" />
 
-    <!-- TONE PRACTICE SECTION -->
+
+
+    TONE PRACTICE SECTION
     <h2 style="text-align: center; font-style: italic">Tone Practice</h2>
 
     <div id="tonePractice" style="text-align: center; margin-top: 20px">
@@ -358,9 +361,9 @@
           justify-content: center;
           gap: 15px;
           flex-wrap: wrap;
-          margin-bottom: 20px;
-        "
-      ></div>
+          margin-bottom: 20px; -->
+        <!-- "
+      ></div> 
 
       <!-- Buttons -->
       <button id="playToneAudio" style="margin: 10px; font-size: 16px">
@@ -398,30 +401,28 @@
 
   <script src="argument.js"></script>
 
-<hr>
-<h2 style="text-align: center; margin-top: 4rem;">Songs & References Roller Dex</h2>
+<hr style="margin-top: 2rem" />
 
-<div class="roller-wrapper">
-  <div class="roller-viewport">
-    <div class="roller-track" id="rollerTrack"></div>
-  </div>
+<h2 style="text-align: center; margin-bottom: 1rem;">Songs & References Roller Dex</h2>
 
-  <div class="roller-controls">
-    <button id="prevBtn">⬅ Prev</button>
-    <button id="nextBtn">Next ➡</button>
-  </div>
+<div class="roller-container">
+  <div class="track" id="track"></div>
+</div>
+
+<div class="controls">
+  <button id="prevBtn">⬅ Prev</button>
+  <button id="nextBtn">Next ➡</button>
 </div>
 
 
 
 
-    <script src="verb.js"></script>
-   <script src="argument.js"></script>
-
 
 
 
     <script>
+
+
       // -------------------- ALPHABET PRACTICE --------------------
       const alphabets = [
         { letter: 'A', example: 'àjà (market)' },
@@ -513,15 +514,6 @@
 
 
 
-      // -------------------- ARGUMENT GAME --------------------
-      function showPastTense() {
-        alert('Past Tense Mode Coming Soon!')
-      }
-      function showPresentTense() {
-        alert('Present Tense Mode Coming Soon!')
-      }
-
-
 
 
       // 🎵 Tone Practice Data
@@ -608,58 +600,103 @@
       document.addEventListener('DOMContentLoaded', renderTonePractice)
 
 
+
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
-  const track = document.getElementById("rollerTrack");
-  const totalCards = 20;
-  const visibleCount = 5;
-  let currentIndex = 0;
+  const songs = [
+    {
+      title: "The Horse, The Man & The Son",
+      artist: "Chief Ebeneezer Obey",
+      link: "https://www.youtube.com/clip/UgkxbfbRpvYXfcdXDgOgVP30v4xR2avdCJRR"
+    },
+    {
+      title: "Won Kere Si Number",
+      artist: "Fatai Rolling Dollar",
+      link: "https://www.youtube.com/clip/UgkxuqPQ0aF58opBjzMeT6xxSbG4It59x0Wd"
+    },
+    {
+      title: "Appreciation",
+      artist: "King Sunny Ade",
+      link: "https://www.youtube.com/clip/Ugkx999WH8ccSsMh2j4e974MquindL0-8Y1U"
+    },
+    {
+      title: "Mumbo Jumbo",
+      artist: "Masoyinbo",
+      link: "https://www.youtube.com/clip/Ugkxss3wAGLAmw6AKX8W2RbSWoeo5aeN2DEY"
+    },
+    {
+      title: "Mumbo Jumbo 2",
+      artist: "Masoyinbo",
+      link: "https://www.youtube.com/clip/UgkxFbf3cle6bQgF3tC8pmw4WYBI2XwYa-ie"
+    }
+  ];
 
-  // Create 20 cards dynamically
-  for (let i = 1; i <= totalCards; i++) {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.innerHTML = `
-      <p>Orin ${i}</p>
-      <audio controls>
-        <source src="audio${i}.mp3" type="audio/mpeg">
-      </audio>
-    `;
-    track.appendChild(card);
-  }
-
-  const cards = document.querySelectorAll(".card");
+  const track = document.getElementById("track");
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
 
-  const cardWidth = cards[0].offsetWidth + 15; // width + gap
-  const maxIndex = totalCards - visibleCount + 1;
-
-  function update() {
-    track.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
-    prevBtn.disabled = currentIndex === 0;
-    nextBtn.disabled = currentIndex >= maxIndex;
-  }
-
-  prevBtn.addEventListener("click", () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-      update();
-    }
+  // Create cards
+  songs.forEach(song => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+    card.innerHTML = `
+      <h3>${song.title}</h3>
+      <p>${song.artist}</p>
+      <button class="play-btn" onclick="window.open('${song.link}', '_blank')">
+        ▶️ Play
+      </button>
+    `;
+    track.appendChild(card);
   });
 
-  nextBtn.addEventListener("click", () => {
-    if (currentIndex < maxIndex) {
-      currentIndex++;
-      update();
-    }
-  });
+  const totalCards = songs.length;
+  let currentIndex = 0;
 
-  update();
+  // Wait for layout render
+  setTimeout(() => {
+    const card = track.querySelector(".card");
+    const cardWidth = card.offsetWidth;
+    const gap = parseFloat(getComputedStyle(track).gap) || 0;
+
+    const container = document.querySelector(".roller-container");
+    const visibleWidth = container.offsetWidth;
+    const totalTrackWidth = totalCards * (cardWidth + gap);
+
+    // ✅ Fix calculation so last card always aligns perfectly
+    const maxTranslate = Math.max(0, totalTrackWidth - visibleWidth);
+
+    function update() {
+      const translateX = (cardWidth + gap) * currentIndex;
+      const limitedTranslate = Math.min(translateX, maxTranslate);
+      track.style.transform = `translateX(-${limitedTranslate}px)`;
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = limitedTranslate >= maxTranslate;
+    }
+
+    prevBtn.addEventListener("click", () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        update();
+      }
+    });
+
+    nextBtn.addEventListener("click", () => {
+      if ((cardWidth + gap) * (currentIndex + 1) < totalTrackWidth) {
+        currentIndex++;
+        update();
+      }
+    });
+
+    update();
+  }, 300);
 });
+
+
     </script>
 
 
-<script src="rollerdex.js"></script>
 
   </body>
 </html>
