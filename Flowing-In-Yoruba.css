@@ -1,3 +1,119 @@
+.heading1 {
+  text-align: center;
+}
+
+.heading2 {
+  text-decoration: underline;
+}
+
+.table1 {
+  margin: 0 auto;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+
+.link1 {
+  margin-bottom: 2rem;
+  float: right;
+}
+
+
+#heading3 {
+  text-decoration: underline; 
+  font-style: italic; 
+  margin-top: 4.8rem;
+}
+
+#heading4 {
+  text-align: center; 
+  font-style: italic;
+}
+
+#heading5{
+  text-align: center; margin-bottom: 1rem;
+}
+
+
+/* 
+tone card container */
+.tone-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.tone-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.toneCard {
+  width: 80px;
+  height: 60px;
+  border: 1px solid gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+#shuffleBtn {
+  margin-top: 15px; font-size: large;
+}
+
+#shuffleTones{
+  align = "center"
+}
+
+
+
+
+
+
+#wordRow {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+#toneRow {
+   display: flex;
+          justify-content: center;
+          gap: 15px;
+          flex-wrap: wrap;
+          margin-bottom: 20px;
+}
+
+
+#playToneAudio {
+  margin: 10px; 
+  font-size: 16px;
+}
+
+
+#tonePractice {
+  text-align: center; 
+  margin-top: 20px;
+}
+
+#playToneAudio {
+  margin: 10px; font-size: 16px;
+}
+
+#prevTone {
+font-size: 16px;
+}
+
+#nextTone{
+font-size: 16px;
+}
+
+
 .practice-area {
   display: flex;
   flex-direction: column;
@@ -30,18 +146,6 @@
   padding: 8px 16px;
   cursor: pointer;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 #argument-section {
       text-align: center;
@@ -81,11 +185,6 @@
     #tense-buttons {
       margin-top: 20px;
     }
-
-
-
-
-
 
 .roller-container {
   overflow: hidden;
@@ -153,4 +252,6 @@
   transition: all 0.3s ease;
   box-shadow: 0 3px 6px rgba(0,0,0,0.2);
 }
+
+
 
