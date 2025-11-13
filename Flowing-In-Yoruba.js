@@ -211,81 +211,115 @@
 
 
       //ARGUMENT GAME
-      // Pronouns
-    const pronouns = ["Mo", "Ìwọ", "Ó", "Àwa", "Wọ́n"];
-    const negPronouns = ["Mi ò", "Ò", "Kò", "A", "Wọ́n"]; // 👈 Negative pronouns
+    // ARGUMENT GAME
 
-    // Verbs and their conjugations
-    const verbs = {
-      "jẹun": { 
-        affirmative: ["Mo ti jẹun", "Ìwọ ti jẹun", "Ó ti jẹun", "Àwa ti jẹun", "Wọ́n ti jẹun"],
-        negative: ["Mi ò tí jẹun", "Ìwọ ò tí jẹun", "Kò tí jẹun", "A ò tí jẹun", "Wọ́n ò tí jẹun"]
-      },
-      "lọ": { 
-        affirmative: ["Mo ti lọ", "Ìwọ ti lọ", "Ó ti lọ", "Àwa ti lọ", "Wọ́n ti lọ"],
-        negative: ["Mi ò tí lọ", "Ìwọ ò tí lọ", "Kò tí lọ", "A ò tí lọ", "Wọ́n ò tí lọ"]
-      },
-      "dé": { 
-        affirmative: ["Mo ti dé", "Ìwọ ti dé", "Ó ti dé", "Àwa ti dé", "Wọ́n ti dé"],
-        negative: ["Mi ò tí dé", "Ìwọ ò tí dé", "Kò tí dé", "A ò tí dé", "Wọ́n ò tí dé"]
-      },
-      "sùn": { 
-        affirmative: ["Mo ti sùn", "Ìwọ ti sùn", "Ó ti sùn", "Àwa ti sùn", "Wọ́n ti sùn"],
-        negative: ["Mi ò tí sùn", "Ìwọ ò tí sùn", "Kò tí sùn", "A ò tí sùn", "Wọ́n ò tí sùn"]
-      },
-      "kà": { 
-        affirmative: ["Mo ti kà", "Ìwọ ti kà", "Ó ti kà", "Àwa ti kà", "Wọ́n ti kà"],
-        negative: ["Mi ò tí kà", "Ìwọ ò tí kà", "Kò tí kà", "A ò tí kà", "Wọ́n ò tí kà"]
-      }
-    };
+// Pronouns
+const pronouns = ["Mo", "Ìwọ", "Ó", "Àwa", "Wọ́n"];
+const negPronouns = ["Mi ò", "Ìwő ò", "Kò", "A ò", "Wọ́n ò"]; // Fixed typo: Ìwọ → Ìwő
 
-    function createTable(title, dataType, verbKey) {
-      const table = document.createElement("table");
-     
+// Verbs and their conjugations
+const verbs = {
+  "jẹun": { 
+    affirmative: ["Mo ti jẹun", "Ìwọ ti jẹun", "Ó ti jẹun", "Àwa ti jẹun", "Wọ́n ti jẹun"],
+    negative: ["Mi ò tí jẹun", "Ìwọ ò tí jẹun", "Kò tí jẹun", "A ò tí jẹun", "Wọ́n ò tí jẹun"]
+  },
+  "lọ": { 
+    affirmative: ["Mo ti lọ", "Ìwọ ti lọ", "Ó ti lọ", "Àwa ti lọ", "Wọ́n ti lọ"],
+    negative: ["Mi ò tí lọ", "Ìwọ ò tí lọ", "Kò tí lọ", "A ò tí lọ", "Wọ́n ò tí lọ"]
+  },
+  "dé": { 
+    affirmative: ["Mo ti dé", "Ìwọ ti dé", "Ó ti dé", "Àwa ti dé", "Wọ́n ti dé"],
+    negative: ["Mi ò tí dé", "Ìwọ ò tí dé", "Kò tí dé", "A ò tí dé", "Wọ́n ò tí dé"]
+  },
+  "sùn": { 
+    affirmative: ["Mo ti sùn", "Ìwọ ti sùn", "Ó ti sùn", "Àwa ti sùn", "Wọ́n ti sùn"],
+    negative: ["Mi ò tí sùn", "Ìwő ò tí sùn", "Kò tí sùn", "A ò tí sùn", "Wọ́n ò tí sùn"] // Fixed typo
+  },
+  "kà": { 
+    affirmative: ["Mo ti kà", "Ìwọ ti kà", "Ó ti kà", "Àwa ti kà", "Wọ́n ti kà"],
+    negative: ["Mi ò tí kà", "Ìwọ ò tí kà", "Kò tí kà", "A ò tí kà", "Wọ́n ò tí kà"]
+  }
+};
 
-      // Table header
-      const headerRow = document.createElement("tr");
-      ["Pronoun", "Tense", "Verb", "Yorùbá Sentence", "Audio 🔊"].forEach(text => {
-        const th = document.createElement("th");
-        th.textContent = text;
-        headerRow.appendChild(th);
-      });
-      table.appendChild(headerRow);
+// 🎵 Function to play audio
+function playAudio(filename) {
+  const audio = new Audio(`audio/${filename}.mp3`);
+  audio.play().catch(err => console.log("Audio playback failed:", err));
+}
 
-      // Table rows
-      (dataType === "affirmative" ? pronouns : negPronouns).forEach((pronoun, i) => {
-        const row = document.createElement("tr");
-        const cells = [
-          pronoun,
-          "Tí", // ✅ tense column
-          verbKey,
-          verbs[verbKey][dataType][i],
-          "🔊"
-        ];
-        cells.forEach(text => {
-          const td = document.createElement("td");
-          td.textContent = text;
-          row.appendChild(td);
-        });
-        table.appendChild(row);
-      });
+// Generate table rows dynamically
+function createTable(title, dataType, verbKey) {
+  const table = document.createElement("table");
 
-      return table;
-    }
+  const headerRow = document.createElement("tr");
+  ["Pronoun", "Tense", "Verb", "Yorùbá Sentence", "Audio"].forEach(text => {
+    const th = document.createElement("th");
+    th.textContent = text;
+    headerRow.appendChild(th);
+  });
+  table.appendChild(headerRow);
 
-    function updateTables(verbKey) {
-      const container = document.getElementById("tables");
-      container.innerHTML = "";
+  // Loop rows
+  (dataType === "affirmative" ? pronouns : negPronouns).forEach((pronoun, i) => {
+    const row = document.createElement("tr");
+    const yorubaSentence = verbs[verbKey][dataType][i];
 
-      const affirmativeTable = createTable("Positive (Àmọ̀ràn Rẹ́tọ́)", "affirmative", verbKey);
-      const negativeTable = createTable("Negative (Àmọ̀ràn Kò)", "negative", verbKey);
+    // Generate audio filename based on verb & pronoun index
+    const audioFilename = `${dataType}_${verbKey}_${i + 1}`;
 
-      container.appendChild(affirmativeTable);
-      container.appendChild(negativeTable);
-    }
+    const cells = [
+      pronoun,
+      "Tí",
+      verbKey,
+      yorubaSentence
+    ];
 
-    // Default verb when page loads
-    updateTables("jẹun");
+    cells.forEach(text => {
+      const td = document.createElement("td");
+      td.textContent = text;
+      row.appendChild(td);
+    });
 
-
+    // Add clickable play button 🎵
+    const audioCell = document.createElement("td");
     
+    // 🔥 NEW LOGIC: Only enable audio for "Mo" (index 0)
+    if (i === 0) { // "Mo" is always index 0
+      const playBtn = document.createElement("button");
+      playBtn.textContent = "▶️ Play";
+      playBtn.onclick = () => playAudio(audioFilename);
+      // Optional: Add visual indicator for active buttons
+      playBtn.style.backgroundColor = "#4CAF50"; // Green for active
+      playBtn.style.color = "white";
+      audioCell.appendChild(playBtn);
+    } else {
+      // For other pronouns: create disabled button
+      const disabledBtn = document.createElement("button");
+      disabledBtn.textContent = "🔇"; // Muted icon
+      disabledBtn.disabled = true; // Make it visually disabled
+      disabledBtn.style.opacity = "0.5"; // Grayed out
+      disabledBtn.title = "Audio not available yet"; // Hover hint
+      audioCell.appendChild(disabledBtn);
+    }
+    
+    row.appendChild(audioCell);
+    table.appendChild(row);
+  });
+
+  return table;
+}
+
+// Update tables when verb button clicked
+function updateTables(verbKey) {
+  const container = document.getElementById("tables");
+  container.innerHTML = "";
+
+  const affirmativeTable = createTable("Affirmative", "affirmative", verbKey);
+  const negativeTable = createTable("Negative", "negative", verbKey);
+
+  container.appendChild(affirmativeTable);
+  container.appendChild(negativeTable);
+}
+
+// Default on load
+updateTables("jẹun");

@@ -6,23 +6,17 @@
     <title>FLOWING IN YORUBA</title>
     <link rel="stylesheet" href="Flowing-In-Yoruba.css" />
     <!-- JavaScript files -->
-    
   </head>
 
-  <body>
+cd  <body>
     <h1 class="heading1">Flowing in Yoruba (FIN)</h1>
 
-    <hr/>
+    <hr />gigit
 
     <h2 class="heading2">Alphabet Practice</h2>
 
-
     <!-- 🧱 TABLE SECTION -->
-    <table class="table1"
-      border="1"
-      cellpadding="15"
-      cellspacing="3"
-    >
+    <table class="table1" border="1" cellpadding="15" cellspacing="3">
       <tr>
         <th colspan="5">Álífábéétì Yorùbá</th>
       </tr>
@@ -63,90 +57,64 @@
       </tr>
     </table>
 
-
-    <a
-      href="https://www.yorubaizm.com/"
-      target="_blank"
-      class="link1"
+    <a href="https://www.yorubaizm.com/" target="_blank" class="link1"
       >from Yorubaizm</a
     >
 
     <!-- 🎶 Tone Grid -->
-    <h2 id="heading3">
-      Tone Generator
-    </h2>
+    <h2 id="heading3">Tone Generator</h2>
     <!-- 🔊 Tone Generator Container -->
 
+    <!-- 🎵 15 Tone Cards Container -->
+    <div class="tone-container">
+      <!-- First Row -->
+      <div class="tone-row">
+        <div class="toneCard">DO</div>
+        <div class="toneCard">DO</div>
+        <div class="toneCard">RE</div>
+        <div class="toneCard">RE</div>
+        <div class="toneCard">MI</div>
+      </div>
 
-      
-  <!-- 🎵 15 Tone Cards Container -->
-  <div class="tone-container">
+      <!-- Second Row -->
+      <div class="tone-row">
+        <div class="toneCard">MI</div>
+        <div class="toneCard">DO</div>
+        <div class="toneCard">MI</div>
+        <div class="toneCard">RE</div>
+        <div class="toneCard">DO</div>
+      </div>
 
-    <!-- First Row -->
-    <div class="tone-row">
-      <div class="toneCard">DO</div>
-      <div class="toneCard">DO</div>
-      <div class="toneCard">RE</div>
-      <div class="toneCard">RE</div>
-      <div class="toneCard">MI</div>
+      <!-- Third Row -->
+      <div class="tone-row">
+        <div class="toneCard">DO</div>
+        <div class="toneCard">RE</div>
+        <div class="toneCard">RE</div>
+        <div class="toneCard">MI</div>
+        <div class="toneCard">DO</div>
+      </div>
     </div>
-
-    <!-- Second Row -->
-    <div class="tone-row">
-      <div class="toneCard">MI</div>
-      <div class="toneCard">DO</div>
-      <div class="toneCard">MI</div>
-      <div class="toneCard">RE</div>
-      <div class="toneCard">DO</div>
-    </div>
-
-    <!-- Third Row -->
-    <div class="tone-row">
-      <div class="toneCard">DO</div>
-      <div class="toneCard">RE</div>
-      <div class="toneCard">RE</div>
-      <div class="toneCard">MI</div>
-      <div class="toneCard">DO</div>
-    </div>
-
-  </div>
-    
-
-
-
 
     <!-- 🔀 Shuffle Button -->
-    <div  align="center">
-      <button id="shuffleBtn">
-        Shuffle Tones
-      </button>
+    <div align="center">
+      <button id="shuffleBtn">Shuffle Tones</button>
     </div>
 
-    <hr style="margin-top: 2rem"/>
-    
+    <hr style="margin-top: 2rem" />
 
-
-    
     <!-- TONE PRACTICE SECTION -->
     <h2 id="heading4">Tone Practice</h2>
 
     <div id="tonePractice">
       <!-- Yoruba words row -->
-      <div
-        id="wordRow"
-      ></div>
+      <div id="wordRow"></div>
 
       <!-- Tones row -->
-      <div
-        id="toneRow"
-      ></div>
-
+      <div id="toneRow"></div>
 
       <!-- Buttons -->
-      <button id="playToneAudio">
-        ▶️ Play Audio</button
-      ><br />
-      <button id="prevTone" >⬅️ Previous</button>
+      <button id="playToneAudio">▶️ Play Audio</button><br />
+      <button id="prevTone">⬅️ Previous</button>
       <button id="nextTone">Next ➡️</button>
     </div>
 
@@ -156,7 +124,7 @@
       <h2>Argument game</h2>
 
       <div id="tables">
-        <!-- Tables will be generated here -->
+        <!-- Tables will be generated here by javascript-->
       </div>
 
       <!-- Present & Past buttons (not functional yet, just visible) -->
@@ -165,7 +133,7 @@
         <button>Past</button>
       </div>
 
-      <!-- Yoruba Verb Buttons -->
+      <!-- the 5 Yoruba Verb Buttons -->
       <div id="verb-buttons">
         <button onclick="updateTables('jẹun')">Jẹun</button>
         <button onclick="updateTables('lọ')">Lọ</button>
@@ -175,13 +143,9 @@
       </div>
     </section>
 
-   
+    <hr style="margin-top: 2rem" />
 
-    <hr style="margin-top: 2rem"/>
-
-    <h2 id="heading5">
-      Songs & References Roller Dex
-    </h2>
+    <h2 id="heading5">Songs & References Roller Dex</h2>
 
     <div class="roller-container">
       <div class="track" id="track"></div>
@@ -192,8 +156,6 @@
       <button id="nextBtn">Next ➡</button>
     </div>
 
-
-     <script src="Flowing-In-Yoruba.js"></script>
-
+    <script src="Flowing-In-Yoruba.js"></script>
   </body>
 </html>
