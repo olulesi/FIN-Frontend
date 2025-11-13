@@ -211,11 +211,11 @@
 
 
       //ARGUMENT GAME
-     // ARGUMENT GAME
+    // ARGUMENT GAME
 
 // Pronouns
 const pronouns = ["Mo", "Ìwọ", "Ó", "Àwa", "Wọ́n"];
-const negPronouns = ["Mi ò", "Ìwọ ò", "Kò", "A ò", "Wọ́n ò"];
+const negPronouns = ["Mi ò", "Ìwő ò", "Kò", "A ò", "Wọ́n ò"]; // Fixed typo: Ìwọ → Ìwő
 
 // Verbs and their conjugations
 const verbs = {
@@ -233,7 +233,7 @@ const verbs = {
   },
   "sùn": { 
     affirmative: ["Mo ti sùn", "Ìwọ ti sùn", "Ó ti sùn", "Àwa ti sùn", "Wọ́n ti sùn"],
-    negative: ["Mi ò tí sùn", "Ìwọ ò tí sùn", "Kò tí sùn", "A ò tí sùn", "Wọ́n ò tí sùn"]
+    negative: ["Mi ò tí sùn", "Ìwő ò tí sùn", "Kò tí sùn", "A ò tí sùn", "Wọ́n ò tí sùn"] // Fixed typo
   },
   "kà": { 
     affirmative: ["Mo ti kà", "Ìwọ ti kà", "Ó ti kà", "Àwa ti kà", "Wọ́n ti kà"],
@@ -282,12 +282,27 @@ function createTable(title, dataType, verbKey) {
 
     // Add clickable play button 🎵
     const audioCell = document.createElement("td");
-    const playBtn = document.createElement("button");
-    playBtn.textContent = "▶️ Play";
-    playBtn.onclick = () => playAudio(audioFilename);
-    audioCell.appendChild(playBtn);
+    
+    // 🔥 NEW LOGIC: Only enable audio for "Mo" (index 0)
+    if (i === 0) { // "Mo" is always index 0
+      const playBtn = document.createElement("button");
+      playBtn.textContent = "▶️ Play";
+      playBtn.onclick = () => playAudio(audioFilename);
+      // Optional: Add visual indicator for active buttons
+      playBtn.style.backgroundColor = "#4CAF50"; // Green for active
+      playBtn.style.color = "white";
+      audioCell.appendChild(playBtn);
+    } else {
+      // For other pronouns: create disabled button
+      const disabledBtn = document.createElement("button");
+      disabledBtn.textContent = "🔇"; // Muted icon
+      disabledBtn.disabled = true; // Make it visually disabled
+      disabledBtn.style.opacity = "0.5"; // Grayed out
+      disabledBtn.title = "Audio not available yet"; // Hover hint
+      audioCell.appendChild(disabledBtn);
+    }
+    
     row.appendChild(audioCell);
-
     table.appendChild(row);
   });
 
