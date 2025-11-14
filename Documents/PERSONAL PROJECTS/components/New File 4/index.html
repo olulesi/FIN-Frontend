@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Learning Plans — Demo</title>
+  <style>
+    :root{
+      --bg: #ffffff;
+      --surface: #f7f8fb;
+      --accent: #ff6a00;     /* orange like Pluralsight */
+      --muted: #6b7280;
+      --text: #0f172a;
+      --card-shadow: 0 6px 20px rgba(16,24,40,0.06);
+      --radius: 12px;
+      --gap: 1.25rem;
+      --max-width: 1100px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      margin:0;
+      color:var(--text);
+      background:var(--bg);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    .container{
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 3rem 1.25rem;
+    }
+
+    /* Section header */
+    .plans-section h2{
+      font-size: clamp(1.4rem, 2.2vw, 2rem);
+      margin: 0 0 0.25rem 0;
+    }
+    .plans-section p.lead{
+      margin: 0 0 1.25rem 0;
+      color:var(--muted);
+      font-size: 0.98rem;
+    }
+
+    /* Grid */
+    .plans-grid{
+      display: grid;
+      gap: var(--gap);
+      grid-template-columns: repeat(1, 1fr);
+      margin-top: 1.25rem;
+    }
+
+    @media (min-width:640px){
+      .plans-grid{ grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width:1000px){
+      .plans-grid{ grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* Card */
+    .plan-card{
+      background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      box-shadow: var(--card-shadow);
+      border: 1px solid rgba(15,23,42,0.03);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .plan-card:hover,
+    .plan-card:focus-within{
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(16,24,40,0.12);
+    }
+
+    .icon-wrap{
+      flex: 0 0 56px;
+      height:56px;
+      border-radius:10px;
+      background:var(--surface);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .plan-body{
+      flex:1 1 auto;
+    }
+    .plan-title{
+      font-weight:600;
+      margin:0 0 0.25rem 0;
+      font-size:1.05rem;
+    }
+    .plan-desc{
+      margin:0 0 0.75rem 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+    .plan-actions{
+      display:flex;
+      gap:.6rem;
+      align-items:center;
+    }
+
+    .btn-ghost{
+      background: transparent;
+      color: var(--accent);
+      border: none;
+      padding: .45rem .6rem;
+      font-weight:600;
+      cursor:pointer;
+      text-decoration: none;
+      border-radius:8px;
+      transition: background .15s ease;
+    }
+    .btn-ghost:hover,
+    .btn-ghost:focus{
+      background: rgba(255,106,0,0.06);
+      outline: none;
+    }
+
+    .cta-primary{
+      background: var(--accent);
+      color: #fff;
+      padding: .5rem .9rem;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:600;
+      border: none;
+      cursor:pointer;
+    }
+
+    /* focus-visible accessible outline */
+    .plan-card:focus-within, .btn-ghost:focus, .cta-primary:focus{
+      outline: 3px solid rgba(255,106,0,0.14);
+      outline-offset: 3px;
+    }
+
+    /* small helper */
+    .chip{
+      display:inline-block;
+      background:#eef2ff;
+      color:#3730a3;
+      padding:.2rem .5rem;
+      font-size:.78rem;
+      border-radius:999px;
+      margin-left:auto;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="plans-section container" aria-labelledby="plans-title">
+      <header>
+        <h2 id="plans-title">Choose your path</h2>
+        <p class="lead">Pick a learning plan built around the skills you want to master — from core fundamentals to specialized tech fields.</p>
+      </header>
+
+      <ul class="plans-grid" role="list">
+        <!-- Card 1: Core Tech -->
+        <li>
+          <article class="plan-card" aria-labelledby="title-core">
+            <div class="icon-wrap" aria-hidden="true">
+              <!-- simple SVG icon -->
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="3" y="6" width="18" height="12" rx="2" stroke="#FF6A00" stroke-width="1.6" fill="transparent"/>
+                <path d="M7 9h10" stroke="#FF6A00" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <div class="plan-body">
+              <h3 id="title-core" class="plan-title">Core Tech</h3>
+              <p class="plan-desc">Fundamentals and practical skills in programming, web development, and general software engineering.</p>
+
+              <div class="plan-actions">
+                <a class="btn-ghost" href="#" aria-label="Learn more about Core Tech">Learn about Core Tech</a>
+                <a class="cta-primary" href="#" aria-label="Choose Core Tech">Choose</a>
+                <span class="chip" aria-hidden="true">Popular</span>
+              </div>
+            </div>
+          </article>
+        </li>
+
+        <!-- Card 2: Cloud+ -->
+        <li>
+          <article class="plan-card" aria-labelledby="title-cloud">
+            <div class="icon-wrap" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M20 16.5A4.5 4.5 0 0 0 15.5 12c-.14 0-.28.01-.42.03A6 6 0 0 0 6 15.5" stroke="#0F172A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+
+            <div class="plan-body">
+              <h3 id="title-cloud" class="plan-title">Cloud+</h3>
+              <p class="plan-desc">Learn cloud fundamentals, infrastructure as code, and how to run reliable systems at scale.</p>
+
+              <div class="plan-actions">
+                <a class="btn-ghost" href="#" aria-label="Learn more about Cloud+">Learn about Cloud+</a>
+                <a class="cta-primary" href="#" aria-label="Choose Cloud+">Choose</a>
+              </div>
+            </div>
+          </article>
+        </li>
+
+        <!-- Card 3: AI+ -->
+        <li>
+          <article class="plan-card" aria-labelledby="title-ai">
+            <div class="icon-wrap" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" stroke="#FF6A00" stroke-width="1.6"/></svg>
+            </div>
+
+            <div class="plan-body">
+              <h3 id="title-ai" class="plan-title">AI+</h3>
+              <p class="plan-desc">Machine learning fundamentals, model building, inferencing, and practical AI tooling.</p>
+
+              <div class="plan-actions">
+                <a class="btn-ghost" href="#" aria-label="Learn more about AI+">Learn about AI+</a>
+                <a class="cta-primary" href="#" aria-label="Choose AI+">Choose</a>
+              </div>
+            </div>
+          </article>
+        </li>
+
+        <!-- Card 4: Data+ -->
+        <li>
+          <article class="plan-card" aria-labelledby="title-data">
+            <div class="icon-wrap" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="5" y="5" width="14" height="14" stroke="#0F172A" stroke-width="1.6"/></svg>
+            </div>
+
+            <div class="plan-body">
+              <h3 id="title-data" class="plan-title">Data+</h3>
+              <p class="plan-desc">Analytics, ETL, visualization, and data engineering skills to turn data into answers.</p>
+
+              <div class="plan-actions">
+                <a class="btn-ghost" href="#" aria-label="Learn more about Data+">Learn about Data+</a>
+                <a class="cta-primary" href="#" aria-label="Choose Data+">Choose</a>
+              </div>
+            </div>
+          </article>
+        </li>
+
+        <!-- Card 5: Security+ -->
+        <li>
+          <article class="plan-card" aria-labelledby="title-security">
+            <div class="icon-wrap" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3l6 3v5c0 5-3.5 9.5-6 11-2.5-1.5-6-6-6-11V6l6-3z" stroke="#FF6A00" stroke-width="1.2" fill="transparent"/></svg>
+            </div>
+
+            <div class="plan-body">
+              <h3 id="title-security" class="plan-title">Security+</h3>
+              <p class="plan-desc">Foundations of secure design, threat modelling, and defensive engineering practices.</p>
+
+              <div class="plan-actions">
+                <a class="btn-ghost" href="#" aria-label="Learn more about Security+">Learn about Security+</a>
+                <a class="cta-primary" href="#" aria-label="Choose Security+">Choose</a>
+              </div>
+            </div>
+          </article>
+        </li>
+
+        <!-- Card 6: Complete -->
+        <li>
+          <article class="plan-card" aria-labelledby="title-complete">
+            <div class="icon-wrap" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="#0F172A" stroke-width="1.6"/></svg>
+            </div>
+
+            <div class="plan-body">
+              <h3 id="title-complete" class="plan-title">Complete</h3>
+              <p class="plan-desc">Complete access across all learning paths — ideal if you want full flexibility to explore.</p>
+
+              <div class="plan-actions">
+                <a class="btn-ghost" href="#" aria-label="Learn more about Complete">Learn about Complete</a>
+                <a class="cta-primary" href="#" aria-label="Choose Complete">Choose</a>
+              </div>
+            </div>
+          </article>
+        </li>
+
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

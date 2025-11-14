@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitFam Clone</title>
+  <link rel="stylesheet" href="wefitfam.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-content">
+      <div class="logo">FITFAM</div>
+
+      <!-- Hamburger Icon -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="nav-menu" id="nav-menu">
+        <ul class="nav-links">
+          <li><a href="#">Our Mission</a></li>
+          <li><a href="#">Trainings</a></li>
+          <li><a href="#">Cities</a></li>
+          <li><a href="#">Online Schedule</a></li>
+          <li><a href="#">Stories</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </nav>
+
+      <!-- Contact Button -->
+      <a href="#" class="btn">Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-overlay">
+      <div class="hero-text">
+        <h1>
+          We build meaningful 
+          communities with free 
+          quality fitness
+        </h1>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <section class="about-section">
+  <div class="about-container">
+
+    <!-- LEFT COLUMN -->
+    <div class="about-left">
+      <h1>It doesn’t matter who<br>you are.</h1>
+
+      <p class="sub-text">
+        Access to quality fitness is a fundamental right and should be available to everyone.
+      </p>
+
+      <!-- IMAGE CIRCLE GROUP -->
+      <div class="circle-group">
+        <img src="https://tse4.mm.bing.net/th/id/OIP.iznrvd7M_NT-EZdHdMVwVAHaHa?pid=Api&P=0&h=220" class="circle circle-lg" />
+        <img src="https://tse4.mm.bing.net/th/id/OIP.cPseqLp3k-R5pcy-J6S0hwHaHa?pid=Api&P=0&h=220" class="circle circle-md" />
+        <img src="https://tse2.mm.bing.net/th/id/OIP.4hFm_XVbsv6rdvXVONpekAHaFW?pid=Api&P=0&h=220" class="circle circle-sm" />
+        <img src="https://tse3.mm.bing.net/th/id/OIP.GEqXulhBofonDkXWOuGgkwHaHa?pid=Api&P=0&h=220" class="circle circle-md" />
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="about-right">
+      <p>
+        FitFam is a social, volunteer-led fitness community that provides free and consistent access to 
+        quality fitness, wellness, and an overall active lifestyle year round. Our journey started with 
+        only six friends who were looking to stay active during the long and cold winter in Shanghai in 2015.
+      </p>
+
+      <p>
+        Through word of mouth and genuine appreciation for one another, our community has grown to over 
+        100,000 members across 19 cities worldwide; a community that is built on trust, accountability, 
+        and inclusivity.
+      </p>
+
+      <p class="highlight-text">
+        We’re your motivation boost to build a healthy lifestyle.
+      </p>
+
+      <button class="outline-btn">OUR MISSION</button>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+  <!-- Footer Section -->
+<footer class="footer">
+  <div class="contact-btn">
+    <a href="#" class="btn-outline">CONTACT US</a>
+  </div>
+
+  <div class="footer-content">
+    <h2>F I T F A M</h2>
+    <p class="tagline">Building meaningful communities with free fitness</p>
+
+    <div class="city-list">
+      <a href="#">Shanghai</a>
+      <a href="#">Beijing</a>
+      <a href="#">Hong Kong</a>
+      <a href="#">Changzhou</a>
+      <a href="#">Taipei</a>
+      <a href="#">Huntington Beach</a>
+      <a href="#">Wuxi</a>
+      <a href="#">Singapore</a>
+      <a href="#">Shenzhen</a>
+      <a href="#">Santiago</a>
+      <a href="#">Biarritz</a>
+      <a href="#">Murcia</a>
+      <a href="#">Vancouver</a>
+      <a href="#">Kuala Lumpur</a>
+      <a href="#">Riyadh</a>
+    </div>
+  </div>
+</footer>
+
+
+
+  <!-- JavaScript -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final Navbar UI</title>
+  <link rel="stylesheet" href=.css">
+
+  <!-- Font Awesome for modern icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+      /* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+
+
+/* MAIN NAVBAR */
+.navbar {
+  background-color:  #0b032d ;
+  color: #ccc;
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* reduced vertical gap */
+  padding: 0 50px 25px; /* reduced side + bottom padding, no top padding */
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* TOP ROW */
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 24px;
+  color: #f8f5f5;
+}
+
+.logo img {
+  width: 80px;
+  height: 80px;
+}
+
+/* Top-right (search + sign-in) */
+.top-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  padding: 12px 20px;
+  width: 600px;
+  background-color: #fff;
+  transition: box-shadow 0.2s ease;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  padding-left: 10px;
+  font-size: 15px;
+  width: 100%;
+}
+
+.search-box:focus-within {
+  box-shadow: 0 0 0 2px #f50057;
+}
+
+/* SIGN IN */
+.sign-in {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.sign-in a {
+  text-decoration: none;
+  color: #fffdfd;
+  font-weight: 500;
+  font-size: 15px;
+  padding-top: 2px;
+  transition: color 0.2s ease;
+}
+
+.sign-in a:hover {
+  color: #f50057;
+}
+
+.sign-in i {
+  font-size: 13px;
+}
+
+/* BOTTOM ROW */
+.bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fcf9f9;
+  font-weight: 500;
+  font-size: 15px;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.nav-links a:hover {
+  color: #f50057;
+}
+
+.nav-links i {
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+/* BUTTONS */
+.right-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-outline {
+  border: 1px solid #0b0101;
+  color: #ccc;
+  background-color: transparent;
+  padding: 12px 22px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-outline:hover {
+  background-color: #f8f8f8;
+}
+
+.btn-primary {
+  background-color: #f50057;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-primary:hover {
+  background-color: #d4004f;
+}
+
+.btn-primary i {
+  font-size: 12px;
+}
+
+
+/* 🔹 Mobile Responsive Navbar */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 0;
+  }
+
+  /* Hide everything except logo and menu */
+  .top-row,
+  .bottom-row {
+    display: none;
+  }
+
+  /* Container for logo + menu icon */
+  .mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .mobile-header img {
+    height: 35px;
+  }
+
+  .menu-icon {
+    font-size: 28px;
+    cursor: pointer;
+    color: #000;
+  }
+}
+
+    </style>
+
+</head>
+<body>
+  <header class="navbar">
+    <!-- TOP ROW -->
+    <div class="top-row">
+      <div class="logo">
+        <!-- ✅ Real Pluralsight logo image -->
+        <img src="images/jordy.JPG" alt="Pluralsight logo">
+        <span>TECHSAVVY</span>
+      </div>
+
+      <div class="top-right">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" placeholder="What do you want to learn?">
+        </div>
+
+        <div class="sign-in">
+          <i class="fa-regular fa-user user-icon"></i>
+          <a href="#">Sign in <i class="fa-solid fa-chevron-down"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM ROW -->
+    <div class="bottom-row">
+      <nav class="nav-links">
+        <a href="#">Individuals <i class="fa-solid fa-chevron-down"></i></a>
+        <a href="#">Business <i class="fa-solid fa-chevron-down"></i></a>
+        <a href="#">Public Sector <i class="fa-solid fa-chevron-down"></i></a>
+        <a href="#">Courses <i class="fa-solid fa-chevron-down"></i></a>
+        <a href="#">Resources <i class="fa-solid fa-chevron-down"></i></a>
+      </nav>
+
+      <div class="right-buttons">
+        <button class="btn-outline">Contact sales</button>
+        <button class="btn-primary">View plans <i class="fa-solid fa-chevron-down"></i></button>
+      </div>
+    </div>
+  </header>
+</body>
+</html>
+
+
+
+
+
+

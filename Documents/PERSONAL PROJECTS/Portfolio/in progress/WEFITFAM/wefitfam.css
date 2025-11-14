@@ -1,0 +1,363 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #000;
+}
+
+
+
+/* Navbar */
+.navbar {
+  background: #fff;
+  padding: 1.5rem 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #555;
+}
+
+/* Contact Button */
+.btn {
+  border: 2px solid #000;
+  padding: 0.6rem 1.2rem;
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+
+
+
+/* Hero Section */
+.hero {
+  background: url("https://joinunity.ca/wp-content/uploads/GROUPX-240514_0371-2000x1333.jpg")
+    center/cover no-repeat;
+  height: 100vh;
+  position: relative;
+  margin-top: 80px; /* Push below navbar */
+  margin: 1rem 1rem;
+}
+
+.hero-overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-text h1 {
+  font-size: 4.5rem;
+  color: #fff;
+  font-weight: 700;
+  line-height: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #000;
+  transition: all 0.3s ease;
+}
+
+
+
+/* Contact Button Above Footer */
+.contact-btn {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.btn-outline {
+  background-color: #000;         /* solid black background */
+  color: #fff;                    /* white text */
+  border: 2px solid #000;
+  text-decoration: none;
+  padding: 0.8rem 1.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+
+
+/* Footer Section */
+.footer {
+  background-color: #0f1118; /* dark background */
+  color: #fff;
+  text-align: center;
+  padding: 3rem 0;
+  margin-top: 3rem;
+}
+
+.footer-content {
+  background-color: #0f1118; /* match full footer background */
+  padding: 3rem 2rem;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.city-list a {
+  color: #fff;
+  margin: 0 15px;
+}
+
+
+
+
+
+
+
+
+/* SECTION WRAPPER */
+.about-section {
+  padding: 100px 0;
+  background: #ffffff;
+}
+
+/* CONTAINER */
+.about-container {
+  width: 85%;
+  max-width: 1300px;
+  margin: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* LEFT COLUMN */
+.about-left h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.sub-text {
+  font-size: 1.4rem;
+  width: 80%;
+  line-height: 1.4;
+  margin-bottom: 40px;
+}
+
+/* CIRCLE IMAGES */
+.circle-group {
+  position: relative;
+  width: 400px;
+  height: 350px;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* SIZES */
+.circle-lg {
+  width: 250px;
+  height: 250px;
+  left: 0;
+  bottom: 0;
+}
+
+.circle-md {
+  width: 140px;
+  height: 140px;
+}
+
+.circle-sm {
+  width: 110px;
+  height: 110px;
+}
+
+/* POSITIONS */
+.circle-md:nth-child(2) {
+  top: 10px;
+  left: 200px;
+}
+
+.circle-sm:nth-child(3) {
+  top: 120px;
+  left: 260px;
+}
+
+.circle-md:nth-child(4) {
+  bottom: 20px;
+  left: 220px;
+}
+
+/* RIGHT COLUMN */
+.about-right {
+  width: 45%;
+}
+
+.about-right p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.highlight-text {
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-top: 20px;
+}
+
+/* OUTLINE BUTTON */
+.outline-btn {
+  margin-top: 20px;
+  background: #fff;
+  border: 2px solid #000;
+  padding: 12px 28px;
+  font-size: 1rem;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: 0.2s ease;
+}
+
+.outline-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 950px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-right, 
+  .about-left {
+    width: 100%;
+  }
+
+  .sub-text {
+    width: 100%;
+  }
+
+  .circle-group {
+    margin: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-left h1 {
+    font-size: 2.7rem;
+  }
+}
+
+
+
+
+
+/* Rotate when active */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    background: #fff;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+    display: none;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .btn {
+    display: none; /* Hide contact in mobile menu */
+  }
+}

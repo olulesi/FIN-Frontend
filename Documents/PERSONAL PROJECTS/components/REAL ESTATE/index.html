@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Songs & Reference Roller Dex</title>
+  <style>
+    :root {
+      --visible-count: 5;
+      --gap: 20px;
+      --card-width: 180px;
+      --card-height: 140px;
+      --peek: 40px;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+      margin: 0;
+      padding: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: center;
+    }
+
+    .roller-container {
+      max-width: calc(var(--card-width) * var(--visible-count) + var(--gap) * (var(--visible-count) - 1) + var(--peek));
+      overflow: hidden;
+      position: relative;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .track {
+      display: flex;
+      gap: var(--gap);
+      transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.5, 1);
+      will-change: transform;
+    }
+
+    .card {
+      flex: 0 0 var(--card-width);
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      padding: 10px;
+    }
+
+    .card p {
+      margin: 10px 0;
+      font-weight: bold;
+    }
+
+    audio {
+      width: 100%;
+    }
+
+    .controls {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --card-width: 140px;
+        --gap: 12px;
+        --peek: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h2>Songs & References Roller Dex</h2>
+
+    <div class="roller-container">
+      <div class="track" id="track"></div>
+    </div>
+
+    <div class="controls">
+      <button id="prevBtn">⬅ Prev</button>
+      <button id="nextBtn">Next ➡</button>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener("load", function () {
+      const track = document.getElementById("track");
+      const totalCards = 20;
+      const visibleCount = 5;
+      let currentIndex = 0;
+
+      // create 20 cards
+      for (let i = 1; i <= totalCards; i++) {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.innerHTML = `
+          <p>Orin ${i}</p>
+          <audio controls>
+            <source src="audio${i}.mp3" type="audio/mpeg">
+          </audio>
+        `;
+        track.appendChild(card);
+      }
+
+      const cards = document.querySelectorAll(".card");
+
+      // wait until browser paints the layout so width is correct
+      setTimeout(() => {
+        const gap = parseFloat(getComputedStyle(track).gap) || 0;
+        const cardWidth = cards[0].offsetWidth + gap;
+        const maxIndex = totalCards - visibleCount;
+
+        function update() {
+          track.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
+          prevBtn.disabled = currentIndex === 0;
+          nextBtn.disabled = currentIndex >= maxIndex;
+        }
+
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+
+        prevBtn.addEventListener("click", () => {
+          if (currentIndex > 0) {
+            currentIndex--;
+            update();
+          }
+        });
+
+        nextBtn.addEventListener("click", () => {
+          if (currentIndex < maxIndex) {
+            currentIndex++;
+            update();
+          }
+        });
+
+        update();
+      }, 100); // give layout a moment to settle
+    });
+  </script>
+</body>
+</html>

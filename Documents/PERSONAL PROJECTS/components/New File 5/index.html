@@ -1,0 +1,68 @@
+<section class="hero">
+  <div class="hero-content">
+    <h1>Accelerate Your Tech Career</h1>
+    <p>Master in-demand skills through hands-on coding labs and expert-led courses.</p>
+    <a href="#" class="btn-primary">Get Started</a>
+  </div>
+  <div class="hero-image">
+    <img src="illustration.png" alt="Learning illustration">
+  </div>
+</section>
+
+
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 10%;
+  background: linear-gradient(135deg, #141E30, #243B55);
+  color: #fff;
+  min-height: 90vh;
+}
+
+.hero-content {
+  max-width: 50%;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #ddd;
+}
+
+.btn-primary {
+  background-color: #ff4f00;
+  color: #fff;
+  padding: 0.9rem 1.8rem;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #e34600;
+}
+
+.hero-image img {
+  width: 400px;
+  max-width: 100%;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-content {
+    max-width: 100%;
+  }
+  .hero-image {
+    margin-top: 2rem;
+  }
+}

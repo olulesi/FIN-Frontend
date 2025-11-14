@@ -1,0 +1,136 @@
+/* ============ BASE MOBILE STYLES ============ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  padding: 1.5rem;
+  color: #111;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #f7df1e; /* JS yellow */
+}
+
+.menu-icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.hero h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.hero button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 0.9rem 1.6rem;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+/* Info Section */
+.info {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 4rem;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+
+/* ============ TABLET STYLES ============ */
+@media (min-width: 768px) {
+  body {
+    padding: 2rem 3rem;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .hero button {
+    padding: 1rem 2.2rem;
+  }
+
+  .info {
+    margin-top: 4rem;
+  }
+}
+
+
+/* ============ DESKTOP STYLES ============ */
+@media (min-width: 1024px) {
+  .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    padding: 4rem 0;
+  }
+
+  .hero h1 {
+    font-size: 2.8rem;
+    max-width: 450px;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    max-width: 400px;
+  }
+
+  .hero button {
+    margin-top: 1rem;
+  }
+
+  .info {
+    margin-top: 6rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer {
+    font-size: 1rem;
+  }
+}
+
