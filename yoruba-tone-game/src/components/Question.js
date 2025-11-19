@@ -1,5 +1,5 @@
 import React from "react";
-import "./Question.css";
+import "../styles/Question.css";
 
 function Question({
   word,

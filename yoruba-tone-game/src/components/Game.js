@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import Question from "./Question";
 import "./Game.css";
+import eleyeleAudio from "../assets/audio/eleyele.mp3";
+import oluyoleAudio from "../assets/audio/oluyole.mp3";
+import ijokodoAudio from "../assets/audio/ijokodo.mp3";
+import opoileosaAudio from "../assets/audio/opoileosa.mp3";
 
 // Sample game data - 4 words with placeholder options
 const gameData = [
   {
     word: "eleyele",
-    audioFile: "eleyele.mp3",
+    audioFile: eleyeleAudio,
     options: [
       "Do Mi Re Mi", // Placeholder 1
       "Re Do Re Do", // Placeholder 2
@@ -17,19 +21,19 @@ const gameData = [
   },
   {
     word: "oluyole",
-    audioFile: "oluyole.mp3",
+    audioFile: oluyoleAudio,
     options: ["Mi Re Mi Re", "Mi Do Mi Do", "Re Mi Re Mi", "Do Mi Do Mi"],
     correct: 1,
   },
   {
     word: "ijokodo",
-    audioFile: "ijokodo.mp3",
+    audioFile: ijokodoAudio,
     options: ["Do Re Do Re", "Re Do Re Do", "Mi Re Mi Re", "Re Mi Re Mi"],
     correct: 0,
   },
   {
     word: "opoileosa",
-    audioFile: "opoileosa.mp3",
+    audioFile: opoileosaAudio,
     options: ["Re Do Re Do", "Do Re Do Re", "Mi Do Mi Do", "Do Mi Do Mi"],
     correct: 3,
   },
@@ -55,56 +59,13 @@ function Game() {
     setShowAnswer(true);
   };
 
-  // Play audio
+  // Play actual audio file
   const playAudio = () => {
     setLastPlayed(currentWord.word);
-    // In real app, you'd play the actual audio file
-    console.log(`Playing audio for: ${currentWord.word}`);
 
-    // Simulate playing audio with Web Audio API
-    const tones = currentWord.options[currentWord.correct]
-      .split(" ")
-      .map((t) => t.toLowerCase());
-    playToneSequence(tones);
-  };
-
-  // Simulate tone playback
-  const playToneSequence = (tones) => {
-    const audioContext = new (window.AudioContext ||
-      window.webkitAudioContext)();
-    const duration = 0.3;
-    const gap = 0.1;
-    let currentTime = audioContext.currentTime;
-
-    const toneMapping = {
-      do: 262,
-      re: 294,
-      mi: 330,
-    };
-
-    tones.forEach((tone, index) => {
-      const frequency = toneMapping[tone];
-      const oscillator = audioContext.createOscillator();
-      const gainNode = audioContext.createGain();
-
-      oscillator.connect(gainNode);
-      gainNode.connect(audioContext.destination);
-      oscillator.type = "sine";
-      oscillator.frequency.value = frequency;
-
-      gainNode.gain.setValueAtTime(0, currentTime + (duration + gap) * index);
-      gainNode.gain.linearRampToValueAtTime(
-        0.5,
-        currentTime + (duration + gap) * index + 0.01
-      );
-      gainNode.gain.linearRampToValueAtTime(
-        0,
-        currentTime + (duration + gap) * index + duration - 0.01
-      );
-
-      oscillator.start(currentTime + (duration + gap) * index);
-      oscillator.stop(currentTime + (duration + gap) * index + duration);
-    });
+    // Create audio element and play
+    const audio = new Audio(currentWord.audioFile);
+    audio.play().catch((e) => console.log("Audio play error:", e));
   };
 
   // Start over
