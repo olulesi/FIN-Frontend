@@ -29,7 +29,8 @@
         oscillator.stop(audioCtx.currentTime + 0.3);
       }
 
-      // 🎵 Tone Practice Data
+// 🎵 Tone Practice Data
+      //arrays of tone practice data
       const tonePracticeData = [
         {
           words: ["O", "lú", "yọ̀", "lé"],
