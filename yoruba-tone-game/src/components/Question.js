@@ -50,7 +50,7 @@ function Question({
         </div>
       )}
 
-      {/* Next Word Button */}
+      {/* Next Word Button... */}
       <button className="next-btn" onClick={onNextWord}>
         Next Word →
       </button>
