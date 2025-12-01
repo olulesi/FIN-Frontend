@@ -43,7 +43,8 @@ function Question({
       {feedback && <div className="feedback">{feedback}</div>}
 
       {/* Last Played */}
-      {lastPlayed && (
+      {/* Last Played - Only show if answer is correct */}
+      {showAnswer && lastPlayed && (
         <div className="last-played">
           Last played: <strong>{lastPlayed}</strong>
         </div>

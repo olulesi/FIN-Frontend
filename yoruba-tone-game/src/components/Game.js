@@ -49,14 +49,28 @@ function Game() {
   const currentWord = gameData[currentWordIndex];
 
   // Handle option selection
+  // const handleOptionSelect = (index) => {
+  //   setSelectedOption(index);
+  //   if (index === currentWord.correct) {
+  //     setFeedback("Correct ✅");
+  //   } else {
+  //     setFeedback("Wrong ❌");
+  //   }
+  //   setShowAnswer(true);
+  // };
+
+  // Handle option selection
   const handleOptionSelect = (index) => {
     setSelectedOption(index);
     if (index === currentWord.correct) {
       setFeedback("Correct ✅");
+      setShowAnswer(true);
+      setLastPlayed(currentWord.word); // Only set lastPlayed on correct answer
     } else {
       setFeedback("Wrong ❌");
+      setShowAnswer(true);
+      // Do NOT set lastPlayed on wrong answer
     }
-    setShowAnswer(true);
   };
 
   // Play actual audio file
