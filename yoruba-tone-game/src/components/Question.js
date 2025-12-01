@@ -55,7 +55,5 @@ function Question({
         Next Word →
       </button>
     </div>
-  );
-}
 
 export default Question;
