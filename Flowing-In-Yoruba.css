@@ -1,3 +1,7 @@
+
+
+/* ALPHABET PRACTICE STYLE SECTION */
+
 .heading1 {
   text-align: center;
 }
@@ -19,24 +23,22 @@
 }
 
 
+
+
+
+
+
+
+
+/* TONE GENERATOR STYLE SECTION */
+
 #heading3 {
   text-decoration: underline; 
   font-style: italic; 
   margin-top: 4.8rem;
 }
 
-#heading4 {
-  text-align: center; 
-  font-style: italic;
-}
 
-#heading5{
-  text-align: center; margin-bottom: 1rem;
-}
-
-
-/* 
-tone card container */
 .tone-container {
   display: flex;
   flex-direction: column;
@@ -64,13 +66,26 @@ tone card container */
   margin-top: 15px; font-size: large;
 }
 
-#shuffleTones{
+/* #shuffleTones{
   align = "center"
+} */
+
+
+
+
+
+
+
+/* TONE PRACTICE STYLE SECTION */
+#heading4 {
+  text-align: center; 
+  font-style: italic;
 }
 
-
-
-
+#tonePractice {
+  text-align: center; 
+  margin-top: 20px;
+}
 
 
 #wordRow {
@@ -80,6 +95,7 @@ tone card container */
   flex-wrap: wrap;
   margin-bottom: 10px;
 }
+
 
 #toneRow {
    display: flex;
@@ -95,15 +111,11 @@ tone card container */
   font-size: 16px;
 }
 
-
-#tonePractice {
-  text-align: center; 
-  margin-top: 20px;
-}
+/* 
 
 #playToneAudio {
   margin: 10px; font-size: 16px;
-}
+} */
 
 #prevTone {
 font-size: 16px;
@@ -114,38 +126,9 @@ font-size: 16px;
 }
 
 
-.practice-area {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin-top: 3rem;
-}
 
-.practice-area h3 {
-  font-size: 25px;
-  font-style: oblique;
-  margin-bottom: 1rem;
-}
 
-#practice-area p {
-  margin: 0.5rem 0;
-  font-size: 18px;
-}
-
-.button-row {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 15px;
-}
-
-.button-row button {
-  font-size: large;
-  padding: 8px 16px;
-  cursor: pointer;
-}
+/* ARGUMENT GAME STYLE SECTION */
 
 #argument-section {
       text-align: center;
@@ -153,38 +136,33 @@ font-size: 16px;
       font-family: Arial, sans-serif;
     }
 
-    #argument-section table {
-      border-collapse: collapse;
-      margin: 10px;
-      display: inline-block; /* ✅ Side-by-side tables */
-      vertical-align: top;
-    }
-
-    #argument-section th, #argument-section td {
-      border: 1px solid #333;
-      padding: 8px 12px;
-    }
-
-    #argument-section th {
-      font-weight: bold;
-    }
-
-    /* Buttons layout */
-    #verb-buttons {
+ #tense-buttons {
       margin-top: 20px;
     }
 
-    #verb-buttons button,
-    #tense-buttons button {
+
+    /* Buttons layout */
+#verb-buttons {
+      margin-top: 20px;
+    }
+
+
+ #verb-buttons button,
+  #tense-buttons button {
       margin: 5px;
       padding: 6px 14px;
       font-size: 16px;
       cursor: pointer;
     }
 
-    #tense-buttons {
-      margin-top: 20px;
-    }
+
+
+
+/* Songs & References Roller Dex STRUCTURE SECTION  */
+#heading5{
+  text-align: center; margin-bottom: 1rem;
+}
+
 
 .roller-container {
   overflow: hidden;
@@ -192,43 +170,10 @@ font-size: 16px;
   margin: 0 auto;
 }
 
-.track {
+#track {
   display: flex;
   gap: 20px;
   transition: transform 0.5s ease;
-}
-
-.card {
-  flex: 0 0 calc(20% - 20px);
-  background: #f8f8f8;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  text-align: center;
-  padding: 15px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.song-title {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.song-artist {
-  font-size: 14px;
-  color: #555;
-  margin-bottom: 10px;
-}
-
-.play-btn {
-  background-color: #8b898948;
-  color: rgb(17, 2, 2);
-  border: none;
-  padding: 8px 14px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s;
 }
 
 
@@ -240,9 +185,27 @@ font-size: 16px;
   margin-top: 1.5rem;
 }
 
+
+
+/* 
+.roller-container {
+  overflow: hidden;
+  width: 90%;
+  margin: 0 auto;
+} . */
+
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
 .controls button {
-  background-color: #222; /* dark base */
-  color: #fff; /* white text */
+  background-color: #222; 
+  color: #fff; 
   font-weight: 600;
   font-size: 1rem;
   padding: 10px 20px;
@@ -251,17 +214,41 @@ font-size: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+} 
+
+
+
+
+
+/* CAN'T FIND THE CLASS NAME FOR THIS TWO CODE BELOW  */
+
+.card {
+  flex: 0 0 calc(20% - 20px);
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-align: center;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
+.play-btn {
+  background-color: #8b898948;
+  color: rgb(17, 2, 2);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+} 
 
-/* Responsive */
-@media (max-width: 768px) {
- /* .nav-links {
-    display: none;
-  } */
-  
 
-  
-}
+
+
+
+
+
+
+
 
 

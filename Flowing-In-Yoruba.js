@@ -1,4 +1,4 @@
-
+ //ALL OUR JAVASCRIPT CODE 
 
       // -------------------- TONE GENERATOR --------------------
       const tones = ["DO", "RE", "MI"];
@@ -13,6 +13,13 @@
       }
       shuffleBtn.addEventListener("click", shuffleTones);
 
+
+
+
+
+
+
+      
       // Tone sound
       function playTone(tone) {
         const audioCtx = new (window.AudioContext ||
@@ -28,6 +35,11 @@
         oscillator.start();
         oscillator.stop(audioCtx.currentTime + 0.3);
       }
+
+
+
+
+
 
 // 🎵 Tone Practice Data
       //arrays of tone practice data
@@ -54,12 +66,20 @@
       const wordRow = document.getElementById("wordRow");
       const toneRow = document.getElementById("toneRow");
 
+
+
+
+
+
       // Function to render current tone set
       function renderTonePractice() {
         wordRow.innerHTML = "";
         toneRow.innerHTML = "";
 
         const current = tonePracticeData[toneIndex];
+
+
+
 
         // Render Yoruba word boxes
         current.words.forEach((word) => {
@@ -72,6 +92,8 @@
           wordBox.textContent = word;
           wordRow.appendChild(wordBox);
         });
+
+
 
         // Render tone boxes
         current.tones.forEach((tone) => {
@@ -86,6 +108,9 @@
         });
       }
 
+
+
+
       // Navigation buttons
       document.getElementById("prevTone").addEventListener("click", () => {
         toneIndex =
@@ -97,6 +122,8 @@
         toneIndex = (toneIndex + 1) % tonePracticeData.length;
         renderTonePractice();
       });
+
+
 
       // 🎵 Audio playback for the current tone set
       document.getElementById("playToneAudio").addEventListener("click", () => {
@@ -117,6 +144,9 @@
             .catch((e) => console.error("Playback failed:", e));
         }, 100);
       });
+
+
+      
 
       // Initial render
       document.addEventListener("DOMContentLoaded", renderTonePractice);
@@ -210,6 +240,9 @@
         }, 300);
       });
 
+
+
+      
 
       //ARGUMENT GAME
     // ARGUMENT GAME
@@ -323,4 +356,4 @@ function updateTables(verbKey) {
 }
 
 // Default on load
-updateTables("jẹun");
+// updateTables("jẹun");
