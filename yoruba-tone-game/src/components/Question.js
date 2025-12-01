@@ -24,9 +24,8 @@ function Question({
         {options.map((option, index) => (
           <button
             key={index}
-            className={`tone-option ${
-              selectedOption === index ? "selected" : ""
-            }`}
+            className={`tone-option ${selectedOption === index ? "selected" : ""
+              }`}
             onClick={() => onOptionSelect(index)}
           >
             {option}
@@ -55,5 +54,7 @@ function Question({
         Next Word →
       </button>
     </div>
+  );
+}
 
 export default Question;

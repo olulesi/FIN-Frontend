@@ -48,22 +48,12 @@ function Game() {
 
   const currentWord = gameData[currentWordIndex]
 
-  // Handle option selection
-  // const handleOptionSelect = (index) => {
-  //   setSelectedOption(index);
-  //   if (index === currentWord.correct) {
-  //     setFeedback("Correct ✅");
-  //   } else {
-  //     setFeedback("Wrong ❌");
-  //   }
-  //   setShowAnswer(true);
-  // };
+
 
   // Handle option selection
   const handleOptionSelect = (index) => {
     setSelectedOption(index)
     if (index === currentWord.correct) {
-<<<<<<< HEAD
       setFeedback("Correct ✅");
       setShowAnswer(true);
       setLastPlayed(currentWord.word); // Only set lastPlayed on correct answer
@@ -73,14 +63,10 @@ function Game() {
       // Do NOT set lastPlayed on wrong answer
     }
   };
-=======
-      setFeedback('Correct ✅')
-    } else {
-      setFeedback('Wrong ❌')
-    }
-    setShowAnswer(true)
-  }
->>>>>>> 8f364eaea0dd90a3eab24db40820f2788d2781f4
+
+
+
+  
 
   // Play actual audio file
   const playAudio = () => {
