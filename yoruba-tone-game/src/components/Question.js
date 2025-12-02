@@ -1,5 +1,6 @@
 import React from "react";
-import "../styles/Question.css"
+import "../styles/Question.css";
+
 function Question({
   word,
   options,
@@ -7,7 +8,10 @@ function Question({
   showAnswer,
   feedback,
   lastPlayed,
-  hasPlayedAudio, // 🔥 NEW PROP
+  hasPlayedAudio,
+  correctCount, // 🔥 NEW PROP
+  wrongCount, // 🔥 NEW PROP
+  scorePercentage, // 🔥 NEW PROP
   onOptionSelect,
   onPlayAudio,
   onNextWord,
@@ -28,7 +32,7 @@ function Question({
               selectedOption === index ? "selected" : ""
             }`}
             onClick={() => onOptionSelect(index)}
-            disabled={!hasPlayedAudio} // 🔥 Disable if audio not played
+            disabled={!hasPlayedAudio}
           >
             {option}
           </button>
@@ -50,6 +54,16 @@ function Question({
         </div>
       )}
 
+      
+      {/* Score Tracker - Only show after first answer */}
+      {(correctCount > 0 || wrongCount > 0) && (
+        <div className="score-tracker">
+          <span className="correct">Correct: {correctCount}</span>
+          <span className="wrong">Wrong: {wrongCount}</span>
+          <span className="score">Score: {scorePercentage}%</span>
+        </div>
+      )}
+
       {/* Next Word Button */}
       <button className="next-btn" onClick={onNextWord}>
         Next Word →
@@ -57,5 +71,7 @@ function Question({
     </div>
   );
 }
+
+
 
 export default Question;

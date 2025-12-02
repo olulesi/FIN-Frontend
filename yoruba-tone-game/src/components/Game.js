@@ -42,13 +42,14 @@ function Game() {
   const [showAnswer, setShowAnswer] = useState(false);
   const [feedback, setFeedback] = useState("");
   const [lastPlayed, setLastPlayed] = useState("");
-  const [hasPlayedAudio, setHasPlayedAudio] = useState(false); // 🔥 NEW STATE
+  const [hasPlayedAudio, setHasPlayedAudio] = useState(false);
+  const [correctCount, setCorrectCount] = useState(0); // 🔥 NEW STATE
+  const [wrongCount, setWrongCount] = useState(0); // 🔥 NEW STATE
 
   const currentWord = gameData[currentWordIndex];
 
   // Handle option selection
   const handleOptionSelect = (index) => {
-    // 🔥 Check if audio has been played first
     if (!hasPlayedAudio) {
       alert("Please play the sound first!");
       return;
@@ -59,16 +60,16 @@ function Game() {
       setFeedback("Correct ✅");
       setShowAnswer(true);
       setLastPlayed(currentWord.word);
+      setCorrectCount((prev) => prev + 1); // 🔥 Increment correct count
     } else {
       setFeedback("Wrong ❌");
       setShowAnswer(true);
-      // Don't set lastPlayed for wrong answers
+      setWrongCount((prev) => prev + 1); // 🔥 Increment wrong count
     }
   };
 
   // Play actual audio file
   const playAudio = () => {
-    // 🔥 Mark that audio has been played
     setHasPlayedAudio(true);
     setLastPlayed(currentWord.word);
 
@@ -83,7 +84,9 @@ function Game() {
     setShowAnswer(false);
     setFeedback("");
     setLastPlayed("");
-    setHasPlayedAudio(false); // 🔥 Reset audio state
+    setHasPlayedAudio(false);
+    setCorrectCount(0); // 🔥 Reset score
+    setWrongCount(0); // 🔥 Reset score
   };
 
   // Next word
@@ -93,8 +96,13 @@ function Game() {
     setShowAnswer(false);
     setFeedback("");
     setLastPlayed("");
-    setHasPlayedAudio(false); // 🔥 Reset audio state for next word
+    setHasPlayedAudio(false);
   };
+
+  // Calculate score percentage
+  const totalAttempts = correctCount + wrongCount;
+  const scorePercentage =
+    totalAttempts > 0 ? Math.round((correctCount / totalAttempts) * 100) : 0;
 
   return (
     <div className="game-container">
@@ -113,7 +121,10 @@ function Game() {
         showAnswer={showAnswer}
         feedback={feedback}
         lastPlayed={lastPlayed}
-        hasPlayedAudio={hasPlayedAudio} // 🔥 Pass this prop
+        hasPlayedAudio={hasPlayedAudio}
+        correctCount={correctCount} // 🔥 Pass score props
+        wrongCount={wrongCount} // 🔥 Pass score props
+        scorePercentage={scorePercentage} // 🔥 Pass score props
         onOptionSelect={handleOptionSelect}
         onPlayAudio={playAudio}
         onNextWord={nextWord}
