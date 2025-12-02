@@ -19,19 +19,19 @@ const gameData = [
   {
     word: "oluyole",
     audioFile: oluyoleAudio,
-    options: ["Mi Re Mi Re", "Mi Do Mi Do", "Re Mi Re Mi", "Do Mi Do Mi"],
+    options: ["Mi Re Mi Re", "Re Mi Do Mi", "Re Mi Re Mi", "Do Mi Do Mi"],
     correct: 1,
   },
   {
     word: "ijokodo",
     audioFile: ijokodoAudio,
-    options: ["Do Re Do Re", "Re Do Re Do", "Mi Re Mi Re", "Re Mi Re Mi"],
+    options: ["Mi Do Re Mi", "Re Do Re Do", "Mi Re Mi Re", "Re Mi Re Mi"],
     correct: 0,
   },
   {
     word: "opoileosa",
     audioFile: opoileosaAudio,
-    options: ["Re Do Re Do", "Do Re Do Re", "Mi Do Mi Do", "Do Mi Do Mi"],
+    options: ["Re Do Re Do Re Do", "Do Re Do Re Do Re", "Mi Do Mi Do Mi Do", "Re Do Re Mi Mi Mi"],
     correct: 3,
   },
 ];
