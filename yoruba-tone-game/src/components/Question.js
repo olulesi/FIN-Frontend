@@ -1,6 +1,5 @@
 import React from "react";
-import "../styles/Question.css";
-
+import "../styles/Question.css"
 function Question({
   word,
   options,
@@ -8,6 +7,7 @@ function Question({
   showAnswer,
   feedback,
   lastPlayed,
+  hasPlayedAudio, // 🔥 NEW PROP
   onOptionSelect,
   onPlayAudio,
   onNextWord,
@@ -24,9 +24,11 @@ function Question({
         {options.map((option, index) => (
           <button
             key={index}
-            className={`tone-option ${selectedOption === index ? "selected" : ""
-              }`}
+            className={`tone-option ${
+              selectedOption === index ? "selected" : ""
+            }`}
             onClick={() => onOptionSelect(index)}
+            disabled={!hasPlayedAudio} // 🔥 Disable if audio not played
           >
             {option}
           </button>
@@ -41,7 +43,6 @@ function Question({
       {/* Feedback */}
       {feedback && <div className="feedback">{feedback}</div>}
 
-      {/* Last Played */}
       {/* Last Played - Only show if answer is correct */}
       {showAnswer && lastPlayed && (
         <div className="last-played">
@@ -49,7 +50,7 @@ function Question({
         </div>
       )}
 
-      {/* Next Word Button... */}
+      {/* Next Word Button */}
       <button className="next-btn" onClick={onNextWord}>
         Next Word →
       </button>
