@@ -37,6 +37,7 @@ const gameData = [
 ];
 
 function Game() {
+
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
   const [showAnswer, setShowAnswer] = useState(false);
@@ -68,6 +69,7 @@ function Game() {
     }
   };
 
+
   // Play actual audio file
   const playAudio = () => {
     setHasPlayedAudio(true);
@@ -76,6 +78,7 @@ function Game() {
     const audio = new Audio(currentWord.audioFile);
     audio.play().catch((e) => console.log("Audio play error:", e));
   };
+
 
   // Start over
   const startOver = () => {
@@ -88,6 +91,7 @@ function Game() {
     setCorrectCount(0); // 🔥 Reset score
     setWrongCount(0); // 🔥 Reset score
   };
+
 
   // Next word
   const nextWord = () => {
@@ -132,5 +136,6 @@ function Game() {
     </div>
   );
 }
+
 
 export default Game;
