@@ -1,14 +1,21 @@
 import React from "react";
 import Game from "./components/Game";
 import Starter from "./components/starter";
+import FIN from "./components/FIN";
+import ToneG from "./components/ToneG";
 import "./App.css";
+import TonePractice from "./components/Tonepractice";
+import Argument from "./components/Argument";
 
 function App() {
   return (
     <div className="App">
+      <FIN />
       <Game />
-      <Starter />
-    </div> 
+      <ToneG />
+      <TonePractice />
+      <Argument />
+    </div>
   );
 }
 

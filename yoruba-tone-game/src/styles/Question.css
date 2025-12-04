@@ -110,3 +110,26 @@
 .next-btn:hover {
   background-color: #5a32a3;
 }
+
+.score-tracker {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.correct {
+  color: green;
+}
+
+.wrong {
+  color: red;
+}
+
+.score {
+  color: #6c757d;
+}

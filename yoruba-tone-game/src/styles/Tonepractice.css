@@ -1,0 +1,45 @@
+.wordBox {
+    width: 80px;
+      height: 50px;
+      border: 1px solid gray;
+      border-Radius: 6px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      background-color: #fff;
+}
+
+
+.ToneBox {
+     width: 80px;
+      height: 50px;
+      border: 1px solid #aaa;
+      border-radius: 6px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+      background-Color: #f0f0f0;
+}
+
+
+.Tone-practice {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers children horizontally */
+  gap: 1.2rem; /* Optional: adds space between word-row and tone-row */
+  padding: 1.5rem;
+}
+
+.word-row,
+.Tone-row {
+  display: flex;
+  gap: 0.75rem; /* Space between WordBox or ToneBox components */
+  justify-content: center; /* Centers the boxes inside each row */
+}
+
+/* Center everything in the container */
+.prev-button {
+    margin-right: 10px;
+}

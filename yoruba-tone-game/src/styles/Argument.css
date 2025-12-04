@@ -1,0 +1,66 @@
+/* VerbConjugation.css */
+
+.verb-conjugation {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.verb-conjugation h2 {
+  margin-top: 0;
+}
+
+.verb-selector {
+  margin-bottom: 20px;
+}
+
+.verb-button {
+  margin: 0 8px 8px 0;
+  padding: 6px 12px;
+  background-color: #e0e0e0;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.verb-button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.conjugation-table {
+  border-collapse: collapse;
+  margin: 20px 0;
+  width: 100%;
+  
+}
+
+.conjugation-table th,
+.conjugation-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+.conjugation-table th {
+  background-color: #f2f2f2;
+}
+
+.audio-cell button {
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.audio-cell button:disabled {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.play-button {
+  background-color: #4CAF50;
+  color: white;
+}

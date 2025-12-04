@@ -1,4 +1,3 @@
-<<<<<<< HEAD
  //ALL OUR JAVASCRIPT CODE 
 
       // -------------------- TONE GENERATOR --------------------
@@ -21,22 +20,8 @@
 
 
       
-      // Tone sound
-      function playTone(tone) {
-        const audioCtx = new (window.AudioContext ||
-          window.webkitAudioContext)();
-        const oscillator = audioCtx.createOscillator();
-        oscillator.type = "sine";
 
-        if (tone === "do") oscillator.frequency.value = 261.63;
-        if (tone === "re") oscillator.frequency.value = 293.66;
-        if (tone === "mi") oscillator.frequency.value = 329.63;
-
-        oscillator.connect(audioCtx.destination);
-        oscillator.start();
-        oscillator.stop(audioCtx.currentTime + 0.3);
-      }
-=======
+      
 // -------------------- TONE GENERATOR --------------------
 const tones = ['DO', 'RE', 'MI']
 const toneCards = document.querySelectorAll('.toneCard')
@@ -49,7 +34,6 @@ function shuffleTones() {
   })
 }
 shuffleBtn.addEventListener('click', shuffleTones)
->>>>>>> 8f364eaea0dd90a3eab24db40820f2788d2781f4
 
 
 
@@ -81,7 +65,6 @@ let toneIndex = 0
 const wordRow = document.getElementById('wordRow')
 const toneRow = document.getElementById('toneRow')
 
-<<<<<<< HEAD
 
 
 
@@ -91,16 +74,9 @@ const toneRow = document.getElementById('toneRow')
       function renderTonePractice() {
         wordRow.innerHTML = "";
         toneRow.innerHTML = "";
-=======
-// Function to render current tone set
-function renderTonePractice() {
-  wordRow.innerHTML = ''
-  toneRow.innerHTML = ''
->>>>>>> 8f364eaea0dd90a3eab24db40820f2788d2781f4
 
   const current = tonePracticeData[toneIndex]
 
-<<<<<<< HEAD
 
 
 
@@ -108,12 +84,6 @@ function renderTonePractice() {
         current.words.forEach((word) => {
           const wordBox = document.createElement("div");
           wordBox.style.cssText = `
-=======
-  // Render Yoruba word boxes
-  current.words.forEach((word) => {
-    const wordBox = document.createElement('div')
-    wordBox.style.cssText = `
->>>>>>> 8f364eaea0dd90a3eab24db40820f2788d2781f4
       width:80px; height:50px; border:1px solid gray; border-radius:6px;
       display:flex; justify-content:center; align-items:center;
       font-size:18px; background:#fff;
@@ -122,19 +92,12 @@ function renderTonePractice() {
     wordRow.appendChild(wordBox)
   })
 
-<<<<<<< HEAD
 
 
         // Render tone boxes
         current.tones.forEach((tone) => {
           const toneBox = document.createElement("div");
           toneBox.style.cssText = `
-=======
-  // Render tone boxes
-  current.tones.forEach((tone) => {
-    const toneBox = document.createElement('div')
-    toneBox.style.cssText = `
->>>>>>> 8f364eaea0dd90a3eab24db40820f2788d2781f4
       width:80px; height:50px; border:1px solid #aaa; border-radius:6px;
       display:flex; justify-content:center; align-items:center;
       font-size:16px; background:#f0f0f0;
@@ -144,7 +107,6 @@ function renderTonePractice() {
   })
 }
 
-<<<<<<< HEAD
 
 
 
@@ -154,31 +116,17 @@ function renderTonePractice() {
           (toneIndex - 1 + tonePracticeData.length) % tonePracticeData.length;
         renderTonePractice();
       });
-=======
-// Navigation buttons
-document.getElementById('prevTone').addEventListener('click', () => {
-  toneIndex =
-    (toneIndex - 1 + tonePracticeData.length) % tonePracticeData.length
-  renderTonePractice()
-})
->>>>>>> 8f364eaea0dd90a3eab24db40820f2788d2781f4
 
 document.getElementById('nextTone').addEventListener('click', () => {
   toneIndex = (toneIndex + 1) % tonePracticeData.length
   renderTonePractice()
 })
 
-<<<<<<< HEAD
 
 
       // 🎵 Audio playback for the current tone set
       document.getElementById("playToneAudio").addEventListener("click", () => {
         console.log("Current toneIndex:", toneIndex);
-=======
-// 🎵 Audio playback for the current tone set
-document.getElementById('playToneAudio').addEventListener('click', () => {
-  console.log('Current toneIndex:', toneIndex)
->>>>>>> 8f364eaea0dd90a3eab24db40820f2788d2781f4
 
   const audioFiles = [
     'audio/oluyole.mp3',
@@ -194,16 +142,15 @@ document.getElementById('playToneAudio').addEventListener('click', () => {
   }, 100)
 })
 
-<<<<<<< HEAD
+
+
+
+
 
       
 
       // Initial render
       document.addEventListener("DOMContentLoaded", renderTonePractice);
-=======
-// Initial render
-document.addEventListener('DOMContentLoaded', renderTonePractice)
->>>>>>> 8f364eaea0dd90a3eab24db40820f2788d2781f4
 
 document.addEventListener('DOMContentLoaded', () => {
   const songs = [
@@ -294,17 +241,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 300)
 })
 
-<<<<<<< HEAD
 
 
       
 
       //ARGUMENT GAME
     // ARGUMENT GAME
-=======
-//ARGUMENT GAME
-// ARGUMENT GAME
->>>>>>> 8f364eaea0dd90a3eab24db40820f2788d2781f4
 
 // Pronouns
 const pronouns = ['Mo', 'Ìwọ', 'Ó', 'Àwa', 'Wọ́n']
@@ -455,8 +397,4 @@ function updateTables(verbKey) {
 }
 
 // Default on load
-<<<<<<< HEAD
 // updateTables("jẹun");
-=======
-updateTables('jẹun')
->>>>>>> 8f364eaea0dd90a3eab24db40820f2788d2781f4
