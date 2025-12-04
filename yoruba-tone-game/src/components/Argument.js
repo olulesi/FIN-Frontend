@@ -129,26 +129,26 @@ const VerbConjugation = () => {
 
   return (
     <div className="verb-conjugation">
-      <h2>Yorùbá Verb Conjugation (Tí Tense)</h2>
+      <h2>ARGUMENT GAME </h2>
+
+      <div className="tables">
+        <h3>Affirmative</h3>
+        <ConjugationTable dataType="affirmative" verbKey={selectedVerb} />
+
+        <h3>Negative</h3>
+        <ConjugationTable dataType="negative" verbKey={selectedVerb} />
+      </div>
 
       <div className="verb-selector">
         {verbKeys.map((verb) => (
           <button
             key={verb}
             onClick={() => setSelectedVerb(verb)}
-            className={`verb-button ${selectedVerb === verb ? 'active' : ''}`}
+            className={`verb-button ${selectedVerb === verb ? "active" : ""}`}
           >
             {verb}
           </button>
         ))}
-      </div>
-
-      <div id="tables">
-        <h3>Affirmative</h3>
-        <ConjugationTable dataType="affirmative" verbKey={selectedVerb} />
-
-        <h3>Negative</h3>
-        <ConjugationTable dataType="negative" verbKey={selectedVerb} />
       </div>
     </div>
   );
