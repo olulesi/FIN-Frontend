@@ -6,8 +6,8 @@ const pronouns = ["Mo", "Ìwọ", "Ó", "Àwa", "Wọ́n"];
 const negPronouns = ["Mi ò", "Ìwő ò", "Kò", "A ò", "Wọ́n ò"];
 
 const playAudio = (filename) => {
-  const audioPath = `${process.env.PUBLIC_URL}/assets/audio/argumentGame/moPronoun/${filename}.mp3`;
-  console.log(audioPath)
+  const audioPath = `${process.env.PUBLIC_URL}/audio/argumentGame/moPronoun/${filename}.mp3`;
+  console.log(audioPath);
   const audio = new Audio(audioPath);
   audio.play().catch((err) => console.warn("Audio playback failed:", err));
 };
@@ -30,10 +30,10 @@ const ConjugationTable = ({ tense, polarity, verbKey }) => {
       </thead>
       <tbody>
         {sentences.map((sentence, i) => {
-          const audioFilename = `${tense}_${polarity}_${normalizeVerbKey(
-            verbKey
-          )}_${i + 1}`;
-          console.log(audioFilename)
+          const audioFilename = `${polarity}_${normalizeVerbKey(verbKey)}_${
+            i + 1
+          }`;
+          console.log(audioFilename);
           const isMo = i === 0;
 
           return (
