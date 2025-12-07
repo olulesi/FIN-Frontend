@@ -22,6 +22,7 @@ const ToneG = () => {
 
   return (
     <div>
+      <hr />
       <h2 id="heading3">Tone Generator</h2>
 
       <div className="tone-container">

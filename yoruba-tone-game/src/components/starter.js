@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/Starter.css";
 
+
 function Starter() {
   return (
     <div className="">
@@ -10,3 +11,9 @@ function Starter() {
 }
 
 export default Starter;
+
+
+
+
+
+

@@ -1,5 +1,4 @@
 import React from "react";
-// import "../styles/Starter.css";
 import "../styles/FIN.css";
 
 function Alphabet() {
@@ -54,7 +53,11 @@ function Alphabet() {
       </tr>
     </table>
 
-    <a href="https://www.yorubaizm.com/" target="_blank" class="link1">from Yorubaizm</a>
+      <div className="linkk1"> 
+        <a href="https://www.yorubaizm.com/" target="_blank" class="link1">from Yorubaizm</a>
+        </div>
+      
+      <hr />
 
 
     </div>
