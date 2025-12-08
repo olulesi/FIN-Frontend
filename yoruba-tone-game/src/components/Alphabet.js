@@ -18,7 +18,7 @@ function Alphabet() {
       </tr>
       <tr>
         <td>A a <br />(Bat)</td>
-        <td>B b <br />(Bee)</td>
+        <td>B b <br />(Bee).</td>
         <td>D d <br />(Dee)</td>
         <td>E e <br />(Bay)</td>
         <td>Ẹ ẹ <br />(Bet)</td>
