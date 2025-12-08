@@ -5,6 +5,8 @@ import { verbs, normalizeVerbKey } from "../assets/data/yorubaVerbs";
 const pronouns = ["Mo", "Ìwọ", "Ó", "Àwa", "Wọ́n"];
 const negPronouns = ["Mi ò", "Ìwő ò", "Kò", "A ò", "Wọ́n ò"];
 
+
+
 const playAudio = (filename) => {
   const audioPath = `${process.env.PUBLIC_URL}/audio/argumentGame/moPronoun/${filename}.mp3`;
   console.log(audioPath);
@@ -12,10 +14,15 @@ const playAudio = (filename) => {
   audio.play().catch((err) => console.warn("Audio playback failed:", err));
 };
 
+
+
 const ConjugationTable = ({ tense, polarity, verbKey }) => {
   const isAffirmative = polarity === "affirmative";
   const pronounList = isAffirmative ? pronouns : negPronouns;
   const sentences = verbs[verbKey][tense][polarity];
+
+ 
+
 
   return (
     <table className="conjugation-table">
@@ -64,6 +71,9 @@ const ConjugationTable = ({ tense, polarity, verbKey }) => {
   );
 };
 
+
+
+
 const VerbConjugation = () => {
   const [selectedTense, setSelectedTense] = useState("past");
   const [selectedVerb, setSelectedVerb] = useState("jẹun");
@@ -104,7 +114,7 @@ const VerbConjugation = () => {
             }`}
             onClick={() => setSelectedTense("past")}
           >
-            Past (Tí)
+            Past 
           </button>
           <button
             className={`tense-button ${
@@ -132,5 +142,8 @@ const VerbConjugation = () => {
     </>
   );
 };
+
+
+
 
 export default VerbConjugation;

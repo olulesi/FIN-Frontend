@@ -6,6 +6,9 @@ import ToneG from "./components/ToneG";
 import "./App.css";
 import TonePractice from "./components/Tonepractice";
 import Argument from "./components/Argument";
+import Rollerdex from "./components/Rollerdex";
+
+
 
 function App() {
   return (
@@ -15,6 +18,7 @@ function App() {
       <ToneG />
       <TonePractice />
       <Argument />
+      <Rollerdex />
     </div>
   );
 }

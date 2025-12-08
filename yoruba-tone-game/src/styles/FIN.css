@@ -65,6 +65,11 @@
   margin-top: 4.8rem;
 }
 
+.linkk1{
+  display: flex;
+  justify-content: end;
+  margin-right: 10px;
+}
 
 .tone-container {
   display: flex;
