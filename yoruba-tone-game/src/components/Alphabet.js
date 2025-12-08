@@ -14,7 +14,7 @@ function Alphabet() {
 
     <table class="table1" border="1" cellpadding="15" cellspacing="3">
       <tr>
-        <th colspan="5">Álífábéétì Yorùbá</th>
+        <th colspan="5">Álífábéétì Yorùbá.</th>
       </tr>
       <tr>
         <td>A a <br />(Bat)</td>
