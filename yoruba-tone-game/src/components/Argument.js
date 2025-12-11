@@ -4,10 +4,21 @@ import { verbs, normalizeVerbKey } from '../assets/data/yorubaVerbs'
 
 const pronouns = ['Mo', 'Ìwọ', 'Ó', 'Àwa', 'Wọ́n']
 const negPronouns = ['Mi ò', 'Ìwő ò', 'Kò', 'A ò', 'Wọ́n ò']
+const PRONOUNS_WITH_AUDIO = new Set([0, 4]) // 0 = Mo, 4 = Wọ́n
 
-const playAudio = (filename) => {
-  const audioPath = `${process.env.PUBLIC_URL}/audio/argumentGame/moPronoun/${filename}.mp3`
-  console.log(audioPath)
+const playAudio = (filename, index) => {
+  const indexToFolder = {
+    0: 'moPronoun',
+    1: 'iwoPronoun',
+    2: 'oPronoun',
+    3: 'awaPronoun',
+    4: 'wonPronoun',
+  }
+
+  const folder = indexToFolder[index] || 'moPronoun' // fallback
+  const audioPath = `${process.env.PUBLIC_URL}/audio/argumentGame/${folder}/${filename}.mp3`
+
+  console.log('Playing audio from:', audioPath)
   const audio = new Audio(audioPath)
   audio.play().catch((err) => console.warn('Audio playback failed:', err))
 }
@@ -33,8 +44,6 @@ const ConjugationTable = ({ tense, polarity, verbKey }) => {
           const audioFilename = `${polarity}_${normalizeVerbKey(verbKey)}_${
             i + 1
           }`
-          const isMo = i === 0
-
           return (
             <tr key={i}>
               <td>{pronounList[i]}</td>
@@ -42,17 +51,15 @@ const ConjugationTable = ({ tense, polarity, verbKey }) => {
               <td>{verbKey}</td>
               <td>{sentence}</td>
               <td className="audio-cell">
-                {isMo ? (
+                {PRONOUNS_WITH_AUDIO.has(i) ? (
                   <button
-                    onClick={() => playAudio(audioFilename)}
+                    onClick={() => playAudio(audioFilename, i)}
                     className="play-button"
                   >
                     ▶️ Play
                   </button>
                 ) : (
-                  <button disabled title="Audio not available yet">
-                    🔇
-                  </button>
+                  <span title="Audio not available yet">🔇</span>
                 )}
               </td>
             </tr>

@@ -1,9 +1,7 @@
 // src/components/SongRolodex.jsx
 
-import React, { useState, useEffect, useRef } from "react";
-import "../styles/Rollerdex.css";
-
-
+import React from 'react'
+import '../styles/Rollerdex.css'
 
 function Rollerdex() {
   // Hardcoded songs (5 total)
@@ -33,7 +31,7 @@ function Rollerdex() {
       artist: 'Masoyinbo',
       link: 'https://www.youtube.com/clip/UgkxFbf3cle6bQgF3tC8pmw4WYBI2XwYa-ie',
     },
-  ];
+  ]
 
   // Render all 5 cards
   const renderCards = () => {
@@ -43,13 +41,15 @@ function Rollerdex() {
         <p>{song.artist}</p>
         <button
           className="playbtn"
-          onClick={() => window.open(song.link, '_blank', 'noopener,noreferrer')}
+          onClick={() =>
+            window.open(song.link, '_blank', 'noopener,noreferrer')
+          }
         >
           ▶️ Play
         </button>
       </div>
-    ));
-  };
+    ))
+  }
 
   return (
     <div className="rolodex-container">
@@ -72,9 +72,7 @@ function Rollerdex() {
         </button>
       </div>
     </div>
-  );
+  )
 }
-
-
 
 export default Rollerdex
