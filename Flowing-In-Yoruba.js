@@ -1,27 +1,3 @@
- //ALL OUR JAVASCRIPT CODE 
-
-      // -------------------- TONE GENERATOR --------------------
-      const tones = ["DO", "RE", "MI"];
-      const toneCards = document.querySelectorAll(".toneCard");
-      const shuffleBtn = document.getElementById("shuffleBtn");
-
-      function shuffleTones() {
-        toneCards.forEach((card) => {
-          const randomTone = tones[Math.floor(Math.random() * tones.length)];
-          card.textContent = randomTone;
-        });
-      }
-      shuffleBtn.addEventListener("click", shuffleTones);
-
-
-
-
-
-
-
-      
-
-      
 // -------------------- TONE GENERATOR --------------------
 const tones = ['DO', 'RE', 'MI']
 const toneCards = document.querySelectorAll('.toneCard')
@@ -34,11 +10,6 @@ function shuffleTones() {
   })
 }
 shuffleBtn.addEventListener('click', shuffleTones)
-
-
-
-
-
 
 // 🎵 Tone Practice Data
 //arrays of tone practice data
@@ -65,25 +36,17 @@ let toneIndex = 0
 const wordRow = document.getElementById('wordRow')
 const toneRow = document.getElementById('toneRow')
 
-
-
-
-
-
-      // Function to render current tone set
-      function renderTonePractice() {
-        wordRow.innerHTML = "";
-        toneRow.innerHTML = "";
+// Function to render current tone set
+function renderTonePractice() {
+  wordRow.innerHTML = ''
+  toneRow.innerHTML = ''
 
   const current = tonePracticeData[toneIndex]
 
-
-
-
-        // Render Yoruba word boxes
-        current.words.forEach((word) => {
-          const wordBox = document.createElement("div");
-          wordBox.style.cssText = `
+  // Render Yoruba word boxes
+  current.words.forEach((word) => {
+    const wordBox = document.createElement('div')
+    wordBox.style.cssText = `
       width:80px; height:50px; border:1px solid gray; border-radius:6px;
       display:flex; justify-content:center; align-items:center;
       font-size:18px; background:#fff;
@@ -92,12 +55,10 @@ const toneRow = document.getElementById('toneRow')
     wordRow.appendChild(wordBox)
   })
 
-
-
-        // Render tone boxes
-        current.tones.forEach((tone) => {
-          const toneBox = document.createElement("div");
-          toneBox.style.cssText = `
+  // Render tone boxes
+  current.tones.forEach((tone) => {
+    const toneBox = document.createElement('div')
+    toneBox.style.cssText = `
       width:80px; height:50px; border:1px solid #aaa; border-radius:6px;
       display:flex; justify-content:center; align-items:center;
       font-size:16px; background:#f0f0f0;
@@ -107,26 +68,21 @@ const toneRow = document.getElementById('toneRow')
   })
 }
 
-
-
-
-      // Navigation buttons
-      document.getElementById("prevTone").addEventListener("click", () => {
-        toneIndex =
-          (toneIndex - 1 + tonePracticeData.length) % tonePracticeData.length;
-        renderTonePractice();
-      });
+// Navigation buttons
+document.getElementById('prevTone').addEventListener('click', () => {
+  toneIndex =
+    (toneIndex - 1 + tonePracticeData.length) % tonePracticeData.length
+  renderTonePractice()
+})
 
 document.getElementById('nextTone').addEventListener('click', () => {
   toneIndex = (toneIndex + 1) % tonePracticeData.length
   renderTonePractice()
 })
 
-
-
-      // 🎵 Audio playback for the current tone set
-      document.getElementById("playToneAudio").addEventListener("click", () => {
-        console.log("Current toneIndex:", toneIndex);
+// 🎵 Audio playback for the current tone set
+document.getElementById('playToneAudio').addEventListener('click', () => {
+  console.log('Current toneIndex:', toneIndex)
 
   const audioFiles = [
     'audio/oluyole.mp3',
@@ -142,15 +98,8 @@ document.getElementById('nextTone').addEventListener('click', () => {
   }, 100)
 })
 
-
-
-
-
-
-      
-
-      // Initial render
-      document.addEventListener("DOMContentLoaded", renderTonePractice);
+// Initial render
+document.addEventListener('DOMContentLoaded', renderTonePractice)
 
 document.addEventListener('DOMContentLoaded', () => {
   const songs = [
@@ -241,12 +190,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 300)
 })
 
-
-
-      
-
-      //ARGUMENT GAME
-    // ARGUMENT GAME
+//ARGUMENT GAME
+// ARGUMENT GAME
 
 // Pronouns
 const pronouns = ['Mo', 'Ìwọ', 'Ó', 'Àwa', 'Wọ́n']
@@ -397,4 +342,4 @@ function updateTables(verbKey) {
 }
 
 // Default on load
-// updateTables("jẹun");
+updateTables('jẹun')
