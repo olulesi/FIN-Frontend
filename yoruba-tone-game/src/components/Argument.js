@@ -9,7 +9,7 @@ const negPronouns = ["Mi ò", "Ìwő ò", "Kò", "A ò", "Wọ́n ò"];
 
 const playAudio = (filename) => {
   const audioPath = `${process.env.PUBLIC_URL}/audio/argumentGame/moPronoun/${filename}.mp3`;
-  console.log(audioPath); easy for deployment
+  console.log(audioPath); 
   const audio = new Audio(audioPath);
   audio.play().catch((err) => console.warn("Audio playback failed:", err));
 };
