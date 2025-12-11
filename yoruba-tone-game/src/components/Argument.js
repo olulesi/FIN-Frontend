@@ -1,34 +1,27 @@
-import React, { useState } from "react";
-import "../styles/Argument.css";
-import { verbs, normalizeVerbKey } from "../assets/data/yorubaVerbs";
+import React, { useState } from 'react'
+import '../styles/Argument.css'
+import { verbs, normalizeVerbKey } from '../assets/data/yorubaVerbs'
 
-const pronouns = ["Mo", "Ìwọ", "Ó", "Àwa", "Wọ́n"];
-const negPronouns = ["Mi ò", "Ìwő ò", "Kò", "A ò", "Wọ́n ò"];
-
-
+const pronouns = ['Mo', 'Ìwọ', 'Ó', 'Àwa', 'Wọ́n']
+const negPronouns = ['Mi ò', 'Ìwő ò', 'Kò', 'A ò', 'Wọ́n ò']
 
 const playAudio = (filename) => {
-  const audioPath = `${process.env.PUBLIC_URL}/audio/argumentGame/moPronoun/${filename}.mp3`;
-  console.log(audioPath); 
-  const audio = new Audio(audioPath);
-  audio.play().catch((err) => console.warn("Audio playback failed:", err));
-};
-
-
+  const audioPath = `${process.env.PUBLIC_URL}/audio/argumentGame/moPronoun/${filename}.mp3`
+  console.log(audioPath)
+  const audio = new Audio(audioPath)
+  audio.play().catch((err) => console.warn('Audio playback failed:', err))
+}
 
 const ConjugationTable = ({ tense, polarity, verbKey }) => {
-  const isAffirmative = polarity === "affirmative";
-  const pronounList = isAffirmative ? pronouns : negPronouns;
-  const sentences = verbs[verbKey][tense][polarity];
-
- 
-
+  const isAffirmative = polarity === 'affirmative'
+  const pronounList = isAffirmative ? pronouns : negPronouns
+  const sentences = verbs[verbKey][tense][polarity]
 
   return (
     <table className="conjugation-table">
       <thead>
         <tr>
-          {["Pronoun", "Tense", "Verb", "Yorùbá Sentence", "Audio"].map(
+          {['Pronoun', 'Tense', 'Verb', 'Yorùbá Sentence', 'Audio'].map(
             (header) => (
               <th key={header}>{header}</th>
             )
@@ -39,14 +32,13 @@ const ConjugationTable = ({ tense, polarity, verbKey }) => {
         {sentences.map((sentence, i) => {
           const audioFilename = `${polarity}_${normalizeVerbKey(verbKey)}_${
             i + 1
-          }`;
-          console.log(audioFilename);
-          const isMo = i === 0;
+          }`
+          const isMo = i === 0
 
           return (
             <tr key={i}>
               <td>{pronounList[i]}</td>
-              <td>{tense === "past" ? "Tí" : "Present"}</td>
+              <td>{tense === 'past' ? 'Tí' : 'Present'}</td>
               <td>{verbKey}</td>
               <td>{sentence}</td>
               <td className="audio-cell">
@@ -64,21 +56,18 @@ const ConjugationTable = ({ tense, polarity, verbKey }) => {
                 )}
               </td>
             </tr>
-          );
+          )
         })}
       </tbody>
     </table>
-  );
-};
-
-
-
+  )
+}
 
 const VerbConjugation = () => {
-  const [selectedTense, setSelectedTense] = useState("past");
-  const [selectedVerb, setSelectedVerb] = useState("jẹun");
+  const [selectedTense, setSelectedTense] = useState('past')
+  const [selectedVerb, setSelectedVerb] = useState('jẹun')
 
-  const verbKeys = Object.keys(verbs);
+  const verbKeys = Object.keys(verbs)
 
   return (
     <>
@@ -110,17 +99,17 @@ const VerbConjugation = () => {
         <div className="tense-selector">
           <button
             className={`tense-button ${
-              selectedTense === "past" ? "active" : ""
+              selectedTense === 'past' ? 'active' : ''
             }`}
-            onClick={() => setSelectedTense("past")}
+            onClick={() => setSelectedTense('past')}
           >
-            Past 
+            Past
           </button>
           <button
             className={`tense-button ${
-              selectedTense === "present" ? "active" : ""
+              selectedTense === 'present' ? 'active' : ''
             }`}
-            onClick={() => setSelectedTense("present")}
+            onClick={() => setSelectedTense('present')}
           >
             Present
           </button>
@@ -132,7 +121,7 @@ const VerbConjugation = () => {
             <button
               key={verb}
               onClick={() => setSelectedVerb(verb)}
-              className={`verb-button ${selectedVerb === verb ? "active" : ""}`}
+              className={`verb-button ${selectedVerb === verb ? 'active' : ''}`}
             >
               {verb}
             </button>
@@ -140,10 +129,7 @@ const VerbConjugation = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-
-
-
-export default VerbConjugation;
+export default VerbConjugation
