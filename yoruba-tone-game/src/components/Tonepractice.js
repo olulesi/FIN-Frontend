@@ -33,7 +33,7 @@ const tonePracticeData = [
   },
   {
     words: ["Ì", "bà", "rà", "pá"],
-    tones: ["DO", "DO", "DO", "MI"],
+    tones: ["DO", "DO", "DO", "MII"],
     audio: Ibarapa,
   },
   {
