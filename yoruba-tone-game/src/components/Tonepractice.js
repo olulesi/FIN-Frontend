@@ -7,6 +7,8 @@ import eleyeleAudio from "../assets/audio/eleyele.mp3";
 import oluyoleAudio from "../assets/audio/oluyole.mp3";
 import ijokodoAudio from "../assets/audio/ijokodo.mp3";
 import opoileosaAudio from "../assets/audio/opoileosa.mp3";
+import Ibarapa from "../assets/audio/Ibarapa.mp3";
+import Morowore from "../assets/audio/Morowore.mp3";
 
 const tonePracticeData = [
   {
@@ -28,6 +30,16 @@ const tonePracticeData = [
     words: ["o", "pò", "i", "lé", "ó", "sá"],
     tones: ["RE", "DO", "RE", "MI", "MI", "MI"],
     audio: opoileosaAudio,
+  },
+  {
+    words: ["Ì", "bà", "rà", "pá"],
+    tones: ["DO", "DO", "DO", "MI"],
+    audio: Ibarapa,
+  },
+  {
+    words: ["Mo", "ró", "wó", "rè"],
+    tones: ["RE", "MI", "MI", "DO"],
+    audio: Morowore,
   },
 ];
 

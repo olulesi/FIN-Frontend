@@ -4,7 +4,7 @@ import { verbs, normalizeVerbKey } from '../assets/data/yorubaVerbs'
 
 const pronouns = ['Mo', 'Ìwọ', 'Ó', 'Àwa', 'Wọ́n']
 const negPronouns = ['Mi ò', 'Ìwő ò', 'Kò', 'A ò', 'Wọ́n ò']
-const PRONOUNS_WITH_AUDIO = new Set([0, 3, 4]) // 0 = Mo, 4 = Wọ́n
+const PRONOUNS_WITH_AUDIO = new Set([0, 3, 4]) // 0 = Mo, 3 = awa 4 = Wọ́n
 
 const playAudio = (filename, index) => {
   const indexToFolder = {
