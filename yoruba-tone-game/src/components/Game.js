@@ -7,6 +7,8 @@ import eleyeleAudio from "../assets/audio/eleyele.mp3";
 import oluyoleAudio from "../assets/audio/oluyole.mp3";
 import ijokodoAudio from "../assets/audio/ijokodo.mp3";
 import opoileosaAudio from "../assets/audio/opoileosa.mp3";
+import Ibarapa from "../assets/audio/Ibarapa.mp3"
+import Morowore from "../assets/audio/Morowore.mp3"
 
 // Sample game data - 4 words with placeholder options
 const gameData = [
@@ -31,8 +33,35 @@ const gameData = [
   {
     word: "opoileosa",
     audioFile: opoileosaAudio,
-    options: ["Re Do Re Do Re Do", "Do Re Do Re Do Re", "Mi Do Mi Do Mi Do", "Re Do Re Mi Mi Mi"],
+    options: [
+      "Re Do Re Do Re Do",
+      "Do Re Do Re Do Re",
+      "Mi Do Mi Do Mi Do",
+      "Re Do Re Mi Mi Mi",
+    ],
     correct: 3,
+  },
+  {
+    word: "Ibarapa",
+    audioFile: Ibarapa,
+    options: [
+      "Re Do Re Do Re Do",
+      "Do Re Do Re Do Re",
+      "Re Do Re Mi Mi Mi",
+      "Mi Do Mi Do Mi Do",
+    ],
+    correct: 4,
+  },
+  {
+    word: "Morowore",
+    audioFile: Morowore,
+    options: [
+      "Re Do Re Do Re Do",
+      "Do Re Do Re Do Re",
+      "Re Do Re Mi Mi Mi",
+      "Mi Do Mi Do Mi Do",
+    ],
+    correct: 4,
   },
 ];
 
