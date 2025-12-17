@@ -9,8 +9,8 @@ import ijokodoAudio from "../assets/audio/ijokodo.mp3";
 import opoileosaAudio from "../assets/audio/opoileosa.mp3";
 import Ibarapa from "../assets/audio/Ibarapa.mp3"
 import Morowore from "../assets/audio/Morowore.mp3"
-import igba from "../assets/audio/igba.mp3";
-import igbadodo from "../assets/audio/tonalHomonyms/igbadodo.mp3"
+import igba from "../assets/audio/Igba.mp3";
+
   
 // Sample game data - 4 words with placeholder options
 const gameData = [
@@ -18,11 +18,11 @@ const gameData = [
     word: "eleyele",
     audioFile: eleyeleAudio,
     options: [
-      "Do Mi Re Mi",
+      "Do Do Do Do",
       "Re Do Re Do",
       "Re Mi Re Mi",
       "Do Re Do Re"],
-    correct: 2,
+    correct: 0,
   },
   {
     word: "oluyole",
@@ -41,8 +41,8 @@ const gameData = [
       "Mi Do Re Mi",
       "Re Do Re Do",
       "Mi Re Mi Re",
-      "Re Mi Re Mi"],
-    correct: 0,
+      "Do Do Do Do"],
+    correct: 3,
   },
   {
     word: "opoileosa",
@@ -50,45 +50,43 @@ const gameData = [
     options: [
       "Re Do Re Do Re Do",
       "Do Re Do Re Do Re",
-      "Mi Do Mi Do Mi Do",
+      "Do Do Do Do Do Do",
       "Re Do Re Mi Mi Mi",
     ],
-    correct: 3,
+    correct: 2,
   },
   {
     word: "Ibarapa",
     audioFile: Ibarapa,
     options: [
-      "Re Do Re Do Re Do",
-      "Do Re Do Re Do Re",
-      "Re Do Re Mi Mi Mi",
-      "Mi Do Mi Do Mi Do",
-    ],
-    correct: 4,
+      "Do Mi Do Mi ",
+      "Mi Re Do Re ",
+      "Re Do Re Mi ",
+      "Do Mi Do Do"],
+    correct: 0,
   },
   {
     word: "Morowore",
     audioFile: Morowore,
     options: [
-      "Re Do Re Do Re Do",
-      "Do Re Do Re Do Re",
-      "Re Do Re Mi Mi Mi",
-      "Mi Do Mi Do Mi Do",
+      "Re Do Re Do",
+      "Do Re Do Re",
+      "Re Do Re Mi",
+      "Do Mi Do Do",
     ],
-    correct: 4,
+    correct: 3,
   },
   {
-    word: "igbadodo",
-    audiofile: igbadodo,
+    word: "Igba",
+    audiofile: Igba,
     options: [
-      "Re Do Re Do Re Do",
-      "Do Re Do Re Do Re",
-      "Re Do Re Mi Mi Mi",
-      "Mi Do Mi Do Mi Do",
+      "Re Re",
+      "Do Do",
+      "Re Do",
+      "Mi Do",
     ],
-    correct: 4,
-    
-  }
+    correct: 2,
+  },
 ];
 
 function Game() {
