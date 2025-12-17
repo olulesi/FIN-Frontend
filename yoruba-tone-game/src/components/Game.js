@@ -81,8 +81,8 @@ const gameData = [
     audiofile: Igba,
     options: [
       "Re Re",
+      "Do Mi",
       "Do Do",
-      "Re Do",
       "Mi Do",
     ],
     correct: 2,
