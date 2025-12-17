@@ -9,25 +9,39 @@ import ijokodoAudio from "../assets/audio/ijokodo.mp3";
 import opoileosaAudio from "../assets/audio/opoileosa.mp3";
 import Ibarapa from "../assets/audio/Ibarapa.mp3"
 import Morowore from "../assets/audio/Morowore.mp3"
-
+import igba from "../assets/audio/igba.mp3";
+import igbadodo from "../assets/audio/tonalHomonyms/igbadodo.mp3"
+  
 // Sample game data - 4 words with placeholder options
 const gameData = [
   {
     word: "eleyele",
     audioFile: eleyeleAudio,
-    options: ["Do Mi Re Mi", "Re Do Re Do", "Re Mi Re Mi", "Do Re Do Re"],
+    options: [
+      "Do Mi Re Mi",
+      "Re Do Re Do",
+      "Re Mi Re Mi",
+      "Do Re Do Re"],
     correct: 2,
   },
   {
     word: "oluyole",
     audioFile: oluyoleAudio,
-    options: ["Mi Re Mi Re", "Re Mi Do Mi", "Re Mi Re Mi", "Do Mi Do Mi"],
+    options: [
+      "Mi Re Mi Re",
+      "Re Mi Do Mi",
+      "Re Mi Re Mi",
+      "Do Mi Do Mi"],
     correct: 1,
   },
   {
     word: "ijokodo",
     audioFile: ijokodoAudio,
-    options: ["Mi Do Re Mi", "Re Do Re Do", "Mi Re Mi Re", "Re Mi Re Mi"],
+    options: [
+      "Mi Do Re Mi",
+      "Re Do Re Do",
+      "Mi Re Mi Re",
+      "Re Mi Re Mi"],
     correct: 0,
   },
   {
@@ -63,6 +77,18 @@ const gameData = [
     ],
     correct: 4,
   },
+  {
+    word: "igbadodo",
+    audiofile: igbadodo,
+    options: [
+      "Re Do Re Do Re Do",
+      "Do Re Do Re Do Re",
+      "Re Do Re Mi Mi Mi",
+      "Mi Do Mi Do Mi Do",
+    ],
+    correct: 4,
+    
+  }
 ];
 
 function Game() {
