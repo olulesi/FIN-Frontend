@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import Question from './Question'
 import './Game.css'
 
@@ -14,53 +14,60 @@ import Igba from '../assets/audio/igba.mp3'
 // Sample game data - 4 words with placeholder options
 const gameData = [
   {
-    word: 'eleyele',
+    word: "eleyele",
     audioFile: eleyeleAudio,
-    options: ['Do Do Do Do', 'Re Do Re Do', 'Re Mi Re Mi', 'Do Re Do Re'],
+    options: ["Do Do Do Do", "Re Do Re Do", "Re Mi Re Mi", "Do Re Do Re"],
     correct: 0,
+    category: "location",
   },
   {
-    word: 'oluyole',
+    word: "oluyole",
     audioFile: oluyoleAudio,
-    options: ['Mi Re Mi Re', 'Re Mi Do Mi', 'Re Mi Re Mi', 'Do Mi Do Mi'],
+    options: ["Mi Re Mi Re", "Re Mi Do Mi", "Re Mi Re Mi", "Do Mi Do Mi"],
     correct: 1,
+    category: "location",
   },
   {
-    word: 'ijokodo',
+    word: "ijokodo",
     audioFile: ijokodoAudio,
-    options: ['Mi Do Re Mi', 'Re Do Re Do', 'Mi Re Mi Re', 'Do Do Do Do'],
+    options: ["Mi Do Re Mi", "Re Do Re Do", "Mi Re Mi Re", "Do Do Do Do"],
     correct: 3,
+    category: "location",
   },
   {
-    word: 'opoileosa',
+    word: "opoileosa",
     audioFile: opoileosaAudio,
     options: [
-      'Re Do Re Do Re Do',
-      'Do Re Do Re Do Re',
-      'Do Do Do Do Do Do',
-      'Re Do Re Mi Mi Mi',
+      "Re Do Re Do Re Do",
+      "Do Re Do Re Do Re",
+      "Do Do Do Do Do Do",
+      "Re Do Re Mi Mi Mi",
     ],
     correct: 2,
+    category: "location",
   },
   {
-    word: 'Ibarapa',
+    word: "Ibarapa",
     audioFile: Ibarapa,
-    options: ['Do Mi Do Mi ', 'Mi Re Do Re ', 'Re Do Re Mi ', 'Do Mi Do Do'],
+    options: ["Do Mi Do Mi ", "Mi Re Do Re ", "Re Do Re Mi ", "Do Mi Do Do"],
     correct: 0,
+    category: "location",
   },
   {
-    word: 'Morowore',
+    word: "Morowore",
     audioFile: Morowore,
-    options: ['Re Do Re Do', 'Do Re Do Re', 'Re Do Re Mi', 'Do Mi Do Do'],
+    options: ["Re Do Re Do", "Do Re Do Re", "Re Do Re Mi", "Do Mi Do Do"],
     correct: 3,
+    category: "word",
   },
   {
-    word: 'Igba',
+    word: "Igba",
     audioFile: Igba,
-    options: ['Re Re', 'Do Mi', 'Do Do', 'Mi Do'],
+    options: ["Re Re", "Do Mi", "Do Do", "Mi Do"],
     correct: 2,
+    category: "homonyns",
   },
-]
+];
 
 function Game() {
   const [currentWordIndex, setCurrentWordIndex] = useState(0)
@@ -71,8 +78,26 @@ function Game() {
   const [hasPlayedAudio, setHasPlayedAudio] = useState(false)
   const [correctCount, setCorrectCount] = useState(0) // 🔥 NEW STATE
   const [wrongCount, setWrongCount] = useState(0) // 🔥 NEW STATE
+  const [selectedCategory, setSelectedCategory] = useState("all"); // default: show all
 
-  const currentWord = gameData[currentWordIndex]
+  React.useEffect(() => {
+    setCurrentWordIndex(0);
+    setHasPlayedAudio(false);
+    setSelectedOption(null);
+    setShowAnswer(false);
+  }, [selectedCategory]);
+
+  //filtered data
+  const filteredData = useMemo(() => {
+    if (selectedCategory === "all") return gameData;
+    return gameData.filter(
+      (item) => item.category === selectedCategory
+    );
+  }, [selectedCategory]);
+
+  const current = filteredData [currentWordIndex]
+
+  const currentWord = filteredData[currentWordIndex]
 
   // Handle option selection
   const handleOptionSelect = (index) => {
@@ -117,7 +142,7 @@ function Game() {
 
   // Next word
   const nextWord = () => {
-    setCurrentWordIndex((prev) => (prev + 1) % gameData.length)
+    setCurrentWordIndex((prev) => (prev + 1) % filteredData.length)
     setSelectedOption(null)
     setShowAnswer(false)
     setFeedback('')
@@ -139,6 +164,53 @@ function Game() {
         </button>
       </div>
 
+      {/* radio buttons here*/}
+      <div className="category-filter">
+        <label>
+          <input
+            type="radio"
+            name="category"
+            value="all"
+            checked={selectedCategory === "all"}
+            onChange={() => setSelectedCategory("all")}
+          />
+          All
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            name="category"
+            value="word"
+            checked={selectedCategory === "word"}
+            onChange={() => setSelectedCategory("word")}
+          />
+          Words
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            name="category"
+            value="location"
+            checked={selectedCategory === "location"}
+            onChange={() => setSelectedCategory("location")}
+          />
+          Locations
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            name="category"
+            value="homonyns"
+            checked={selectedCategory === "homonyns"}
+            onChange={() => setSelectedCategory("homonyns")}
+          />
+          Homonyms
+        </label>
+      </div>
+
       {/* Question Component */}
       <Question
         word={currentWord.word}
@@ -156,7 +228,7 @@ function Game() {
         onNextWord={nextWord}
       />
     </div>
-  )
+  );
 }
 
 export default Game

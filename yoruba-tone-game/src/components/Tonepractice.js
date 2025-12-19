@@ -13,72 +13,88 @@ import Igba from '../assets/audio/igba.mp3'
 
 const tonePracticeData = [
   {
-    words: ['O', 'lú', 'yọ̀', 'lé'],
-    tones: ['RE', 'MI', 'DO', 'MI'],
+    words: ["O", "lú", "yọ̀", "lé"],
+    tones: ["RE", "MI", "DO", "MI"],
     audio: oluyoleAudio,
+    category: "location",
   },
   {
-    words: ['Ẹ', 'lẹ́', 'yẹ', 'lẹ́'],
-    tones: ['RE', 'MI', 'RE', 'MI'],
+    words: ["Ẹ", "lẹ́", "yẹ", "lẹ́"],
+    tones: ["RE", "MI", "RE", "MI"],
     audio: eleyeleAudio,
+    category: "location",
   },
   {
-    words: ['Í', 'Jò', 'ko', 'dó'],
-    tones: ['MI', 'DO', 'RE', 'MI'],
+    words: ["Í", "Jò", "ko", "dó"],
+    tones: ["MI", "DO", "RE", "MI"],
     audio: ijokodoAudio,
+    category: "location",
   },
   {
-    words: ['o', 'pò', 'i', 'lé', 'ó', 'sá'],
-    tones: ['RE', 'DO', 'RE', 'MI', 'MI', 'MI'],
+    words: ["o", "pò", "i", "lé", "ó", "sá"],
+    tones: ["RE", "DO", "RE", "MI", "MI", "MI"],
     audio: opoileosaAudio,
+    category: "location",
   },
   {
-    words: ['Ì', 'bà', 'rà', 'pá'],
-    tones: ['DO', 'DO', 'DO', 'MII'],
+    words: ["Ì", "bà", "rà", "pá"],
+    tones: ["DO", "DO", "DO", "MII"],
     audio: Ibarapa,
+    category: "location",
   },
   {
-    words: ['Mo', 'ró', 'wó', 'rè'],
-    tones: ['RE', 'MI', 'MI', 'DO'],
+    words: ["Mo", "ró", "wó", "rè"],
+    tones: ["RE", "MI", "MI", "DO"],
     audio: Morowore,
+    category: "word",
   },
   {
-    words: ['Ìg', 'bà'],
-    tones: ['DO', 'DO'],
+    words: ["Ìg", "bà"],
+    tones: ["DO", "DO"],
     audio: Igba,
+    category: "homonyns",
   },
-]
+];
 
 const WordBox = ({ word }) => <div className="wordBox">{word}</div>
 
 const ToneBox = ({ tone }) => <div className="ToneBox">{tone}</div>
 
 const TonePractice = () => {
-  const [toneIndex, setToneIndex] = useState(0)
+  //state function
+  const [toneIndex, setToneIndex] = useState(0);
+  const current = tonePracticeData[toneIndex];
 
-  const current = tonePracticeData[toneIndex]
+
+
+
 
   const handlePrev = () => {
     setToneIndex((prev) =>
       prev === 0 ? tonePracticeData.length - 1 : prev - 1
-    )
-  }
+    );
+  };
 
   const handleNext = () => {
-    setToneIndex((prev) => (prev + 1) % tonePracticeData.length)
-  }
+    setToneIndex((prev) => (prev + 1) % tonePracticeData.length);
+  };
 
   const handlePlayAudio = () => {
-    const audio = new Audio(current.audio) // from public/
+    const audio = new Audio(current.audio); // from public/
     // Small delay helps with autoplay policies in some browsers
     setTimeout(() => {
-      audio.play().catch((e) => console.error('Audio playback failed:', e))
-    }, 100)
-  }
+      audio.play().catch((e) => console.error("Audio playback failed:", e));
+    }, 100);
+  };
+
+  
 
   return (
     <div>
       <h2>Tone Practice</h2>
+
+     
+
       <div className="Tone-practice">
         {/* Word Row */}
         <div className="word-row">
@@ -106,10 +122,9 @@ const TonePractice = () => {
             Next ➡️
           </button>
         </div>
-      </div>{' '}
-      {/* 👈 This was MISSING in your snippet! */}
+      </div>
     </div>
-  )
+  );
 }
 
 export default TonePractice
