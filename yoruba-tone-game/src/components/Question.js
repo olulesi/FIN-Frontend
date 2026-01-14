@@ -9,12 +9,14 @@ function Question({
   feedback,
   lastPlayed,
   hasPlayedAudio,
-  correctCount, // 🔥 NEW PROP
-  wrongCount, // 🔥 NEW PROP
-  scorePercentage, // 🔥 NEW PROP
+  correctCount,
+  wrongCount,
+  scorePercentage,
   onOptionSelect,
   onPlayAudio,
   onNextWord,
+  playbackRate,
+  onSetPlaybackRate
 }) {
   return (
     <div className="question-container">
@@ -44,6 +46,20 @@ function Question({
         ▶️ Play
       </button>
 
+      {/* Playback Speed Controls */}
+      <div className="speed-controls">
+        <i className="fas fa-play speed-icon" title="Playback Speed"></i>
+        {[0.5, 0.75, 1.0, 1.5, 2.0].map((rate) => (
+          <button
+            key={rate}
+            className={`speed-btn ${playbackRate === rate ? "active" : ""}`}
+            onClick={() => onSetPlaybackRate(rate)}
+          >
+            ×{rate}
+          </button>
+        ))}
+      </div>
+
       {/* Feedback */}
       {feedback && <div className="feedback">{feedback}</div>}
 
@@ -54,7 +70,6 @@ function Question({
         </div>
       )}
 
-      
       {/* Score Tracker - Only show after first answer */}
       {(correctCount > 0 || wrongCount > 0) && (
         <div className="score-tracker">

@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import '../styles/Argument.css'
 import { verbs, normalizeVerbKey } from '../assets/data/yorubaVerbs'
 
+//funtions
 const pronouns = ['Mo', 'Ìwọ', 'Ó', 'Àwa', 'Wọ́n']
 const negPronouns = ['Mi ò', 'Ìwő ò', 'Kò', 'A ò', 'Wọ́n ò']
-const PRONOUNS_WITH_AUDIO = new Set([0,1,2,3,4]) // 0 = Mo, 3 = awa 4 = Wọ́n
+const PRONOUNS_WITH_AUDIO = new Set([0, 1, 2, 3, 4]) // 0 = Mo, 3 = awa 4 = Wọ́n
 
-const playAudio = (filename, index) => {
+const playAudio  = (filename, index) => {
   const indexToFolder = {
     0: 'moPronoun',
     1: 'iwoPronoun',
@@ -32,22 +33,22 @@ const ConjugationTable = ({ tense, polarity, verbKey }) => {
     <table className="conjugation-table">
       <thead>
         <tr>
-          {['Pronoun', 'Tense', 'Verb', 'Yorùbá Sentence', 'Audio'].map(
+          {['pronoun', 'Tense', 'Verb', 'Yorùbá Sentence', 'Audio'].map(
             (header) => (
               <th key={header}>{header}</th>
             )
           )}
         </tr>
       </thead>
-      <tbody>
-        {sentences.map((sentence, i) => {
+      { <tbody>
+        {sentences.map((sentence,i) => {
           const audioFilename = `${polarity}_${normalizeVerbKey(verbKey)}_${
             i + 1
           }`
           return (
             <tr key={i}>
-              <td>{pronounList[i]}</td>
-              <td>{tense === 'past' ? 'Tí' : 'Present'}</td>
+              <td>{pronounList[0]}</td>
+              <td>{tense === 'past' ? 'ti':'Present'}</td>
               <td>{verbKey}</td>
               <td>{sentence}</td>
               <td className="audio-cell">
@@ -65,15 +66,16 @@ const ConjugationTable = ({ tense, polarity, verbKey }) => {
             </tr>
           )
         })}
-      </tbody>
+      </tbody> }
     </table>
   )
 }
 
 const VerbConjugation = () => {
+  //state
   const [selectedTense, setSelectedTense] = useState('past')
   const [selectedVerb, setSelectedVerb] = useState('jẹun')
-
+  
   const verbKeys = Object.keys(verbs)
 
   return (
@@ -92,14 +94,15 @@ const VerbConjugation = () => {
               verbKey={selectedVerb}
             />
           </div>
-          <div className="table-section">
+          { <div className="table-section">
             <h3>Negative</h3>
             <ConjugationTable
               tense={selectedTense}
               polarity="negative"
               verbKey={selectedVerb}
             />
-          </div>
+            
+          </div> }
         </div>
 
         {/* Tense Buttons */}

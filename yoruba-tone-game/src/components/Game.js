@@ -69,17 +69,23 @@ const gameData = [
   },
 ];
 
-function Game() {
-  const [currentWordIndex, setCurrentWordIndex] = useState(0)
-  const [selectedOption, setSelectedOption] = useState(null)
-  const [showAnswer, setShowAnswer] = useState(false)
-  const [feedback, setFeedback] = useState('')
-  const [lastPlayed, setLastPlayed] = useState('')
-  const [hasPlayedAudio, setHasPlayedAudio] = useState(false)
-  const [correctCount, setCorrectCount] = useState(0) // 🔥 NEW STATE
-  const [wrongCount, setWrongCount] = useState(0) // 🔥 NEW STATE
-  const [selectedCategory, setSelectedCategory] = useState("all"); // default: show all
 
+const Game = () => {
+
+  //STATE DATA
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [showAnswer, setShowAnswer] = useState(false);
+  const [feedback, setFeedback] = useState("");
+  const [lastPlayed, setLastPlayed] = useState("");
+  const [hasPlayedAudio, setHasPlayedAudio] = useState(false);
+  const [correctCount, setCorrectCount] = useState(0); 
+  const [wrongCount, setWrongCount] = useState(0); 
+  const [selectedCategory, setSelectedCategory] = useState("all"); 
+  const [playbackRate, setPlaybackRate] = useState(1.0); // default normal speed
+
+
+  //to reset option after a category is selected (USEEFFECTS)
   React.useEffect(() => {
     setCurrentWordIndex(0);
     setHasPlayedAudio(false);
@@ -87,74 +93,84 @@ function Game() {
     setShowAnswer(false);
   }, [selectedCategory]);
 
-  //filtered data
+
+  //filtered data USEMEMO
   const filteredData = useMemo(() => {
     if (selectedCategory === "all") return gameData;
-    return gameData.filter(
-      (item) => item.category === selectedCategory
-    );
+    return gameData.filter((item) => item.category === selectedCategory);
   }, [selectedCategory]);
 
-  const current = filteredData [currentWordIndex]
+  const current = filteredData[currentWordIndex];
 
-  const currentWord = filteredData[currentWordIndex]
+  const currentWord = filteredData[currentWordIndex];
 
+
+
+  //EVENT HANDLERS FUNCTION
+  
   // Handle option selection
   const handleOptionSelect = (index) => {
     if (!hasPlayedAudio) {
-      alert('Please play the sound first!')
-      return
+      alert("Please play the sound first!");
+      return;
     }
 
-    setSelectedOption(index)
+    setSelectedOption(index);
     if (index === currentWord.correct) {
-      setFeedback('Correct ✅')
-      setShowAnswer(true)
-      setLastPlayed(currentWord.word)
-      setCorrectCount((prev) => prev + 1) // 🔥 Increment correct count
+      setFeedback("Correct ✅");
+      setShowAnswer(true);
+      setLastPlayed(currentWord.word);
+      setCorrectCount((prev) => prev + 1); // 🔥 Increment correct count
     } else {
-      setFeedback('Wrong ❌')
-      setShowAnswer(true)
-      setWrongCount((prev) => prev + 1) // 🔥 Increment wrong count
+      setFeedback("Wrong ❌");
+      setShowAnswer(true);
+      setWrongCount((prev) => prev + 1); // 🔥 Increment wrong count
     }
-  }
+  };
+
 
   // Play actual audio file
   const playAudio = () => {
-    setHasPlayedAudio(true)
-    setLastPlayed(currentWord.word)
+    setHasPlayedAudio(true);
+    setLastPlayed(currentWord.word);
 
-    const audio = new Audio(currentWord.audioFile)
-    audio.play().catch((e) => console.log('Audio play error:', e))
-  }
+    const audio = new Audio(currentWord.audioFile);
+    audio.playbackRate = playbackRate; //PLAYBACK 
+    audio.play().catch((e) => console.log("Audio play error:", e));
+  };
 
+  
   // Start over
   const startOver = () => {
-    setCurrentWordIndex(0)
-    setSelectedOption(null)
-    setShowAnswer(false)
-    setFeedback('')
-    setLastPlayed('')
-    setHasPlayedAudio(false)
-    setCorrectCount(0) // 🔥 Reset score
-    setWrongCount(0) // 🔥 Reset score
-  }
+    setCurrentWordIndex(0);
+    setSelectedOption(null);
+    setShowAnswer(false);
+    setFeedback("");
+    setLastPlayed("");
+    setHasPlayedAudio(false);
+    setCorrectCount(0); //  Reset score
+    setWrongCount(0); //  Reset score
+  };
+
 
   // Next word
   const nextWord = () => {
-    setCurrentWordIndex((prev) => (prev + 1) % filteredData.length)
-    setSelectedOption(null)
-    setShowAnswer(false)
-    setFeedback('')
-    setLastPlayed('')
-    setHasPlayedAudio(false)
-  }
+    setCurrentWordIndex((prev) => (prev + 1) % filteredData.length);
+    setSelectedOption(null);
+    setShowAnswer(false);
+    setFeedback("");
+    setLastPlayed("");
+    setHasPlayedAudio(false);
+  };
+
 
   // Calculate score percentage
-  const totalAttempts = correctCount + wrongCount
+  const totalAttempts = correctCount + wrongCount;
   const scorePercentage =
-    totalAttempts > 0 ? Math.round((correctCount / totalAttempts) * 100) : 0
+    totalAttempts > 0 ? Math.round((correctCount / totalAttempts) * 100) : 0;
 
+  
+  
   return (
     <div className="game-container">
       {/* Top Controls */}
@@ -166,6 +182,7 @@ function Game() {
 
       {/* radio buttons here*/}
       <div className="category-filter">
+        {/* ALL CATEGORY */}
         <label>
           <input
             type="radio"
@@ -176,7 +193,7 @@ function Game() {
           />
           All
         </label>
-
+        {/* WORD CATEGORY */}
         <label>
           <input
             type="radio"
@@ -187,7 +204,7 @@ function Game() {
           />
           Words
         </label>
-
+        {/* LOCATION CATEGORY */}
         <label>
           <input
             type="radio"
@@ -198,7 +215,7 @@ function Game() {
           />
           Locations
         </label>
-
+        {/* HOMONYMS CATEGORY */}
         <label>
           <input
             type="radio"
@@ -211,7 +228,7 @@ function Game() {
         </label>
       </div>
 
-      {/* Question Component */}
+      {/* THE CHILD COMPONENT AND PROPS PASS ACROSS */}
       <Question
         word={currentWord.word}
         options={currentWord.options}
@@ -220,12 +237,14 @@ function Game() {
         feedback={feedback}
         lastPlayed={lastPlayed}
         hasPlayedAudio={hasPlayedAudio}
-        correctCount={correctCount} // 🔥 Pass score props
-        wrongCount={wrongCount} // 🔥 Pass score props
-        scorePercentage={scorePercentage} // 🔥 Pass score props
+        correctCount={correctCount}
+        wrongCount={wrongCount}
+        scorePercentage={scorePercentage}
         onOptionSelect={handleOptionSelect}
         onPlayAudio={playAudio}
         onNextWord={nextWord}
+        playbackRate={playbackRate}
+        onSetPlaybackRate={setPlaybackRate}
       />
     </div>
   );
