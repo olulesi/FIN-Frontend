@@ -49,15 +49,17 @@ function Question({
       {/* Playback Speed Controls */}
       <div className="speed-controls">
         <i className="fas fa-play speed-icon" title="Playback Speed"></i>
-        {[0.5, 0.75, 1.0, 1.5, 2.0].map((rate) => (
-          <button
-            key={rate}
-            className={`speed-btn ${playbackRate === rate ? "active" : ""}`}
-            onClick={() => onSetPlaybackRate(rate)}
-          >
-            ×{rate}
-          </button>
-        ))}
+         <select
+    value={playbackRate}
+    onChange={(e) => onSetPlaybackRate(Number(e.target.value))}
+    className="speed-select"
+  >
+    <option value={0.75}>×0.75</option>
+    <option value={1.0}>×1.0</option>
+    <option value={1.25}>×1.25</option>
+    <option value={1.5}>×1.5</option>
+    <option value={2.0}>×2.0</option>
+  </select>
       </div>
 
       {/* Feedback */}
