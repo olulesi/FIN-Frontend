@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <center>
+        <h1><font color="green">Nigeria Defence Academy</font></h1>
+        <h2><font color="blue">Registration Form</font></h2>
+        <p>Kindly ensure you fill the form with the correct information</p>
+    </center>
+
+    <form action="" method="post">
+        <label for="fName">First name</label>
+        <input type="text" name="first_name" id="fName" placeholder="Enter your first name" required>
+        <br><br>
+        <label for="lName">Last name</label>
+        <input type="text" name="last_name" id="lName" placeholder="Enter your last name" required>
+        <p>
+            Password
+            <input type="password" placeholder="Enter your password" required>
+        </p>
+         <p>
+            Favourite number
+            <input type="number" >
+        </p>
+        <fieldset>
+            <legend>Contact Details</legend>
+            <p>
+                Phone number
+                <input type="tel" placeholder="Enter your phone number" required>
+            </p>
+             <p>
+            Email address
+            <input type="email" placeholder="Enter your email address" required> 
+        </p>
+        </fieldset>
+
+        <fieldset>
+            <legend>Bio Data / More Data</legend>
+            <p>
+                Date of Birth
+                <input type="date" namwe="dob" max="2007-12-31" min="1995-01-01" required>
+            </p>
+
+            <p>Gender
+                <input type="radio" name="gender"> Male
+                <input type="radio" name="gender"> Female
+            </p>
+
+             <p>
+                Upload your CV
+                <input type="file" name="cv">
+            </p>
+            <p>
+                Educational Qualification
+                <input type="checkbox" name="edu">Leaving school
+                <input type="checkbox" name="edu">SSCE
+                <input type="checkbox" name="edu">NCE
+                <input type="checkbox" name="edu">OND
+                <input type="checkbox" name="edu">HND
+                <input type="checkbox" name="edu">BSc
+                <input type="checkbox" name="edu">MSc
+                <input type="checkbox" name="edu">PhD
+                <input type="checkbox" name="edu">Others
+            </p>
+
+            <p>
+                What's your favorite color?
+                <input type="color" name="favColor" value="#00ff00">
+            </p>
+
+             <p>
+                State of Origin
+                <select name="states" size="6" multiple>
+                    <option> Abia </option>
+                    <option>Adamawa</option>
+                    <option>Akwa-ibom</option>
+                    <option>Anambra</option>
+                    <option>Bauchi</option>
+                    <option>Benue</option>
+                    <option>Bornu</option>
+                    <option>Cross river</option>
+                    <option>Delta</option>
+                    <option>Edo</option>
+                    <option>Enugu</option>
+                    <option>Oyo</option>
+                </select>
+            </p>
+
+            <p>
+                Local Government Area
+                <input list="LGA">
+                <datalist name="LocalGovtArea" id="LGA">
+                    <option value="Ibadan North"></option>
+                    <option value="Ibadan North East"></option>
+                    <option value="Ibadan North West"></option>
+                    <option value="Ibadan South East"></option>
+                    <option value="Ibadan South West"></option>
+                    <option value="Lagelu"></option>
+                    <option value="Oluyole"></option>
+                    <option value="Ona-Ara"></option>
+                    <option value="Akinyele"></option>
+                    <option value="Egbeda"></option>
+                   
+                </datalist>
+            </p>
+
+            <p>
+                Leave a Comment
+                <textarea name="comment" rows="5" cols="20" placeholder="Enter your comment here"></textarea>
+            </p>
+        </fieldset>
+
+        <p>
+           <!-- <input type="submit" value="Send Message"> -->
+            <button type="submit">Send Message</button>
+
+        </p>
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,61 @@
+
+/* Section styling */
+.tech-trends {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 80px 20px;
+  background-color:  #391c06;
+  color: #0d0c1d;
+}
+
+.tech-trends .content {
+  max-width: 800px;
+}
+
+/* Tag styling */
+.tag {
+  display: inline-block;
+  background-color: #94de50; /* bright green */
+  color: #f8f2f2;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+/* Heading */
+.tech-trends h2 {
+  font-size: 2rem;
+  color: #f0eff4;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* Paragraph */
+.tech-trends p {
+  color: #f0eeee;
+  font-size: 1rem;
+  margin-bottom: 30px;
+  line-height: 1.8;
+}
+
+/* Button */
+.cta-btn {
+  background-color: #0d0c1d;
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #22204a;
+}

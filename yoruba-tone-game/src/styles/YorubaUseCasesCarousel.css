@@ -1,0 +1,83 @@
+.yoruba-use-cases {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.carousel-container {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ✅ FIXED ASPECT RATIO CONTAINER — all videos same size */
+.video-wrapper {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 1rem;
+  position: relative;
+  background: #000;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  /* 16:9 aspect ratio = 9 / 16 = 56.25% */
+  padding-top: 56.25%; /* 👈 THIS CREATES FIXED HEIGHT */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* keeps full video visible */
+  outline: none;
+  border-radius: 8px;
+}
+
+.playback-controls {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.playback-controls select {
+  padding: 0.25rem;
+  border-radius: 4px;
+  border: 1px solid #444;
+  background: #222;
+  color: white;
+}
+
+.keywords {
+  margin: 1rem 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.carousel-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 300px;
+  margin: 1rem auto;
+}
+
+.carousel-nav button {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.carousel-nav button:hover {
+  background: #e9e9e9;
+}
+
+.yorubaheader {
+  font-family: "Abril Fatface", serif;
+}

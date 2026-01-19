@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MiracleDev Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <h1 class="logo">MiracleDev</h1>
+
+    <!-- Desktop Nav Links -->
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">My Info</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="file:///C:/Users/olowookere%20miracle/Documents/PERSONAL%20PROJECTS/Portfolio/in%20progress/MY%20BLOG/skills/skills.html">Skills</a></li>
+      <li><a href="file:///C:/Users/olowookere%20miracle/Documents/PERSONAL%20PROJECTS/Portfolio/in%20progress/MY%20BLOG/contact/contact.html">Contact</a></li>
+    </ul>
+
+    <!-- Mobile Menu Icon -->
+    <div id="menu-btn" class="menu-btn">&#9776;</div>
+  </header>
+
+  <!-- Side Menu (Mobile) -->
+  <nav id="side-menu" class="side-menu">
+    <div class="menu-header">
+      <h2>Menu</h2>
+      <span id="close-btn">&times;</span>
+    </div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">My Info</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Skills</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>I'm <span>Miracle Olowookere</span></h2>
+      <h3>Frontend Developer</h3>
+      <p>
+        I build modern, user-friendly, and scalable web apps. I love turning
+        ideas into interactive experiences.
+      </p>
+      <a href="#" class="btn">View Resume</a>
+    </div>
+
+    <div class="hero-img">
+      <img
+        src="images/mhirax.jpg"
+        alt="Miracle placeholder photo"
+      />
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+  <!-- JavaScript -->
+  <script>
+    // Menu toggle for mobile
+    const menuBtn = document.getElementById('menu-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const sideMenu = document.getElementById('side-menu');
+
+    menuBtn.addEventListener('click', () => {
+      sideMenu.classList.add('open');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      sideMenu.classList.remove('open');
+    });
+  </script>
+</body>
+</html>
+

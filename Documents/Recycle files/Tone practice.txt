@@ -1,0 +1,56 @@
+Tone practice 
+
+<h2 style="text-align:center; margin-top: 40px;">Tone Practice</h2>
+
+<div id="tonePractice" style="text-align:center; margin-top:20px;">
+  <div class="tone-item">
+    <p><strong>O lú yọ́ lé</strong></p>
+    <p>Re mi do mi</p>
+    <button>🔊 Play Audio</button>
+  </div>
+
+  <div class="tone-item" style="display:none;">
+    <p><strong>Ẹlẹ́yẹ́lẹ́</strong></p>
+    <p>Re mi re mi</p>
+    <button>🔊 Play Audio</button>
+  </div>
+
+  <div class="tone-item" style="display:none;">
+    <p><strong>Í Jò ko dó</strong></p>
+    <p>Mi do re mi</p>
+    <button>🔊 Play Audio</button>
+  </div>
+
+  <div class="tone-item" style="display:none;">
+    <p><strong>O pọ̀ ilé ó sá</strong></p>
+    <p>Re do re mi mi mi</p>
+    <button>🔊 Play Audio</button>
+  </div>
+
+  <div style="margin-top:20px;">
+    <button id="prevBtn">⬅ Previous</button>
+    <button id="nextBtn">Next ➡</button>
+  </div>
+</div>
+
+
+const items = document.querySelectorAll('.tone-item');
+let current = 0;
+
+function showItem(index) {
+  items.forEach((item, i) => {
+    item.style.display = (i === index) ? 'block' : 'none';
+  });
+}
+
+document.getElementById('nextBtn').addEventListener('click', () => {
+  current = (current + 1) % items.length; // loops endlessly
+  showItem(current);
+});
+
+document.getElementById('prevBtn').addEventListener('click', () => {
+  current = (current - 1 + items.length) % items.length;
+  showItem(current);
+});
+
+showItem(current); // show first on load

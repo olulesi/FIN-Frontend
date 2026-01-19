@@ -1,0 +1,160 @@
+/* ===== Contact Section ===== */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.contact-section {
+  background: #3b004a;
+  color: #fff;
+  padding: 4rem 1.5rem;
+  position: relative;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.contact-section h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: #ff4fb2;
+  margin: 0.5rem auto 0;
+  border-radius: 5px;
+}
+
+/* Form Container */
+.contact-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.contact-form {
+  background: #4b0060;
+  padding: 2rem;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form label {
+  display: block;
+  text-align: left;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.9rem;
+  margin-bottom: 1.3rem;
+  border: none;
+  border-radius: 10px;
+  background: #5e007a;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #d9b3e6;
+}
+
+.send-btn {
+  width: 100%;
+  background: #ff4fb2;
+  color: #fff;
+  border: none;
+  padding: 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.send-btn:hover {
+  background: #ff75c5;
+  transform: scale(1.03);
+}
+
+/* ===== Social Links ===== */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.social-links a {
+  color: #fff;
+  font-size: 1.8rem;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #ff4fb2;
+}
+
+/* ===== Footer ===== */
+footer {
+  margin-top: 2.5rem;
+  font-size: 0.9rem;
+  color: #d6c1e0;
+}
+
+footer span {
+  color: #ff4fb2;
+  font-weight: 600;
+}
+
+/* ===== Scroll To Top Button ===== */
+.scroll-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #ff4fb2;
+  color: #160808;
+  border: none;
+  border-radius: 12px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(255, 79, 178, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scroll-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(255, 79, 178, 0.4);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .contact-form {
+    padding: 1.5rem;
+  }
+
+  .social-links {
+    gap: 1.5rem;
+  }
+
+  .scroll-top {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    color: #160808;
+  }
+}

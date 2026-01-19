@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EOS Navigation</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Top Header */
+    .top-header {
+      background-color: #0F83BB;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 20px;
+      font-size: 14px;
+    }
+
+    .social-icons i {
+      margin: 0 8px;
+      cursor: pointer;
+    }
+
+    .top-links a {
+      color: white;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .top-links a:not(:last-child)::after {
+      content: '|';
+      margin-left: 12px;
+      color: #ccc;
+    }
+
+    /* Main Nav */
+    .main-header {
+      background-color: #0A3B5C;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '▼';
+      font-size: 10px;
+      margin-left: 4px;
+    }
+
+    .nav-links a.no-dropdown::after {
+      content: '';
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header -->
+  <div class="top-header">
+    <div class="social-icons">
+      <i class="fab fa-linkedin-in"></i>
+      <i class="fab fa-facebook-f"></i>
+      <i class="fab fa-youtube"></i>
+      <i class="fab fa-instagram"></i>
+    </div>
+    <div class="top-links">
+      <a href="#">EOS Conference</a>
+      <a href="#">Traction Library</a>
+      <a href="#">Free Tools</a>
+      <a href="#">Login</a>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <div class="main-header">
+    <div class="logo">
+      <!-- Replace src with your own logo -->
+      <img src="https://www.eosworldwide.com/wp-content/uploads/2021/04/EOS_Logo_White@2x.png" alt="EOS Logo">
+    </div>
+    <div class="nav-links">
+      <a href="#">Become an EOS Coach</a>
+      <a href="#">Hire an Implementer</a>
+      <a href="#">Master EOS</a>
+      <a href="#" class="no-dropdown">Software</a>
+      <a href="#">Resources</a>
+    </div>
+  </div>
+
+</body>
+</html>

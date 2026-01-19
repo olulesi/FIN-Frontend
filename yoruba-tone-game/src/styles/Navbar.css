@@ -1,0 +1,49 @@
+.navbar {
+  background: #0d0d0d;
+  color: white;
+  padding: 10px;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  margin: 0;
+}
+
+.hamburger {
+  font-size: 28px;
+  cursor: pointer;
+  display: none;
+}
+
+/* Menu styles */
+.menu {
+  display: none;
+  background: #111;
+  padding: 10px;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  padding: 10px 0;
+  border-bottom: 1px solid #222;
+}
+
+/* Mobile only */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .menu.open {
+    display: block;
+  }
+}

@@ -54,10 +54,9 @@ const YorubaUseCasesCarousel = () => {
             <video
               ref={videoRef}
               src={currentVideo.src}
-              controls
-              width="100%"
-              style={{ maxWidth: "600px", borderRadius: "8px" }}
+              controls            
             ></video>
+            </div>
 
             {/* Playback Speed Control — placed UNDER the video */}
             <div className="playback-controls">
@@ -76,7 +75,7 @@ const YorubaUseCasesCarousel = () => {
                 <option value={2.0}>2x</option>
               </select>
             </div>
-          </div>
+          
 
           {/* Keywords */}
           <div className="keywords">

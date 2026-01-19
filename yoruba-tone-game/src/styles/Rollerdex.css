@@ -1,99 +1,41 @@
-/* src/components/SongRolodex.css */
-
-.rolodex-container {
-  text-align: center;
-  padding: 2rem 1rem;
-}
-
-#heading5 {
-  margin-bottom: 1.5rem;
-  font-size: 1.4rem;
-  font-weight: bold;
-}
-
 .roller-container {
-  overflow: hidden;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   position: relative;
+  overflow: hidden; /* ← Prevent any accidental overflow */
+  padding: 1rem 0;
 }
 
 .track {
   display: flex;
-  gap: 20px;
-  transition: transform 0.5s ease;
-  min-width: fit-content;
+  gap: 16px; /* Slightly reduced gap for tighter fit */
+  justify-content: center;
+  flex-wrap: nowrap;
+  padding: 0 10px; /* Optional: add breathing room on sides */
 }
 
 .card {
   background: #fafafa;
   border: 1px solid #ddd;
   border-radius: 12px;
-  padding: 1.5rem;
-  min-width: 220px;
+  padding: 1rem;
   box-shadow: 0 3px 8px rgba(0,0,0,0.08);
   text-align: center;
+  /* 👇 Make each card take up ~20% of container (minus gaps) */
+  flex: 1 1 calc(20% - 13px); /* 5 cards → 100%/5 = 20%; subtract avg gap */
+  min-width: 0; /* Allows shrinking below content size */
+  max-width: 220px; /* Cap max size on large screens */
 }
 
-.card h3 {
-  margin: 0 0 0.5rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-.card p {
-  margin: 0 0 1rem;
-  color: #555;
-  font-size: 0.95rem;
-}
-
-.play-btn {
-  background-color: #f0f0f0;
-  color: #333;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.9rem;
-}
-
-.play-btn:hover {
-  background-color: #e0e0e0;
-}
-
-.controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-.controls button {
-  background-color: #222;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.controls button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.roller-container {
-  overflow: visible; /* ← important: no hiding */
-  width: 95%; /* or 100% if needed */
-  margin: 0 auto;
+/* Optional: Reduce font sizes slightly on small screens */
+@media (max-width: 768px) {
+  .card {
+    padding: 0.8rem;
+  }
+  .card h3 {
+    font-size: 1rem;
+  }
+  .card p {
+    font-size: 0.85rem;
+  }
 }

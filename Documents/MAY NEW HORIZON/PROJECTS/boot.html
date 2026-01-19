@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Management Bootcamp Card</title>
+  <style>
+    body {
+      background-color: #e6f2f7; /* light blue background */
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .card {
+      width: 250px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      background-color: #fff;
+    }
+    .card-image {
+      position: relative;
+    }
+    .card-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background-color: red;
+      color: white;
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 3px;
+      font-weight: bold;
+    }
+    .card-content {
+      padding: 16px;
+    }
+    .card-content h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      color: #2a2a2a;
+    }
+    .card-content p {
+      margin: 0 0 16px;
+      font-size: 14px;
+      color: #555;
+    }
+    .apply-button {
+      display: block;
+      text-align: center;
+      background-color: #00e676;
+      color: white;
+      padding: 10px;
+      text-decoration: none;
+      border-radius: 20px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .apply-button:hover {
+      background-color: #00c853;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-image">
+      <img src="images/man2.jpg">
+      <div class="badge">NOW OPEN</div>
+    </div>
+    <div class="card-content">
+      <h3>Project Management Bootcamp</h3>
+      <p>3 weeks - No Cost</p>
+      <a href="#" class="apply-button">Apply Here</a>
+    </div>
+  </div>
+</body>
+</html>
