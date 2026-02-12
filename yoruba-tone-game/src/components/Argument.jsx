@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import '../styles/Argument.css'
 import { verbs, normalizeVerbKey } from '../assets/data/yorubaVerbs'
 
-//funtions
-const pronouns = ['Mo', 'Ìwọ', 'Ó', 'Àwa', 'Wọ́n']
-const negPronouns = ['Mi ò', 'Ìwő ò', 'Kò', 'A ò', 'Wọ́n ò']
-const PRONOUNS_WITH_AUDIO = new Set([0, 1, 2, 3, 4]) // 0 = Mo, 3 = awa 4 = Wọ́n
+//pronoun data structure
 
+const pronouns = ['Mo', 'Ìwọ', 'Ó', 'Àwa', 'Wọ́n'];
+const negPronouns = ['Mi ò', 'Ìwő ò', 'Kò', 'A ò', 'Wọ́n ò']
+const PRONOUNS_WITH_AUDIO = new Set([0, 1, 2, 3, 4]) 
+
+//funtions
 const playAudio  = (filename, index) => {
   const indexToFolder = {
     0: 'moPronoun',
@@ -16,10 +18,8 @@ const playAudio  = (filename, index) => {
     4: 'wonPronoun',
   }
 
-  const folder = indexToFolder[index] || 'moPronoun' // fallback
-  const audioPath = `${process.env.PUBLIC_URL}/audio/argumentGame/${folder}/${filename}.mp3`
-
-  console.log('Playing audio from:', audioPath)
+  const folder = indexToFolder[index]
+  const audioPath = `${process.env.PUBLIC_URL}/audio/argumentGame/${folder}/${filename}.mp3`;
   const audio = new Audio(audioPath)
   audio.play().catch((err) => console.warn('Audio playback failed:', err))
 }
@@ -40,6 +40,7 @@ const ConjugationTable = ({ tense, polarity, verbKey }) => {
           )}
         </tr>
       </thead>
+
       { <tbody>
         {sentences.map((sentence,i) => {
           const audioFilename = `${polarity}_${normalizeVerbKey(verbKey)}_${
@@ -47,7 +48,7 @@ const ConjugationTable = ({ tense, polarity, verbKey }) => {
           }`
           return (
             <tr key={i}>
-              <td>{pronounList[0]}</td>
+              <td>{pronounList[i]}</td>
               <td>{tense === 'past' ? 'ti':'Present'}</td>
               <td>{verbKey}</td>
               <td>{sentence}</td>

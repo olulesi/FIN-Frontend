@@ -1,15 +1,15 @@
-import React, { useState, useMemo, useEffect } from 'react'
-import Question from './Question'
-import './Game.css'
+import React, { useState, useMemo, useEffect } from "react";
+import Question from "./Question";
+import "./Game.css";
 
 // Import your audio files
-import eleyeleAudio from '../assets/audio/eleyele.mp3'
-import oluyoleAudio from '../assets/audio/oluyole.mp3'
-import ijokodoAudio from '../assets/audio/ijokodo.mp3'
-import opoileosaAudio from '../assets/audio/opoileosa.mp3'
-import Ibarapa from '../assets/audio/Ibarapa.mp3'
-import Morowore from '../assets/audio/Morowore.mp3'
-import Igba from '../assets/audio/igba.mp3'
+import eleyeleAudio from "../assets/audio/eleyele.mp3";
+import oluyoleAudio from "../assets/audio/oluyole.mp3";
+import ijokodoAudio from "../assets/audio/ijokodo.mp3";
+import opoileosaAudio from "../assets/audio/opoileosa.mp3";
+import Ibarapa from "../assets/audio/Ibarapa.mp3";
+import Morowore from "../assets/audio/Morowore.mp3";
+import igba from "../assets/audio/igba.mp3";
 
 // Sample game data - 4 words with placeholder options
 const gameData = [
@@ -62,16 +62,14 @@ const gameData = [
   },
   {
     word: "Igba",
-    audioFile: Igba,
+    audioFile: igba,
     options: ["Re Re", "Do Mi", "Do Do", "Mi Do"],
     correct: 2,
     category: "homonyns",
   },
 ];
 
-
 const Game = () => {
-
   //STATE DATA
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -79,11 +77,10 @@ const Game = () => {
   const [feedback, setFeedback] = useState("");
   const [lastPlayed, setLastPlayed] = useState("");
   const [hasPlayedAudio, setHasPlayedAudio] = useState(false);
-  const [correctCount, setCorrectCount] = useState(0); 
-  const [wrongCount, setWrongCount] = useState(0); 
-  const [selectedCategory, setSelectedCategory] = useState("all"); 
+  const [correctCount, setCorrectCount] = useState(0);
+  const [wrongCount, setWrongCount] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState("all");
   const [playbackRate, setPlaybackRate] = useState(1.0); // default normal speed
-
 
   //to reset option after a category is selected (USEEFFECTS)
   React.useEffect(() => {
@@ -92,7 +89,6 @@ const Game = () => {
     setSelectedOption(null);
     setShowAnswer(false);
   }, [selectedCategory]);
-
 
   //filtered data USEMEMO
   const filteredData = useMemo(() => {
@@ -104,10 +100,8 @@ const Game = () => {
 
   const currentWord = filteredData[currentWordIndex];
 
-
-
   //EVENT HANDLERS FUNCTION
-  
+
   // Handle option selection
   const handleOptionSelect = (index) => {
     if (!hasPlayedAudio) {
@@ -128,18 +122,16 @@ const Game = () => {
     }
   };
 
-
   // Play actual audio file
   const playAudio = () => {
     setHasPlayedAudio(true);
     setLastPlayed(currentWord.word);
 
     const audio = new Audio(currentWord.audioFile);
-    audio.playbackRate = playbackRate; //PLAYBACK 
+    audio.playbackRate = playbackRate; //PLAYBACK
     audio.play().catch((e) => console.log("Audio play error:", e));
   };
 
-  
   // Start over
   const startOver = () => {
     setCurrentWordIndex(0);
@@ -152,7 +144,6 @@ const Game = () => {
     setWrongCount(0); //  Reset score
   };
 
-
   // Next word
   const nextWord = () => {
     setCurrentWordIndex((prev) => (prev + 1) % filteredData.length);
@@ -163,13 +154,11 @@ const Game = () => {
     setHasPlayedAudio(false);
   };
 
-
   // Calculate score percentage
   const totalAttempts = correctCount + wrongCount;
-  const scorePercentage = totalAttempts > 0 ? Math.round((correctCount / totalAttempts) * 100) : 0;
+  const scorePercentage =
+    totalAttempts > 0 ? Math.round((correctCount / totalAttempts) * 100) : 0;
 
-  
-  
   return (
     <div className="game-container">
       {/* Top Controls */}
@@ -247,6 +236,6 @@ const Game = () => {
       />
     </div>
   );
-}
+};
 
-export default Game
+export default Game;
