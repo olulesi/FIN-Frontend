@@ -11,14 +11,16 @@ import Ibarapa from "../assets/audio/Ibarapa.mp3";
 import Morowore from "../assets/audio/Morowore.mp3";
 import igba from "../assets/audio/igba.mp3";
 
-// Sample game data - 4 words with placeholder options
+// Sample game data with authentic Yoruba sentences and translations
 const gameData = [
   {
     word: "eleyele",
     audioFile: eleyeleAudio,
     options: ["Do Do Do Do", "Re Do Re Do", "Re Mi Re Mi", "Do Re Do Re"],
-    correct: 0,
+    correct: 2,
     category: "location",
+    sentence: "Mo ti kọ àmọ̀ràn 'eleyele' ní àkọ̀kọ́ nínú àpèjọ yìí.",
+    translation: "I wrote the word 'eleyele' first in this meeting.",
   },
   {
     word: "oluyole",
@@ -26,13 +28,17 @@ const gameData = [
     options: ["Mi Re Mi Re", "Re Mi Do Mi", "Re Mi Re Mi", "Do Mi Do Mi"],
     correct: 1,
     category: "location",
+    sentence: "Olúyọ̀lé jẹ́ orílẹ̀-èdè tó wà ní àgbègbè Oyo.",
+    translation: "Oluyole is a town located in Oyo region.",
   },
   {
     word: "ijokodo",
     audioFile: ijokodoAudio,
     options: ["Mi Do Re Mi", "Re Do Re Do", "Mi Re Mi Re", "Do Do Do Do"],
-    correct: 3,
+    correct: 0,
     category: "location",
+    sentence: "Mo gbọ́ nípa ìjọkòdò nípa àwọn àkójọ àròsọ̀ Yorùbá.",
+    translation: "I learned about Ijokodo through Yoruba history records.",
   },
   {
     word: "opoileosa",
@@ -43,22 +49,28 @@ const gameData = [
       "Do Do Do Do Do Do",
       "Re Do Re Mi Mi Mi",
     ],
-    correct: 2,
+    correct: 3,
     category: "location",
+    sentence: "Ọpọ́-ilé-ọ̀ṣà jẹ́ àgbègbè tó ní àwọn ilé ọ̀ṣà pọ̀.",
+    translation: "Opoileosa is an area known for having many police stations.",
   },
   {
     word: "Ibarapa",
     audioFile: Ibarapa,
-    options: ["Do Mi Do Mi ", "Mi Re Do Re ", "Re Do Re Mi ", "Do Mi Do Do"],
+    options: ["Do Do Do Mi ", "Mi Re Do Re ", "Re Do Re Mi ", "Do Mi Do Do"],
     correct: 0,
     category: "location",
+    sentence: "Ìbàràpá jẹ́ ìlú tó wà ní ìwọ̀ọ̀dọ̀ ìpínlẹ̀ Oyo.",
+    translation: "Ibarapa is a town located in the western part of Oyo State.",
   },
   {
     word: "Morowore",
     audioFile: Morowore,
-    options: ["Re Do Re Do", "Do Re Do Re", "Re Do Re Mi", "Do Mi Do Do"],
-    correct: 3,
+    options: ["Re Do Re Do", "Do Re Do Re", "Re Mi Mi Do", "Do Mi Do Do"],
+    correct: 2,
     category: "word",
+    sentence: "Mo nílò láti sọ 'mọ́rọ̀wọ́rẹ̀' ní ọ̀nà tó tọ́.",
+    translation: "I need to pronounce 'morowore' correctly.",
   },
   {
     word: "Igba",
@@ -66,6 +78,8 @@ const gameData = [
     options: ["Re Re", "Do Mi", "Do Do", "Mi Do"],
     correct: 2,
     category: "homonyns",
+    sentence: "Mo ní ìgbà kan láti kọ ìwé yìí.",
+    translation: "I have one hour (igba) to write this document.", // Note: Using time meaning for homonym context
   },
 ];
 
@@ -82,30 +96,28 @@ const Game = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [playbackRate, setPlaybackRate] = useState(1.0); // default normal speed
 
-  //to reset option after a category is selected (USEEFFECTS)
-  React.useEffect(() => {
+  // Reset game state when category changes
+  useEffect(() => {
     setCurrentWordIndex(0);
     setHasPlayedAudio(false);
     setSelectedOption(null);
     setShowAnswer(false);
+    setCorrectCount(0);
+    setWrongCount(0);
   }, [selectedCategory]);
 
-  //filtered data USEMEMO
+  // Filter game data by category
   const filteredData = useMemo(() => {
     if (selectedCategory === "all") return gameData;
     return gameData.filter((item) => item.category === selectedCategory);
   }, [selectedCategory]);
 
-  const current = filteredData[currentWordIndex];
-
   const currentWord = filteredData[currentWordIndex];
 
-  //EVENT HANDLERS FUNCTION
-
-  // Handle option selection
+  // EVENT HANDLERS
   const handleOptionSelect = (index) => {
     if (!hasPlayedAudio) {
-      alert("Please play the sound first!");
+      alert("Please play the sound first to hear the tone pattern!");
       return;
     }
 
@@ -114,25 +126,23 @@ const Game = () => {
       setFeedback("Correct ✅");
       setShowAnswer(true);
       setLastPlayed(currentWord.word);
-      setCorrectCount((prev) => prev + 1); // 🔥 Increment correct count
+      setCorrectCount((prev) => prev + 1);
     } else {
       setFeedback("Wrong ❌");
       setShowAnswer(true);
-      setWrongCount((prev) => prev + 1); // 🔥 Increment wrong count
+      setWrongCount((prev) => prev + 1);
     }
   };
 
-  // Play actual audio file
   const playAudio = () => {
     setHasPlayedAudio(true);
     setLastPlayed(currentWord.word);
 
     const audio = new Audio(currentWord.audioFile);
-    audio.playbackRate = playbackRate; //PLAYBACK
+    audio.playbackRate = playbackRate;
     audio.play().catch((e) => console.log("Audio play error:", e));
   };
 
-  // Start over
   const startOver = () => {
     setCurrentWordIndex(0);
     setSelectedOption(null);
@@ -140,11 +150,10 @@ const Game = () => {
     setFeedback("");
     setLastPlayed("");
     setHasPlayedAudio(false);
-    setCorrectCount(0); //  Reset score
-    setWrongCount(0); //  Reset score
+    setCorrectCount(0);
+    setWrongCount(0);
   };
 
-  // Next word
   const nextWord = () => {
     setCurrentWordIndex((prev) => (prev + 1) % filteredData.length);
     setSelectedOption(null);
@@ -168,9 +177,8 @@ const Game = () => {
         </button>
       </div>
 
-      {/* radio buttons here*/}
+      {/* Category Filter */}
       <div className="category-filter">
-        {/* ALL CATEGORY */}
         <label>
           <input
             type="radio"
@@ -181,7 +189,6 @@ const Game = () => {
           />
           All
         </label>
-        {/* WORD CATEGORY */}
         <label>
           <input
             type="radio"
@@ -192,7 +199,6 @@ const Game = () => {
           />
           Words
         </label>
-        {/* LOCATION CATEGORY */}
         <label>
           <input
             type="radio"
@@ -203,7 +209,6 @@ const Game = () => {
           />
           Locations
         </label>
-        {/* HOMONYMS CATEGORY */}
         <label>
           <input
             type="radio"
@@ -216,7 +221,7 @@ const Game = () => {
         </label>
       </div>
 
-      {/* THE CHILD COMPONENT AND PROPS PASS ACROSS */}
+      {/* Question Component with all props */}
       <Question
         word={currentWord.word}
         options={currentWord.options}
@@ -233,6 +238,8 @@ const Game = () => {
         onNextWord={nextWord}
         playbackRate={playbackRate}
         onSetPlaybackRate={setPlaybackRate}
+        sentence={currentWord.sentence}
+        translation={currentWord.translation}
       />
     </div>
   );

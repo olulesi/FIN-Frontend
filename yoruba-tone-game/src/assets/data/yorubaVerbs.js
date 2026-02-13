@@ -34,10 +34,10 @@ export const verbs = {
       ],
       negative: [
         "Mi ò tí jẹun",
-        "Ìwọ ò tí jẹun",
+        "Ó tí jẹun",
         "Kò tí jẹun",
-        "A ò tí jẹun",
-        "Wọ́n ò tí jẹun",
+        "A (stress) tí jẹun",
+        "Wọ́n (stress) tí jẹun",
       ],
     },
     present: {
@@ -87,13 +87,7 @@ export const verbs = {
   },
   dé: {
     past: {
-      affirmative: [
-        "Mo ti dé",
-        "Ìwọ ti dé",
-        "Ó ti dé",
-        "À ti dé",
-        "Wọ́n ti dé",
-      ],
+      affirmative: ["Mo ti dé", "Ìwọ ti dé", "Ó ti dé", "À ti dé", "Wọ́n ti dé"],
       negative: [
         "Mi ò tí dé",
         "Ìwọ ò tí dé",

@@ -4,8 +4,8 @@ import { verbs, normalizeVerbKey } from '../assets/data/yorubaVerbs'
 
 //pronoun data structure
 
-const pronouns = ['Mo', 'Ìwọ', 'Ó', 'Àwa', 'Wọ́n'];
-const negPronouns = ['Mi ò', 'Ìwő ò', 'Kò', 'A ò', 'Wọ́n ò']
+const pronouns = ['Mo', 'Ìwọ', 'Ó', 'À(wa)', 'Wọ́n'];
+const negPronouns = ["Mi ò", "Ó", "Kò", "À", "Wọ́n"];
 const PRONOUNS_WITH_AUDIO = new Set([0, 1, 2, 3, 4]) 
 
 //funtions
