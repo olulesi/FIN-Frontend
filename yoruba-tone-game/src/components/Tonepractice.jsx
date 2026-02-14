@@ -18,7 +18,7 @@ const tonePracticeData = [
     audio: oluyoleAudio,
   },
   {
-    words: ['Ẹ', 'lẹ́', 'yẹ', 'lẹ́'],
+    words: ['Ẹ', 'lẹ́', 'yẹ', 'lé'],
     tones: ['RE', 'MI', 'RE', 'MI'],
     audio: eleyeleAudio,
   },

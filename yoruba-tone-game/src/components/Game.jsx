@@ -1,172 +1,95 @@
-import React, { useState, useMemo, useEffect } from "react";
-import Question from "./Question";
-import "./Game.css";
+import React, { useState, useMemo, useEffect } from 'react'
+import Question from './Question'
+import './Game.css'
 
-// Import your audio files
-import eleyeleAudio from "../assets/audio/eleyele.mp3";
-import oluyoleAudio from "../assets/audio/oluyole.mp3";
-import ijokodoAudio from "../assets/audio/ijokodo.mp3";
-import opoileosaAudio from "../assets/audio/opoileosa.mp3";
-import Ibarapa from "../assets/audio/Ibarapa.mp3";
-import Morowore from "../assets/audio/Morowore.mp3";
-import igba from "../assets/audio/igba.mp3";
+import { gameData } from '../assets/data/toneGameData'
 
 // Sample game data with authentic Yoruba sentences and translations
-const gameData = [
-  {
-    word: "eleyele",
-    audioFile: eleyeleAudio,
-    options: ["Do Do Do Do", "Re Do Re Do", "Re Mi Re Mi", "Do Re Do Re"],
-    correct: 2,
-    category: "location",
-    sentence: "Mo ti kọ àmọ̀ràn 'eleyele' ní àkọ̀kọ́ nínú àpèjọ yìí.",
-    translation: "I wrote the word 'eleyele' first in this meeting.",
-  },
-  {
-    word: "oluyole",
-    audioFile: oluyoleAudio,
-    options: ["Mi Re Mi Re", "Re Mi Do Mi", "Re Mi Re Mi", "Do Mi Do Mi"],
-    correct: 1,
-    category: "location",
-    sentence: "Olúyọ̀lé jẹ́ orílẹ̀-èdè tó wà ní àgbègbè Oyo.",
-    translation: "Oluyole is a town located in Oyo region.",
-  },
-  {
-    word: "ijokodo",
-    audioFile: ijokodoAudio,
-    options: ["Mi Do Re Mi", "Re Do Re Do", "Mi Re Mi Re", "Do Do Do Do"],
-    correct: 0,
-    category: "location",
-    sentence: "Mo gbọ́ nípa ìjọkòdò nípa àwọn àkójọ àròsọ̀ Yorùbá.",
-    translation: "I learned about Ijokodo through Yoruba history records.",
-  },
-  {
-    word: "opoileosa",
-    audioFile: opoileosaAudio,
-    options: [
-      "Re Do Re Do Re Do",
-      "Do Re Do Re Do Re",
-      "Do Do Do Do Do Do",
-      "Re Do Re Mi Mi Mi",
-    ],
-    correct: 3,
-    category: "location",
-    sentence: "Ọpọ́-ilé-ọ̀ṣà jẹ́ àgbègbè tó ní àwọn ilé ọ̀ṣà pọ̀.",
-    translation: "Opoileosa is an area known for having many police stations.",
-  },
-  {
-    word: "Ibarapa",
-    audioFile: Ibarapa,
-    options: ["Do Do Do Mi ", "Mi Re Do Re ", "Re Do Re Mi ", "Do Mi Do Do"],
-    correct: 0,
-    category: "location",
-    sentence: "Ìbàràpá jẹ́ ìlú tó wà ní ìwọ̀ọ̀dọ̀ ìpínlẹ̀ Oyo.",
-    translation: "Ibarapa is a town located in the western part of Oyo State.",
-  },
-  {
-    word: "Morowore",
-    audioFile: Morowore,
-    options: ["Re Do Re Do", "Do Re Do Re", "Re Mi Mi Do", "Do Mi Do Do"],
-    correct: 2,
-    category: "word",
-    sentence: "Mo nílò láti sọ 'mọ́rọ̀wọ́rẹ̀' ní ọ̀nà tó tọ́.",
-    translation: "I need to pronounce 'morowore' correctly.",
-  },
-  {
-    word: "Igba",
-    audioFile: igba,
-    options: ["Re Re", "Do Mi", "Do Do", "Mi Do"],
-    correct: 2,
-    category: "homonyns",
-    sentence: "Mo ní ìgbà kan láti kọ ìwé yìí.",
-    translation: "I have one hour (igba) to write this document.", // Note: Using time meaning for homonym context
-  },
-];
 
 const Game = () => {
   //STATE DATA
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [showAnswer, setShowAnswer] = useState(false);
-  const [feedback, setFeedback] = useState("");
-  const [lastPlayed, setLastPlayed] = useState("");
-  const [hasPlayedAudio, setHasPlayedAudio] = useState(false);
-  const [correctCount, setCorrectCount] = useState(0);
-  const [wrongCount, setWrongCount] = useState(0);
-  const [selectedCategory, setSelectedCategory] = useState("all");
-  const [playbackRate, setPlaybackRate] = useState(1.0); // default normal speed
+  const [currentWordIndex, setCurrentWordIndex] = useState(0)
+  const [selectedOption, setSelectedOption] = useState(null)
+  const [showAnswer, setShowAnswer] = useState(false)
+  const [feedback, setFeedback] = useState('')
+  const [lastPlayed, setLastPlayed] = useState('')
+  const [hasPlayedAudio, setHasPlayedAudio] = useState(false)
+  const [correctCount, setCorrectCount] = useState(0)
+  const [wrongCount, setWrongCount] = useState(0)
+  const [selectedCategory, setSelectedCategory] = useState('all')
+  const [playbackRate, setPlaybackRate] = useState(1.0) // default normal speed
 
   // Reset game state when category changes
   useEffect(() => {
-    setCurrentWordIndex(0);
-    setHasPlayedAudio(false);
-    setSelectedOption(null);
-    setShowAnswer(false);
-    setCorrectCount(0);
-    setWrongCount(0);
-  }, [selectedCategory]);
+    setCurrentWordIndex(0)
+    setHasPlayedAudio(false)
+    setSelectedOption(null)
+    setShowAnswer(false)
+    setCorrectCount(0)
+    setWrongCount(0)
+  }, [selectedCategory])
 
   // Filter game data by category
   const filteredData = useMemo(() => {
-    if (selectedCategory === "all") return gameData;
-    return gameData.filter((item) => item.category === selectedCategory);
-  }, [selectedCategory]);
+    if (selectedCategory === 'all') return gameData
+    return gameData.filter((item) => item.category === selectedCategory)
+  }, [selectedCategory])
 
-  const currentWord = filteredData[currentWordIndex];
+  const currentWord = filteredData[currentWordIndex]
 
   // EVENT HANDLERS
   const handleOptionSelect = (index) => {
     if (!hasPlayedAudio) {
-      alert("Please play the sound first to hear the tone pattern!");
-      return;
+      alert('Please play the sound first to hear the tone pattern!')
+      return
     }
 
-    setSelectedOption(index);
+    setSelectedOption(index)
     if (index === currentWord.correct) {
-      setFeedback("Correct ✅");
-      setShowAnswer(true);
-      setLastPlayed(currentWord.word);
-      setCorrectCount((prev) => prev + 1);
+      setFeedback('Correct ✅')
+      setShowAnswer(true)
+      setLastPlayed(currentWord.word)
+      setCorrectCount((prev) => prev + 1)
     } else {
-      setFeedback("Wrong ❌");
-      setShowAnswer(true);
-      setWrongCount((prev) => prev + 1);
+      setFeedback('Wrong ❌')
+      setShowAnswer(true)
+      setWrongCount((prev) => prev + 1)
     }
-  };
+  }
 
   const playAudio = () => {
-    setHasPlayedAudio(true);
-    setLastPlayed(currentWord.word);
+    setHasPlayedAudio(true)
+    setLastPlayed(currentWord.word)
 
-    const audio = new Audio(currentWord.audioFile);
-    audio.playbackRate = playbackRate;
-    audio.play().catch((e) => console.log("Audio play error:", e));
-  };
+    const audio = new Audio(currentWord.audioFile)
+    audio.playbackRate = playbackRate
+    audio.play().catch((e) => console.log('Audio play error:', e))
+  }
 
   const startOver = () => {
-    setCurrentWordIndex(0);
-    setSelectedOption(null);
-    setShowAnswer(false);
-    setFeedback("");
-    setLastPlayed("");
-    setHasPlayedAudio(false);
-    setCorrectCount(0);
-    setWrongCount(0);
-  };
+    setCurrentWordIndex(0)
+    setSelectedOption(null)
+    setShowAnswer(false)
+    setFeedback('')
+    setLastPlayed('')
+    setHasPlayedAudio(false)
+    setCorrectCount(0)
+    setWrongCount(0)
+  }
 
   const nextWord = () => {
-    setCurrentWordIndex((prev) => (prev + 1) % filteredData.length);
-    setSelectedOption(null);
-    setShowAnswer(false);
-    setFeedback("");
-    setLastPlayed("");
-    setHasPlayedAudio(false);
-  };
+    setCurrentWordIndex((prev) => (prev + 1) % filteredData.length)
+    setSelectedOption(null)
+    setShowAnswer(false)
+    setFeedback('')
+    setLastPlayed('')
+    setHasPlayedAudio(false)
+  }
 
   // Calculate score percentage
-  const totalAttempts = correctCount + wrongCount;
+  const totalAttempts = correctCount + wrongCount
   const scorePercentage =
-    totalAttempts > 0 ? Math.round((correctCount / totalAttempts) * 100) : 0;
+    totalAttempts > 0 ? Math.round((correctCount / totalAttempts) * 100) : 0
 
   return (
     <div className="game-container">
@@ -184,8 +107,8 @@ const Game = () => {
             type="radio"
             name="category"
             value="all"
-            checked={selectedCategory === "all"}
-            onChange={() => setSelectedCategory("all")}
+            checked={selectedCategory === 'all'}
+            onChange={() => setSelectedCategory('all')}
           />
           All
         </label>
@@ -194,8 +117,8 @@ const Game = () => {
             type="radio"
             name="category"
             value="word"
-            checked={selectedCategory === "word"}
-            onChange={() => setSelectedCategory("word")}
+            checked={selectedCategory === 'word'}
+            onChange={() => setSelectedCategory('word')}
           />
           Words
         </label>
@@ -204,8 +127,8 @@ const Game = () => {
             type="radio"
             name="category"
             value="location"
-            checked={selectedCategory === "location"}
-            onChange={() => setSelectedCategory("location")}
+            checked={selectedCategory === 'location'}
+            onChange={() => setSelectedCategory('location')}
           />
           Locations
         </label>
@@ -214,8 +137,8 @@ const Game = () => {
             type="radio"
             name="category"
             value="homonyns"
-            checked={selectedCategory === "homonyns"}
-            onChange={() => setSelectedCategory("homonyns")}
+            checked={selectedCategory === 'homonyns'}
+            onChange={() => setSelectedCategory('homonyns')}
           />
           Homonyms
         </label>
@@ -242,7 +165,7 @@ const Game = () => {
         translation={currentWord.translation}
       />
     </div>
-  );
-};
+  )
+}
 
-export default Game;
+export default Game
