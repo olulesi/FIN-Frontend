@@ -1,8 +1,5 @@
 import React from 'react'
 import Game from './components/Game'
-// import Starter from "./components/starter";
-// import Navbar from './components/Navbar';
-import FIN from './components/FIN'
 import ToneGenerator from './components/ToneGenerator'
 import './App.css'
 import TonePractice from './components/Tonepractice'
