@@ -8,13 +8,14 @@ import './App.css'
 import TonePractice from './components/Tonepractice'
 import Argument from './components/Argument'
 import Rollerdex from './components/Rollerdex'
-import YorubaUseCasesCarousel from "./components/YorubaUseCasesCarousel";
+import YorubaUseCasesCarousel from './components/YorubaUseCasesCarousel'
+import Alphabet from './components/Alphabet'
 
 function App() {
   return (
     <div className="App">
       {/* <Navbar /> */}
-      <FIN />
+      <Alphabet />
       <Game />
       <ToneGenerator />
       <TonePractice />
@@ -22,7 +23,7 @@ function App() {
       <Rollerdex />
       <YorubaUseCasesCarousel />
     </div>
-  );
+  )
 }
 
 export default App
