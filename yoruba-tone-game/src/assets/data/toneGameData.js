@@ -6,6 +6,7 @@ import opoileosaAudio from '../audio/opoileosa.mp3'
 import Ibarapa from '../audio/Ibarapa.mp3'
 import Morowore from '../audio/Morowore.mp3'
 import igba from '../audio/igba.mp3'
+import eredodo from '../audio//homonyms/ere/eredodo.mp3'
 
 // Verb conjugation data
 export const gameData = [
@@ -69,12 +70,21 @@ export const gameData = [
     translation: "I need to pronounce 'morowore' correctly.",
   },
   {
-    word: 'Igba',
+    word: 'Ìgbà',
     audioFile: igba,
     options: ['Re Re', 'Do Mi', 'Do Do', 'Mi Do'],
     correct: 2,
     category: 'homonyns',
     sentence: 'Mo ní ìgbà kan láti kọ ìwé yìí.',
     translation: 'I have one hour (igba) to write this document.', // Note: Using time meaning for homonym context
+  },
+  {
+    word: 'èrè',
+    audioFile: eredodo,
+    options: ['Re Re', 'Do Mi', 'Do Do', 'Mi Do'],
+    correct: 2,
+    category: 'homonyns',
+    sentence: '',
+    translation: '', // Note: Using time meaning for homonym context
   },
 ]
