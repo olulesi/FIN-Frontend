@@ -60,7 +60,7 @@ const TonePractice = () => {
 
   const handlePrev = () => {
     setToneIndex((prev) =>
-      prev === 0 ? tonePracticeData.length - 1 : prev - 1
+      prev === 0 ? tonePracticeData.length - 1 : prev - 1,
     )
   }
 
