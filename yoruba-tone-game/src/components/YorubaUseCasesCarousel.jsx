@@ -21,6 +21,14 @@ const YorubaUseCasesCarousel = () => {
       src: "/videos/yorubaUseCase3.mp4",
       keywords: ["comedy", "dialogue"],
     },
+    {
+      src: "/videos/yorubaUseCase4.mp4",
+      keywords: ["comedy", "dialogue"],
+    },
+    {
+      src: "/videos/yorubaUseCase5.mp4",
+      keywords: ["comedy", "dialogue"],
+    },
   ];
 
   const totalVideos = videos.length;
