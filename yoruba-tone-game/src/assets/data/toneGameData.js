@@ -156,7 +156,7 @@ export const gameData = [
   {
     word: 'ojo',
     audioFile: ojorere,
-    options: ['Mi Re', 'Do Mi', 'Re Mi', 'Re Re'],
+    options: ['Mi Re', 'Mi Mi', 'Re Mi', 'Re Re'],
     correct: 3,
     category: 'homonyns',
     sentence: '',
@@ -181,7 +181,7 @@ export const gameData = [
     translation: '', // Note: Using time meaning for homonym context
   },
   {
-    word: 'okó',
+    word: 'ọkọ̀',
     audioFile: okoredo,
     options: ['Mi Re', 'Do Mi', 'Re Do', 'Do Do'],
     correct: 2,
