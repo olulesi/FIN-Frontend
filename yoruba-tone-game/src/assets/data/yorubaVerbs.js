@@ -156,12 +156,6 @@ export const verbs = {
         "Kò tí kà",
         "A (stress) tí kà",
         "Wọ́n (stress) tí kà",
-
-        "Mi ò tí sùn",
-        "Ó (stress) tí sùn",
-        "Kò tí sùn",
-        "A (stress) tí sùn",
-        "Wọ́n (stress) tí sùn",
       ],
     },
     present: {
