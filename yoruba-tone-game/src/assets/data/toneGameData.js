@@ -23,7 +23,7 @@ import okorere from '../audio//homonyms/oko/okorere.mp3'
 // Verb conjugation data
 export const gameData = [
   {
-    word: 'eleyele',
+    word: 'Ẹlẹ́yẹlé',
     audioFile: eleyeleAudio,
     options: ['Do Do Do Do', 'Re Do Re Do', 'Re Mi Re Mi', 'Do Re Do Re'],
     correct: 2,

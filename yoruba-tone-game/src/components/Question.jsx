@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import "../styles/Question.css";
+import React, { useState, useEffect } from 'react'
+import '../styles/Question.css'
 
 function Question({
   word,
@@ -21,18 +21,18 @@ function Question({
   translation,
 }) {
   // State to control sentence visibility
-  const [showSentence, setShowSentence] = useState(false);
+  const [showSentence, setShowSentence] = useState(false)
 
   // Reset sentence display when word changes
   useEffect(() => {
-    setShowSentence(false);
-  }, [word]);
+    setShowSentence(false)
+  }, [word])
 
   return (
     <div className="question-container">
       {/* Word Display */}
       <div className="word-display">
-        {showAnswer ? word : "❓ Hidden until you answer"}
+        {showAnswer ? word : '❓ Hidden until you answer'}
       </div>
 
       {/* Tone Options */}
@@ -41,7 +41,7 @@ function Question({
           <button
             key={index}
             className={`tone-option ${
-              selectedOption === index ? "selected" : ""
+              selectedOption === index ? 'selected' : ''
             }`}
             onClick={() => onOptionSelect(index)}
             disabled={!hasPlayedAudio}
@@ -62,12 +62,12 @@ function Question({
         </button>
 
         <button
-          className={`sentence-btn ${showSentence ? "active" : ""}`}
+          className={`sentence-btn ${showSentence ? 'active' : ''}`}
           onClick={() => setShowSentence(true)}
           disabled={!hasPlayedAudio || showSentence}
           aria-label="Show example sentence"
         >
-          📖 {showSentence ? "Sentence Shown" : "Show Sentence"}
+          📖 {showSentence ? 'Sentence Shown' : 'Show Sentence'}
         </button>
       </div>
 
@@ -104,7 +104,7 @@ function Question({
       {/* Feedback */}
       {feedback && (
         <div
-          className={`feedback ${feedback.includes("Correct") ? "correct" : "wrong"}`}
+          className={`feedback ${feedback.includes('Correct') ? 'correct' : 'wrong'}`}
         >
           {feedback}
         </div>
@@ -131,7 +131,7 @@ function Question({
         Next Word →
       </button>
     </div>
-  );
+  )
 }
 
-export default Question;
+export default Question

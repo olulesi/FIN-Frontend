@@ -51,7 +51,7 @@ const Game = () => {
       setLastPlayed(currentWord.word)
       setCorrectCount((prev) => prev + 1)
     } else {
-      setFeedback('Wrong ❌')
+      setFeedback('Wrong ❌ Try Again')
       setShowAnswer(true)
       setWrongCount((prev) => prev + 1)
     }
