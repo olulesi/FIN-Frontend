@@ -32,7 +32,7 @@ export const gameData = [
     translation: "I wrote the word 'eleyele' first in this meeting.",
   },
   {
-    word: 'oluyole',
+    word: 'Olúyọ̀lé',
     audioFile: oluyoleAudio,
     options: ['Mi Re Mi Re', 'Re Mi Do Mi', 'Re Mi Re Mi', 'Do Mi Do Mi'],
     correct: 1,
@@ -41,7 +41,7 @@ export const gameData = [
     translation: 'Oluyole is a town located in Oyo region.',
   },
   {
-    word: 'ijokodo',
+    word: 'ÍJòkodó',
     audioFile: ijokodoAudio,
     options: ['Mi Do Re Mi', 'Re Do Re Do', 'Mi Re Mi Re', 'Do Do Do Do'],
     correct: 0,
@@ -50,7 +50,7 @@ export const gameData = [
     translation: 'I learned about Ijokodo through Yoruba history records.',
   },
   {
-    word: 'opoileosa',
+    word: 'opòiléósá',
     audioFile: opoileosaAudio,
     options: [
       'Re Do Re Do Re Do',
@@ -64,7 +64,7 @@ export const gameData = [
     translation: 'Opoileosa is an area known for having many police stations.',
   },
   {
-    word: 'Ibarapa',
+    word: 'Ìbàràpá',
     audioFile: Ibarapa,
     options: ['Do Do Do Mi ', 'Mi Re Do Re ', 'Re Do Re Mi ', 'Do Mi Do Do'],
     correct: 0,
@@ -73,7 +73,7 @@ export const gameData = [
     translation: 'Ibarapa is a town located in the western part of Oyo State.',
   },
   {
-    word: 'Morowore',
+    word: 'Morówórè',
     audioFile: Morowore,
     options: ['Re Do Re Do', 'Do Re Do Re', 'Re Mi Mi Do', 'Do Mi Do Do'],
     correct: 2,
