@@ -97,3 +97,49 @@
   border-color: #0d6efd;
   box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.25);
 }
+
+/* Attempt indicator */
+.attempts-indicator {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 600;
+}
+
+.attempt-used {
+  color: #999;
+  font-size: 0.85rem;
+}
+
+/* Correct answer highlight */
+.tone-option.correct {
+  background: #10b981 !important;
+  color: white;
+  border-color: #059669;
+  animation: pulse-correct 0.5s ease;
+}
+
+/* Wrong answer highlight */
+.tone-option.wrong {
+  background: #ef4444 !important;
+  color: white;
+  border-color: #dc2626;
+  opacity: 0.7;
+}
+
+/* Locked state */
+.tone-option.locked {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+@keyframes pulse-correct {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+  }
+}

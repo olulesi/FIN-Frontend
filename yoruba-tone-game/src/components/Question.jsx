@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import '../styles/Question.css'
+import React, { useState, useEffect } from "react";
+import "../styles/Question.css";
 
 function Question({
   word,
@@ -19,36 +19,66 @@ function Question({
   onSetPlaybackRate,
   sentence,
   translation,
+  attempts,
+  isLocked,
+  correctAnswer,
 }) {
   // State to control sentence visibility
-  const [showSentence, setShowSentence] = useState(false)
+  const [showSentence, setShowSentence] = useState(false);
 
   // Reset sentence display when word changes
   useEffect(() => {
-    setShowSentence(false)
-  }, [word])
+    setShowSentence(false);
+  }, [word]);
 
   return (
     <div className="question-container">
+      {/* Attempts Indicator */}
+      <div className="attempts-indicator">
+        Attempt: {attempts + 1} of 2
+        {attempts > 0 && <span className="attempt-used"> (1 used)</span>}
+      </div>
+
       {/* Word Display */}
       <div className="word-display">
-        {showAnswer ? word : '❓ Hidden until you answer'}
+        {showAnswer ? word : "❓ Hidden until you answer"}
       </div>
 
       {/* Tone Options */}
       <div className="tone-options">
-        {options.map((option, index) => (
-          <button
-            key={index}
-            className={`tone-option ${
-              selectedOption === index ? 'selected' : ''
-            }`}
-            onClick={() => onOptionSelect(index)}
-            disabled={!hasPlayedAudio}
-          >
-            {option}
-          </button>
-        ))}
+        {options.map((option, index) => {
+          const isSelected = selectedOption === index;
+          const isCorrect = index === correctAnswer;
+          const showCorrectness = showAnswer || isLocked;
+
+          let buttonClass = "tone-option";
+          if (showCorrectness) {
+            if (isCorrect) {
+              buttonClass += " correct";
+            } else if (isSelected && !isCorrect) {
+              buttonClass += " wrong";
+            }
+          } else if (isSelected) {
+            buttonClass += " selected";
+          }
+
+          if (isLocked) {
+            buttonClass += " locked";
+          }
+
+          return (
+            <button
+              key={index}
+              className={buttonClass}
+              onClick={() => onOptionSelect(index)}
+              disabled={!hasPlayedAudio || isLocked}
+            >
+              {option}
+              {showCorrectness && isCorrect && " ✓"}
+              {showCorrectness && isSelected && !isCorrect && " ✗"}
+            </button>
+          );
+        })}
       </div>
 
       {/* Play and Sentence Buttons - Side by Side */}
@@ -62,12 +92,12 @@ function Question({
         </button>
 
         <button
-          className={`sentence-btn ${showSentence ? 'active' : ''}`}
+          className={`sentence-btn ${showSentence ? "active" : ""}`}
           onClick={() => setShowSentence(true)}
           disabled={!hasPlayedAudio || showSentence}
           aria-label="Show example sentence"
         >
-          📖 {showSentence ? 'Sentence Shown' : 'Show Sentence'}
+          📖 {showSentence ? "Sentence Shown" : "Show Sentence"}
         </button>
       </div>
 
@@ -104,7 +134,7 @@ function Question({
       {/* Feedback */}
       {feedback && (
         <div
-          className={`feedback ${feedback.includes('Correct') ? 'correct' : 'wrong'}`}
+          className={`feedback ${feedback.includes("Correct") ? "correct" : "wrong"}`}
         >
           {feedback}
         </div>
@@ -126,12 +156,18 @@ function Question({
         </div>
       )}
 
-      {/* Next Word Button */}
-      <button className="next-btn" onClick={onNextWord} aria-label="Next word">
-        Next Word →
-      </button>
+      {/* Next Word Button - Only show after answering or 2 attempts */}
+      {(showAnswer || isLocked) && (
+        <button
+          className="next-btn"
+          onClick={onNextWord}
+          aria-label="Next word"
+        >
+          Next Word →
+        </button>
+      )}
     </div>
-  )
+  );
 }
 
-export default Question
+export default Question;
