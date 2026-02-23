@@ -26,7 +26,131 @@
   min-width: 0; /* Allows shrinking below content size */
   max-width: 220px; /* Cap max size on large screens */
 }
+/* Add to existing Rollerdex.css */
 
+/* Button group to hold both buttons */
+.button-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+/* Lyrics button styling */
+.lyricsbtn {
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(102, 126, 234, 0.3);
+}
+
+.lyricsbtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4);
+}
+
+.lyricsbtn:active {
+  transform: translateY(0);
+}
+
+/* Expanded card state */
+.card.expanded {
+  min-height: 400px; /* Adjust based on lyrics length */
+}
+
+/* Lyrics content container */
+.lyrics-content {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px solid #f0f0f0;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Individual lyrics sections */
+.lyrics-section,
+.translation-section {
+  margin-bottom: 20px;
+}
+
+.lyrics-section h4,
+.translation-section h4 {
+  font-size: 14px;
+  color: #667eea;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* Lyrics text styling */
+.lyrics-text {
+  font-family: 'Georgia', serif;
+  font-size: 13px;
+  line-height: 1.8;
+  color: #333;
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  white-space: pre-wrap; /* Preserves line breaks */
+  word-wrap: break-word;
+  margin: 0;
+  border-left: 4px solid #667eea;
+}
+
+/* Translation styling */
+.lyrics-text.translation {
+  background: #fff5f5;
+  border-left-color: #fc8181;
+  color: #555;
+  font-style: italic;
+}
+
+/* Make cards taller when expanded */
+.card {
+  transition: all 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .button-group {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .lyricsbtn,
+  .playbtn {
+    width: 100%;
+  }
+  
+  .card.expanded {
+    min-height: 500px;
+  }
+  
+  .lyrics-text {
+    font-size: 12px;
+    padding: 10px;
+  }
+}
+
+/* Hover effect for expanded card */
+.card.expanded:hover {
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+}
 /* Optional: Reduce font sizes slightly on small screens */
 @media (max-width: 768px) {
   .card {
