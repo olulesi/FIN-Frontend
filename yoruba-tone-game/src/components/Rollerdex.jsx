@@ -4,8 +4,11 @@ import React, { useState } from "react";
 import "../styles/Rollerdex.css";
 
 function Rollerdex() {
-  // State to track which card is expanded (null = none expanded)
-  const [expandedCard, setExpandedCard] = useState(null);
+  // State for lyrics display
+  const [showLyrics, setShowLyrics] = useState(false);
+  const [currentSongLyrics, setCurrentSongLyrics] = useState("");
+  const [currentSongTitle, setCurrentSongTitle] = useState("");
+  const [currentSongArtist, setCurrentSongArtist] = useState("");
 
   // Hardcoded songs with lyrics (5 total)
   const songs = [
@@ -26,19 +29,6 @@ Ní ilẹ̀ yìí tí a ń gbé
 Ẹṣin, ọkùnrin àti ọmọ
 Jọ ń gbé ní àlàáfíà
       `,
-      translation: `
-[Verse 1]
-The horse, the man and the son
-In the land of Yoruba
-Honor and respect
-Through rights and freedom
-
-[Chorus]
-Let us respect each other
-In this land we live
-The horse, the man and the son
-Living together in peace
-      `,
     },
     {
       title: "Won Kere Si Number",
@@ -56,19 +46,6 @@ Nígbà tí owó kò bá sí
 Nǹkan kì í ṣe déédé
 Ṣùgbọ́n a ó máa gbìyànjú
 Kí a lè rí i padà
-      `,
-      translation: `
-[Chorus]
-They reduced to number
-They reduced to number
-Why did they reduce to number?
-They said there's no money
-
-[Verse 1]
-When money is not there
-Things don't work properly
-But we will keep trying
-To find it again
       `,
     },
     {
@@ -88,19 +65,6 @@ Fún àwọn tí wọ́n ṣe rere
 Appreciation, appreciation
 Ẹ̀ṣẹ́ yín kò ní parẹ́
       `,
-      translation: `
-[Verse 1]
-Thank you for everything
-That you've done for me
-God will bless you
-With space and health
-
-[Chorus]
-Appreciation, appreciation
-For those who did good
-Appreciation, appreciation
-Your kindness won't be forgotten
-      `,
     },
     {
       title: "Mumbo Jumbo",
@@ -111,26 +75,13 @@ Your kindness won't be forgotten
 Mumbo jumbo, kò lẹ́yìn
 Ọ̀rọ̀ tí kò ní ìtumọ̀
 Ṣùgbọ́n a máa ń sọ ọ́
-Nígbà tí a kò mọ ohun tí a ń sọ
+Nígbà tí a kò mọ̀ ohun tí a ń sọ
 
 [Chorus]
 Mumbo jumbo, jumbo mumbo
 Kí ló ń ṣẹlẹ̀?
 Mumbo jumbo, jumbo mumbo
 Jẹ́ kí a mọ̀ ọ́
-      `,
-      translation: `
-[Verse 1]
-Mumbo jumbo, senseless
-Words without meaning
-But we keep saying it
-When we don't know what we're saying
-
-[Chorus]
-Mumbo jumbo, jumbo mumbo
-What's happening?
-Mumbo jumbo, jumbo mumbo
-Let's understand it
       `,
     },
     {
@@ -150,34 +101,26 @@ Ní a ń wá
 Mumbo jumbo 2
 Kí a lè mọ̀ ọ́n
       `,
-      translation: `
-[Verse 1]
-Mumbo jumbo part two
-Another matter coming
-Let's discuss it
-About these things
-
-[Bridge]
-Deep meaning
-We are seeking
-Mumbo jumbo 2
-Let's understand it
-      `,
     },
   ];
 
-  // Toggle lyrics visibility
-  const toggleLyrics = (index) => {
-    setExpandedCard(expandedCard === index ? null : index);
+  // Show lyrics
+  const showLyricsModal = (song) => {
+    setCurrentSongLyrics(song.lyrics);
+    setCurrentSongTitle(song.title);
+    setCurrentSongArtist(song.artist);
+    setShowLyrics(true);
+  };
+
+  // Hide lyrics
+  const hideLyrics = () => {
+    setShowLyrics(false);
   };
 
   // Render all 5 cards
   const renderCards = () => {
     return songs.map((song, index) => (
-      <div
-        key={index}
-        className={`card ${expandedCard === index ? "expanded" : ""}`}
-      >
+      <div key={index} className="card">
         <h3>{song.title}</h3>
         <p className="artist">{song.artist}</p>
 
@@ -191,29 +134,10 @@ Let's understand it
             ▶️ Play
           </button>
 
-          <button className="lyricsbtn" onClick={() => toggleLyrics(index)}>
-            {expandedCard === index ? "Hide Lyrics" : " Lyrics"}
+          <button className="lyricsbtn" onClick={() => showLyricsModal(song)}>
+            📝 Lyrics
           </button>
         </div>
-
-        {/* Lyrics Section - Only show when expanded */}
-        {expandedCard === index && (
-          <div className="lyrics-content">
-            <div className="lyrics-section">
-              <h4>🎵 Lyrics (Yoruba)</h4>
-              <pre className="lyrics-text">{song.lyrics}</pre>
-            </div>
-
-            {/* {song.translation && (
-              <div className="translation-section">
-                <h4>📖 English Translation</h4>
-                <pre className="lyrics-text translation">
-                  {song.translation}
-                </pre>
-              </div>
-            )} */}
-          </div>
-        )}
       </div>
     ));
   };
@@ -223,6 +147,24 @@ Let's understand it
       <hr className="section-divider" />
       <h2 id="heading5">Songs & References Roller Dex</h2>
 
+      {/* Lyrics Container - Inline at top, pushes content down */}
+      {showLyrics && (
+        <div className="lyrics-container">
+          <div className="lyrics-header">
+            <h3>{currentSongTitle}</h3>
+            <p className="lyrics-artist">{currentSongArtist}</p>
+            <button className="close-btn" onClick={hideLyrics}>
+              ✕ Close Lyrics
+            </button>
+          </div>
+
+          <div className="lyrics-body">
+            <pre className="lyrics-text">{currentSongLyrics}</pre>
+          </div>
+        </div>
+      )}
+
+      {/* Song Cards - Below lyrics container */}
       <div className="roller-container">
         <div className="track" id="track">
           {renderCards()}
