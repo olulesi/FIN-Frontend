@@ -13,9 +13,9 @@ function App() {
     <div className="App">
       {/* <Navbar /> */}
       <Alphabet />
-      <Game />
       <ToneGenerator />
       <TonePractice />
+      <Game />
       <Argument />
       <Rollerdex />
       <YorubaUseCasesCarousel />
