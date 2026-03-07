@@ -1,21 +1,21 @@
 // src/components/SongRolodex.jsx
 
-import React, { useState } from "react";
-import "../styles/Rollerdex.css";
+import React, { useState } from 'react'
+import '../styles/Rollerdex.css'
 
 function Rollerdex() {
   // State for lyrics display
-  const [showLyrics, setShowLyrics] = useState(false);
-  const [currentSongLyrics, setCurrentSongLyrics] = useState("");
-  const [currentSongTitle, setCurrentSongTitle] = useState("");
-  const [currentSongArtist, setCurrentSongArtist] = useState("");
+  const [showLyrics, setShowLyrics] = useState(false)
+  const [currentSongLyrics, setCurrentSongLyrics] = useState('')
+  const [currentSongTitle, setCurrentSongTitle] = useState('')
+  const [currentSongArtist, setCurrentSongArtist] = useState('')
 
   // Hardcoded songs with lyrics (5 total)
   const songs = [
     {
-      title: "The Horse, The Man & The Son",
-      artist: "Chief Ebeneezer Obey",
-      link: "https://www.youtube.com/clip/UgkxbfbRpvYXfcdXDgOgVP30v4xR2avdCJRR",
+      title: 'The Horse, The Man & The Son',
+      artist: 'Chief Ebeneezer Obey',
+      link: 'https://www.youtube.com/clip/UgkxbfbRpvYXfcdXDgOgVP30v4xR2avdCJRR',
       lyrics: `
 [Verse 1]
 Ẹṣin, ọkùnrin àti ọmọ
@@ -31,9 +31,9 @@ Jọ ń gbé ní àlàáfíà
       `,
     },
     {
-      title: "Won Kere Si Number",
-      artist: "Fatai Rolling Dollar",
-      link: "https://www.youtube.com/clip/UgkxuqPQ0aF58opBjzMeT6xxSbG4It59x0Wd",
+      title: 'Won Kere Si Number',
+      artist: 'Fatai Rolling Dollar',
+      link: 'https://www.youtube.com/clip/UgkxuqPQ0aF58opBjzMeT6xxSbG4It59x0Wd',
       lyrics: `
 [Chorus]
 Wọn kéré sí nọ́mbà
@@ -49,9 +49,9 @@ Kí a lè rí i padà
       `,
     },
     {
-      title: "Appreciation",
-      artist: "King Sunny Ade",
-      link: "https://www.youtube.com/clip/Ugkx999WH8ccSsMh2j4e974MquindL0-8Y1U",
+      title: 'Appreciation',
+      artist: 'King Sunny Ade',
+      link: 'https://www.youtube.com/clip/Ugkx999WH8ccSsMh2j4e974MquindL0-8Y1U',
       lyrics: `
 [Verse 1]
 Ẹ ṣeun fún gbogbo rẹ̀
@@ -67,9 +67,9 @@ Appreciation, appreciation
       `,
     },
     {
-      title: "Mumbo Jumbo",
-      artist: "Masoyinbo",
-      link: "https://www.youtube.com/clip/Ugkxss3wAGLAmw6AKX8W2RbSWoeo5aeN2DEY",
+      title: 'MMS',
+      artist: 'Asake ft Wizkid',
+      link: 'https://youtube.com/clip/UgkxNc5VLeHs9GbdxGirGHwHiM7iFgeqiPou?si=R1lFvBrRs5zeSRh2',
       lyrics: `
 [Verse 1]
 Mumbo jumbo, kò lẹ́yìn
@@ -85,9 +85,9 @@ Jẹ́ kí a mọ̀ ọ́
       `,
     },
     {
-      title: "Mumbo Jumbo 2",
-      artist: "Masoyinbo",
-      link: "https://www.youtube.com/clip/UgkxFbf3cle6bQgF3tC8pmw4WYBI2XwYa-ie",
+      title: 'E wa Ba Mijo',
+      artist: 'Tony Tetuila',
+      link: 'https://youtube.com/clip/UgkxWA1TSNUzongnbVVut-kv6ABtzzXyqxh4?si=0sxJXQMcA05DjbWV',
       lyrics: `
 [Verse 1]
 Mumbo jumbo part two
@@ -102,20 +102,20 @@ Mumbo jumbo 2
 Kí a lè mọ̀ ọ́n
       `,
     },
-  ];
+  ]
 
   // Show lyrics
   const showLyricsModal = (song) => {
-    setCurrentSongLyrics(song.lyrics);
-    setCurrentSongTitle(song.title);
-    setCurrentSongArtist(song.artist);
-    setShowLyrics(true);
-  };
+    setCurrentSongLyrics(song.lyrics)
+    setCurrentSongTitle(song.title)
+    setCurrentSongArtist(song.artist)
+    setShowLyrics(true)
+  }
 
   // Hide lyrics
   const hideLyrics = () => {
-    setShowLyrics(false);
-  };
+    setShowLyrics(false)
+  }
 
   // Render all 5 cards
   const renderCards = () => {
@@ -128,7 +128,7 @@ Kí a lè mọ̀ ọ́n
           <button
             className="playbtn"
             onClick={() =>
-              window.open(song.link, "_blank", "noopener,noreferrer")
+              window.open(song.link, '_blank', 'noopener,noreferrer')
             }
           >
             ▶️ Play
@@ -139,8 +139,8 @@ Kí a lè mọ̀ ọ́n
           </button>
         </div>
       </div>
-    ));
-  };
+    ))
+  }
 
   return (
     <div className="rolodex-container">
@@ -180,7 +180,7 @@ Kí a lè mọ̀ ọ́n
         </button>
       </div>
     </div>
-  );
+  )
 }
 
-export default Rollerdex;
+export default Rollerdex
