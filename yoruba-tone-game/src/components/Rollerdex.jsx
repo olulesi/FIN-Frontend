@@ -1,10 +1,7 @@
-// src/components/SongRolodex.jsx
+// src/components/Rollerdex.jsx
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import "../styles/Rollerdex.css";
-
-
-
 
 function Rollerdex() {
   // State for lyrics display
@@ -28,7 +25,7 @@ function Rollerdex() {
       title: "The Horse, The Man & The Son",
       artist: "Chief Ebeneezer Obey",
       link: "https://www.youtube.com/clip/UgkxbfbRpvYXfcdXDgOgVP30v4xR2avdCJRR",
-      audioFile: "/audio/horse-man-son.mp3", // Add your MP3 files here
+      audioFile: "/audio/horse-man-son.mp3",
       lyrics: `
 [Verse 1] Ẹṣin, ọkùnrin àti ọmọ Ní ilẹ̀ Yorùbá ayé Ọlá àti òyìnbó Nípa ẹ̀tọ́ àti òmìnira [Chorus] Kí a máa bọ̀wọ̀ fún ara wa Ní ilẹ̀ yìí tí a ń gbé Ẹṣin, ọkùnrin àti ọmọ Jọ ń gbé ní àlàáfíà
       `,
@@ -48,7 +45,7 @@ function Rollerdex() {
       link: "https://www.youtube.com/clip/Ugkx999WH8ccSsMh2j4e974MquindL0-8Y1U",
       audioFile: "/audio/appreciation.mp3",
       lyrics: `
-[Verse 1] Ẹ ṣeun fún gbogbo rẹ̀ Tí ẹ̀ ṣe fún mi Ọlọ́run á bùkún yín Ní ààyè àti ìlera [Chorus] Appreciation, appreciation Fún àwọn tí wọ́n ṣe rere Appreciation, appreciation Ẹ̀ṣẹ́ yín kò ní parẹ́
+[Verse 1] Ẹ ṣeun fún gbogbo rẹ̀ Tí ẹ̀ ṣe fún mi Ọlọ́run á bùkún yín Ní ààyè àti ìlera [Chorus] Appreciation, appreciation Fún àwọn tí wọ́n ṣe rere Appreciation, appreciation Ẹ̀ẹ́ yín kò ní parẹ́
       `,
     },
     {
@@ -112,7 +109,12 @@ function Rollerdex() {
     if (isPlaying) {
       audioRef.current.pause();
     } else {
-      audioRef.current.play();
+      audioRef.current.play().catch((err) => {
+        console.error("❌ Playback failed:", err);
+        alert(
+          `Cannot play: ${err.message}\n\nCheck if audio file exists in public/audio/`,
+        );
+      });
     }
     setIsPlaying(!isPlaying);
   };
@@ -189,14 +191,14 @@ function Rollerdex() {
               window.open(song.link, "_blank", "noopener,noreferrer")
             }
           >
-            ▶️ Play
+            <i className="fas fa-play"></i> Play
           </button>
 
           <button
             className="lyricsbtn"
             onClick={() => showLyricsModal(song, index)}
           >
-            📝 Lyrics
+            <i className="fas fa-file-lines"></i> Lyrics
           </button>
         </div>
       </div>
@@ -214,6 +216,10 @@ function Rollerdex() {
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata}
         onEnded={handleSongEnded}
+        onError={(e) => {
+          console.error("🔊 Audio Error:", e);
+          console.log("🔊 Current src:", audioRef.current?.src);
+        }}
       />
 
       {/* Lyrics Container */}
@@ -225,7 +231,7 @@ function Rollerdex() {
               <p className="lyrics-artist">{currentSongArtist}</p>
             </div>
             <button className="close-btn" onClick={hideLyrics}>
-              ✕ Close
+              <i className="fas fa-times"></i> Close
             </button>
           </div>
 
@@ -244,15 +250,19 @@ function Rollerdex() {
               onClick={skipBack}
               title="Previous"
             >
-              ⏮️
+              <i className="fas fa-backward-step"></i>
             </button>
 
             <button
-              className="player-btn play-pause-btn"
+              className={`player-btn play-pause-btn ${isPlaying ? "playing" : ""}`}
               onClick={togglePlay}
               title={isPlaying ? "Pause" : "Play"}
             >
-              {isPlaying ? "⏸️" : "▶️"}
+              {isPlaying ? (
+                <i className="fas fa-pause"></i>
+              ) : (
+                <i className="fas fa-play"></i>
+              )}
             </button>
 
             <button
@@ -260,7 +270,7 @@ function Rollerdex() {
               onClick={skipForward}
               title="Next"
             >
-              ⏭️
+              <i className="fas fa-forward-step"></i>
             </button>
           </div>
 
