@@ -1,15 +1,17 @@
+
 import React from 'react'
 import '../styles/Alphabet.css'
 
 function Alphabet() {
   return (
     <div className="">
-      <h1 class="heading1">Flowing in Yoruba (FIN)</h1>
+      <h1 className="heading1">Flowing in Yoruba (FIN)</h1>
       <hr />
-      <h2 class="heading2">Alphabet Practice</h2>
-      <table class="table1" border="1" cellpadding="15" cellspacing="3">
+      <h2 className="heading2">Alphabet Practice</h2>
+      <table className="table1" border="1" cellPadding="15" cellSpacing="3">
+        <tbody>
         <tr>
-          <th colspan="5">Álífábéétì Yorùbá.</th>
+          <th colSpan="5">Álífábéétì Yorùbá.</th>
         </tr>
         <tr>
           <td>
@@ -121,14 +123,16 @@ function Alphabet() {
             Y y<br />
             (Yee)
           </td>
-        </tr>
+          </tr>
+          </tbody>
       </table>
+
       <div className="linkk1">
         <a
           href="https://www.yorubaizm.com/"
           target="_blank"
           rel="noreferrer"
-          class="link1"
+          className="link1"
         >
           from Yorubaizm
         </a>
