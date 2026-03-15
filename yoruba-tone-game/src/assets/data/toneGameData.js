@@ -7,12 +7,10 @@ import Ibarapa from '../audio/Ibarapa.mp3'
 import Morowore from '../audio/Morowore.mp3'
 import igba from '../audio/igba.mp3'
 import eredodo from '../audio//homonyms/ere/eredodo.mp3'
-import ereredo from '../audio//homonyms/ere/ereredo.mp3'
 import ereremi from '../audio//homonyms/ere/ereremi.mp3'
 import ojododo from '../audio//homonyms/ojo/ojododo.mp3'
 import ojodomi from '../audio//homonyms/ojo/ojodomi.mp3'
 import ojomimi from '../audio//homonyms/ojo/ojomimi.mp3'
-import ojomire from '../audio//homonyms/ojo/ojomire.mp3'
 import ojorere from '../audio//homonyms/ojo/ojorere.mp3'
 import okododo from '../audio//homonyms/oko/okododo.mp3'
 import okomire from '../audio//homonyms/oko/okomire.mp3'
@@ -100,15 +98,6 @@ export const gameData = [
     translation: '', // Note: Using time meaning for homonym context
   },
   {
-    word: 'erè',
-    audioFile: ereredo,
-    options: ['Re Do', 'Do Mi', 'Do Do', 'Mi Do'],
-    correct: 0,
-    category: 'homonyns',
-    sentence: '',
-    translation: '', // Note: Using time meaning for homonym context
-  },
-  {
     word: 'eré',
     audioFile: ereremi,
     options: ['Re Re', 'Do Mi', 'Re Mi', 'Mi Do'],
@@ -140,15 +129,6 @@ export const gameData = [
     audioFile: ojomimi,
     options: ['Re Re', 'Do Mi', 'Mi Mi', 'Do Do'],
     correct: 2,
-    category: 'homonyns',
-    sentence: '',
-    translation: '', // Note: Using time meaning for homonym context
-  },
-  {
-    word: 'ójo',
-    audioFile: ojomire,
-    options: ['Mi Re', 'Do Mi', 'Re Mi', 'Do Do'],
-    correct: 0,
     category: 'homonyns',
     sentence: '',
     translation: '', // Note: Using time meaning for homonym context
