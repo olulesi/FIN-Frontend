@@ -16,7 +16,7 @@
   position: relative;
   background: #000;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   /* 16:9 aspect ratio = 9 / 16 = 56.25% */
   padding-top: 56.25%; /* 👈 THIS CREATES FIXED HEIGHT */
   height: 0;
@@ -79,5 +79,5 @@
 }
 
 .yorubaheader {
-  font-family: "Abril Fatface", serif;
+  font-family: 'Abril Fatface', serif;
 }
