@@ -134,12 +134,15 @@
   opacity: 0.8;
 }
 
-@keyframes pulse-correct {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
-  }
+/* Add this at the end of your Game.css file */
+.homonym-image-container {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.homonym-image {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }

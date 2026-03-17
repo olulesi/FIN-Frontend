@@ -22,7 +22,19 @@ function Question({
   attempts,
   isLocked,
   correctAnswer,
+  currentImage,
+  showImage,
 }) {
+  // ===== DEBUG 4: Check what props Question received =====
+  console.log(
+    "%c📦 QUESTION COMPONENT RENDERED",
+    "background: green; color: white",
+  );
+  console.log("Word:", word);
+  console.log("Received currentImage:", currentImage);
+  console.log("Received showImage:", showImage);
+  console.log("Should show image?", showImage && currentImage ? "YES" : "NO");
+
   // State to control sentence visibility
   const [showSentence, setShowSentence] = useState(false);
 
@@ -38,6 +50,23 @@ function Question({
         Attempt: {attempts + 1} of 2
         {attempts > 0 && <span className="attempt-used"> (1 used)</span>}
       </div>
+
+      {/* ===== IMAGE DISPLAY - Only shows AFTER an option is selected ===== */}
+      {selectedOption !== null && showImage && currentImage && (
+        <div className="homonym-image-container">
+          <img
+            src={currentImage}
+            alt={word}
+            className="homonym-image"
+            onLoad={() => console.log("✅ IMAGE LOADED SUCCESSFULLY for", word)}
+            onError={(e) => {
+              console.log("❌ IMAGE FAILED TO LOAD for", word);
+              console.log("Error event:", e);
+              console.log("Failed source:", currentImage);
+            }}
+          />
+        </div>
+      )}
 
       {/* Word Display */}
       <div className="word-display">

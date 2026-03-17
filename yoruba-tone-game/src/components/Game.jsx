@@ -3,6 +3,8 @@ import Question from "./Question";
 import "./Game.css";
 import { gameData } from "../assets/data/toneGameData";
 
+
+
 const Game = () => {
   //STATE DATA
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -18,7 +20,21 @@ const Game = () => {
   const [attempts, setAttempts] = useState(0);
   const [isLocked, setIsLocked] = useState(false);
 
-  // ✅ FIX 1: Initialize with null instead of empty array
+  // NEW: Image state for homonyms
+  const [currentImage, setCurrentImage] = useState(null);
+  const [showImage, setShowImage] = useState(false);
+
+  // ===== DEBUG 2: Monitor image state changes =====
+  useEffect(() => {
+    console.log("showImage:", showImage);
+    console.log("currentImage:", currentImage);
+    if (currentImage) {
+      console.log("Image type:", typeof currentImage);
+      console.log("Image value:", currentImage);
+    }
+  }, [showImage, currentImage]);
+
+  // Initialize with null instead of empty array
   const [shuffledHomonyms, setShuffledHomonyms] = useState(null);
 
   // Shuffle function
@@ -31,13 +47,13 @@ const Game = () => {
     return shuffled;
   };
 
-  // ✅ FIX 2: Pre-shuffle homonyms on mount
+  // Pre-shuffle homonyms on mount
   useEffect(() => {
     const homonymsData = gameData.filter(
       (item) => item.category === "homonyns",
     );
     setShuffledHomonyms(shuffleArray(homonymsData));
-  }, []); // Run once on mount
+  }, []);
 
   // Reset game state when category changes
   useEffect(() => {
@@ -50,7 +66,11 @@ const Game = () => {
     setAttempts(0);
     setIsLocked(false);
 
-    // ✅ FIX 3: Re-shuffle when switching TO homonyms (not on every category change)
+    // NEW: Reset image state
+    setShowImage(false);
+    setCurrentImage(null);
+
+    // Re-shuffle when switching TO homonyms
     if (selectedCategory === "homonyns") {
       const homonymsData = gameData.filter(
         (item) => item.category === "homonyns",
@@ -67,16 +87,15 @@ const Game = () => {
     if (selectedCategory === "location")
       return gameData.filter((item) => item.category === "location");
     if (selectedCategory === "homonyns") {
-      // ✅ FIX 4: Return empty array if not loaded yet (safer than undefined)
       return shuffledHomonyms || [];
     }
     return gameData;
   }, [selectedCategory, shuffledHomonyms]);
 
-  // ✅ FIX 5: Safety check - prevent undefined access
+  // Safety check
   const currentWord = filteredData[currentWordIndex];
 
-  // If no word available (shouldn't happen but safety first)
+  // If no word available
   if (!currentWord) {
     return <div className="game-container">Loading...</div>;
   }
@@ -116,15 +135,34 @@ const Game = () => {
     }
   };
 
+  // UPDATED: Play audio with image display
+  // ===== DEBUG 3: Enhanced playAudio with logs =====
   const playAudio = () => {
+    console.log("%c🔊 PLAY AUDIO CLICKED", "background: orange; color: black");
+    console.log(
+      "Does word have imageFile?",
+      currentWord.hasOwnProperty("imageFile"),
+    );
+    console.log("imageFile value:", currentWord.imageFile);
+
     setHasPlayedAudio(true);
     setLastPlayed(currentWord.word);
+
+    if (currentWord.imageFile) {
+      console.log("✅ Image property exists! Setting state...");
+      console.log("Setting currentImage to:", currentWord.imageFile);
+      setCurrentImage(currentWord.imageFile);
+      setShowImage(true);
+    } else {
+      console.log("❌ No imageFile property found for this word");
+    }
 
     const audio = new Audio(currentWord.audioFile);
     audio.playbackRate = playbackRate;
     audio.play().catch((e) => console.log("Audio play error:", e));
   };
 
+  // UPDATED: Start over with image reset
   const startOver = () => {
     setCurrentWordIndex(0);
     setSelectedOption(null);
@@ -137,6 +175,10 @@ const Game = () => {
     setAttempts(0);
     setIsLocked(false);
 
+    // NEW: Reset image
+    setShowImage(false);
+    setCurrentImage(null);
+
     // Re-shuffle homonyms on start over if in homonyms category
     if (selectedCategory === "homonyns") {
       const homonymsData = gameData.filter(
@@ -146,6 +188,7 @@ const Game = () => {
     }
   };
 
+  // UPDATED: Next word with image reset
   const nextWord = () => {
     setCurrentWordIndex((prev) => (prev + 1) % filteredData.length);
     setSelectedOption(null);
@@ -155,6 +198,10 @@ const Game = () => {
     setHasPlayedAudio(false);
     setAttempts(0);
     setIsLocked(false);
+
+    // NEW: Reset image
+    setShowImage(false);
+    setCurrentImage(null);
   };
 
   // Calculate score percentage
@@ -239,10 +286,13 @@ const Game = () => {
           attempts={attempts}
           isLocked={isLocked}
           correctAnswer={currentWord.correct}
+          // NEW: Pass image props
+          currentImage={currentImage}
+          showImage={showImage}
         />
       </div>
     </>
   );
-};
+};;;
 
 export default Game;
