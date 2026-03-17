@@ -1,17 +1,15 @@
 import React, { useState } from 'react'
-import '../styles/Alphabet.css' // Optional: if you move your CSS there
+import '../styles/Alphabet.css'
+import ToneAudio from './ToneAudio' // Import the new child component
 
 const ToneGenerator = () => {
   const tones = ['DO', 'RE', 'MI']
-
-  // Initial 3 rows of 5 tones (matches your HTML structure)
   const initialTones = [
     ['DO', 'DO', 'RE', 'RE', 'MI'],
     ['MI', 'DO', 'MI', 'RE', 'DO'],
     ['DO', 'RE', 'RE', 'MI', 'DO'],
   ]
 
-  //state
   const [toneGrid, setToneGrid] = useState(initialTones)
 
   const shuffleTones = () => {
@@ -24,7 +22,10 @@ const ToneGenerator = () => {
   return (
     <div>
       <h2 id="heading3">Tone Generator</h2>
-
+      {/* New Audio Player Component */}
+      <div className="audio-section">
+        <ToneAudio />
+      </div>
       <div className="tone-container">
         {toneGrid.map((row, rowIndex) => (
           <div key={rowIndex} className="tone-row">
@@ -42,6 +43,7 @@ const ToneGenerator = () => {
           Shuffle Tones
         </button>
       </div>
+
       <hr style={{ marginTop: '2rem' }} />
     </div>
   )

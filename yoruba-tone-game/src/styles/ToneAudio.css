@@ -1,0 +1,148 @@
+.audio-player {
+  margin: 2rem auto;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Centralized Controls */
+.controls-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  align-items: center;
+}
+
+.control-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+.control-btn {
+  background: #4a69e1;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: white;
+  font-size: 16px;
+}
+
+.control-btn:hover {
+  background: #3d5afe;
+  transform: scale(1.05);
+}
+
+/* Speed Dial — Circular Slider */
+.speed-dial-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.speed-slider {
+  width: 80px;
+  height: 8px;
+  -webkit-appearance: none;
+  background: #e0e0e0;
+  border-radius: 4px;
+  outline: none;
+  position: relative;
+  z-index: 1;
+}
+
+.speed-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #4a69e1;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.speed-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #4a69e1;
+  cursor: pointer;
+  border: none;
+}
+
+.speed-label {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Progress Bar */
+.progress-container {
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 12px 0;
+  width: 100%;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #4a69e1;
+  transition: width 0.1s ease;
+}
+
+/* Optional: Add hover effect on progress bar */
+.progress-container:hover {
+  background: #d0d0d0;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .audio-player {
+    margin: 1rem auto;
+    padding: 15px;
+  }
+
+  .controls-center {
+    gap: 12px;
+  }
+
+  .control-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .speed-slider {
+    width: 60px;
+    height: 6px;
+  }
+
+  .speed-label {
+    font-size: 12px;
+  }
+}
+.audio-section {
+  text-align: center;
+  margin: 4rem 10rem;
+}

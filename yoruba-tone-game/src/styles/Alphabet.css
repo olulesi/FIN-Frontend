@@ -14,21 +14,20 @@
   text-align: center;
 }
 
-
 .link1 {
   margin-bottom: 2rem;
   float: right;
 }
 
-
-
-
-#heading3 {
-  text-decoration: underline; 
-  font-style: italic; 
-  margin-top: 4.8rem;
+.link2 {
+  float: right;
 }
 
+#heading3 {
+  text-decoration: underline;
+  font-style: italic;
+  margin-top: 4.8rem;
+}
 
 .tone-container {
   display: flex;
@@ -54,18 +53,17 @@
 }
 
 #shuffleBtn {
-  margin-top: 15px; font-size: large;
+  margin-top: 15px;
+  font-size: large;
 }
 
-
-
 #heading3 {
-  text-decoration: underline; 
-  font-style: italic; 
+  text-decoration: underline;
+  font-style: italic;
   margin-top: 4.8rem;
 }
 
-.linkk1{
+.linkk1 {
   display: flex;
   justify-content: end;
   margin-right: 10px;
@@ -95,21 +93,20 @@
 }
 
 #shuffleBtn {
-  margin-top: 15px; font-size: large;
+  margin-top: 15px;
+  font-size: large;
 }
-
 
 /* TONE PRACTICE */
 #heading4 {
-  text-align: center; 
+  text-align: center;
   font-style: italic;
 }
 
 #tonePractice {
-  text-align: center; 
+  text-align: center;
   margin-top: 20px;
 }
-
 
 #wordRow {
   display: flex;
@@ -119,57 +116,48 @@
   margin-bottom: 10px;
 }
 
-
 #toneRow {
-   display: flex;
- justify-content: center;
-   gap: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
   flex-wrap: wrap;
   margin-bottom: 20px;
 }
 
-
 #playToneAudio {
-  margin: 10px; 
+  margin: 10px;
   font-size: 16px;
 }
 
-
 #prevTone {
-font-size: 16px;
+  font-size: 16px;
 }
 
-#nextTone{
-font-size: 16px;
+#nextTone {
+  font-size: 16px;
 }
-
-
-
-
 
 /* ARGUMENT GAME STYLE SECTION */
 
 #argument-section {
-      text-align: center;
-      margin-top: 40px;
-      font-family: Arial, sans-serif;
-    }
+  text-align: center;
+  margin-top: 40px;
+  font-family: Arial, sans-serif;
+}
 
- #tense-buttons {
-      margin-top: 20px;
-    }
+#tense-buttons {
+  margin-top: 20px;
+}
 
-
-    /* Buttons layout */
+/* Buttons layout */
 #verb-buttons {
-      margin-top: 20px;
-    }
+  margin-top: 20px;
+}
 
-
- #verb-buttons button,
-  #tense-buttons button {
-      margin: 5px;
-      padding: 6px 14px;
-      font-size: 16px;
-      cursor: pointer;
-    }
+#verb-buttons button,
+#tense-buttons button {
+  margin: 5px;
+  padding: 6px 14px;
+  font-size: 16px;
+  cursor: pointer;
+}
