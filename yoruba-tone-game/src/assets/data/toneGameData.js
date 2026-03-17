@@ -31,6 +31,7 @@ import okoVehicleImg from "../images/homonyms/oko/oko-vehicle.jpg";
 import okoStoneImg from "../images/homonyms/oko/oko-stone.jpg";
 
 
+// DATA
 export const gameData = [
   // LOCATIONS (keep your existing location entries)
   {
@@ -108,7 +109,7 @@ export const gameData = [
     translation: "I have one hour (igba) to write this document.",
   },
 
-  // ERE Group
+  // ERE (2 image)
   {
     word: "èrè",
     audioFile: eredodo,
@@ -187,7 +188,7 @@ export const gameData = [
   {
     word: "ọkọ̀",
     audioFile: okoredo,
-    imageFile: okoVehicleImg, // Image: vehicle/car
+    imageFile: okoVehicleImg, 
     options: ["Mi Re", "Do Mi", "Re Do", "Do Do"],
     correct: 2,
     category: "homonyns",
