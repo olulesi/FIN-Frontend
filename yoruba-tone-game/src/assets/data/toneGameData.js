@@ -17,10 +17,10 @@ import okoredo from "../audio/homonyms/oko/okoredo.mp3";
 import okoremi from "../audio/homonyms/oko/okoremi.mp3";
 import okorere from "../audio/homonyms/oko/okorere.mp3";
 
+import IgbaTimeImg from "../images/homonyms/igba-time.jpg";
 import ereRewardImg from "../images/homonyms/ere/ere-reward.jpg";
 import erePlayImg from "../images/homonyms/ere/ere-play.jpg";
 import ojoRainImg from "../images/homonyms/ojo/ojo-rain.jpg";
-// import ojoDayImg from "../images/homonyms/ojo/ojo-day.jpg";
 import ojoBurn from "../images/homonyms/ojo/ojo-burn.jpg";
 import ojoCowardImg from "../images/homonyms/ojo/ojo-coward.jpg";
 import okoPackedIt from "../images/homonyms/oko/oko-packed.jpg";
@@ -101,7 +101,7 @@ export const gameData = [
   {
     word: "Ìgbà",
     audioFile: igba,
-    // No image for Ìgbà
+    imageFile: IgbaTimeImg,
     options: ["Re Re", "Do Mi", "Do Do", "Mi Do"],
     correct: 2,
     category: "homonyns",
@@ -154,6 +154,16 @@ export const gameData = [
   },
 
   {
+    word: "ojo",
+    audioFile: ojorere,
+    imageFile: ojoBurn,
+    options: ["Mi Re", "Mi Mi", "Re Mi", "Re Re"],
+    correct: 3,
+    category: "homonyns",
+    sentence: "Ọkùnrin yìí jẹ́ ojo.",
+    translation: "This man is a coward.",
+  },
+    {
     word: "ojo",
     audioFile: ojorere,
     imageFile: ojoBurn,
