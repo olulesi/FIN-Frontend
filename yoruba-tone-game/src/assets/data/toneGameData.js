@@ -10,7 +10,7 @@ import eredodo from "../audio/homonyms/ere/eredodo.mp3";
 import ereremi from "../audio/homonyms/ere/ereremi.mp3";
 import ojododo from "../audio/homonyms/ojo/ojododo.mp3";
 import ojodomi from "../audio/homonyms/ojo/ojodomi.mp3";
-import ojorere from "../audio/homonyms/ojo/ojorere.mp3";
+import ojomimi from "../audio/homonyms/ojo/ojomimi.mp3";
 import okododo from "../audio/homonyms/oko/okododo.mp3";
 import okomire from "../audio/homonyms/oko/okomire.mp3";
 import okoredo from "../audio/homonyms/oko/okoredo.mp3";
@@ -96,7 +96,6 @@ export const gameData = [
     translation: "I need to pronounce 'morowore' correctly.",
   },
 
-
   // ===== HOMONYMS WITH ALL 11 IMAGES =====
   {
     word: "Ìgbà",
@@ -135,7 +134,7 @@ export const gameData = [
   {
     word: "òjò",
     audioFile: ojododo,
-    imageFile: ojoRainImg, 
+    imageFile: ojoRainImg,
     options: ["Re Re", "Do Mi", "Re Mi", "Do Do"],
     correct: 3,
     category: "homonyns",
@@ -154,21 +153,11 @@ export const gameData = [
   },
 
   {
-    word: "ojo",
-    audioFile: ojorere,
+    word: "ó jó",
+    audioFile: ojomimi,
     imageFile: ojoBurn,
     options: ["Mi Re", "Mi Mi", "Re Mi", "Re Re"],
-    correct: 3,
-    category: "homonyns",
-    sentence: "Ọkùnrin yìí jẹ́ ojo.",
-    translation: "This man is a coward.",
-  },
-    {
-    word: "ojo",
-    audioFile: ojorere,
-    imageFile: ojoBurn,
-    options: ["Mi Re", "Mi Mi", "Re Mi", "Re Re"],
-    correct: 3,
+    correct: 1,
     category: "homonyns",
     sentence: "Ọkùnrin yìí jẹ́ ojo.",
     translation: "This man is a coward.",
@@ -198,7 +187,7 @@ export const gameData = [
   {
     word: "ọkọ̀",
     audioFile: okoredo,
-    imageFile: okoVehicleImg, 
+    imageFile: okoVehicleImg,
     options: ["Mi Re", "Do Mi", "Re Do", "Do Do"],
     correct: 2,
     category: "homonyns",
