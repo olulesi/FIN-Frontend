@@ -25,20 +25,6 @@ function Question({
   currentImage,
   showImage,
 }) {
-  // ===== DEBUG: Check what props Question received =====
-  console.log(
-    "%c📦 QUESTION COMPONENT RENDERED",
-    "background: green; color: white",
-  );
-  console.log("Word:", word);
-  console.log("Received currentImage:", currentImage);
-  console.log("Received showImage:", showImage);
-  console.log("showAnswer:", showAnswer);
-  console.log(
-    "Should show image?",
-    showAnswer && showImage && currentImage ? "YES" : "NO",
-  );
-
   // State to control sentence visibility
   const [showSentence, setShowSentence] = useState(false);
 
@@ -55,20 +41,10 @@ function Question({
         {attempts > 0 && <span className="attempt-used"> (1 used)</span>}
       </div>
 
-      {/* ===== IMAGE DISPLAY - Only shows after answer is revealed ===== */}
-      {showAnswer && showImage && currentImage && (
+      {/* IMAGE DISPLAY - Only shows after second attempt (attempts === 2) */}
+      {attempts === 2 && showImage && currentImage && (
         <div className="homonym-image-container">
-          <img
-            src={currentImage}
-            alt={word}
-            className="homonym-image"
-            onLoad={() => console.log("✅ IMAGE LOADED SUCCESSFULLY for", word)}
-            onError={(e) => {
-              console.log("❌ IMAGE FAILED TO LOAD for", word);
-              console.log("Error event:", e);
-              console.log("Failed source:", currentImage);
-            }}
-          />
+          <img src={currentImage} alt={word} className="homonym-image" />
         </div>
       )}
 
