@@ -6,12 +6,19 @@
   background-color: #f8f9fa;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  /* NEW: Fixed minimum height to prevent resizing */
+  min-height: 550px;
+  /* NEW: Ensure container doesn't shrink */
+  height: auto;
+  overflow: visible;
 }
 
 .top-controls {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 20px;
+  /* NEW: Fixed height */
+  min-height: 40px;
 }
 
 .start-over-btn {
@@ -40,6 +47,8 @@
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  /* NEW: Fixed minimum height */
+  min-height: 60px;
 }
 
 .category-filter label {
@@ -67,7 +76,9 @@
   align-items: center;
   justify-content: center;
   margin: 15px 0;
-  gap: 6px; /* space between icon and buttons */
+  gap: 6px;
+  /* NEW: Fixed height */
+  min-height: 40px;
 }
 
 .speed-icon {
@@ -105,6 +116,8 @@
   font-size: 0.9rem;
   color: #666;
   font-weight: 600;
+  /* NEW: Fixed height */
+  min-height: 32px;
 }
 
 .attempt-used {
@@ -134,15 +147,39 @@
   opacity: 0.8;
 }
 
-/* Add this at the end of your Game.css file */
+/* NEW: Fixed image container - ALWAYS takes space even when no image */
 .homonym-image-container {
   text-align: center;
   margin: 15px 0;
+  /* NEW: Fixed height - always takes this space */
+  min-height: 230px;
+  height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Optional: subtle background when empty */
+  background: #fafafa;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .homonym-image {
   max-width: 100%;
   max-height: 200px;
+  width: auto;
+  height: auto;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  /* NEW: Prevent image from affecting layout */
+  object-fit: contain;
+}
+
+@keyframes pulse-correct {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+  }
 }

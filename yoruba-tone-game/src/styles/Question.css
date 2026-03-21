@@ -1,38 +1,47 @@
 .question-container {
   background-color: white;
-  padding: 25px;
+  padding: 15px;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
 }
 
 .word-display {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: bold;
   text-align: center;
-  margin: 20px 0;
+  margin: 8px 0;
+  padding: 12px;
   color: #333;
-  min-height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #f0f0f0;
+  border-radius: 8px;
+  flex-shrink: 0;
 }
 
 .tone-options {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin: 20px 0;
+  gap: 8px;
+  margin: 10px 0;
+  flex-shrink: 0;
 }
 
 .tone-option {
-  padding: 12px;
-  font-size: 1rem;
+  padding: 10px;
+  font-size: 0.95rem;
   border: 2px solid #dee2e6;
   border-radius: 8px;
   background-color: white;
   cursor: pointer;
   transition: all 0.2s;
   font-weight: 500;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .tone-option:hover:not(:disabled) {
@@ -52,31 +61,35 @@
   cursor: not-allowed;
 }
 
-/* Button Row - Container for side-by-side buttons */
+/* Button Row */
 .button-row {
   display: flex;
-  gap: 12px;
-  margin: 15px 0;
+  gap: 10px;
+  margin: 10px 0;
+  flex-shrink: 0;
 }
 
-/* Play Button - Now inline with sentence button */
 .play-btn {
   flex: 1;
-  padding: 14px;
+  padding: 10px;
   background-color: #0d6efd;
   color: white;
   border: none;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.2s;
   box-shadow: 0 2px 4px rgba(13, 110, 253, 0.3);
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .play-btn:hover:not(:disabled) {
   background-color: #0b5ed7;
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   box-shadow: 0 4px 8px rgba(13, 110, 253, 0.4);
 }
 
@@ -86,24 +99,27 @@
   transform: none;
 }
 
-/* Sentence Button - Matching play button styling */
 .sentence-btn {
   flex: 1;
-  padding: 14px;
+  padding: 10px;
   background-color: #4a6fa5;
   color: white;
   border: none;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.2s;
   box-shadow: 0 2px 4px rgba(74, 111, 165, 0.3);
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .sentence-btn:hover:not(:disabled) {
   background-color: #3a5a80;
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   box-shadow: 0 4px 8px rgba(74, 111, 165, 0.4);
 }
 
@@ -118,45 +134,47 @@
   box-shadow: 0 0 0 3px rgba(44, 74, 109, 0.3);
 }
 
-/* Sentence Display - Clean and matching your design */
+/* Sentence Display */
 .sentence-display {
   background-color: #f8f9fa;
   border-left: 4px solid #4a6fa5;
-  padding: 16px;
-  margin: 15px 0;
+  padding: 10px;
+  margin: 8px 0;
   border-radius: 6px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  flex-shrink: 0;
 }
 
 .sentence-content {
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .yoruba-sentence {
-  font-size: 1.15rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #1a3a6c;
-  line-height: 1.6;
-  margin: 0 0 8px 0;
+  line-height: 1.4;
+  margin: 0 0 4px 0;
 }
 
 .english-translation {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   color: #6c757d;
   margin: 0;
   font-style: italic;
-  padding-left: 12px;
+  padding-left: 8px;
   border-left: 2px solid #dee2e6;
 }
 
 /* Feedback */
 .feedback {
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
-  margin: 15px 0;
-  padding: 10px;
+  margin: 8px 0;
+  padding: 8px;
   border-radius: 6px;
+  flex-shrink: 0;
 }
 
 .feedback.correct {
@@ -172,18 +190,21 @@
 .last-played {
   text-align: center;
   color: #6c757d;
-  font-size: 0.9rem;
-  margin: 10px 0;
+  font-size: 0.8rem;
+  margin: 5px 0;
+  flex-shrink: 0;
 }
 
 .score-tracker {
   display: flex;
   justify-content: space-around;
   background-color: #f8f9fa;
-  padding: 12px;
+  padding: 8px;
   border-radius: 8px;
-  margin: 15px 0;
+  margin: 8px 0;
   font-weight: 500;
+  font-size: 0.85rem;
+  flex-shrink: 0;
 }
 
 .score-tracker .correct {
@@ -202,21 +223,41 @@
 .next-btn {
   display: block;
   width: 100%;
-  padding: 12px;
-  margin: 20px 0 0 0;
+  padding: 10px;
+  margin: 8px 0 0 0;
   background-color: #20c997;
   color: white;
   border: none;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.2s;
   box-shadow: 0 2px 4px rgba(32, 201, 151, 0.3);
+  flex-shrink: 0;
 }
 
 .next-btn:hover {
   background-color: #1ba980;
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   box-shadow: 0 4px 8px rgba(32, 201, 151, 0.4);
+}
+
+/* Scrollbar styling for if content ever overflows */
+.question-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.question-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.question-container::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.question-container::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
 }

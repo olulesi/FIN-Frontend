@@ -25,7 +25,7 @@ function Question({
   currentImage,
   showImage,
 }) {
-  // ===== DEBUG 4: Check what props Question received =====
+  // ===== DEBUG: Check what props Question received =====
   console.log(
     "%c📦 QUESTION COMPONENT RENDERED",
     "background: green; color: white",
@@ -33,7 +33,11 @@ function Question({
   console.log("Word:", word);
   console.log("Received currentImage:", currentImage);
   console.log("Received showImage:", showImage);
-  console.log("Should show image?", showImage && currentImage ? "YES" : "NO");
+  console.log("showAnswer:", showAnswer);
+  console.log(
+    "Should show image?",
+    showAnswer && showImage && currentImage ? "YES" : "NO",
+  );
 
   // State to control sentence visibility
   const [showSentence, setShowSentence] = useState(false);
@@ -51,8 +55,8 @@ function Question({
         {attempts > 0 && <span className="attempt-used"> (1 used)</span>}
       </div>
 
-      {/* ===== IMAGE DISPLAY - Only shows AFTER an option is selected ===== */}
-      {selectedOption !== null && showImage && currentImage && (
+      {/* ===== IMAGE DISPLAY - Only shows after answer is revealed ===== */}
+      {showAnswer && showImage && currentImage && (
         <div className="homonym-image-container">
           <img
             src={currentImage}

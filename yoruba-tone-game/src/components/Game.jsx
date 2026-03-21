@@ -265,31 +265,33 @@ const Game = () => {
         </div>
 
         {/* Question Component with all props */}
-        <Question
-          word={currentWord.word}
-          options={currentWord.options}
-          selectedOption={selectedOption}
-          showAnswer={showAnswer}
-          feedback={feedback}
-          lastPlayed={lastPlayed}
-          hasPlayedAudio={hasPlayedAudio}
-          correctCount={correctCount}
-          wrongCount={wrongCount}
-          scorePercentage={scorePercentage}
-          onOptionSelect={handleOptionSelect}
-          onPlayAudio={playAudio}
-          onNextWord={nextWord}
-          playbackRate={playbackRate}
-          onSetPlaybackRate={setPlaybackRate}
-          sentence={currentWord.sentence}
-          translation={currentWord.translation}
-          attempts={attempts}
-          isLocked={isLocked}
-          correctAnswer={currentWord.correct}
-          // NEW: Pass image props
-          currentImage={currentImage}
-          showImage={showImage}
-        />
+        <div className="question-wrapper">
+          <Question
+            word={currentWord.word}
+            options={currentWord.options}
+            selectedOption={selectedOption}
+            showAnswer={showAnswer}
+            feedback={feedback}
+            lastPlayed={lastPlayed}
+            hasPlayedAudio={hasPlayedAudio}
+            correctCount={correctCount}
+            wrongCount={wrongCount}
+            scorePercentage={scorePercentage}
+            onOptionSelect={handleOptionSelect}
+            onPlayAudio={playAudio}
+            onNextWord={nextWord}
+            playbackRate={playbackRate}
+            onSetPlaybackRate={setPlaybackRate}
+            sentence={currentWord.sentence}
+            translation={currentWord.translation}
+            attempts={attempts}
+            isLocked={isLocked}
+            correctAnswer={currentWord.correct}
+            // NEW: Pass image props
+            currentImage={currentImage}
+            showImage={showImage}
+          />
+        </div>
       </div>
     </>
   );
