@@ -41,8 +41,8 @@ function Question({
         {attempts > 0 && <span className="attempt-used"> (1 used)</span>}
       </div>
 
-      {/* IMAGE DISPLAY - Only shows after second attempt (attempts === 2) */}
-      {attempts === 2 && showImage && currentImage && (
+      {/* IMAGE DISPLAY - Shows IMMEDIATELY when ANY option is selected */}
+      {selectedOption !== null && showImage && currentImage && (
         <div className="homonym-image-container">
           <img src={currentImage} alt={word} className="homonym-image" />
         </div>

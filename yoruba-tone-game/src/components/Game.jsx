@@ -81,10 +81,10 @@ const Game = () => {
   // Safety check
   const currentWord = filteredData[currentWordIndex];
 
-  // If no word available
-  if (!currentWord) {
-    return <div className="game-container">Loading...</div>;
-  }
+  // // If no word available
+  // if (!currentWord) {
+  //   return <div className="game-container">Loading...</div>;
+  // }
 
   // Process the answer
   const processAnswer = (index) => {
