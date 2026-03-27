@@ -2,6 +2,43 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+🔧 Environment Setup
+
+This project uses environment variables to configure external asset sources (e.g. S3 bucket for audio files).
+
+Step 1 — Create your .env file
+
+In the root of the project, create a file named:
+
+.env
+
+You can copy from the example file:
+
+cp .env.example .env
+
+Or create it manually with the following content:
+
+REACT_APP_ASSET_BASE_URL=https://fin-assets.s3.eu-west-1.amazonaws.com
+
+Step 2 — Restart the development server
+
+After creating or updating the .env file, restart the app:
+
+npm start
+
+or
+
+yarn start
+Step 3 — Verify it is working
+
+You can temporarily log the variable in your code:
+
+console.log(process.env.REACT_APP_ASSET_BASE_URL);
+
+Expected output:
+
+https://fin-assets.s3.amazonaws.com
+
 ## Available Scripts
 
 In the project directory, you can run:
