@@ -86,9 +86,68 @@ const VerbConjugation = () => {
   return (
     <>
       <hr />
-      <div className="verb-conjugation">
-        <h2>ARGUMENT GAME </h2>
 
+      <div className="verb-conjugation">
+        <div className="title-container argument-game">
+          <h2 className="heading2">ARGUMENT GAME</h2>
+
+          <p className="argument-intro">
+            It’s a game that plays with basic pronouns and negation using
+            Yoruba’s most common verbs in the future and past tense. The goal is
+            not to think, but to respond in the tone of an argument.
+          </p>
+
+          <p className="argument-text center-text">
+            The game starts with a question of action.
+          </p>
+
+          <div className="argument-example">
+            <p className="argument-text center-text">
+              <strong>Example:</strong> <em>Ṣó ti jẹun?</em>
+            </p>
+          </div>
+
+          <div className="argument-content">
+            {/* LEFT COLUMN */}
+            <div className="argument-column">
+              <p className="argument-text">
+                Every response must begin with a{' '}
+                <strong>Disagreeing Statement</strong>, followed by a{' '}
+                <strong>New Action Statement (NAS)</strong>.
+              </p>
+
+              <div className="argument-example">
+                <p className="argument-text">
+                  <strong>Disagreeing Statement (Negative):</strong>{' '}
+                  <em>Mi ò ti jẹun</em>
+                </p>
+                <p className="argument-text">
+                  <strong>New Action Statement (Affirmative):</strong>{' '}
+                  <em>A ti jẹun</em>
+                </p>
+              </div>
+            </div>
+
+            {/* RIGHT COLUMN */}
+            <div className="argument-column">
+              <p className="argument-text">
+                Once a New Action Statement has been made, the next player must
+                respond with a disagreeing statement based on that NAS.
+              </p>
+
+              <div className="argument-example">
+                <p className="argument-text">
+                  <strong>Following Disagreeing Statement (Negative):</strong>{' '}
+                  <em>A ò ti jẹun</em>
+                </p>
+                <p className="argument-text">
+                  <strong>New Action Statement (Affirmative):</strong>{' '}
+                  <em>Won ti jẹun</em>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
         {/* Side-by-side tables */}
         <div className="tables-row">
           <div className="table-section">
@@ -143,6 +202,10 @@ const VerbConjugation = () => {
             </button>
           ))}
         </div>
+        <p className="text-block tip">
+          TIP: Find a partner and play around with the verbs. Many more to play
+          with
+        </p>
       </div>
     </>
   )

@@ -1,5 +1,57 @@
 /* src/components/VerbConjugation.css */
 
+.argument-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.argument-intro {
+  max-width: 650px;
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.argument-content {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 20px;
+}
+
+.argument-column {
+  flex: 1;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+.argument-text {
+  line-height: 1.7;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.center-text {
+  margin-bottom: 3px;
+}
+
+.argument-example {
+  /* margin: 10px 0 18px; */
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 768px) {
+  .argument-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
 .verb-conjugation {
   padding: 20px;
   font-family: Arial, sans-serif;
