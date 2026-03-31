@@ -21,8 +21,6 @@ const Game = () => {
   // Image state for homonyms
   const [currentImage, setCurrentImage] = useState(null);
   const [showImage, setShowImage] = useState(false);
-
-  // Initialize with null instead of empty array
   const [shuffledHomonyms, setShuffledHomonyms] = useState(null);
 
   // Shuffle function
