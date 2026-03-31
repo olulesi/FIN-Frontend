@@ -46,7 +46,7 @@ function Rollerdex() {
       link: "https://www.youtube.com/clip/UgkxbfbRpvYXfcdXDgOgVP30v4xR2avdCJRR",
       audioFile: `${SONGS_BASE_URL}/TheHorseTheManTheSonFIN.mp3`,
       coverImage: horseManSonCover,
-      lyrics: `This is the lyrics for The Horse, The Man & The Son by Chief Ebeneezer Obey.\n\nVerse 1:\nThe horse, the man, and the son\nWalking together as one\nThrough the valleys and hills\nFollowing divine wills\n\nChorus:\nOh what a journey it has been\nWith blessings from within\nKeep moving forward everyday\nGod will always show the way\n\nVerse 2:\nLessons learned along the path\nThrough joy and through wrath\nPatience and faith we hold\nStories yet untold\n\nBridge:\nNever give up the fight\nKeep your dreams in sight\nWith courage in your heart\nYou'll never fall apart\n\nOutro:\nThe horse, the man, and the son\nTheir journey has just begun\nA story of hope and grace\nIn this sacred place`,
+      lyrics: `This is the lyrics for The Horse, The Man & The Son by Chief Ebeneezer Obey.\n\nVerse 1:\nThe horse, the man, and the son\nWalking together as one\nThrough the valleys and hills\nFollowing divine wills\n\nChorus:\nOh what a journey it has been\nWith blessings from within\nKeep moving forward everyday\nGod will always show the way`,
     },
     {
       title: "Won Kere Si Number",
@@ -54,7 +54,7 @@ function Rollerdex() {
       link: "https://www.youtube.com/clip/UgkxuqPQ0aF58opBjzMeT6xxSbG4It59x0Wd",
       audioFile: `${SONGS_BASE_URL}/wonKereSiFIN.mp3`,
       coverImage: wonKereSiCover,
-      lyrics: `This is the lyrics for Won Kere Si Number by Fatai Rolling Dollar.\n\nVerse 1:\nWon kere si number o\nWon npe oruko mi\nOluwa lo nso mi\nOluwa lo nto mi\n\nChorus:\nNumber won kere si\nOluwa l'okan mi\nNumber won kere si\nOluwa l'okan mi\n\nVerse 2:\nIwo lo nse oluwa\nIwo lo nse olorun\nIwo ni mo gbekele\nIwo ni mo sin\n\nOutro:\nNumber won kere si\nOluwa l'okan mi o\nNumber won kere si\nOluwa l'okan mi`,
+      lyrics: `This is the lyrics for Won Kere Si Number by Fatai Rolling Dollar.\n\nVerse 1:\nWon kere si number o\nWon npe oruko mi\nOluwa lo nso mi\nOluwa lo nto mi\n\nChorus:\nNumber won kere si\nOluwa l'okan mi\nNumber won kere si\nOluwa l'okan mi`,
     },
     {
       title: "Appreciation",
@@ -62,7 +62,7 @@ function Rollerdex() {
       link: "https://www.youtube.com/clip/Ugkx999WH8ccSsMh2j4e974MquindL0-8Y1U",
       audioFile: `${SONGS_BASE_URL}/AppreciationFIN.mp3`,
       coverImage: appreciationCover,
-      lyrics: `This is the lyrics for Appreciation by King Sunny Ade.\n\nVerse 1:\nI thank you Lord for everything\nFor the joy that you bring\nMorning, noon, and night\nYou are my guiding light\n\nChorus:\nAppreciation, appreciation\nMy heart is full of gratitude\nAppreciation, appreciation\nFor all you do\n\nVerse 2:\nThrough the storms and rain\nYou have been my strength again\nNever left me alone\nMade my heart your home\n\nBridge:\nI lift my hands in praise\nThroughout all my days\nYour love never fails\nYour grace prevails\n\nFinal Chorus:\nAppreciation, appreciation\nForever I will sing\nAppreciation, appreciation\nTo my King of kings`,
+      lyrics: `This is the lyrics for Appreciation by King Sunny Ade.\n\nVerse 1:\nI thank you Lord for everything\nFor the joy that you bring\nMorning, noon, and night\nYou are my guiding light\n\nChorus:\nAppreciation, appreciation\nMy heart is full of gratitude\nAppreciation, appreciation\nFor all you do`,
     },
     {
       title: "MMS",
@@ -70,7 +70,7 @@ function Rollerdex() {
       link: "https://www.youtube.com/clip/UgkxNc5VLeHs9GbdxGirGHwHiM7iFgeqiPou",
       audioFile: `${SONGS_BASE_URL}/MMSFIN.mp3`,
       coverImage: mmsCover,
-      lyrics: `This is the lyrics for MMS by Asake ft Wizkid.\n\nIntro:\nYeah yeah yeah\nMMS\n\nVerse 1 (Asake):\nMoney, music, success\nLiving life with no stress\nFrom the bottom to the top\nNever gonna stop\n\nChorus:\nMMS, that's the motto\nShining bright like a bottle\nMaking moves everyday\nIn our own special way\n\nVerse 2 (Wizkid):\nInternational vibes\nWe taking over the tribes\nAfrican to the world\nOur flag is unfurled\n\nBridge:\nTogether we stand strong\nThis is where we belong\nRising higher each day\nWatch us lead the way\n\nOutro:\nMMS... forever\nMMS... together`,
+      lyrics: `This is the lyrics for MMS by Asake ft Wizkid.\n\nIntro:\nYeah yeah yeah\nMMS\n\nVerse 1 (Asake):\nMoney, music, success\nLiving life with no stress\nFrom the bottom to the top\nNever gonna stop\n\nChorus:\nMMS, that's the motto\nShining bright like a bottle\nMaking moves everyday\nIn our own special way`,
     },
     {
       title: "E wa Ba Mijo",
@@ -78,7 +78,7 @@ function Rollerdex() {
       link: "https://www.youtube.com/clip/UgkxWA1TSNUzongnbVVut-kv6ABtzzXyqxh4",
       audioFile: `${SONGS_BASE_URL}/eWaBaMiJoFIN.mp3`,
       coverImage: eWaBaMijoCover,
-      lyrics: `This is the lyrics for E wa Ba Mijo by Tony Tetuila.\n\nIntro:\nE wa ba mi jo\nE wa ba mi yo\n\nVerse 1:\nCome and dance with me\nLet the music set you free\nMoving to the rhythm\nEverybody in the system\n\nChorus:\nE wa ba mi jo (Come dance with me)\nE wa ba mi yo (Come rejoice with me)\nCelebration everywhere\nHappiness in the air\n\nVerse 2:\nRaise your hands up high\nTouch the sky\nNo worries no stress\nJust blessings and success\n\nBridge:\nThis is our time to shine\nEverything will be fine\nDance until the morning light\nEverything will be alright\n\nOutro:\nE wa ba mi jo\nE wa ba mi yo\nDance, dance, dance\nOh, oh, oh`,
+      lyrics: `This is the lyrics for E wa Ba Mijo by Tony Tetuila.\n\nIntro:\nE wa ba mi jo\nE wa ba mi yo\n\nVerse 1:\nCome and dance with me\nLet the music set you free\nMoving to the rhythm\nEverybody in the system\n\nChorus:\nE wa ba mi jo (Come dance with me)\nE wa ba mi yo (Come rejoice with me)\nCelebration everywhere\nHappiness in the air`,
     },
   ];
 
@@ -97,11 +97,11 @@ function Rollerdex() {
     return `${mins}:${secs.toString().padStart(2, "0")}`;
   };
 
-  // Handle card click - update selected song and show container
+  // Handle card click - update selected song and SHOW container
   const handleCardClick = (song, index) => {
     setSelectedSong(song);
     setSelectedSongIndex(index);
-    setShowLyricsContainer(true); // Show container when card is clicked
+    setShowLyricsContainer(true); // THIS MAKES CONTAINER APPEAR
 
     // Load audio for the selected song
     if (audioRef.current) {
@@ -189,7 +189,7 @@ function Rollerdex() {
 
   // Handle close lyrics container
   const handleCloseContainer = () => {
-    setShowLyricsContainer(false);
+    setShowLyricsContainer(false); // THIS HIDES CONTAINER
     if (audioRef.current) {
       audioRef.current.pause();
       setIsPlaying(false);
@@ -282,129 +282,129 @@ function Rollerdex() {
         }}
       />
 
-      {/* Lyrics Container - Only visible when showLyricsContainer is true */}
+      {/* Lyrics Container - ONLY visible when showLyricsContainer is TRUE */}
       {showLyricsContainer && selectedSong && (
-        <div className="lyrics-permanent-container">
-          {/* Close Button - Top Right */}
-          <button
-            className="close-container-btn"
-            onClick={handleCloseContainer}
-          >
-            <i className="fas fa-times"></i>
-          </button>
+        <>
+          <div className="lyrics-permanent-container">
+            {/* Close Button - Top Right */}
+            <button
+              className="close-container-btn"
+              onClick={handleCloseContainer}
+            >
+              <i className="fas fa-times"></i>
+            </button>
 
-          <div className="lyrics-container-content">
-            {/* Lyrics Text - Draggable Scroll */}
-            <div className="lyrics-scroll-container">
-              <div
-                ref={lyricsTextRef}
-                className="lyrics-text-draggable"
-                onMouseDown={handleMouseDown}
-                onMouseMove={handleMouseMove}
-                onMouseUp={handleMouseUp}
-                onMouseLeave={handleMouseLeave}
-                style={{ cursor: "grab" }}
-              >
-                <p className="permanent-lyrics-text">
-                  {selectedSong.lyrics ||
-                    "No lyrics available for this song yet."}
-                </p>
+            <div className="lyrics-container-content">
+              {/* Lyrics Text - Draggable Scroll */}
+              <div className="lyrics-scroll-container">
+                <div
+                  ref={lyricsTextRef}
+                  className="lyrics-text-draggable"
+                  onMouseDown={handleMouseDown}
+                  onMouseMove={handleMouseMove}
+                  onMouseUp={handleMouseUp}
+                  onMouseLeave={handleMouseLeave}
+                  style={{ cursor: "grab" }}
+                >
+                  <p className="permanent-lyrics-text">
+                    {selectedSong.lyrics ||
+                      "No lyrics available for this song yet."}
+                  </p>
+                </div>
               </div>
-            </div>
 
-            {/* Music Controls - Small, Centered */}
-            <div className="permanent-music-controls">
-              <button
-                className="permanent-control-btn"
-                onClick={skipBack}
-                title="Previous"
-              >
-                <i className="fas fa-backward-step"></i>
-              </button>
+              {/* Music Controls - Small, Centered */}
+              <div className="permanent-music-controls">
+                <button
+                  className="permanent-control-btn"
+                  onClick={skipBack}
+                  title="Previous"
+                >
+                  <i className="fas fa-backward-step"></i>
+                </button>
 
-              <button
-                className="permanent-control-btn permanent-play-btn"
-                onClick={togglePlay}
-                title={isPlaying ? "Pause" : "Play"}
-              >
-                {isPlaying ? (
-                  <i className="fas fa-pause"></i>
-                ) : (
-                  <i className="fas fa-play"></i>
-                )}
-              </button>
+                <button
+                  className="permanent-control-btn permanent-play-btn"
+                  onClick={togglePlay}
+                  title={isPlaying ? "Pause" : "Play"}
+                >
+                  {isPlaying ? (
+                    <i className="fas fa-pause"></i>
+                  ) : (
+                    <i className="fas fa-play"></i>
+                  )}
+                </button>
 
-              <button
-                className="permanent-control-btn"
-                onClick={skipForward}
-                title="Next"
-              >
-                <i className="fas fa-forward-step"></i>
-              </button>
-            </div>
+                <button
+                  className="permanent-control-btn"
+                  onClick={skipForward}
+                  title="Next"
+                >
+                  <i className="fas fa-forward-step"></i>
+                </button>
+              </div>
 
-            {/* Progress Bar */}
-            <div className="permanent-progress-bar">
-              <span className="permanent-time-current">
-                {formatTime(currentTime)}
-              </span>
-              <input
-                type="range"
-                className="permanent-progress-slider"
-                min="0"
-                max={duration || 100}
-                value={currentTime}
-                onChange={handleSliderChange}
-                step="1"
-              />
-              <span className="permanent-time-total">
-                {formatTime(duration)}
-              </span>
-            </div>
-
-            {/* Horizontal Draggable Playback Speed Slider */}
-            <div className="playback-speed-container">
-              <div className="speed-slider-wrapper">
-                <label className="speed-label">Playback Speed:</label>
+              {/* Progress Bar */}
+              <div className="permanent-progress-bar">
+                <span className="permanent-time-current">
+                  {formatTime(currentTime)}
+                </span>
                 <input
                   type="range"
-                  className="speed-slider"
-                  min="0.5"
-                  max="1.5"
-                  step="0.01"
-                  value={playbackSpeed}
-                  onChange={handlePlaybackSpeedChange}
+                  className="permanent-progress-slider"
+                  min="0"
+                  max={duration || 100}
+                  value={currentTime}
+                  onChange={handleSliderChange}
+                  step="1"
                 />
-                <div className="speed-markers">
-                  <span>0.5x</span>
-                  <span>1.0x</span>
-                  <span>1.5x</span>
-                </div>
-                <div className="speed-value-display">
-                  Current: {playbackSpeed.toFixed(2)}x
+                <span className="permanent-time-total">
+                  {formatTime(duration)}
+                </span>
+              </div>
+
+              {/* Horizontal Draggable Playback Speed Slider */}
+              <div className="playback-speed-container">
+                <div className="speed-slider-wrapper">
+                  <label className="speed-label">Playback Speed:</label>
+                  <input
+                    type="range"
+                    className="speed-slider"
+                    min="0.5"
+                    max="1.5"
+                    step="0.01"
+                    value={playbackSpeed}
+                    onChange={handlePlaybackSpeedChange}
+                  />
+                  <div className="speed-markers">
+                    <span>0.5x</span>
+                    <span>1.0x</span>
+                    <span>1.5x</span>
+                  </div>
+                  <div className="speed-value-display">
+                    Current: {playbackSpeed.toFixed(2)}x
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Song Info - Centered */}
-            <div className="permanent-song-info">
-              <p className="permanent-artist-name">{selectedSong.artist}</p>
-              <p className="permanent-song-title">{selectedSong.title}</p>
+              {/* Song Info - Centered */}
+              <div className="permanent-song-info">
+                <p className="permanent-artist-name">{selectedSong.artist}</p>
+                <p className="permanent-song-title">{selectedSong.title}</p>
+              </div>
             </div>
           </div>
-        </div>
-      )}
 
-      {/* Listen to Full Song Button - Only visible when container is open */}
-      {showLyricsContainer && selectedSong && (
-        <div className="external-button-container">
-          <button
-            className="external-listen-btn"
-            onClick={handleListenFullSong}
-          >
-            <i className="fas fa-music"></i> Listen to Full Song Here
-          </button>
-        </div>
+          {/* Listen to Full Song Button - Only visible when container is open */}
+          <div className="external-button-container">
+            <button
+              className="external-listen-btn"
+              onClick={handleListenFullSong}
+            >
+              <i className="fas fa-music"></i> Listen to Full Song Here
+            </button>
+          </div>
+        </>
       )}
 
       {/* Song Cards Grid */}
