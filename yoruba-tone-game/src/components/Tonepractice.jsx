@@ -78,7 +78,7 @@ const TonePractice = () => {
 
   return (
     <div>
-      <h2>Tone Practice</h2>
+      <h2 className='practice'>Tone Practice</h2>
       <div className="Tone-practice">
         {/* Word Row */}
         <div className="word-row">

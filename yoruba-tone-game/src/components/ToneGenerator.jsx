@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import '../styles/Alphabet.css'
+import '../styles/ToneGenerator.css'
 import ToneAudio from './ToneAudio' // Import the new child component
 
 const ToneGenerator = () => {
@@ -21,10 +21,10 @@ const ToneGenerator = () => {
 
   return (
     <div>
-      <h2 id="heading3">Tone Generator</h2>
+      <h2 className='tone'>Tone Generator</h2>
       {/* New Audio Player Component */}
       <div>
-        <p>Tip: Be extra expressive with each tone.</p>
+        <p className='Block-text tip'>Tip: Be extra expressive with each tone.</p>
       </div>
       <div className="audio-section">
         <ToneAudio />

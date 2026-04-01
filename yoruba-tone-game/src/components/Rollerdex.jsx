@@ -32,103 +32,7 @@ function Rollerdex() {
   // Referencing the Audio from S3 Bucket
   const SONGS_BASE_URL = `${process.env.REACT_APP_ASSET_BASE_URL}/songs-rollerdex`
 
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  HEAD
-  // Hardcoded songs with lyrics (5 total)
-  const songs = [
-    {
-      title: "The Horse, The Man & The Son",
-      artist: "Chief Ebeneezer Obey",
-      link: "https://www.youtube.com/clip/UgkxbfbRpvYXfcdXDgOgVP30v4xR2avdCJRR",
-      audioFile: `${SONGS_BASE_URL}/TheHorseTheManTheSonFIN.mp3`,
-      coverImage: horseManSonCover,
-      lyrics: `This is the lyrics for The Horse, The Man & The Son by Chief Ebeneezer Obey.\n\nVerse 1:\nThe horse, the man, and the son\nWalking together as one\nThrough the valleys and hills\nFollowing divine wills\n\nChorus:\nOh what a journey it has been\nWith blessings from within\nKeep moving forward everyday\nGod will always show the way`,
-    },
-    {
-      title: "Won Kere Si Number",
-      artist: "Fatai Rolling Dollar",
-      link: "https://www.youtube.com/clip/UgkxuqPQ0aF58opBjzMeT6xxSbG4It59x0Wd",
-      audioFile: `${SONGS_BASE_URL}/wonKereSiFIN.mp3`,
-      coverImage: wonKereSiCover,
-      lyrics: `This is the lyrics for Won Kere Si Number by Fatai Rolling Dollar.\n\nVerse 1:\nWon kere si number o\nWon npe oruko mi\nOluwa lo nso mi\nOluwa lo nto mi\n\nChorus:\nNumber won kere si\nOluwa l'okan mi\nNumber won kere si\nOluwa l'okan mi`,
-    },
-    {
-      title: "Appreciation",
-      artist: "King Sunny Ade",
-      link: "https://www.youtube.com/clip/Ugkx999WH8ccSsMh2j4e974MquindL0-8Y1U",
-      audioFile: `${SONGS_BASE_URL}/AppreciationFIN.mp3`,
-      coverImage: appreciationCover,
-      lyrics: `This is the lyrics for Appreciation by King Sunny Ade.\n\nVerse 1:\nI thank you Lord for everything\nFor the joy that you bring\nMorning, noon, and night\nYou are my guiding light\n\nChorus:\nAppreciation, appreciation\nMy heart is full of gratitude\nAppreciation, appreciation\nFor all you do`,
-    },
-    {
-      title: "MMS",
-      artist: "Asake ft Wizkid",
-      link: "https://www.youtube.com/clip/UgkxNc5VLeHs9GbdxGirGHwHiM7iFgeqiPou",
-      audioFile: `${SONGS_BASE_URL}/MMSFIN.mp3`,
-      coverImage: mmsCover,
-      lyrics: `This is the lyrics for MMS by Asake ft Wizkid.\n\nIntro:\nYeah yeah yeah\nMMS\n\nVerse 1 (Asake):\nMoney, music, success\nLiving life with no stress\nFrom the bottom to the top\nNever gonna stop\n\nChorus:\nMMS, that's the motto\nShining bright like a bottle\nMaking moves everyday\nIn our own special way`,
-    },
-    {
-      title: "E wa Ba Mijo",
-      artist: "Tony Tetuila",
-      link: "https://www.youtube.com/clip/UgkxWA1TSNUzongnbVVut-kv6ABtzzXyqxh4",
-      audioFile: `${SONGS_BASE_URL}/eWaBaMiJoFIN.mp3`,
-      coverImage: eWaBaMijoCover,
-      lyrics: `This is the lyrics for E wa Ba Mijo by Tony Tetuila.\n\nIntro:\nE wa ba mi jo\nE wa ba mi yo\n\nVerse 1:\nCome and dance with me\nLet the music set you free\nMoving to the rhythm\nEverybody in the system\n\nChorus:\nE wa ba mi jo (Come dance with me)\nE wa ba mi yo (Come rejoice with me)\nCelebration everywhere\nHappiness in the air`,
-    },
-  ];
-=======
   const songs = getRollerDexSongs(SONGS_BASE_URL)
->>>>>>> 7447eb150401409c1a41f31b529e75ce1f00d5f3
 
   // Update playback speed when slider changes
   useEffect(() => {
@@ -145,17 +49,11 @@ function Rollerdex() {
     return `${mins}:${secs.toString().padStart(2, '0')}`
   }
 
-  // Handle card click - update selected song and SHOW container
+  // Handle card click - update selected song and show container
   const handleCardClick = (song, index) => {
-<<<<<<< HEAD
-    setSelectedSong(song);
-    setSelectedSongIndex(index);
-    setShowLyricsContainer(true); // THIS MAKES CONTAINER APPEAR
-=======
     setSelectedSong(song)
     setSelectedSongIndex(index)
     setShowLyricsContainer(true) // Show container when card is clicked
->>>>>>> 7447eb150401409c1a41f31b529e75ce1f00d5f3
 
     // Load audio for the selected song
     if (audioRef.current) {
@@ -243,11 +141,7 @@ function Rollerdex() {
 
   // Handle close lyrics container
   const handleCloseContainer = () => {
-<<<<<<< HEAD
-    setShowLyricsContainer(false); // THIS HIDES CONTAINER
-=======
     setShowLyricsContainer(false)
->>>>>>> 7447eb150401409c1a41f31b529e75ce1f00d5f3
     if (audioRef.current) {
       audioRef.current.pause()
       setIsPlaying(false)
@@ -325,7 +219,7 @@ function Rollerdex() {
   return (
     <div className="rolodex-container">
       <hr className="section-divider" />
-      <h2 id="heading5">Songs & References Roller Dex</h2>
+      <h2 className='rollerdex'>Songs & References Roller Dex</h2>
 
       {/* Hidden Audio Element */}
       <audio
@@ -339,37 +233,17 @@ function Rollerdex() {
         }}
       />
 
-      {/* Lyrics Container - ONLY visible when showLyricsContainer is TRUE */}
+      {/* Lyrics Container - Only visible when showLyricsContainer is true */}
       {showLyricsContainer && selectedSong && (
-        <>
-          <div className="lyrics-permanent-container">
-            {/* Close Button - Top Right */}
-            <button
-              className="close-container-btn"
-              onClick={handleCloseContainer}
-            >
-              <i className="fas fa-times"></i>
-            </button>
+        <div className="lyrics-permanent-container">
+          {/* Close Button - Top Right */}
+          <button
+            className="close-container-btn"
+            onClick={handleCloseContainer}
+          >
+            <i className="fas fa-times"></i>
+          </button>
 
-<<<<<<< HEAD
-            <div className="lyrics-container-content">
-              {/* Lyrics Text - Draggable Scroll */}
-              <div className="lyrics-scroll-container">
-                <div
-                  ref={lyricsTextRef}
-                  className="lyrics-text-draggable"
-                  onMouseDown={handleMouseDown}
-                  onMouseMove={handleMouseMove}
-                  onMouseUp={handleMouseUp}
-                  onMouseLeave={handleMouseLeave}
-                  style={{ cursor: "grab" }}
-                >
-                  <p className="permanent-lyrics-text">
-                    {selectedSong.lyrics ||
-                      "No lyrics available for this song yet."}
-                  </p>
-                </div>
-=======
           <div className="lyrics-container-content">
             {/* Lyrics Text - Draggable Scroll */}
             <div className="lyrics-scroll-container">
@@ -386,32 +260,19 @@ function Rollerdex() {
                   {selectedSong.lyrics ||
                     'No lyrics available for this song yet.'}
                 </p>
->>>>>>> 7447eb150401409c1a41f31b529e75ce1f00d5f3
               </div>
+            </div>
 
-              {/* Music Controls - Small, Centered */}
-              <div className="permanent-music-controls">
-                <button
-                  className="permanent-control-btn"
-                  onClick={skipBack}
-                  title="Previous"
-                >
-                  <i className="fas fa-backward-step"></i>
-                </button>
+            {/* Music Controls - Small, Centered */}
+            <div className="permanent-music-controls">
+              <button
+                className="permanent-control-btn"
+                onClick={skipBack}
+                title="Previous"
+              >
+                <i className="fas fa-backward-step"></i>
+              </button>
 
-<<<<<<< HEAD
-                <button
-                  className="permanent-control-btn permanent-play-btn"
-                  onClick={togglePlay}
-                  title={isPlaying ? "Pause" : "Play"}
-                >
-                  {isPlaying ? (
-                    <i className="fas fa-pause"></i>
-                  ) : (
-                    <i className="fas fa-play"></i>
-                  )}
-                </button>
-=======
               <button
                 className="permanent-control-btn permanent-play-btn"
                 onClick={togglePlay}
@@ -423,87 +284,78 @@ function Rollerdex() {
                   <i className="fas fa-play"></i>
                 )}
               </button>
->>>>>>> 7447eb150401409c1a41f31b529e75ce1f00d5f3
 
-                <button
-                  className="permanent-control-btn"
-                  onClick={skipForward}
-                  title="Next"
-                >
-                  <i className="fas fa-forward-step"></i>
-                </button>
-              </div>
+              <button
+                className="permanent-control-btn"
+                onClick={skipForward}
+                title="Next"
+              >
+                <i className="fas fa-forward-step"></i>
+              </button>
+            </div>
 
-              {/* Progress Bar */}
-              <div className="permanent-progress-bar">
-                <span className="permanent-time-current">
-                  {formatTime(currentTime)}
-                </span>
+            {/* Progress Bar */}
+            <div className="permanent-progress-bar">
+              <span className="permanent-time-current">
+                {formatTime(currentTime)}
+              </span>
+              <input
+                type="range"
+                className="permanent-progress-slider"
+                min="0"
+                max={duration || 100}
+                value={currentTime}
+                onChange={handleSliderChange}
+                step="1"
+              />
+              <span className="permanent-time-total">
+                {formatTime(duration)}
+              </span>
+            </div>
+
+            {/* Horizontal Draggable Playback Speed Slider */}
+            <div className="playback-speed-container">
+              <div className="speed-slider-wrapper">
+                <label className="speed-label">Playback Speed:</label>
                 <input
                   type="range"
-<<<<<<< HEAD
-                  className="permanent-progress-slider"
-                  min="0"
-                  max={duration || 100}
-                  value={currentTime}
-                  onChange={handleSliderChange}
-                  step="1"
-=======
                   className="speed-slider"
                   min="0.5"
                   max="1.5"
                   step="0.1"
                   value={playbackSpeed}
                   onChange={handlePlaybackSpeedChange}
->>>>>>> 7447eb150401409c1a41f31b529e75ce1f00d5f3
                 />
-                <span className="permanent-time-total">
-                  {formatTime(duration)}
-                </span>
-              </div>
-
-              {/* Horizontal Draggable Playback Speed Slider */}
-              <div className="playback-speed-container">
-                <div className="speed-slider-wrapper">
-                  <label className="speed-label">Playback Speed:</label>
-                  <input
-                    type="range"
-                    className="speed-slider"
-                    min="0.5"
-                    max="1.5"
-                    step="0.01"
-                    value={playbackSpeed}
-                    onChange={handlePlaybackSpeedChange}
-                  />
-                  <div className="speed-markers">
-                    <span>0.5x</span>
-                    <span>1.0x</span>
-                    <span>1.5x</span>
-                  </div>
-                  <div className="speed-value-display">
-                    Current: {playbackSpeed.toFixed(2)}x
-                  </div>
+                <div className="speed-markers">
+                  <span>0.5x</span>
+                  <span>1.0x</span>
+                  <span>1.5x</span>
+                </div>
+                <div className="speed-value-display">
+                  Current: {playbackSpeed.toFixed(2)}x
                 </div>
               </div>
+            </div>
 
-              {/* Song Info - Centered */}
-              <div className="permanent-song-info">
-                <p className="permanent-artist-name">{selectedSong.artist}</p>
-                <p className="permanent-song-title">{selectedSong.title}</p>
-              </div>
+            {/* Song Info - Centered */}
+            <div className="permanent-song-info">
+              <p className="permanent-artist-name">{selectedSong.artist}</p>
+              <p className="permanent-song-title">{selectedSong.title}</p>
             </div>
           </div>
+        </div>
+      )}
 
-          {/* Listen to Full Song Button - Only visible when container is open */}
-          <div className="external-button-container">
-            <button
-              className="external-listen-btn"
-              onClick={handleListenFullSong}
-            >
-              <i className="fas fa-music"></i> Listen to Full Song Here
-            </button>
-          </div>
-        </>
+      {/* Listen to Full Song Button - Only visible when container is open */}
+      {showLyricsContainer && selectedSong && (
+        <div className="external-button-container">
+          <button
+            className="external-listen-btn"
+            onClick={handleListenFullSong}
+          >
+            <i className="fas fa-music"></i> Listen to Full Song Here
+          </button>
+        </div>
       )}
 
       {/* Song Cards Grid */}

@@ -1,4 +1,3 @@
-/* alphabet style  */
 .title-container {
   display: flex;
   flex-direction: column;
@@ -6,18 +5,22 @@
   text-align: left; /* keeps text left-aligned inside */
 }
 
+.AlphaPractice{
+ text-align: center;
+}
+
+.heading1 {
+  text-align: center;
+}
+
 .text-block {
   /* max-width: 600px; controls line length (professional look) */
   width: 100%;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
   line-height: 1.6;
 }
 
 .tip {
-  text-align: center;
-}
-
-.heading1 {
   text-align: center;
 }
 
@@ -30,139 +33,4 @@
 .link1 {
   margin-bottom: 2rem;
   float: right;
-}
-
-.link2 {
-  float: right;
-}
-
-.tone-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
-
-.tone-row {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.toneCard {
-  width: 80px;
-  height: 60px;
-  border: 1px solid gray;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-}
-
-#shuffleBtn {
-  margin-top: 15px;
-  font-size: large;
-}
-
-#heading3 {
-  margin-top: 1rem;
-}
-
-.linkk1 {
-  display: flex;
-  justify-content: end;
-  margin-right: 10px;
-}
-
-.tone-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
-
-.tone-row {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.toneCard {
-  width: 80px;
-  height: 60px;
-  border: 1px solid gray;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-}
-
-#shuffleBtn {
-  margin-top: 15px;
-  font-size: large;
-}
-
-/* TONE PRACTICE */
-#heading4 {
-  text-align: center;
-  font-style: italic;
-}
-
-#tonePractice {
-  text-align: center;
-  margin-top: 20px;
-}
-
-#wordRow {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-}
-
-#toneRow {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-
-#playToneAudio {
-  margin: 10px;
-  font-size: 16px;
-}
-
-#prevTone {
-  font-size: 16px;
-}
-
-#nextTone {
-  font-size: 16px;
-}
-
-/* ARGUMENT GAME STYLE SECTION */
-
-#argument-section {
-  text-align: center;
-  margin-top: 40px;
-  font-family: Arial, sans-serif;
-}
-
-#tense-buttons {
-  margin-top: 20px;
-}
-
-/* Buttons layout */
-#verb-buttons {
-  margin-top: 20px;
-}
-
-#verb-buttons button,
-#tense-buttons button {
-  margin: 5px;
-  padding: 6px 14px;
-  font-size: 16px;
-  cursor: pointer;
 }

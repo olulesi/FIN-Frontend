@@ -1,7 +1,7 @@
 import React from 'react'
-import Game from './components/Game'
+import ToneGame from './components/ToneGame'
 import ToneGenerator from './components/ToneGenerator'
-import './App.css'
+
 import TonePractice from './components/Tonepractice'
 import Argument from './components/Argument'
 import Rollerdex from './components/Rollerdex'
@@ -11,11 +11,10 @@ import Alphabet from './components/Alphabet'
 function App() {
   return (
     <div className="App">
-      {/* <Navbar /> */}
       <Alphabet />
       <ToneGenerator />
       <TonePractice />
-      <Game />
+      <ToneGame />
       <Argument />
       <Rollerdex />
       {/* <YorubaUseCasesCarousel /> */}

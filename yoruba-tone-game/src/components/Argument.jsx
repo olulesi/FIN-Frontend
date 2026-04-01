@@ -10,6 +10,7 @@ const PRONOUNS_WITH_AUDIO = new Set([0, 1, 2, 3, 4, 5])
 
 //funtions
 const playAudio = (filename, index) => {
+  
   const indexToFolder = {
     0: 'moPronoun',
     1: 'iwoPronoun',
@@ -35,21 +36,23 @@ const ConjugationTable = ({ tense, polarity, verbKey }) => {
     <table className="conjugation-table">
       <thead>
         <tr>
-          {['pronoun', 'Tense', 'Verb', 'Yorùbá Sentence', 'Audio'].map(
+          {['Pronoun', 'Tense', 'Verb', 'Yorùbá Sentence', 'Audio'].map(
             (header) => (
               <th key={header}>{header}</th>
             ),
           )}
         </tr>
       </thead>
-
-      {
-        <tbody>
-          {sentences.map((sentence, i) => {
+     
+      <tbody>
+        
+        {sentences.map((sentence, i) => {
+            
             const audioFilename = `${polarity}_${normalizeVerbKey(verbKey)}_${
               i + 1
             }`
-            return (
+          
+          return (            
               <tr key={i}>
                 <td>{pronounList[i]}</td>
                 <td>{tense === 'past' ? 'ti' : 'Present'}</td>
@@ -69,9 +72,9 @@ const ConjugationTable = ({ tense, polarity, verbKey }) => {
                 </td>
               </tr>
             )
-          })}
-        </tbody>
-      }
+        })}
+        
+      </tbody>  
     </table>
   )
 }
@@ -80,14 +83,13 @@ const VerbConjugation = () => {
   //state
   const [selectedTense, setSelectedTense] = useState('past')
   const [selectedVerb, setSelectedVerb] = useState('jẹun')
-
   const verbKeys = Object.keys(verbs)
 
   return (
     <>
-      <hr />
-
+      <hr/>
       <div className="verb-conjugation">
+
         <div className="title-container argument-game">
           <h2 className="heading2">ARGUMENT GAME</h2>
 
@@ -148,7 +150,8 @@ const VerbConjugation = () => {
             </div>
           </div>
         </div>
-        {/* Side-by-side tables */}
+        
+        
         <div className="tables-row">
           <div className="table-section">
             <h3>Affirmative</h3>

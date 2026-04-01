@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react'
 import Question from './Question'
-import './Game.css'
+import '../styles/ToneGame.css'
 import { gameData } from '../assets/data/toneGameData'
 
 const Game = () => {

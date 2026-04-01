@@ -3,7 +3,8 @@ import '../styles/Alphabet.css'
 
 function Alphabet() {
   return (
-    <div className="">
+    <div>
+
       <div className="title-container">
         <h1 className="heading1">Flowing in Yoruba (FIN)</h1>
 
@@ -18,7 +19,9 @@ function Alphabet() {
         </p>
       </div>
       <hr />
-      <h2 className="heading2">Alphabet Practice</h2>
+
+      <h2 className='AlphaPractice'>Alphabet Practice</h2>
+
       <table className="table1" border="1" cellPadding="15" cellSpacing="3">
         <tbody>
           <tr>
@@ -138,7 +141,7 @@ function Alphabet() {
         </tbody>
       </table>
 
-      <div className="linkk1">
+      <div>
         <a
           href="https://www.yorubaizm.com/"
           target="_blank"
@@ -148,6 +151,7 @@ function Alphabet() {
           from Yorubaizm
         </a>
       </div>
+
       <hr />
     </div>
   )
