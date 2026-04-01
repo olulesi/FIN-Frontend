@@ -23,6 +23,9 @@ const ToneGenerator = () => {
     <div>
       <h2 id="heading3">Tone Generator</h2>
       {/* New Audio Player Component */}
+      <div>
+        <p>Tip: Be extra expressive with each tone.</p>
+      </div>
       <div className="audio-section">
         <ToneAudio />
       </div>

@@ -63,7 +63,11 @@ const YorubaUseCasesCarousel = () => {
   return (
     <section className="yoruba-use-cases">
       <hr />
-      <h2 className="yorubaheader">Yoruba Use Cases</h2>
+      <h2 id="heading5">Yoruba Use Cases</h2>
+      <p className="text-block tip">
+        Uncut Yoruba people speaking in natural form, whether from film, comedy
+        skits, or interviews.
+      </p>
       <div className="carousel-container">
         {/* Video Player */}
         <div className="video-wrapper">

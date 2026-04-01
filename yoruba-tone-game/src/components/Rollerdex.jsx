@@ -1,43 +1,88 @@
 // src/components/Rollerdex.jsx
 
-import React, { useState, useRef, useEffect } from "react";
-import "../styles/Rollerdex.css";
-
-// IMPORT COVER IMAGES from assets/images/covers
-import horseManSonCover from "../assets/images/covers/horse-man-son.jpg";
-import wonKereSiCover from "../assets/images/covers/won-kere-si.jpg";
-import appreciationCover from "../assets/images/covers/appreciation.jpg";
-import mmsCover from "../assets/images/covers/mms.jpg";
-import eWaBaMijoCover from "../assets/images/covers/e-wa-ba-mijo.jpg";
+import React, { useState, useRef, useEffect } from 'react'
+import '../styles/Rollerdex.css'
+import { getRollerDexSongs } from '../assets/data/rollerDexSongs'
 
 function Rollerdex() {
   // State for lyrics container visibility - HIDDEN BY DEFAULT
-  const [showLyricsContainer, setShowLyricsContainer] = useState(false);
+  const [showLyricsContainer, setShowLyricsContainer] = useState(false)
 
   // State for selected song
-  const [selectedSong, setSelectedSong] = useState(null);
-  const [selectedSongIndex, setSelectedSongIndex] = useState(0);
+  const [selectedSong, setSelectedSong] = useState(null)
+  const [selectedSongIndex, setSelectedSongIndex] = useState(0)
 
   // Audio player state
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
-  const [playbackSpeed, setPlaybackSpeed] = useState(1.0);
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [currentTime, setCurrentTime] = useState(0)
+  const [duration, setDuration] = useState(0)
+  const [playbackSpeed, setPlaybackSpeed] = useState(1.0)
 
   // Draggable scroll state
-  const [isDragging, setIsDragging] = useState(false);
-  const [startY, setStartY] = useState(0);
-  const [scrollTop, setScrollTop] = useState(0);
+  const [isDragging, setIsDragging] = useState(false)
+  const [startY, setStartY] = useState(0)
+  const [scrollTop, setScrollTop] = useState(0)
 
   // Audio ref
-  const audioRef = useRef(null);
+  const audioRef = useRef(null)
 
   // Lyrics text ref for draggable scroll
-  const lyricsTextRef = useRef(null);
+  const lyricsTextRef = useRef(null)
 
   // Referencing the Audio from S3 Bucket
-  const SONGS_BASE_URL = `${process.env.REACT_APP_ASSET_BASE_URL}/songs-rollerdex`;
+  const SONGS_BASE_URL = `${process.env.REACT_APP_ASSET_BASE_URL}/songs-rollerdex`
 
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  HEAD
   // Hardcoded songs with lyrics (5 total)
   const songs = [
     {
@@ -81,169 +126,182 @@ function Rollerdex() {
       lyrics: `This is the lyrics for E wa Ba Mijo by Tony Tetuila.\n\nIntro:\nE wa ba mi jo\nE wa ba mi yo\n\nVerse 1:\nCome and dance with me\nLet the music set you free\nMoving to the rhythm\nEverybody in the system\n\nChorus:\nE wa ba mi jo (Come dance with me)\nE wa ba mi yo (Come rejoice with me)\nCelebration everywhere\nHappiness in the air`,
     },
   ];
+=======
+  const songs = getRollerDexSongs(SONGS_BASE_URL)
+>>>>>>> 7447eb150401409c1a41f31b529e75ce1f00d5f3
 
   // Update playback speed when slider changes
   useEffect(() => {
     if (audioRef.current) {
-      audioRef.current.playbackRate = playbackSpeed;
+      audioRef.current.playbackRate = playbackSpeed
     }
-  }, [playbackSpeed]);
+  }, [playbackSpeed])
 
   // Format time as mm:ss
   const formatTime = (seconds) => {
-    if (isNaN(seconds)) return "0:00";
-    const mins = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${mins}:${secs.toString().padStart(2, "0")}`;
-  };
+    if (isNaN(seconds)) return '0:00'
+    const mins = Math.floor(seconds / 60)
+    const secs = Math.floor(seconds % 60)
+    return `${mins}:${secs.toString().padStart(2, '0')}`
+  }
 
   // Handle card click - update selected song and SHOW container
   const handleCardClick = (song, index) => {
+<<<<<<< HEAD
     setSelectedSong(song);
     setSelectedSongIndex(index);
     setShowLyricsContainer(true); // THIS MAKES CONTAINER APPEAR
+=======
+    setSelectedSong(song)
+    setSelectedSongIndex(index)
+    setShowLyricsContainer(true) // Show container when card is clicked
+>>>>>>> 7447eb150401409c1a41f31b529e75ce1f00d5f3
 
     // Load audio for the selected song
     if (audioRef.current) {
-      const wasPlaying = isPlaying;
-      audioRef.current.src = song.audioFile;
-      audioRef.current.load();
-      audioRef.current.playbackRate = playbackSpeed;
-      setIsPlaying(false);
-      setCurrentTime(0);
+      const wasPlaying = isPlaying
+      audioRef.current.src = song.audioFile
+      audioRef.current.load()
+      audioRef.current.playbackRate = playbackSpeed
+      setIsPlaying(false)
+      setCurrentTime(0)
 
       // Auto-play if it was playing before
       if (wasPlaying) {
         audioRef.current
           .play()
-          .catch((err) => console.log("Auto-play failed:", err));
-        setIsPlaying(true);
+          .catch((err) => console.log('Auto-play failed:', err))
+        setIsPlaying(true)
       }
     }
-  };
+  }
 
   // Toggle play/pause
   const togglePlay = () => {
-    if (!audioRef.current || !selectedSong) return;
+    if (!audioRef.current || !selectedSong) return
 
     if (isPlaying) {
-      audioRef.current.pause();
+      audioRef.current.pause()
     } else {
       audioRef.current.play().catch((err) => {
-        console.error("❌ Playback failed:", err);
-        alert(`Cannot play: ${err.message}`);
-      });
+        console.error('❌ Playback failed:', err)
+        alert(`Cannot play: ${err.message}`)
+      })
     }
-    setIsPlaying(!isPlaying);
-  };
+    setIsPlaying(!isPlaying)
+  }
 
   // Skip to previous song
   const skipBack = () => {
-    if (!selectedSong) return;
+    if (!selectedSong) return
     const newIndex =
-      selectedSongIndex > 0 ? selectedSongIndex - 1 : songs.length - 1;
-    handleCardClick(songs[newIndex], newIndex);
-  };
+      selectedSongIndex > 0 ? selectedSongIndex - 1 : songs.length - 1
+    handleCardClick(songs[newIndex], newIndex)
+  }
 
   // Skip to next song
   const skipForward = () => {
-    if (!selectedSong) return;
+    if (!selectedSong) return
     const newIndex =
-      selectedSongIndex < songs.length - 1 ? selectedSongIndex + 1 : 0;
-    handleCardClick(songs[newIndex], newIndex);
-  };
+      selectedSongIndex < songs.length - 1 ? selectedSongIndex + 1 : 0
+    handleCardClick(songs[newIndex], newIndex)
+  }
 
   // Handle time update
   const handleTimeUpdate = () => {
     if (audioRef.current) {
-      setCurrentTime(audioRef.current.currentTime);
+      setCurrentTime(audioRef.current.currentTime)
     }
-  };
+  }
 
   // Handle duration loaded
   const handleLoadedMetadata = () => {
     if (audioRef.current) {
-      setDuration(audioRef.current.duration);
+      setDuration(audioRef.current.duration)
     }
-  };
+  }
 
   // Handle song ended
   const handleSongEnded = () => {
-    skipForward(); // Auto-play next song
-  };
+    skipForward() // Auto-play next song
+  }
 
   // Handle slider change
   const handleSliderChange = (e) => {
-    const newTime = Number(e.target.value);
-    setCurrentTime(newTime);
+    const newTime = Number(e.target.value)
+    setCurrentTime(newTime)
     if (audioRef.current) {
-      audioRef.current.currentTime = newTime;
+      audioRef.current.currentTime = newTime
     }
-  };
+  }
 
   // Handle playback speed change
   const handlePlaybackSpeedChange = (e) => {
-    const newSpeed = parseFloat(e.target.value);
-    setPlaybackSpeed(newSpeed);
-  };
+    const newSpeed = parseFloat(e.target.value)
+    setPlaybackSpeed(newSpeed)
+  }
 
   // Handle close lyrics container
   const handleCloseContainer = () => {
+<<<<<<< HEAD
     setShowLyricsContainer(false); // THIS HIDES CONTAINER
+=======
+    setShowLyricsContainer(false)
+>>>>>>> 7447eb150401409c1a41f31b529e75ce1f00d5f3
     if (audioRef.current) {
-      audioRef.current.pause();
-      setIsPlaying(false);
+      audioRef.current.pause()
+      setIsPlaying(false)
     }
-  };
+  }
 
   // Draggable scroll handlers
   const handleMouseDown = (e) => {
     if (lyricsTextRef.current) {
-      setIsDragging(true);
-      setStartY(e.clientY);
-      setScrollTop(lyricsTextRef.current.scrollTop);
-      lyricsTextRef.current.style.cursor = "grabbing";
-      e.preventDefault();
+      setIsDragging(true)
+      setStartY(e.clientY)
+      setScrollTop(lyricsTextRef.current.scrollTop)
+      lyricsTextRef.current.style.cursor = 'grabbing'
+      e.preventDefault()
     }
-  };
+  }
 
   const handleMouseMove = (e) => {
-    if (!isDragging || !lyricsTextRef.current) return;
+    if (!isDragging || !lyricsTextRef.current) return
 
-    const deltaY = e.clientY - startY;
-    lyricsTextRef.current.scrollTop = scrollTop - deltaY;
-    e.preventDefault();
-  };
+    const deltaY = e.clientY - startY
+    lyricsTextRef.current.scrollTop = scrollTop - deltaY
+    e.preventDefault()
+  }
 
   const handleMouseUp = () => {
     if (lyricsTextRef.current) {
-      setIsDragging(false);
-      lyricsTextRef.current.style.cursor = "grab";
+      setIsDragging(false)
+      lyricsTextRef.current.style.cursor = 'grab'
     }
-  };
+  }
 
   const handleMouseLeave = () => {
     if (isDragging && lyricsTextRef.current) {
-      setIsDragging(false);
-      lyricsTextRef.current.style.cursor = "grab";
+      setIsDragging(false)
+      lyricsTextRef.current.style.cursor = 'grab'
     }
-  };
+  }
 
   // Handle YouTube link click
   const handleListenFullSong = () => {
     if (selectedSong) {
-      window.open(selectedSong.link, "_blank", "noopener,noreferrer");
+      window.open(selectedSong.link, '_blank', 'noopener,noreferrer')
     }
-  };
+  }
 
   // Render all 5 cards
   const renderCards = () => {
     return songs.map((song, index) => (
       <div
         key={index}
-        className={`card ${selectedSongIndex === index && showLyricsContainer ? "active-card" : ""}`}
+        className={`card ${selectedSongIndex === index && showLyricsContainer ? 'active-card' : ''}`}
         onClick={() => handleCardClick(song, index)}
-        style={{ cursor: "pointer" }}
+        style={{ cursor: 'pointer' }}
       >
         {/* Cover Image */}
         <div className="card-cover">
@@ -252,9 +310,8 @@ function Rollerdex() {
             alt={`${song.title} cover`}
             className="cover-image"
             onError={(e) => {
-              e.target.onerror = null;
-              e.target.src =
-                "https://via.placeholder.com/200x200?text=No+Image";
+              e.target.onerror = null
+              e.target.src = 'https://via.placeholder.com/200x200?text=No+Image'
             }}
           />
         </div>
@@ -262,8 +319,8 @@ function Rollerdex() {
         <h3>{song.title}</h3>
         <p className="artist">{song.artist}</p>
       </div>
-    ));
-  };
+    ))
+  }
 
   return (
     <div className="rolodex-container">
@@ -277,8 +334,8 @@ function Rollerdex() {
         onLoadedMetadata={handleLoadedMetadata}
         onEnded={handleSongEnded}
         onError={(e) => {
-          console.error("🔊 Audio Error:", e);
-          console.log("🔊 Current src:", audioRef.current?.src);
+          console.error('🔊 Audio Error:', e)
+          console.log('🔊 Current src:', audioRef.current?.src)
         }}
       />
 
@@ -294,6 +351,7 @@ function Rollerdex() {
               <i className="fas fa-times"></i>
             </button>
 
+<<<<<<< HEAD
             <div className="lyrics-container-content">
               {/* Lyrics Text - Draggable Scroll */}
               <div className="lyrics-scroll-container">
@@ -311,6 +369,24 @@ function Rollerdex() {
                       "No lyrics available for this song yet."}
                   </p>
                 </div>
+=======
+          <div className="lyrics-container-content">
+            {/* Lyrics Text - Draggable Scroll */}
+            <div className="lyrics-scroll-container">
+              <div
+                ref={lyricsTextRef}
+                className="lyrics-text-draggable"
+                onMouseDown={handleMouseDown}
+                onMouseMove={handleMouseMove}
+                onMouseUp={handleMouseUp}
+                onMouseLeave={handleMouseLeave}
+                style={{ cursor: 'grab' }}
+              >
+                <p className="permanent-lyrics-text">
+                  {selectedSong.lyrics ||
+                    'No lyrics available for this song yet.'}
+                </p>
+>>>>>>> 7447eb150401409c1a41f31b529e75ce1f00d5f3
               </div>
 
               {/* Music Controls - Small, Centered */}
@@ -323,6 +399,7 @@ function Rollerdex() {
                   <i className="fas fa-backward-step"></i>
                 </button>
 
+<<<<<<< HEAD
                 <button
                   className="permanent-control-btn permanent-play-btn"
                   onClick={togglePlay}
@@ -334,6 +411,19 @@ function Rollerdex() {
                     <i className="fas fa-play"></i>
                   )}
                 </button>
+=======
+              <button
+                className="permanent-control-btn permanent-play-btn"
+                onClick={togglePlay}
+                title={isPlaying ? 'Pause' : 'Play'}
+              >
+                {isPlaying ? (
+                  <i className="fas fa-pause"></i>
+                ) : (
+                  <i className="fas fa-play"></i>
+                )}
+              </button>
+>>>>>>> 7447eb150401409c1a41f31b529e75ce1f00d5f3
 
                 <button
                   className="permanent-control-btn"
@@ -351,12 +441,21 @@ function Rollerdex() {
                 </span>
                 <input
                   type="range"
+<<<<<<< HEAD
                   className="permanent-progress-slider"
                   min="0"
                   max={duration || 100}
                   value={currentTime}
                   onChange={handleSliderChange}
                   step="1"
+=======
+                  className="speed-slider"
+                  min="0.5"
+                  max="1.5"
+                  step="0.1"
+                  value={playbackSpeed}
+                  onChange={handlePlaybackSpeedChange}
+>>>>>>> 7447eb150401409c1a41f31b529e75ce1f00d5f3
                 />
                 <span className="permanent-time-total">
                   {formatTime(duration)}
@@ -413,6 +512,11 @@ function Rollerdex() {
           {renderCards()}
         </div>
       </div>
+      <div className="title-container">
+        <p className="text-block tip">
+          TIP: Non-musical repetition is boring HAVE FUN & send recommendations
+        </p>
+      </div>
 
       <div className="controls">
         <button id="prevBtn" disabled>
@@ -423,7 +527,7 @@ function Rollerdex() {
         </button>
       </div>
     </div>
-  );
+  )
 }
 
-export default Rollerdex;
+export default Rollerdex

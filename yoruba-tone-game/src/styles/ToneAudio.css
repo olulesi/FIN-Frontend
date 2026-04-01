@@ -92,6 +92,10 @@
   color: #333;
 }
 
+.speed-label-tone {
+  font-size: 15px;
+}
+
 /* Progress Bar */
 .progress-container {
   height: 8px;
@@ -144,5 +148,5 @@
 }
 .audio-section {
   text-align: center;
-  margin: 4rem 10rem;
+  margin: 2rem 10rem;
 }

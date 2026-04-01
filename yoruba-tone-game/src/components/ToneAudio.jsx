@@ -129,7 +129,7 @@ const AudioPlayer = () => {
             className="speed-slider"
             aria-label="Playback Speed"
           />
-          <div className="speed-label">{speed}x</div>
+          <div className="speed-label-tone">{speed}x</div>
         </div>
       </div>
       <div className="linkk1">
