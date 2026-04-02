@@ -18,6 +18,7 @@ function Alphabet() {
           exercises
         </p>
       </div>
+      
       <hr />
 
       <h2 className='AlphaPractice'>Alphabet Practice</h2>
@@ -141,7 +142,7 @@ function Alphabet() {
         </tbody>
       </table>
 
-      <div>
+      <div className='link_container'>
         <a
           href="https://www.yorubaizm.com/"
           target="_blank"

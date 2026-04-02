@@ -107,7 +107,6 @@ const TonePractice = () => {
           </button>
         </div>
       </div>{' '}
-      {/* 👈 This was MISSING in your snippet! */}
     </div>
   )
 }
