@@ -3,16 +3,16 @@ import '../styles/Alphabet.css'
 
 function Alphabet() {
   return (
-    <div>
+    <div className="AlphaContainer">
       <div className="title-container">
         <h1 className="heading1">Flowing in Yoruba (FIN)</h1>
 
-        <p className="text-block tip">
+        <p className="text-blockTip">
           Promoting Language adaptation for Yoruba. We want to adapt ourselves
           to languages so they can flow through us.
         </p>
 
-        <p className="text-block tip">
+        <p className="text-blockTip">
           An outlet to maximise our exposure and engagement through games and
           exercises
         </p>
@@ -139,16 +139,15 @@ function Alphabet() {
             </td>
           </tr>
         </tbody>
-
-        <a
-          href="https://www.yorubaizm.com/"
-          target="_blank"
-          rel="noreferrer"
-          className="link1"
-        >
-          from Yorubaizm
-        </a>
       </table>
+      <a
+        href="https://www.yorubaizm.com/"
+        target="_blank"
+        rel="noreferrer"
+        className="link1"
+      >
+        from Yorubaizm
+      </a>
     </div>
   );
 }

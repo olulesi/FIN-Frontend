@@ -180,7 +180,7 @@ const Game = () => {
       <hr />
       <div className="title-container">
         <h2 id="heading3">Tone Game</h2>
-        <p className="text-block tip">
+        <p className="text-blockTip">
           Test your hearing of tones with Homonyms in Yoruba.
         </p>
       </div>
@@ -269,7 +269,7 @@ const Game = () => {
         </div>
       </div>
       <div className="title-container">
-        <p className="text-block tip">
+        <p className="text-blockTip">
           TIP: Always try to mimic the audio to improve your pronunciation as
           you play
         </p>

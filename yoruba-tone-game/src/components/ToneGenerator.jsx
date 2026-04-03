@@ -25,7 +25,7 @@ const ToneGenerator = () => {
       <h2 className="tone">Tone Generator</h2>
       {/* New Audio Player Component */}
       <div>
-        <p className="Block-text tip">
+        <p className="block-textTip">
           Tip: Be extra expressive with each tone.
         </p>
       </div>
