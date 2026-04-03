@@ -4,7 +4,6 @@ import '../styles/Alphabet.css'
 function Alphabet() {
   return (
     <div>
-
       <div className="title-container">
         <h1 className="heading1">Flowing in Yoruba (FIN)</h1>
 
@@ -18,10 +17,10 @@ function Alphabet() {
           exercises
         </p>
       </div>
-      
+
       <hr />
 
-      <h2 className='AlphaPractice'>Alphabet Practice</h2>
+      <h2 className="AlphaPractice">Alphabet Practice</h2>
 
       <table className="table1" border="1" cellPadding="15" cellSpacing="3">
         <tbody>
@@ -140,9 +139,7 @@ function Alphabet() {
             </td>
           </tr>
         </tbody>
-      </table>
 
-      <div className='link_container'>
         <a
           href="https://www.yorubaizm.com/"
           target="_blank"
@@ -151,11 +148,9 @@ function Alphabet() {
         >
           from Yorubaizm
         </a>
-      </div>
-
-      <hr />
+      </table>
     </div>
-  )
+  );
 }
 
 export default Alphabet

@@ -21,10 +21,13 @@ const ToneGenerator = () => {
 
   return (
     <div>
-      <h2 className='tone'>Tone Generator</h2>
+      <hr />
+      <h2 className="tone">Tone Generator</h2>
       {/* New Audio Player Component */}
       <div>
-        <p className='Block-text tip'>Tip: Be extra expressive with each tone.</p>
+        <p className="Block-text tip">
+          Tip: Be extra expressive with each tone.
+        </p>
       </div>
       <div className="audio-section">
         <ToneAudio />
@@ -41,15 +44,15 @@ const ToneGenerator = () => {
         ))}
       </div>
 
-      <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+      <div style={{ textAlign: "center", marginTop: "1rem" }}>
         <button id="shuffleBtn" onClick={shuffleTones}>
           Shuffle Tones
         </button>
       </div>
 
-      <hr style={{ marginTop: '2rem' }} />
+      <hr style={{ marginTop: "2rem" }} />
     </div>
-  )
+  );
 }
 
 export default ToneGenerator
