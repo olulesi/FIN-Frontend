@@ -58,23 +58,28 @@
   padding: 12px 15px 10px;
 }
 
-/* Lyrics Scroll Container - Very Small */
+/* Lyrics Scroll Container - FIXED for proper scrolling */
 .lyrics-scroll-container {
   margin: 0 0 8px 0;
   height: auto;
-  max-height: none; /* remove height restriction */
-  overflow: visible; /* no scrolling */
+  max-height: 80px; /* Fixed max-height for scrolling */
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden; /* Prevent horizontal scroll */
   border-radius: 6px;
   background: #fafafa;
   border: 1px solid #e0e0e0;
 }
 
 .lyrics-text-draggable {
-  height: auto; /* allow content to expand */
-  overflow: visible; /* no scroll */
-  cursor: default; /* no grab needed anymore */
-  padding: 10px 12px;
-  user-select: text; /* allow text selection again */
+  height: auto;
+  overflow-y: visible;
+  cursor: grab;
+  padding: 8px 10px;
+  user-select: none;
+}
+
+.lyrics-text-draggable:active {
+  cursor: grabbing;
 }
 
 /* Custom scrollbar - very thin */
@@ -430,7 +435,7 @@
   }
 
   .lyrics-scroll-container {
-    max-height: 65px;
+    max-height: 75px;
   }
 }
 
@@ -472,7 +477,7 @@
   }
 
   .lyrics-scroll-container {
-    max-height: 60px;
+    max-height: 70px;
   }
 
   .permanent-lyrics-text {
@@ -544,7 +549,7 @@
   }
 
   .lyrics-scroll-container {
-    max-height: 55px;
+    max-height: 60px;
   }
 
   .permanent-lyrics-text {
@@ -562,5 +567,12 @@
 
   .external-button-container {
     margin: 3px auto 15px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .lyrics-scroll-container {
+    max-height: 55px;
   }
 }
