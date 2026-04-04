@@ -1,26 +1,60 @@
-.wordBox {
-    width: 80px;
-      height: 50px;
-      border: 1px solid gray;
-      border-Radius: 6px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 18px;
-      background-color: #fff;
+.word-row,
+.Tone-row {
+  display: grid;
+  gap: 0.75rem;
+  justify-content: center;
+  width: 100%;
 }
 
+/* Default for mobile - each box takes equal space */
+.word-row,
+.Tone-row {
+  grid-template-columns: repeat(6, minmax(45px, 1fr));
+}
 
+/* Adjust based on number of items */
+.word-row {
+  grid-template-columns: repeat(var(--word-count, 4), minmax(45px, 1fr));
+}
+
+.Tone-row {
+  grid-template-columns: repeat(var(--tone-count, 4), minmax(45px, 1fr));
+}
+
+.wordBox,
 .ToneBox {
-     width: 80px;
-      height: 50px;
-      border: 1px solid #aaa;
-      border-radius: 6px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 16px;
-      background-Color: #f0f0f0;
+  min-width: 40px;
+  height: auto;
+  min-height: 50px;
+  padding: 0.5rem;
+  border: 1px solid gray;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  word-break: break-word;
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .wordBox,
+  .ToneBox {
+    min-width: 70px;
+  }
+  
+  .word-row,
+  .Tone-row {
+    gap: 1rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .wordBox,
+  .ToneBox {
+    min-width: 80px;
+  }
 }
 
 
@@ -32,12 +66,7 @@
   padding: 1.5rem;
 }
 
-.word-row,
-.Tone-row {
-  display: flex;
-  gap: 0.75rem; /* Space between WordBox or ToneBox components */
-  justify-content: center; /* Centers the boxes inside each row */
-}
+
 
 /* Center everything in the container */
 .prev-button {

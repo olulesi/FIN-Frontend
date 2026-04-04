@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import '../styles/Tonepractice.css'
-import '../styles/Alphabet.css'
+
 
 // Import your audio files
 import eleyeleAudio from '../assets/audio/eleyele.mp3'
@@ -77,7 +77,7 @@ const TonePractice = () => {
   }
 
   return (
-    <div>
+    <div className='Tone-container'>
       <h2 className='practice'>Tone Practice</h2>
       <div className="Tone-practice">
         {/* Word Row */}
