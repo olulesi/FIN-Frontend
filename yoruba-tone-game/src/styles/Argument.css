@@ -210,7 +210,7 @@
 .text-block.tip {
   text-align: center;
   margin-top: 30px;
-
+  --fa-font-solid: normal 900 1em / 1 'Font Awesome 6 Free';
   border-radius: 8px;
   max-width: 600px;
   margin-left: auto;
@@ -302,20 +302,20 @@ hr {
     width: 100%;
   } */
 
-    .conjugation-table {
+  .conjugation-table {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     white-space: nowrap;
     width: 100%;
-     margin: 0 auto;
-        display: table; /* Changed from flex */
-        table-layout: fixed;
+    margin: 0 auto;
+    display: table; /* Changed from flex */
+    table-layout: fixed;
   }
 
-   .conjugation-table thead,
-    .conjugation-table tbody {
-        width: 100%;
-    }
+  .conjugation-table thead,
+  .conjugation-table tbody {
+    width: 100%;
+  }
 
   .conjugation-table th,
   .conjugation-table td {
@@ -342,7 +342,7 @@ hr {
   /* Add box shadow to sticky column for better visibility */
   .conjugation-table th:first-child,
   .conjugation-table td:first-child {
-    box-shadow: 2px 0 5px -2px rgba(0,0,0,0.1);
+    box-shadow: 2px 0 5px -2px rgba(0, 0, 0, 0.1);
   }
 
   /* Center and wrap buttons */
@@ -388,8 +388,8 @@ hr {
   .text-block.tip {
     margin-top: 25px;
     padding: 12px;
-    font-size: 0.85rem;
     width: 90%;
+    font-family: initial;
   }
 
   /* Center all content */
@@ -454,7 +454,6 @@ hr {
   }
 
   .text-block.tip {
-    font-size: 0.75rem;
     padding: 10px;
   }
 
