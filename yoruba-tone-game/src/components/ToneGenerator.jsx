@@ -20,7 +20,7 @@ const ToneGenerator = () => {
   }
 
   return (
-    <div>
+    <div className="Tone-Generator">
       <hr />
       <h2 className="tone">Tone Generator</h2>
       {/* New Audio Player Component */}
