@@ -194,7 +194,7 @@ export const gameData = [
     translation: 'He bought a new car.',
   },
   {
-    word: 'okó',
+    word: 'ọkọ́',
     audioFile: okoremi,
     imageFile: okoSpearImg,
     options: ['Mi Re', 'Do Mi', 'Re Mi', 'Do Do'],
