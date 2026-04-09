@@ -42,33 +42,19 @@ function Question({
       </div>
 
       {/* 
-        ============================================
         IMAGE DISPLAY RULES:
-        ============================================
-        Rule 1: First attempt CORRECT → SHOW IMAGE
-        Rule 2: Second attempt WRONG → SHOW IMAGE  
-        Rule 3: First attempt WRONG → NO IMAGE
-        Rule 4: Second attempt CORRECT → NO IMAGE
-        ============================================
-        
-        Note: attempts value starts at 0 normally.
-        If attempts starts at 1 in your app, use the 
-        commented alternative condition below.
-        ============================================
+        - First attempt CORRECT → SHOW IMAGE
+        - Second attempt WRONG → SHOW IMAGE
+        - First attempt WRONG → NO IMAGE
+        - Second attempt CORRECT → NO IMAGE
       */}
-
-      {/* VERSION 1: Normal (attempts starts at 0) */}
-      {/* {((attempts === 0 && selectedOption === correctAnswer) || (attempts === 1 && selectedOption !== correctAnswer)) && showImage && currentImage && ( */}
-
-      {/* VERSION 2: If attempts starts at 1 (use this version) */}
-      {((attempts === 1 && selectedOption === correctAnswer) ||
-        (attempts === 2 && selectedOption !== correctAnswer)) &&
-        showImage &&
-        currentImage && (
-          <div className="homonym-image-container">
-            <img src={currentImage} alt={word} className="homonym-image" />
-          </div>
-        )}
+      {((attempts === 1 && selectedOption === correctAnswer) || 
+        (attempts === 2 && selectedOption !== correctAnswer)) && 
+        showImage && currentImage && (
+        <div className="homonym-image-container">
+          <img src={currentImage} alt={word} className="homonym-image" />
+        </div>
+      )}
 
       {/* Word Display */}
       <div className="word-display">
@@ -112,16 +98,11 @@ function Question({
         })}
       </div>
 
-      {/* Play and Sentence Buttons - Side by Side */}
+      {/* Play and Sentence Buttons */}
       <div className="button-row">
-        <button
-          className="play-btn"
-          onClick={onPlayAudio}
-          aria-label="Play audio"
-        >
+        <button className="play-btn" onClick={onPlayAudio} aria-label="Play audio">
           ▶️ Play Audio
         </button>
-
         <button
           className={`sentence-btn ${showSentence ? "active" : ""}`}
           onClick={() => setShowSentence(true)}
@@ -134,10 +115,7 @@ function Question({
 
       {/* Playback Speed Controls */}
       <div className="speed-controls">
-        <i
-          className="fas fa-tachometer-alt speed-icon"
-          title="Playback Speed"
-        ></i>
+        <i className="fas fa-tachometer-alt speed-icon" title="Playback Speed"></i>
         <select
           value={playbackRate}
           onChange={(e) => onSetPlaybackRate(Number(e.target.value))}
@@ -152,7 +130,7 @@ function Question({
         </select>
       </div>
 
-      {/* Sentence Display - Only show when activated */}
+      {/* Sentence Display */}
       {showSentence && (
         <div className="sentence-display" role="region" aria-live="polite">
           <div className="sentence-content">
@@ -164,9 +142,7 @@ function Question({
 
       {/* Feedback */}
       {feedback && (
-        <div
-          className={`feedback ${feedback.includes("Correct") ? "correct" : "wrong"}`}
-        >
+        <div className={`feedback ${feedback.includes("Correct") ? "correct" : "wrong"}`}>
           {feedback}
         </div>
       )}
@@ -187,13 +163,9 @@ function Question({
         </div>
       )}
 
-      {/* Next Word Button - Only show after answering or 2 attempts */}
+      {/* Next Word Button */}
       {(showAnswer || isLocked) && (
-        <button
-          className="next-btn"
-          onClick={onNextWord}
-          aria-label="Next word"
-        >
+        <button className="next-btn" onClick={onNextWord} aria-label="Next word">
           Next Word →
         </button>
       )}

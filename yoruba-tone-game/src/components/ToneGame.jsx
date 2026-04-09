@@ -13,7 +13,8 @@ const Game = () => {
   const [hasPlayedAudio, setHasPlayedAudio] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
   const [wrongCount, setWrongCount] = useState(0);
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  // DEFAULT CATEGORY SET TO HOMONYNS
+  const [selectedCategory, setSelectedCategory] = useState("homonyns");
   const [playbackRate, setPlaybackRate] = useState(1.0);
   const [attempts, setAttempts] = useState(0);
   const [isLocked, setIsLocked] = useState(false);
@@ -194,9 +195,9 @@ const Game = () => {
           </button>
         </div>
 
-        {/* Category Filter */}
+        {/* Category Filter - Only Homonyms clickable */}
         <div className="category-filter">
-          <label>
+          <label className="disabled-category">
             <input
               type="radio"
               name="category"
@@ -207,7 +208,7 @@ const Game = () => {
             />
             All
           </label>
-          <label>
+          <label className="disabled-category">
             <input
               type="radio"
               name="category"
@@ -218,7 +219,7 @@ const Game = () => {
             />
             Words
           </label>
-          <label>
+          <label className="disabled-category">
             <input
               type="radio"
               name="category"
@@ -229,7 +230,7 @@ const Game = () => {
             />
             Locations
           </label>
-          <label>
+          <label className="active-category">
             <input
               type="radio"
               name="category"

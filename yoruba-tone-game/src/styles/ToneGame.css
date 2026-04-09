@@ -71,6 +71,34 @@
   cursor: pointer;
 }
 
+/* ===== NEW: Disabled category styles ===== */
+.category-filter label.disabled-category {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.category-filter label.disabled-category:hover {
+  background-color: transparent;
+  transform: none;
+  cursor: not-allowed;
+}
+
+.category-filter label.disabled-category input[type="radio"] {
+  cursor: not-allowed;
+}
+
+/* ===== NEW: Active category highlight for Homonyms ===== */
+.category-filter label.active-category {
+  font-weight: bold;
+  background-color: #e3f2fd;
+  border-radius: 6px;
+}
+
+.category-filter label.active-category:hover {
+  background-color: #bbdef5;
+}
+
+/* Speed Controls */
 .speed-controls {
   display: flex;
   align-items: center;
@@ -147,17 +175,17 @@
   opacity: 0.8;
 }
 
-/* NEW: Fixed image container - ALWAYS takes space even when no image */
+/* Fixed image container - ALWAYS takes space even when no image */
 .homonym-image-container {
   text-align: center;
   margin: 15px 0;
-  /* NEW: Fixed height - always takes this space */
+  /* Fixed height - always takes this space */
   min-height: 230px;
   height: 230px;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Optional: subtle background when empty */
+  /* Subtle background when empty */
   background: #fafafa;
   border-radius: 8px;
   overflow: hidden;
@@ -170,12 +198,9 @@
   height: auto;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  /* NEW: Prevent image from affecting layout */
+  /* Prevent image from affecting layout */
   object-fit: contain;
 }
-
-
-
 
 @keyframes pulse-correct {
   0%, 100% {
