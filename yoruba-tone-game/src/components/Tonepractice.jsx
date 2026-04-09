@@ -77,8 +77,8 @@ const TonePractice = () => {
   }
 
   return (
-    <div className='Tone-container'>
-      <h2 className='practice'>Tone Practice</h2>
+    <div className="Tone-container">
+      <h2 className="practice">Tone Practice</h2>
       <div className="Tone-practice">
         {/* Word Row */}
         <div className="word-row">
@@ -100,15 +100,15 @@ const TonePractice = () => {
 
         <div className="button">
           <button onClick={handlePrev} className="prev-button">
-            ⬅️ Previous
+            ← Prev
           </button>
           <button onClick={handleNext} className="next-button">
-            Next ➡️
+            Next →
           </button>
         </div>
-      </div>{' '}
+      </div>{" "}
     </div>
-  )
+  );
 }
 
 export default TonePractice
