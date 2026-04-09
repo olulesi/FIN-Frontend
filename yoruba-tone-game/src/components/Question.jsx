@@ -41,12 +41,34 @@ function Question({
         {attempts > 0 && <span className="attempt-used"> (1 used)</span>}
       </div>
 
-      {/* IMAGE DISPLAY - Shows IMMEDIATELY when ANY option is selected */}
-      {selectedOption !== null && showImage && currentImage && (
-        <div className="homonym-image-container">
-          <img src={currentImage} alt={word} className="homonym-image" />
-        </div>
-      )}
+      {/* 
+        ============================================
+        IMAGE DISPLAY RULES:
+        ============================================
+        Rule 1: First attempt CORRECT → SHOW IMAGE
+        Rule 2: Second attempt WRONG → SHOW IMAGE  
+        Rule 3: First attempt WRONG → NO IMAGE
+        Rule 4: Second attempt CORRECT → NO IMAGE
+        ============================================
+        
+        Note: attempts value starts at 0 normally.
+        If attempts starts at 1 in your app, use the 
+        commented alternative condition below.
+        ============================================
+      */}
+
+      {/* VERSION 1: Normal (attempts starts at 0) */}
+      {/* {((attempts === 0 && selectedOption === correctAnswer) || (attempts === 1 && selectedOption !== correctAnswer)) && showImage && currentImage && ( */}
+
+      {/* VERSION 2: If attempts starts at 1 (use this version) */}
+      {((attempts === 1 && selectedOption === correctAnswer) ||
+        (attempts === 2 && selectedOption !== correctAnswer)) &&
+        showImage &&
+        currentImage && (
+          <div className="homonym-image-container">
+            <img src={currentImage} alt={word} className="homonym-image" />
+          </div>
+        )}
 
       {/* Word Display */}
       <div className="word-display">
