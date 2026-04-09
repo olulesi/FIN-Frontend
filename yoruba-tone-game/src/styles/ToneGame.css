@@ -36,6 +36,10 @@
   transform: translateY(-1px);
 }
 
+.text-blockTip {
+  text-align: center;
+}
+
 /* Category Filter */
 .category-filter {
   display: flex;
