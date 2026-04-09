@@ -1,78 +1,219 @@
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+}
+
+/* Container styles */
+.Tone-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  padding: 0 1rem;
+}
+
+/* Main practice container */
+.Tone-practice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Row styles - keeps boxes in a single horizontal line */
 .word-row,
 .Tone-row {
-  display: grid;
+  display: flex;
+  flex-wrap: nowrap;
   gap: 0.75rem;
   justify-content: center;
-  width: 50%;
+  width: 100%;
 }
 
-/* Default for mobile - each box takes equal space */
-.word-row,
-.Tone-row {
-  grid-template-columns: repeat(6, minmax(45px, 1fr));
-}
-
-/* Adjust based on number of items */
-.word-row {
-  grid-template-columns: repeat(var(--word-count, 4), minmax(45px, 1fr));
-}
-
-.Tone-row {
-  grid-template-columns: repeat(var(--tone-count, 4), minmax(45px, 1fr));
-}
-
-.wordBox,
-.ToneBox {
-  min-width: 20px;
+/* Word box styling */
+.wordBox {
+  min-width: 60px;
+  width: auto;
   height: auto;
   min-height: 50px;
-  padding: 0.1rem;
+  padding: 0.5rem;
   border: 1px solid gray;
   border-radius: 6px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  word-break: break-word;
+  word-break: keep-all;
+  white-space: nowrap;
+  font-size: clamp(12px, 3vw, 18px);
+  background-color: #fff;
 }
 
-/* Tablet and up */
+/* Tone box styling */
+.ToneBox {
+  min-width: 60px;
+  width: auto;
+  height: auto;
+  min-height: 50px;
+  padding: 0.5rem;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  word-break: keep-all;
+  white-space: nowrap;
+  font-size: clamp(12px, 3vw, 16px);
+  background-color: #f0f0f0;
+}
+
+/* Button styles */
+.play-button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+.play-button:hover {
+  background-color: #45a049;
+}
+
+.button {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.prev-button,
+.next-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+.prev-button:hover,
+.next-button:hover {
+  background-color: #0073a8;
+}
+
+.prev-button {
+  margin-right: 0;
+}
+
+.practice {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+  .Tone-practice {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .word-row,
+  .Tone-row {
+    gap: 0.5rem;
+  }
+  
+  .wordBox,
+  .ToneBox {
+    min-width: 45px;
+    padding: 0.35rem;
+    font-size: 11px;
+  }
+  
+  .play-button,
+  .prev-button,
+  .next-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .button {
+    gap: 0.75rem;
+  }
+  
+  .practice {
+    font-size: 1.25rem;
+  }
+}
+
+/* Very small screens - add horizontal scroll if needed */
+@media (max-width: 380px) {
+  .word-row,
+  .Tone-row {
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 0.5rem;
+  }
+  
+  .word-row::-webkit-scrollbar,
+  .Tone-row::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  .word-row::-webkit-scrollbar-track,
+  .Tone-row::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  
+  .word-row::-webkit-scrollbar-thumb,
+  .Tone-row::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+}
+
+/* Tablet styles */
 @media (min-width: 768px) {
   .wordBox,
   .ToneBox {
-    min-width: 40px;
+    min-width: 70px;
+    padding: 0.75rem;
   }
   
   .word-row,
   .Tone-row {
     gap: 1rem;
   }
-}
-
-/* Desktop */
-@media (min-width: 1024px) {
-  .wordBox,
-  .ToneBox {
-    min-width: 40px;
+  
+  .Tone-practice {
+    gap: 1.5rem;
   }
 }
 
-
-.Tone-practice {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centers children horizontally */
-  gap: 1.2rem; /* Optional: adds space between word-row and tone-row */
-  padding: 1.5rem;
-}
-
-
-
-/* Center everything in the container */
-.prev-button {
-    margin-right: 10px;
-}
-
-.practice {
-  text-align: center;
+/* Desktop styles */
+@media (min-width: 1024px) {
+  .wordBox,
+  .ToneBox {
+    min-width: 80px;
+    padding: 0.75rem;
+  }
+  
+  .wordBox {
+    font-size: 18px;
+  }
+  
+  .ToneBox {
+    font-size: 16px;
+  }
 }
