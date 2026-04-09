@@ -76,7 +76,7 @@
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   cursor: pointer;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   border-radius: 6px;
@@ -96,7 +96,7 @@
 
 .prev-button,
 .next-button {
-   padding: 8px 20px;
+  padding: 8px 20px;
   background: #f0f0f0;
   border: 1px solid #ddd;
   border-radius: 6px;
@@ -128,32 +128,38 @@
     padding: 1rem;
     gap: 1rem;
   }
-  
+
   .word-row,
   .Tone-row {
     gap: 0.5rem;
   }
-  
+
   .wordBox,
   .ToneBox {
     min-width: 45px;
     padding: 0.35rem;
     font-size: 11px;
   }
-  
+
   .play-button,
   .prev-button,
   .next-button {
     padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
   }
-  
+
   .button {
     gap: 0.75rem;
   }
-  
+
   .practice {
     font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .wordBox {
+    font-size: 14px;
   }
 }
 
@@ -165,18 +171,18 @@
     justify-content: flex-start;
     padding-bottom: 0.5rem;
   }
-  
+
   .word-row::-webkit-scrollbar,
   .Tone-row::-webkit-scrollbar {
     height: 4px;
   }
-  
+
   .word-row::-webkit-scrollbar-track,
   .Tone-row::-webkit-scrollbar-track {
     background: #f1f1f1;
     border-radius: 10px;
   }
-  
+
   .word-row::-webkit-scrollbar-thumb,
   .Tone-row::-webkit-scrollbar-thumb {
     background: #888;
@@ -191,12 +197,12 @@
     min-width: 70px;
     padding: 0.75rem;
   }
-  
+
   .word-row,
   .Tone-row {
     gap: 1rem;
   }
-  
+
   .Tone-practice {
     gap: 1.5rem;
   }
@@ -209,11 +215,11 @@
     min-width: 80px;
     padding: 0.75rem;
   }
-  
+
   .wordBox {
     font-size: 18px;
   }
-  
+
   .ToneBox {
     font-size: 16px;
   }
