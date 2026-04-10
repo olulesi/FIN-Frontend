@@ -80,11 +80,16 @@ const Game = () => {
     return <div className="game-container">Loading...</div>;
   }
 
-  // Process the answer
+  // Process the answer - SHOW IMAGE HERE when option is selected
   const processAnswer = (index) => {
     const newAttempts = attempts + 1;
     setAttempts(newAttempts);
     setSelectedOption(index);
+
+    // SHOW IMAGE - Only when an option is selected
+    if (currentWord.imageFile && !showImage) {
+      setShowImage(true);
+    }
 
     if (index === currentWord.correct) {
       setFeedback("Correct ✅ Well done!");
@@ -120,14 +125,15 @@ const Game = () => {
     processAnswer(index);
   };
 
-  // Play audio with image display
+  // Play audio - ONLY load image, DO NOT SHOW it
   const playAudio = () => {
     setHasPlayedAudio(true);
     setLastPlayed(currentWord.word);
 
+    // Load the image but DON'T show yet
     if (currentWord.imageFile) {
       setCurrentImage(currentWord.imageFile);
-      setShowImage(true);
+      // REMOVED: setShowImage(true) - Image should NOT show on Play Audio
     }
 
     const audio = new Audio(currentWord.audioFile);

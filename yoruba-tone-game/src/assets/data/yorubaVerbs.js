@@ -1,6 +1,3 @@
-// src/utils/yorubaVerbs.js
-
-// Normalize verb key for safe filenames
 export const normalizeVerbKey = (verbKey) => {
   return verbKey
     .replace(/ẹ/g, 'e')

@@ -1,17 +1,15 @@
 import React, { useState } from "react";
+
 import "../styles/Argument.css";
 import { verbs, normalizeVerbKey } from "../assets/data/yorubaVerbs";
 
-// ===== CONFIGURATION - Easy to toggle later =====
-const IS_PRESENT_TENSE_ENABLED = false; // Set to 'true' to enable Present tense
+const IS_PRESENT_TENSE_ENABLED = false; 
 
-//pronoun data structure
 console.log("Asset Base URL:", process.env.REACT_APP_ASSET_BASE_URL);
 const pronouns = ["Mo", "Ìwọ", "Ó", "À(wa)", "Ẹ", "Wọ́n"];
 const negPronouns = ["Mi ò", "Ó", "Kò", "À", "Ẹ ò", "Wọ́n"];
 const PRONOUNS_WITH_AUDIO = new Set([0, 1, 2, 3, 4, 5]);
 
-//functions
 const playAudio = (filename, index) => {
   const indexToFolder = {
     0: "moPronoun",
@@ -79,12 +77,10 @@ const ConjugationTable = ({ tense, polarity, verbKey }) => {
 };
 
 const VerbConjugation = () => {
-  //state
   const [selectedTense, setSelectedTense] = useState("past");
   const [selectedVerb, setSelectedVerb] = useState("jẹun");
   const verbKeys = Object.keys(verbs);
 
-  // Handler for tense change
   const handleTenseChange = (tense) => {
     if (tense === "present" && !IS_PRESENT_TENSE_ENABLED) {
       return; // Do nothing if present is disabled

@@ -42,19 +42,21 @@ function Question({
       </div>
 
       {/* 
-        IMAGE DISPLAY RULES:
-        - First attempt CORRECT → SHOW IMAGE
-        - Second attempt WRONG → SHOW IMAGE
-        - First attempt WRONG → NO IMAGE
-        - Second attempt CORRECT → NO IMAGE
+        STRICT 5 RULES FOR IMAGE DISPLAY:
+        1. Play Audio initially → NO IMAGE (handled in Game.js)
+        2. First Attempt WRONG → NO IMAGE
+        3. First Attempt CORRECT → SHOW IMAGE
+        4. Second Attempt WRONG → SHOW IMAGE
+        5. Second Attempt CORRECT → SHOW IMAGE
       */}
-      {((attempts === 1 && selectedOption === correctAnswer) || 
-        (attempts === 2 && selectedOption !== correctAnswer)) && 
-        showImage && currentImage && (
-        <div className="homonym-image-container">
-          <img src={currentImage} alt={word} className="homonym-image" />
-        </div>
-      )}
+      {selectedOption !== null &&
+        !(attempts === 1 && selectedOption !== correctAnswer) &&
+        showImage &&
+        currentImage && (
+          <div className="homonym-image-container">
+            <img src={currentImage} alt={word} className="homonym-image" />
+          </div>
+        )}
 
       {/* Word Display */}
       <div className="word-display">
@@ -100,7 +102,11 @@ function Question({
 
       {/* Play and Sentence Buttons */}
       <div className="button-row">
-        <button className="play-btn" onClick={onPlayAudio} aria-label="Play audio">
+        <button
+          className="play-btn"
+          onClick={onPlayAudio}
+          aria-label="Play audio"
+        >
           ▶️ Play Audio
         </button>
         <button
@@ -115,7 +121,10 @@ function Question({
 
       {/* Playback Speed Controls */}
       <div className="speed-controls">
-        <i className="fas fa-tachometer-alt speed-icon" title="Playback Speed"></i>
+        <i
+          className="fas fa-tachometer-alt speed-icon"
+          title="Playback Speed"
+        ></i>
         <select
           value={playbackRate}
           onChange={(e) => onSetPlaybackRate(Number(e.target.value))}
@@ -142,7 +151,9 @@ function Question({
 
       {/* Feedback */}
       {feedback && (
-        <div className={`feedback ${feedback.includes("Correct") ? "correct" : "wrong"}`}>
+        <div
+          className={`feedback ${feedback.includes("Correct") ? "correct" : "wrong"}`}
+        >
           {feedback}
         </div>
       )}
@@ -165,7 +176,11 @@ function Question({
 
       {/* Next Word Button */}
       {(showAnswer || isLocked) && (
-        <button className="next-btn" onClick={onNextWord} aria-label="Next word">
+        <button
+          className="next-btn"
+          onClick={onNextWord}
+          aria-label="Next word"
+        >
           Next Word →
         </button>
       )}
