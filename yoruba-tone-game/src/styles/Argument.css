@@ -220,7 +220,6 @@ hr {
   margin: 20px 0;
 }
 
-/* ===== ONE MEDIA QUERY FOR ALL MOBILE/TABLET (768px and below) ===== */
 @media (max-width: 768px) {
   .verb-conjugation {
     padding: 15px 10px;

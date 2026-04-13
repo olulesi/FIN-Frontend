@@ -37,8 +37,8 @@ function Question({
     <div className="question-container">
       {/* Attempts Indicator */}
       <div className="attempts-indicator">
-        Attempt: {attempts + 1} of 2
-        {attempts > 0 && <span className="attempt-used"> (1 used)</span>}
+        Attempt: {attempts} of 2
+        {attempts > 0 && <span className="attempt-used"> ({attempts} used)</span>}
       </div>
 
       {/* 
