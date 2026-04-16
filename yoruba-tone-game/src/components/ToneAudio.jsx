@@ -74,7 +74,7 @@ const AudioPlayer = () => {
     if (audioRef.current) {
       audioRef.current.playbackRate = newSpeed
     }
-  }
+  };
 
   return (
     <div className="audio-player">
@@ -117,6 +117,7 @@ const AudioPlayer = () => {
             <FaStepForward size={15} />
           </button>
         </div>
+
         {/* Speed Dial (Circular Slider) */}
         <div className="speed-dial-container">
           <input

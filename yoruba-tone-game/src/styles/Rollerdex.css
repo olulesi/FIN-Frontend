@@ -157,23 +157,23 @@
 .permanent-progress-bar {
   display: flex;
   align-items: center;
-  gap: 6px;
-  margin: 5px 0 6px;
-  width: 100%;
+  gap: 10px;
+  margin: 8px 0 10px;
+  width: 50%; /* CHANGED: 100% to 80% - lesser width */
+  margin-left: auto; /* Center the narrower bar */
+  margin-right: auto; /* Center the narrower bar */
 }
 
 .permanent-time-current,
 .permanent-time-total {
-  font-size: 9px;
-  color: #666;
+  font-size: 17px;
+  color: #120f0f;
   min-width: 30px;
 }
 
 .permanent-progress-slider {
   flex: 1;
   height: 4px;
-  /* -webkit-appearance: none; */
-  background: #e0e0e0;
   border-radius: 2px;
   outline: none;
   cursor: pointer;
@@ -188,7 +188,6 @@
   cursor: pointer;
 }
 
-/* Playback Speed Slider - Ultra Compact */
 .playback-speed-container {
   margin: 5px 0 8px;
   padding: 5px 0;
@@ -204,7 +203,7 @@
 
 .speed-label {
   display: block;
-  font-size: 9px;
+  font-size: 15px;
   color: #666;
   margin-bottom: 4px;
   font-weight: 500;
@@ -245,13 +244,13 @@
 }
 
 .speed-markers span {
-  font-size: 8px;
+  font-size: 12px;
   color: #999;
 }
 
 .speed-value-display {
   margin-top: 4px;
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 600;
   color: #667eea;
   background: #f0f0f0;
@@ -267,14 +266,14 @@
 }
 
 .permanent-artist-name {
-  font-size: 10px;
+  font-size: 12px;
   color: #666;
   margin: 0 0 2px 0;
   font-style: italic;
 }
 
 .permanent-song-title {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 700;
   color: #333;
   margin: 0;

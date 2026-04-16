@@ -24,7 +24,8 @@ function Question({
   correctAnswer,
   currentImage,
   showImage,
-}) {
+})
+   {
   // State to control sentence visibility
   const [showSentence, setShowSentence] = useState(false);
 
@@ -41,14 +42,7 @@ function Question({
         {attempts > 0 && <span className="attempt-used"> ({attempts} used)</span>}
       </div>
 
-      {/* 
-        STRICT 5 RULES FOR IMAGE DISPLAY:
-        1. Play Audio initially → NO IMAGE (handled in Game.js)
-        2. First Attempt WRONG → NO IMAGE
-        3. First Attempt CORRECT → SHOW IMAGE
-        4. Second Attempt WRONG → SHOW IMAGE
-        5. Second Attempt CORRECT → SHOW IMAGE
-      */}
+     
       {selectedOption !== null &&
         !(attempts === 1 && selectedOption !== correctAnswer) &&
         showImage &&

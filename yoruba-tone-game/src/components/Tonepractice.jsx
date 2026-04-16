@@ -111,4 +111,4 @@ const TonePractice = () => {
   );
 }
 
-export default TonePractice
+export default TonePractice;

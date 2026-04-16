@@ -52,11 +52,7 @@
   color: white;
 }
 
-.keywords {
-  margin: 1rem 0;
-  color: #555;
-  font-size: 0.95rem;
-}
+
 
 .carousel-nav {
   display: flex;
@@ -80,4 +76,72 @@
 
 .yorubaheader {
   font-family: 'Abril Fatface', serif;
+}
+
+/* Add to your YorubaUseCasesCarousel.css file */
+
+.speed-dial-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem auto;
+  max-width: 768px;
+  width: 90%;
+}
+
+.speed-slider {
+  width: 50%;
+  height: 6px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #ddd;
+  border-radius: 3px;
+  outline: none;
+}
+
+.speed-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #007bff;
+  cursor: pointer;
+}
+
+.speed-label-tone {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.link-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  padding: 6px 20px;
+  border-radius: 18px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-link {
+  color: white;
+  text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .speed-dial-container {
+    width: 95%;
+  }
+  
+  .speed-slider::-webkit-slider-thumb {
+    width: 18px;
+    height: 18px;
+  }
 }
