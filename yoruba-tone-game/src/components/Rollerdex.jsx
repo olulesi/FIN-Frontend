@@ -1,5 +1,3 @@
-// src/components/Rollerdex.jsx
-
 import React, { useState, useRef, useEffect } from 'react'
 import '../styles/Rollerdex.css'
 import { getRollerDexSongs } from '../assets/data/rollerDexSongs'
@@ -167,6 +165,7 @@ function Rollerdex() {
     e.preventDefault()
   }
 
+  //handlemouseup
   const handleMouseUp = () => {
     if (lyricsTextRef.current) {
       setIsDragging(false)
