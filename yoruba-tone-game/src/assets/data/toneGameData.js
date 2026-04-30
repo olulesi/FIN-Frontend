@@ -6,17 +6,27 @@ import opoileosaAudio from '../audio/opoileosa.mp3'
 import Ibarapa from '../audio/Ibarapa.mp3'
 import Morowore from '../audio/Morowore.mp3'
 import igba from '../audio/igba.mp3'
+//ERE
 import eredodo from '../audio/homonyms/ere/eredodo.mp3'
 import ereremi from '../audio/homonyms/ere/ereremi.mp3'
+//OJO
 import ojododo from '../audio/homonyms/ojo/ojododo.mp3'
 import ojodomi from '../audio/homonyms/ojo/ojodomi.mp3'
 import ojomimi from '../audio/homonyms/ojo/ojomimi.mp3'
+//OKO
 import okododo from '../audio/homonyms/oko/okododo.mp3'
 import okomire from '../audio/homonyms/oko/okomire.mp3'
 import okoredo from '../audio/homonyms/oko/okoredo.mp3'
 import okoremi from '../audio/homonyms/oko/okoremi.mp3'
 import okorere from '../audio/homonyms/oko/okorere.mp3'
+//ODO
+import odoremi from '../audio/homonyms/odo/odoremi.mp3'
+import odoredo from '../audio/homonyms/odo/odoredo.mp3'
+//IKA
+import ikadodo from '../audio/homonyms/ika/ikadodo.mp3'
+import ikadore from '../audio/homonyms/ika/ikadore.mp3'
 
+//IMAGES
 import IgbaTimeImg from '../images/homonyms/igba-time.jpg'
 import ereRewardImg from '../images/homonyms/ere/ere-reward.jpg'
 import erePlayImg from '../images/homonyms/ere/ere-play.jpg'
@@ -29,6 +39,10 @@ import okoHusbandImg from '../images/homonyms/oko/oko-husband.jpg'
 import okoVehicleImg from '../images/homonyms/oko/oko-vehicle.jpg'
 // import okoFarmImg from "../images/homonyms/oko/oko-farm.jpg";
 import okoStoneImg from '../images/homonyms/oko/oko-stone.jpg'
+import odoStreamImg from '../images/homonyms/odo/odo-stream.png'
+import odoMortarImg from '../images/homonyms/odo/odo-mortar.png'
+import ikaCruelImg from '../images/homonyms/ika/ika-cruel.png'
+import ikaFingerNailImg from '../images/homonyms/ika/ika-finger.png'
 
 // DATA
 export const gameData = [
@@ -212,5 +226,45 @@ export const gameData = [
     category: 'homonyns',
     sentence: 'Ó ju oko sí inú odò.',
     translation: 'He threw a stone into the river.',
+  },
+  {
+    word: 'odó',
+    audioFile: odoremi,
+    imageFile: odoMortarImg, // Image: Different
+    options: ['Mi Re', 'Re Mi', 'Re Re', 'Do Re'],
+    correct: 1,
+    category: 'homonyns',
+    sentence: 'Nope.',
+    translation: 'Nope',
+  },
+  {
+    word: 'odò',
+    audioFile: odoredo,
+    imageFile: odoStreamImg, // Image: Different
+    options: ['Re Re', 'Re Mi', 'Re Do', 'Do Re'],
+    correct: 2,
+    category: 'homonyns',
+    sentence: 'Ó ju oko sí inú odò.',
+    translation: 'He threw a stone into the river.',
+  },
+  {
+    word: 'ìkà',
+    audioFile: ikadodo,
+    imageFile: ikaCruelImg, // Image: Different
+    options: ['Re Re', 'Do Do', 'Re Do', 'Mi Re'],
+    correct: 1,
+    category: 'homonyns',
+    sentence: '',
+    translation: '',
+  },
+  {
+    word: 'ìka',
+    audioFile: ikadore,
+    imageFile: ikaFingerNailImg, // Image: Different
+    options: ['Re Re', 'Do Mi', 'Re Do', 'Do Re'],
+    correct: 3,
+    category: 'homonyns',
+    sentence: '',
+    translation: '',
   },
 ]

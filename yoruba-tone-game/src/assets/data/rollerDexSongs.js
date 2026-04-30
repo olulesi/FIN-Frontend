@@ -3,6 +3,7 @@ import wonKereSiCover from '../images/covers/wonKereSiCover.jpg'
 import appreciationCover from '../images/covers/appreciationCover.jpg'
 import mmsCover from '../images/covers/mmsCover.jpg'
 import eWaBaMijoCover from '../images/covers/eWaBaMijoCover.jpg'
+import GboTemiCover from '../images/covers/GboTemiCover.png'
 
 export const getRollerDexSongs = (songsBaseUrl) => [
   {
@@ -62,5 +63,16 @@ Ka dẹ ma ṣeun ta le ṣe, ka dẹ ma yọọ`,
     audioFile: `${songsBaseUrl}/eWaBaMiJoFIN.mp3`,
     coverImage: eWaBaMijoCover,
     lyrics: `Challenge: Try this no lyrics`,
+  },
+  {
+    title: 'Gbọ Temi',
+    artist: 'Tony Tetuila',
+    link: 'Chief Ebeneezer Obey',
+    audioFile: `${songsBaseUrl}/GboTemiFIN.mp3`,
+    coverImage: GboTemiCover,
+    lyrics: `Baby mi jowo o, je k'a jo ma gbadun
+Olo mi jowo o, je k'a jo ma gbadun
+Aya t'o mo yayi lo n s'eke oko re
+B'elegan ba n tan e ko ma ma se gba o`,
   },
 ]
