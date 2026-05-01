@@ -1,60 +1,48 @@
 // src/components/YorubaUseCasesCarousel.jsx
-import { useState, useRef, useEffect } from "react";
-import "../styles/YorubaUseCasesCarousel.css";
-import video1 from "../assets/videos/yoruba_useCase1.mp4";
-import video2 from "../assets/videos/yoruba_useCase2.mp4";
+import { useState, useRef, useEffect } from 'react'
+import '../styles/YorubaUseCasesCarousel.css'
+import { getSyncingVideos } from '../assets/data/yorubaVideos'
 
-  
-
-const yorubaVideos = [
-  {
-    id: 1,
-    src: video1,
-    link: "https://youtu.be/9HKj4o4NrO0?si=_X120goKKiqXikhs",
-  },
-  {
-    id: 2,
-    src: video2,
-    link: "https://youtu.be/s221c5GnkS4?si=MK1STAfrROxKzwhn",
-  },
-];
+const VIDEOS_BASE_URL = `${process.env.REACT_APP_ASSET_BASE_URL}/syncing-videos`
+const yorubaVideos = getSyncingVideos(VIDEOS_BASE_URL)
 
 const YorubaUseCasesCarousel = () => {
   const audioRef = useRef(null)
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [speed, setSpeed] = useState(1.0);
-  const videoRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [speed, setSpeed] = useState(1.0)
+  const videoRef = useRef(null)
 
-  const totalVideos = yorubaVideos.length; // This will be 2
-  const currentVideo = yorubaVideos[currentIndex];
+  console.log(yorubaVideos)
+  const totalVideos = yorubaVideos.length // This will be 2
+  const currentVideo = yorubaVideos[currentIndex]
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.playbackRate = speed;
+      videoRef.current.playbackRate = speed
     }
-  }, [speed]);
+  }, [speed])
 
   const nextVideo = () => {
-    setCurrentIndex((prev) => (prev + 1) % totalVideos);
-  };
+    setCurrentIndex((prev) => (prev + 1) % totalVideos)
+  }
 
   const prevVideo = () => {
-    setCurrentIndex((prev) => (prev - 1 + totalVideos) % totalVideos);
-  };
-    const handleSpeedChange = (e) => {
-      const newSpeed = parseFloat(e.target.value);
-      setSpeed(newSpeed);
-      if (audioRef.current) {
-        audioRef.current.playbackRate = newSpeed;
-      }
-    };
+    setCurrentIndex((prev) => (prev - 1 + totalVideos) % totalVideos)
+  }
+  const handleSpeedChange = (e) => {
+    const newSpeed = parseFloat(e.target.value)
+    setSpeed(newSpeed)
+    if (audioRef.current) {
+      audioRef.current.playbackRate = newSpeed
+    }
+  }
 
   // Reset video position when changing videos
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.currentTime = 0;
+      videoRef.current.currentTime = 0
     }
-  }, [currentIndex]);
+  }, [currentIndex])
 
   return (
     <section className="yoruba-use-cases">
@@ -110,18 +98,19 @@ const YorubaUseCasesCarousel = () => {
           </button>
         </div>
         <button className="link-btn">
-          <a href={currentVideo.link}
+          <a
+            href={currentVideo.link}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-link"
-            >
+          >
             Link to full video subtitles
           </a>
         </button>
       </div>
       <hr />
     </section>
-  );
-};
+  )
+}
 
-export default YorubaUseCasesCarousel;
+export default YorubaUseCasesCarousel
