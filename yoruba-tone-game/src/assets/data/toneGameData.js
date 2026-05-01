@@ -25,6 +25,10 @@ import odoredo from '../audio/homonyms/odo/odoredo.mp3'
 //IKA
 import ikadodo from '../audio/homonyms/ika/ikadodo.mp3'
 import ikadore from '../audio/homonyms/ika/ikadore.mp3'
+//OGUN
+import ogundodo from '../audio/homonyms/ogun/ogundodo.mp3'
+import ogunremi from '../audio/homonyms/ogun/ogunremi.mp3'
+import ogunremi2 from '../audio/homonyms/ogun/ogunremi2.mp3'
 
 //IMAGES
 import IgbaTimeImg from '../images/homonyms/igba-time.jpg'
@@ -43,6 +47,9 @@ import odoStreamImg from '../images/homonyms/odo/odo-stream.png'
 import odoMortarImg from '../images/homonyms/odo/odo-mortar.png'
 import ikaCruelImg from '../images/homonyms/ika/ika-cruel.png'
 import ikaFingerNailImg from '../images/homonyms/ika/ika-finger.png'
+import ogunDrugsImg from '../images/homonyms/ogun/ogun-drugs.png'
+import ogun20Img from '../images/homonyms/ogun/ogun-20.png'
+import ogunpropertyImg from '../images/homonyms/ogun/ogun-property.png'
 
 // DATA
 export const gameData = [
@@ -263,6 +270,36 @@ export const gameData = [
     imageFile: ikaFingerNailImg, // Image: Different
     options: ['Re Re', 'Do Mi', 'Re Do', 'Do Re'],
     correct: 3,
+    category: 'homonyns',
+    sentence: '',
+    translation: '',
+  },
+  {
+    word: 'ogún',
+    audioFile: ogunremi,
+    imageFile: ogun20Img, // Image: Different
+    options: ['Re Mi', 'Mi Mi', 'Re Re', 'Do Re'],
+    correct: 0,
+    category: 'homonyns',
+    sentence: '',
+    translation: '',
+  },
+  {
+    word: 'ogún',
+    audioFile: ogunremi2,
+    imageFile: ogunpropertyImg, // Image: Different
+    options: ['Re Re', 'Mi Mi', 'Re Mi', 'Do Re'],
+    correct: 2,
+    category: 'homonyns',
+    sentence: '',
+    translation: '',
+  },
+  {
+    word: 'ògùn',
+    audioFile: ogundodo,
+    imageFile: ogunDrugsImg, // Image: Different
+    options: ['Re Re', 'Do Do', 'Re Mi', 'Do Re'],
+    correct: 1,
     category: 'homonyns',
     sentence: '',
     translation: '',
