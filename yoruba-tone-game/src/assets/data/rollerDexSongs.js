@@ -4,6 +4,7 @@ import appreciationCover from '../images/covers/appreciationCover.jpg'
 import mmsCover from '../images/covers/mmsCover.jpg'
 import eWaBaMijoCover from '../images/covers/eWaBaMijoCover.jpg'
 import GboTemiCover from '../images/covers/GboTemiCover.png'
+import GbemidebeCover from '../images/covers/GbemidebeCover.png'
 
 export const getRollerDexSongs = (songsBaseUrl) => [
   {
@@ -67,12 +68,26 @@ Ka dẹ ma ṣeun ta le ṣe, ka dẹ ma yọọ`,
   {
     title: 'Gbọ Temi',
     artist: 'Tony Tetuila',
-    link: 'Chief Ebeneezer Obey',
+    link: 'https://www.youtube.com/watch?v=Sstbc2kDLZQ',
     audioFile: `${songsBaseUrl}/GboTemiFIN.mp3`,
     coverImage: GboTemiCover,
     lyrics: `Baby mi jowo o, je k'a jo ma gbadun
 Olo mi jowo o, je k'a jo ma gbadun
 Aya t'o mo yayi lo n s'eke oko re
 B'elegan ba n tan e ko ma ma se gba o`,
+  },
+  {
+    title: 'Gbemidebe',
+    artist: 'Boj ft Ajebutter22',
+    link: 'Chief Ebeneezer Obey',
+    audioFile: `${songsBaseUrl}/GbemidebeFIN.mp3`,
+    coverImage: GbemidebeCover,
+    lyrics: `Je kin slow down fun e a need lati rush
+Awa ni kan, la wa ni le a need lati hush
+Bo se gbe horsepower o kan dabi Porsche (Oh God)
+O ma fe kin bebe, oma fe ma blush
+But I put my hands together, bi mo gbadura ni church
+Olorun ti so fun mi pe, iwo ni ma soft
+Toba de ti soft, ma de gbe e summersault`,
   },
 ]
