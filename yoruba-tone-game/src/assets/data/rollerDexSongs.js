@@ -79,7 +79,7 @@ B'elegan ba n tan e ko ma ma se gba o`,
   {
     title: 'Gbemidebe',
     artist: 'Boj ft Ajebutter22',
-    link: 'Chief Ebeneezer Obey',
+    link: 'https://www.youtube.com/watch?v=pixkMLS_g_8',
     audioFile: `${songsBaseUrl}/GbemidebeFIN.mp3`,
     coverImage: GbemidebeCover,
     lyrics: `Je kin slow down fun e a need lati rush
