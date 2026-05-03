@@ -29,6 +29,9 @@ import ikadore from '../audio/homonyms/ika/ikadore.mp3'
 import ogundodo from '../audio/homonyms/ogun/ogundodo.mp3'
 import ogunremi from '../audio/homonyms/ogun/ogunremi.mp3'
 import ogunremi2 from '../audio/homonyms/ogun/ogunremi2.mp3'
+//OWO
+import oworemi from '../audio/homonyms/owo/oworemi.mp3'
+import oworere from '../audio/homonyms/owo/oworere.mp3'
 
 //IMAGES
 import IgbaTimeImg from '../images/homonyms/igba-time.jpg'
@@ -50,6 +53,8 @@ import ikaFingerNailImg from '../images/homonyms/ika/ika-finger.png'
 import ogunDrugsImg from '../images/homonyms/ogun/ogun-drugs.png'
 import ogun20Img from '../images/homonyms/ogun/ogun-20.png'
 import ogunpropertyImg from '../images/homonyms/ogun/ogun-property.png'
+import owoHandImg from '../images/homonyms/owo/owo-hand.png'
+import owoMoneyImg from '../images/homonyms/owo/owo-money.png'
 
 // DATA
 export const gameData = [
@@ -300,6 +305,26 @@ export const gameData = [
     imageFile: ogunDrugsImg, // Image: Different
     options: ['Re Re', 'Do Do', 'Re Mi', 'Do Re'],
     correct: 1,
+    category: 'homonyns',
+    sentence: '',
+    translation: '',
+  },
+  {
+    word: 'owó',
+    audioFile: oworemi,
+    imageFile: owoMoneyImg, // Image: Different
+    options: ['Re Re', 'Re Do', 'Re Mi', 'Do Re'],
+    correct: 2,
+    category: 'homonyns',
+    sentence: '',
+    translation: '',
+  },
+  {
+    word: 'ọwọ',
+    audioFile: oworere,
+    imageFile: owoHandImg, // Image: Different
+    options: ['Do Do', 'Re Do', 'Re Mi', 'Re Re'],
+    correct: 3,
     category: 'homonyns',
     sentence: '',
     translation: '',
