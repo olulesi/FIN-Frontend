@@ -32,6 +32,10 @@ import ogunremi2 from '../audio/homonyms/ogun/ogunremi2.mp3'
 //OWO
 import oworemi from '../audio/homonyms/owo/oworemi.mp3'
 import oworere from '../audio/homonyms/owo/oworere.mp3'
+//SUN
+import sundo from '../audio/homonyms/sun/sundo.mp3'
+import sunre from '../audio/homonyms/sun/sunre.mp3'
+import sunmi from '../audio/homonyms/sun/sunmi.mp3'
 
 //IMAGES
 import IgbaTimeImg from '../images/homonyms/igba-time.jpg'
@@ -55,6 +59,9 @@ import ogun20Img from '../images/homonyms/ogun/ogun-20.png'
 import ogunpropertyImg from '../images/homonyms/ogun/ogun-property.png'
 import owoHandImg from '../images/homonyms/owo/owo-hand.png'
 import owoMoneyImg from '../images/homonyms/owo/owo-money.png'
+import sunSleepImg from '../images/homonyms/sun/sun-sleep.png'
+import sunBurnImg from '../images/homonyms/sun/sun-burn.png'
+import sunShiftImg from '../images/homonyms/sun/sun-shift.png'
 
 // DATA
 export const gameData = [
@@ -325,6 +332,36 @@ export const gameData = [
     imageFile: owoHandImg, // Image: Different
     options: ['Do Do', 'Re Do', 'Re Mi', 'Re Re'],
     correct: 3,
+    category: 'homonyns',
+    sentence: '',
+    translation: '',
+  },
+  {
+    word: 'sùn',
+    audioFile: sundo,
+    imageFile: sunSleepImg, // Image: Different
+    options: ['Do', 'Re', 'Mi', 'N/A'],
+    correct: 0,
+    category: 'homonyns',
+    sentence: '',
+    translation: '',
+  },
+  {
+    word: 'sun',
+    audioFile: sunre,
+    imageFile: sunBurnImg, // Image: Different
+    options: ['Do', 'Re', 'Mi', 'N/A'],
+    correct: 1,
+    category: 'homonyns',
+    sentence: '',
+    translation: '',
+  },
+  {
+    word: 'sún',
+    audioFile: sunmi,
+    imageFile: sunShiftImg, // Image: Different
+    options: ['Re', 'Mi', 'Do', 'N/A'],
+    correct: 1,
     category: 'homonyns',
     sentence: '',
     translation: '',
