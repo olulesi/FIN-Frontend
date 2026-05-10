@@ -24,6 +24,7 @@ function Question({
   correctAnswer,
   currentImage,
   showImage,
+  tonePattern,
 })
    {
   // State to control sentence visibility
