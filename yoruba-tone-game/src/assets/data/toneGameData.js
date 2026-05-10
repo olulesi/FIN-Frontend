@@ -360,6 +360,7 @@ export const gameData = [
     word: "sùn",
     audioFile: sundo,
     imageFile: sunSleepImg, // Image: Different
+    tonePattern: ["Do"],
     options: ["Do", "Re", "Mi", "N/A"],
     correct: 0,
     category: "homonyns",
