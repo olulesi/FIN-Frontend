@@ -250,6 +250,7 @@ export const gameData = [
     word: "ọkọ",
     audioFile: okorere,
     imageFile: okoHusbandImg, // Image: husband
+    tonePattern: ["Re", "Re"],
     options: ["Mi Re", "Do Mi", "Re Re", "Do Do"],
     correct: 2,
     category: "homonyns",
