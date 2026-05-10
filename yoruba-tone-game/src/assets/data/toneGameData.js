@@ -206,6 +206,7 @@ export const gameData = [
     word: "òkò",
     audioFile: okododo,
     imageFile: okoStoneImg,
+    tonePattern: ["Do", "Do"],
     options: ["Mi Re", "Do Mi", "Re Mi", "Do Do"],
     correct: 3,
     category: "homonyns",
