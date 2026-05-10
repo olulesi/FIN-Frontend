@@ -273,6 +273,7 @@ const Game = () => {
             correctAnswer={currentWord.correct}
             currentImage={currentImage}
             showImage={showImage}
+            tonePattern={currentWord.tonePattern} // ADD THIS LINE
           />
         </div>
       </div>
