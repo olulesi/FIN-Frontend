@@ -145,7 +145,7 @@ export const gameData = [
   {
     word: "èrè",
     audioFile: eredodo,
-    imageFile: ereRewardImg, 
+    imageFile: ereRewardImg,
     tonePattern: ["Do", "Do"],
     options: ["Re Re", "Do Mi", "Do Do", "Mi Do"],
     correct: 2,
@@ -157,6 +157,7 @@ export const gameData = [
     word: "eré",
     audioFile: ereremi,
     imageFile: erePlayImg, // Image: play/game
+    tonePattern: ["Re", "Mi"],
     options: ["Re Re", "Do Mi", "Re Mi", "Mi Do"],
     correct: 2,
     category: "homonyns",
@@ -169,6 +170,7 @@ export const gameData = [
     word: "òjò",
     audioFile: ojododo,
     imageFile: ojoRainImg,
+    tonePattern: ["Do", "Do"],
     options: ["Re Re", "Do Mi", "Re Mi", "Do Do"],
     correct: 3,
     category: "homonyns",
