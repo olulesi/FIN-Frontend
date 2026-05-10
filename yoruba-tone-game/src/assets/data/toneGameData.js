@@ -133,6 +133,7 @@ export const gameData = [
     word: 'Ìgbà',
     audioFile: igba,
     imageFile: IgbaTimeImg,
+    tonePattern: ['Do', 'Do'],
     options: ['Re Re', 'Do Mi', 'Do Do', 'Mi Do'],
     correct: 2,
     category: 'homonyns',

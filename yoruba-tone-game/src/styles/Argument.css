@@ -1,3 +1,6 @@
+/* Argument.css - Styles for the Argument Game component, which provides an interactive way for learners to practice Yoruba verb conjugation. The styles include layout, typography, and responsive design to ensure a user-friendly experience across different devices. The CSS defines the structure of the game, including the title, introduction, content sections, tables for verb conjugation, and interactive buttons for tense and verb selection. Additionally, it includes styles for audio buttons and tip text to enhance the learning experience. */
+
+/* Base styles for the Argument Game component */
 .verb-conjugation {
   padding: 20px;
   font-family: Arial, sans-serif;
@@ -5,12 +8,13 @@
   margin: 0 auto;
 }
 
-/* ===== Title Container ===== */
+/* ===== Title and Introduction ===== */
 .title-container {
   text-align: center;
   margin-bottom: 30px;
 }
 
+/* ===== Verb Conjugation Title ===== */
 .verb-conjugation h2 {
   text-align: center;
   margin-bottom: 24px;
@@ -34,6 +38,7 @@
   margin-right: auto;
 }
 
+
 .argument-text {
   line-height: 1.7;
   margin-bottom: 12px;
@@ -50,7 +55,7 @@
   background: rgba(255, 255, 255, 0.05);
 }
 
-/* ===== Two Column Layout ===== */
+/* Style for the text within the example section */
 .argument-content {
   display: flex;
   gap: 50px;
@@ -62,6 +67,7 @@
   margin-right: auto;
 }
 
+/* Column styles - stacks content vertically within each column */
 .argument-column {
   flex: 1;
   max-width: 450px;
@@ -69,7 +75,7 @@
   flex-direction: column;
 }
 
-/* ===== Tables Side-by-Side ===== */
+/* Text styles for the columns */
 .tables-row {
   display: flex;
   gap: 24px;

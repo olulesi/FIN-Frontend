@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import "../styles/Argument.css";
 import { verbs, normalizeVerbKey } from "../assets/data/yorubaVerbs";
 
