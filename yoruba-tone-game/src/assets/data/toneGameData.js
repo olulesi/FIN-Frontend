@@ -382,6 +382,7 @@ export const gameData = [
     word: "sún",
     audioFile: sunmi,
     imageFile: sunShiftImg, // Image: Different
+    tonePattern: ["Mi"],
     options: ["Re", "Mi", "Do", "N/A"],
     correct: 1,
     category: "homonyns",
