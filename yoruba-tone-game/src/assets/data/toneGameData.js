@@ -181,6 +181,7 @@ export const gameData = [
     word: "òjó",
     audioFile: ojodomi,
     imageFile: ojoCowardImg,
+    tonePattern: ["Do", "Mi"],
     options: ["Re Re", "Do Mi", "Re Mi", "Do Do"],
     correct: 1,
     category: "homonyns",
