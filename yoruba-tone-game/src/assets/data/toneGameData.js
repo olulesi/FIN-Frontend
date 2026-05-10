@@ -316,6 +316,7 @@ export const gameData = [
     word: "ogún",
     audioFile: ogunremi2,
     imageFile: ogunpropertyImg, // Image: Different
+    tonePattern: ["Re", "Mi"],
     options: ["Re Re", "Mi Mi", "Re Mi", "Do Re"],
     correct: 2,
     category: "homonyns",
