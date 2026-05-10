@@ -338,6 +338,7 @@ export const gameData = [
     word: "owó",
     audioFile: oworemi,
     imageFile: owoMoneyImg, // Image: Different
+    tonePattern: ["Re", "Mi"],
     options: ["Re Re", "Re Do", "Re Mi", "Do Re"],
     correct: 2,
     category: "homonyns",
