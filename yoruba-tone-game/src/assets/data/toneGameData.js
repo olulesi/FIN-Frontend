@@ -294,6 +294,7 @@ export const gameData = [
     word: "ìka",
     audioFile: ikadore,
     imageFile: ikaFingerNailImg, // Image: Different
+    tonePattern: ["Do", "Re"],
     options: ["Re Re", "Do Mi", "Re Do", "Do Re"],
     correct: 3,
     category: "homonyns",
