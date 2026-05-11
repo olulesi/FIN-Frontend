@@ -3,8 +3,19 @@ import Question from "./Question";
 import "../styles/ToneGame.css";
 import { gameData } from "../assets/data/toneGameData";
 
+const shuffleArray = (array) => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
+
+const getHomonyms = () =>
+  shuffleArray(gameData.filter((item) => item.category === "homonyns"));
+
 const Game = () => {
-  //STATE DATA
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
   const [showAnswer, setShowAnswer] = useState(false);
@@ -13,83 +24,50 @@ const Game = () => {
   const [hasPlayedAudio, setHasPlayedAudio] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
   const [wrongCount, setWrongCount] = useState(0);
-  // DEFAULT CATEGORY SET TO HOMONYNS
   const [selectedCategory, setSelectedCategory] = useState("homonyns");
   const [playbackRate, setPlaybackRate] = useState(1.0);
   const [attempts, setAttempts] = useState(0);
   const [isLocked, setIsLocked] = useState(false);
-
-  // Image state for homonyms
   const [currentImage, setCurrentImage] = useState(null);
   const [showImage, setShowImage] = useState(false);
-  const [shuffledHomonyms, setShuffledHomonyms] = useState(null);
+  const [shuffledHomonyms, setShuffledHomonyms] = useState(getHomonyms);
 
-  // Shuffle function
-  const shuffleArray = (array) => {
-    const shuffled = [...array];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    return shuffled;
-  };
-
-  // Pre-shuffle homonyms on mount
-  useEffect(() => {
-    const homonymsData = gameData.filter(
-      (item) => item.category === "homonyns",
-    );
-    setShuffledHomonyms(shuffleArray(homonymsData));
-  }, []);
-
-  // Reset game state when category changes
-  useEffect(() => {
-    setCurrentWordIndex(0);
-    setHasPlayedAudio(false);
+  const resetWordState = () => {
     setSelectedOption(null);
     setShowAnswer(false);
-    setCorrectCount(0);
-    setWrongCount(0);
+    setFeedback("");
+    setLastPlayed("");
+    setHasPlayedAudio(false);
     setAttempts(0);
     setIsLocked(false);
     setShowImage(false);
     setCurrentImage(null);
+  };
 
-    // Re-shuffle when switching TO homonyms
+  useEffect(() => {
+    setCurrentWordIndex(0);
+    setCorrectCount(0);
+    setWrongCount(0);
+    resetWordState();
     if (selectedCategory === "homonyns") {
-      const homonymsData = gameData.filter(
-        (item) => item.category === "homonyns",
-      );
-      setShuffledHomonyms(shuffleArray(homonymsData));
+      setShuffledHomonyms(getHomonyms());
     }
   }, [selectedCategory]);
 
-  // Filter game data by category
   const filteredData = useMemo(() => {
-    if (selectedCategory === "homonyns") {
-      return shuffledHomonyms || [];
-    }
-    return gameData;
+    return selectedCategory === "homonyns" ? shuffledHomonyms : gameData;
   }, [selectedCategory, shuffledHomonyms]);
 
-  // Safety check
   const currentWord = filteredData[currentWordIndex];
 
-  // If no word available
-  if (!currentWord) {
-    return <div className="game-container">Loading...</div>;
-  }
+  if (!currentWord) return <div className="game-container">Loading...</div>;
 
-  // Process the answer - SHOW IMAGE HERE when option is selected
   const processAnswer = (index) => {
     const newAttempts = attempts + 1;
     setAttempts(newAttempts);
     setSelectedOption(index);
 
-    // SHOW IMAGE - Only when an option is selected
-    if (currentWord.imageFile && !showImage) {
-      setShowImage(true);
-    }
+    if (currentWord.imageFile && !showImage) setShowImage(true);
 
     if (index === currentWord.correct) {
       setFeedback("Correct ✅ Well done!");
@@ -99,7 +77,6 @@ const Game = () => {
       setCorrectCount((prev) => prev + 1);
     } else {
       setWrongCount((prev) => prev + 1);
-
       if (newAttempts < 2) {
         setFeedback("Wrong ❌ Try again!");
       } else {
@@ -113,72 +90,38 @@ const Game = () => {
     }
   };
 
-  // Handle option select
   const handleOptionSelect = (index) => {
     if (!hasPlayedAudio) {
       alert("Please play the sound first to hear the tone pattern!");
       return;
     }
-
     if (isLocked) return;
-
     processAnswer(index);
   };
 
-  // Play audio - ONLY load image, DO NOT SHOW it
   const playAudio = () => {
     setHasPlayedAudio(true);
     setLastPlayed(currentWord.word);
-
-    // Load the image but DON'T show yet
-    if (currentWord.imageFile) {
-      setCurrentImage(currentWord.imageFile);
-      // REMOVED: setShowImage(true) - Image should NOT show on Play Audio
-    }
+    if (currentWord.imageFile) setCurrentImage(currentWord.imageFile);
 
     const audio = new Audio(currentWord.audioFile);
     audio.playbackRate = playbackRate;
-    audio.play().catch((e) => console.log("Audio play error:", e));
+    audio.play().catch((e) => console.error("Audio play error:", e));
   };
 
-  // Start over
   const startOver = () => {
     setCurrentWordIndex(0);
-    setSelectedOption(null);
-    setShowAnswer(false);
-    setFeedback("");
-    setLastPlayed("");
-    setHasPlayedAudio(false);
     setCorrectCount(0);
     setWrongCount(0);
-    setAttempts(0);
-    setIsLocked(false);
-    setShowImage(false);
-    setCurrentImage(null);
-
-    if (selectedCategory === "homonyns") {
-      const homonymsData = gameData.filter(
-        (item) => item.category === "homonyns",
-      );
-      setShuffledHomonyms(shuffleArray(homonymsData));
-    }
+    resetWordState();
+    if (selectedCategory === "homonyns") setShuffledHomonyms(getHomonyms());
   };
 
-  // Next word
   const nextWord = () => {
     setCurrentWordIndex((prev) => (prev + 1) % filteredData.length);
-    setSelectedOption(null);
-    setShowAnswer(false);
-    setFeedback("");
-    setLastPlayed("");
-    setHasPlayedAudio(false);
-    setAttempts(0);
-    setIsLocked(false);
-    setShowImage(false);
-    setCurrentImage(null);
+    resetWordState();
   };
 
-  // Calculate score percentage
   const totalAttempts = correctCount + wrongCount;
   const scorePercentage =
     totalAttempts > 0 ? Math.round((correctCount / totalAttempts) * 100) : 0;
@@ -194,48 +137,26 @@ const Game = () => {
       </div>
 
       <div className="game-container">
-        {/* Top Controls */}
         <div className="top-controls">
           <button className="start-over-btn" onClick={startOver}>
             🔁 Start Over
           </button>
         </div>
 
-        {/* Category Filter - Only Homonyms clickable */}
         <div className="category-filter">
-          <label className="disabled-category">
-            <input
-              type="radio"
-              name="category"
-              value="all"
-              checked={selectedCategory === "all"}
-              onChange={() => setSelectedCategory("all")}
-              disabled
-            />
-            All
-          </label>
-          <label className="disabled-category">
-            <input
-              type="radio"
-              name="category"
-              value="word"
-              checked={selectedCategory === "word"}
-              onChange={() => setSelectedCategory("word")}
-              disabled
-            />
-            Words
-          </label>
-          <label className="disabled-category">
-            <input
-              type="radio"
-              name="category"
-              value="location"
-              checked={selectedCategory === "location"}
-              onChange={() => setSelectedCategory("location")}
-              disabled
-            />
-            Locations
-          </label>
+          {["all", "word", "location"].map((cat) => (
+            <label key={cat} className="disabled-category">
+              <input
+                type="radio"
+                name="category"
+                value={cat}
+                checked={selectedCategory === cat}
+                onChange={() => setSelectedCategory(cat)}
+                disabled
+              />
+              {cat.charAt(0).toUpperCase() + cat.slice(1)}
+            </label>
+          ))}
           <label className="active-category">
             <input
               type="radio"
@@ -248,7 +169,6 @@ const Game = () => {
           </label>
         </div>
 
-        {/* Question Component with all props */}
         <div className="question-wrapper">
           <Question
             word={currentWord.word}
@@ -273,10 +193,11 @@ const Game = () => {
             correctAnswer={currentWord.correct}
             currentImage={currentImage}
             showImage={showImage}
-            tonePattern={currentWord.tonePattern} // ADD THIS LINE
+            tonePattern={currentWord.tonePattern}
           />
         </div>
       </div>
+
       <div className="title-container">
         <p className="text-blockTip">
           TIP: Always try to mimic the audio to improve your pronunciation as

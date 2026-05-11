@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Question.css";
 
+const TONE_COLORS = {
+  Do: "#e74c3c",
+  Re: "#8B4513",
+  Mi: "#27ae60",
+};
+
 function Question({
   word,
   options,
@@ -24,93 +30,55 @@ function Question({
   correctAnswer,
   currentImage,
   showImage,
-  tonePattern, // NEW: receive tonePattern from parent
+  tonePattern,
 }) {
-  // State to control sentence visibility
   const [showSentence, setShowSentence] = useState(false);
 
-  // Reset sentence display when word changes
   useEffect(() => {
     setShowSentence(false);
   }, [word]);
 
-  // ===== NEW: Function to split Yoruba word into syllables =====
-  // Handles words with spaces (e.g., "ó jó") and regular words (e.g., "òjò")
-  const splitWordIntoSyllables = (word) => {
-    if (!word) return [];
-
-    // Check if word contains a space (multi-part word like "ó jó")
-    if (word.includes(" ")) {
-      return word.split(" ");
-    }
-
-    // For single words, split by character (each character is a syllable in Yoruba)
-    // But Yoruba syllables can be multiple characters like "gbà", "yẹ"
-    // For simplicity, we'll split into individual characters for now
-    // You can enhance this later for complex syllables
-    const syllables = [];
-    for (let i = 0; i < word.length; i++) {
-      syllables.push(word[i]);
-    }
-    return syllables;
-  };
-
-  // ===== NEW: Function to get color based on tone =====
-  const getColorForTone = (tone) => {
-    switch (tone) {
-      case "Do":
-        return "#e74c3c"; // Red
-      case "Re":
-        return "#8B4513"; // Brown (SaddleBrown)
-      case "Mi":
-        return "#27ae60"; // Green
-      default:
-        return "#333333"; // Default dark gray
-    }
-  };
-
-  // ===== NEW: Function to render colored word =====
-  const renderColoredWord = () => {
+  const renderWord = () => {
     if (!showAnswer) return "❓ Hidden until you answer";
+    if (!word) return "";
+    if (!tonePattern || tonePattern.length === 0) return word;
 
-    // If no tonePattern exists, just return the plain word
-    if (!tonePattern || tonePattern.length === 0) {
-      return word;
-    }
+    const charsPerSyllable = Math.floor(word.length / tonePattern.length);
 
-    const syllables = splitWordIntoSyllables(word);
-
-    // If syllable count doesn't match tone pattern count, return plain word
-    if (syllables.length !== tonePattern.length) {
-      console.warn(
-        `Syllable mismatch: ${word} has ${syllables.length} syllables but tonePattern has ${tonePattern.length}`,
-      );
-      return word;
-    }
+    const syllables = tonePattern.map((_, i) => {
+      const start = i * charsPerSyllable;
+      const end =
+        i === tonePattern.length - 1 ? word.length : start + charsPerSyllable;
+      return word.slice(start, end);
+    });
 
     return (
-      <span className="colored-word">
+      <span>
         {syllables.map((syllable, index) => (
           <span
             key={index}
             style={{
-              color: getColorForTone(tonePattern[index]),
+              color: TONE_COLORS[tonePattern[index]] ?? "#333333",
               fontWeight: "bold",
-              marginRight: index < syllables.length - 1 ? "0.1em" : "0",
-              display: "inline-block",
+              fontSize: "2rem",
+              marginRight: "2px",
             }}
           >
             {syllable}
-            {index < syllables.length - 1 && word.includes(" ") ? " " : ""}
           </span>
         ))}
       </span>
     );
   };
 
+  const showImageDisplay =
+    selectedOption !== null &&
+    !(attempts === 1 && selectedOption !== correctAnswer) &&
+    showImage &&
+    currentImage;
+
   return (
     <div className="question-container">
-      {/* Attempts Indicator */}
       <div className="attempts-indicator">
         Attempt: {attempts} of 2
         {attempts > 0 && (
@@ -118,20 +86,14 @@ function Question({
         )}
       </div>
 
-      {/* Image Display */}
-      {selectedOption !== null &&
-        !(attempts === 1 && selectedOption !== correctAnswer) &&
-        showImage &&
-        currentImage && (
-          <div className="homonym-image-container">
-            <img src={currentImage} alt={word} className="homonym-image" />
-          </div>
-        )}
+      {showImageDisplay && (
+        <div className="homonym-image-container">
+          <img src={currentImage} alt={word} className="homonym-image" />
+        </div>
+      )}
 
-      {/* Word Display - NOW WITH COLORED SYLLABLES */}
-      <div className="word-display">{renderColoredWord()}</div>
+      <div className="word-display">{renderWord()}</div>
 
-      {/* Tone Options */}
       <div className="tone-options">
         {options.map((option, index) => {
           const isSelected = selectedOption === index;
@@ -140,18 +102,12 @@ function Question({
 
           let buttonClass = "tone-option";
           if (showCorrectness) {
-            if (isCorrect) {
-              buttonClass += " correct";
-            } else if (isSelected && !isCorrect) {
-              buttonClass += " wrong";
-            }
+            if (isCorrect) buttonClass += " correct";
+            else if (isSelected) buttonClass += " wrong";
           } else if (isSelected) {
             buttonClass += " selected";
           }
-
-          if (isLocked) {
-            buttonClass += " locked";
-          }
+          if (isLocked) buttonClass += " locked";
 
           return (
             <button
@@ -168,36 +124,24 @@ function Question({
         })}
       </div>
 
-      {/* Play and Sentence Buttons */}
       <div className="button-row">
-        <button
-          className="play-btn"
-          onClick={onPlayAudio}
-          aria-label="Play audio"
-        >
+        <button className="play-btn" onClick={onPlayAudio}>
           ▶️ Play Audio
         </button>
         <button
           className={`sentence-btn ${showSentence ? "active" : ""}`}
           onClick={() => setShowSentence(true)}
           disabled={!hasPlayedAudio || showSentence}
-          aria-label="Show example sentence"
         >
           📖 {showSentence ? "Sentence Shown" : "Show Sentence"}
         </button>
       </div>
 
-      {/* Playback Speed Controls */}
       <div className="speed-controls">
-        <i
-          className="fas fa-tachometer-alt speed-icon"
-          title="Playback Speed"
-        ></i>
+        <i className="fas fa-tachometer-alt speed-icon"></i>
         <select
           value={playbackRate}
           onChange={(e) => onSetPlaybackRate(Number(e.target.value))}
-          className="speed-select"
-          aria-label="Playback speed"
         >
           <option value={0.75}>×0.75 (Slow)</option>
           <option value={1.0}>×1.0 (Normal)</option>
@@ -207,9 +151,8 @@ function Question({
         </select>
       </div>
 
-      {/* Sentence Display */}
       {showSentence && (
-        <div className="sentence-display" role="region" aria-live="polite">
+        <div className="sentence-display">
           <div className="sentence-content">
             <p className="yoruba-sentence">{sentence}</p>
             <p className="english-translation">{translation}</p>
@@ -217,7 +160,6 @@ function Question({
         </div>
       )}
 
-      {/* Feedback */}
       {feedback && (
         <div
           className={`feedback ${feedback.includes("Correct") ? "correct" : "wrong"}`}
@@ -226,14 +168,12 @@ function Question({
         </div>
       )}
 
-      {/* Last Played Indicator */}
       {showAnswer && lastPlayed && (
         <div className="last-played">
           Last played: <strong>{lastPlayed}</strong>
         </div>
       )}
 
-      {/* Score Tracker */}
       {(correctCount > 0 || wrongCount > 0) && (
         <div className="score-tracker">
           <span className="correct">✓ Correct: {correctCount}</span>
@@ -242,13 +182,8 @@ function Question({
         </div>
       )}
 
-      {/* Next Word Button */}
       {(showAnswer || isLocked) && (
-        <button
-          className="next-btn"
-          onClick={onNextWord}
-          aria-label="Next word"
-        >
+        <button className="next-btn" onClick={onNextWord}>
           Next Word →
         </button>
       )}
