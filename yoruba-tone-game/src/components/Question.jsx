@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
-import "../styles/Question.css";
+import React, { useState, useEffect } from 'react'
+import '../styles/Question.css'
 
 const TONE_COLORS = {
-  Do: "#e74c3c",
-  Re: "#8B4513",
-  Mi: "#27ae60",
-};
+  Do: '#e74c3c',
+  Re: '#8B4513',
+  Mi: '#27ae60',
+}
 
 function Question({
   word,
@@ -32,25 +32,25 @@ function Question({
   showImage,
   tonePattern,
 }) {
-  const [showSentence, setShowSentence] = useState(false);
+  const [showSentence, setShowSentence] = useState(false)
 
   useEffect(() => {
-    setShowSentence(false);
-  }, [word]);
+    setShowSentence(false)
+  }, [word])
 
   const renderWord = () => {
-    if (!showAnswer) return "❓ Hidden until you answer";
-    if (!word) return "";
-    if (!tonePattern || tonePattern.length === 0) return word;
+    if (!showAnswer) return '❓ Hidden until you answer'
+    if (!word) return ''
+    if (!tonePattern || tonePattern.length === 0) return word
 
-    const charsPerSyllable = Math.floor(word.length / tonePattern.length);
+    const charsPerSyllable = Math.floor(word.length / tonePattern.length)
 
     const syllables = tonePattern.map((_, i) => {
-      const start = i * charsPerSyllable;
+      const start = i * charsPerSyllable
       const end =
-        i === tonePattern.length - 1 ? word.length : start + charsPerSyllable;
-      return word.slice(start, end);
-    });
+        i === tonePattern.length - 1 ? word.length : start + charsPerSyllable
+      return word.slice(start, end)
+    })
 
     return (
       <span>
@@ -58,24 +58,24 @@ function Question({
           <span
             key={index}
             style={{
-              color: TONE_COLORS[tonePattern[index]] ?? "#333333",
-              fontWeight: "bold",
-              fontSize: "2rem",
-              marginRight: "2px",
+              color: TONE_COLORS[tonePattern[index]] ?? '#333333',
+              fontWeight: 'bold',
+              fontSize: '2rem',
+              marginRight: '2px',
             }}
           >
             {syllable}
           </span>
         ))}
       </span>
-    );
-  };
+    )
+  }
 
   const showImageDisplay =
     selectedOption !== null &&
     !(attempts === 1 && selectedOption !== correctAnswer) &&
     showImage &&
-    currentImage;
+    currentImage
 
   return (
     <div className="question-container">
@@ -96,18 +96,18 @@ function Question({
 
       <div className="tone-options">
         {options.map((option, index) => {
-          const isSelected = selectedOption === index;
-          const isCorrect = index === correctAnswer;
-          const showCorrectness = showAnswer || isLocked;
+          const isSelected = selectedOption === index
+          const isCorrect = index === correctAnswer
+          const showCorrectness = showAnswer || isLocked
 
-          let buttonClass = "tone-option";
+          let buttonClass = 'tone-option'
           if (showCorrectness) {
-            if (isCorrect) buttonClass += " correct";
-            else if (isSelected) buttonClass += " wrong";
+            if (isCorrect) buttonClass += ' correct'
+            else if (isSelected) buttonClass += ' wrong'
           } else if (isSelected) {
-            buttonClass += " selected";
+            buttonClass += ' selected'
           }
-          if (isLocked) buttonClass += " locked";
+          if (isLocked) buttonClass += ' locked'
 
           return (
             <button
@@ -117,10 +117,10 @@ function Question({
               disabled={!hasPlayedAudio || isLocked}
             >
               {option}
-              {showCorrectness && isCorrect && " ✓"}
-              {showCorrectness && isSelected && !isCorrect && " ✗"}
+              {showCorrectness && isCorrect && ' ✓'}
+              {showCorrectness && isSelected && !isCorrect && ' ✗'}
             </button>
-          );
+          )
         })}
       </div>
 
@@ -129,11 +129,11 @@ function Question({
           ▶️ Play Audio
         </button>
         <button
-          className={`sentence-btn ${showSentence ? "active" : ""}`}
+          className={`sentence-btn ${showSentence ? 'active' : ''}`}
           onClick={() => setShowSentence(true)}
           disabled={!hasPlayedAudio || showSentence}
         >
-          📖 {showSentence ? "Sentence Shown" : "Show Sentence"}
+          📖 {showSentence ? 'Sentence Shown' : 'Show Sentence'}
         </button>
       </div>
 
@@ -162,7 +162,7 @@ function Question({
 
       {feedback && (
         <div
-          className={`feedback ${feedback.includes("Correct") ? "correct" : "wrong"}`}
+          className={`feedback ${feedback.includes('Correct') ? 'correct' : 'wrong'}`}
         >
           {feedback}
         </div>
@@ -188,7 +188,7 @@ function Question({
         </button>
       )}
     </div>
-  );
+  )
 }
 
-export default Question;
+export default Question

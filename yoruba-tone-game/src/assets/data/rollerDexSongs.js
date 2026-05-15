@@ -5,6 +5,7 @@ import mmsCover from '../images/covers/mmsCover.jpg'
 import eWaBaMijoCover from '../images/covers/eWaBaMijoCover.jpg'
 import GboTemiCover from '../images/covers/GboTemiCover.png'
 import GbemidebeCover from '../images/covers/GbemidebeCover.png'
+import MoFeMuYanCover from '../images/covers/moFeMuYanCover.png'
 
 export const getRollerDexSongs = (songsBaseUrl) => [
   {
@@ -63,7 +64,7 @@ Ka dẹ ma ṣeun ta le ṣe, ka dẹ ma yọọ`,
     link: 'https://www.youtube.com/clip/UgkxWA1TSNUzongnbVVut-kv6ABtzzXyqxh4',
     audioFile: `${songsBaseUrl}/eWaBaMiJoFIN.mp3`,
     coverImage: eWaBaMijoCover,
-    lyrics: `Challenge: Try this no lyrics`,
+    lyrics: `Challenge: Help me write the lyrics with the Tones`,
   },
   {
     title: 'Gbọ Temi',
@@ -89,5 +90,13 @@ O ma fe kin bebe, oma fe ma blush
 But I put my hands together, bi mo gbadura ni church
 Olorun ti so fun mi pe, iwo ni ma soft
 Toba de ti soft, ma de gbe e summersault`,
+  },
+  {
+    title: 'Mofe Mu Yan',
+    artist: 'Dr. Victor Olaiya',
+    link: 'https://www.youtube.com/watch?v=RH6XV_5kLYk&list=RDRH6XV_5kLYk&start_radio=1',
+    audioFile: `${songsBaseUrl}/MoFeMuYanFIN.mp3`,
+    coverImage: MoFeMuYanCover,
+    lyrics: `Challenge: Help me write the lyrics with the Tones`,
   },
 ]
