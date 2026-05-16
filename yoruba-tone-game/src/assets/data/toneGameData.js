@@ -378,7 +378,7 @@ export const gameData = [
     word: 'sun',
     audioFile: sunre,
     imageFile: sunBurnImg, // Image: Different
-    tonePattern: ['Do'],
+    tonePattern: ['Re'],
     options: ['Do', 'Re', 'Mi', 'N/A'],
     correct: 1,
     category: 'homonyns',
