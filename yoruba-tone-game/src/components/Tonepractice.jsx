@@ -23,7 +23,7 @@ const tonePracticeData = [
   {
     words: ["Í", "Jò", "ko", "dó"],
     tones: ["MI", "DO", "RE", "MI"],
-    audio: ijokodoAudio,
+    audio: ijokodoAudio
   },
   {
     words: ["o", "pò", "i", "lé", "ó", "sá"],
@@ -49,17 +49,18 @@ const toneColors = {
   MI: "#2E7D32",
 };
 
-const WordBox = ({ word, tone }) => (
-  <div
-    className="wordBox"
-    style={{
-      color: toneColors[tone] || "#000000",
-      fontWeight: "bold",
-    }}
-  >
-    {word}
-  </div>
-);
+const WordBox = ({ word, tone }) => {
+  const color = toneColors[tone] || "#000000";
+  const firstChar = word.slice(0, 1);
+  const rest = word.slice(1);
+
+  return (
+    <div className="wordBox" style={{ fontWeight: "bold" }}>
+      <span style={{ color }}>{firstChar}</span>
+      {rest && <span style={{ color: "#000000" }}>{rest}</span>}
+    </div>
+  );
+};
 
 const ToneBox = ({ tone }) => <div className="ToneBox">{tone}</div>;
 
