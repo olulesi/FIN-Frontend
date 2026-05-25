@@ -3,6 +3,7 @@ import ToneGame from './components/ToneGame'
 import ToneGenerator from './components/ToneGenerator'
 import TonePractice from './components/TonePractice'
 import Argument from './components/Argument'
+import RhythmMelody from './components/RhythmMelody'
 import Rollerdex from './components/Rollerdex'
 import YorubaUseCasesCarousel from './components/YorubaUseCasesCarousel'
 import Alphabet from './components/Alphabet'
@@ -16,6 +17,7 @@ function App() {
       <TonePractice />
       <ToneGame />
       <Argument />
+      <RhythmMelody />
       <Rollerdex />
       <YorubaUseCasesCarousel />
       <EmailListing />
