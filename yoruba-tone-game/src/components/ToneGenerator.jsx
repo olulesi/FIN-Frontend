@@ -4,6 +4,7 @@ import ToneAudio from './ToneAudio' // Import the new child component
 
 const ToneGenerator = () => {
   const tones = ['DO', 'RE', 'MI']
+  
   const initialTones = [
     ['DO', 'DO', 'RE', 'RE', 'MI'],
     ['MI', 'DO', 'MI', 'RE', 'DO'],

@@ -30,7 +30,7 @@
 }
 
 .rm__subtitle {
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -39,7 +39,9 @@
 }
 
 .rm-carousel {
-  width: 100%;
+  /* exactly 3 cards (200px each) + 2 gaps (16px each) = 632px */
+  width: 632px;
+  max-width: 100%;
   overflow: hidden;
   padding: 36px 0 44px;
   position: relative;
@@ -53,42 +55,85 @@
   gap: 16px;
 }
 
-.rm-carousel__track.is-sliding {
-  animation: rm-slide-left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-@keyframes rm-slide-left {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-226px); }
-}
-
+/* Each slot transitions its own scale/opacity independently */
 .rm-carousel__slot {
   flex: 0 0 auto;
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  transition:
+    transform 0.6s cubic-bezier(0.34, 1.15, 0.64, 1),
+    opacity   0.6s cubic-bezier(0.34, 1.15, 0.64, 1),
+    filter    0.6s ease,
+    visibility 0s;
+  /* transitionDelay is applied inline per-slot from JSX */
 }
 
 .rm-carousel__slot.center {
   z-index: 5;
+  transform: scale(1);
+  opacity: 1;
+  filter: blur(0px);
+  visibility: visible;
 }
 
 .rm-carousel__slot.left,
 .rm-carousel__slot.right {
-  opacity: 0.5;
+  opacity: 0.55;
   transform: scale(0.87);
+  filter: blur(0px);
+  visibility: visible;
 }
 
 .rm-carousel__slot.far-left,
 .rm-carousel__slot.far-right {
-  opacity: 0.15;
+  opacity: 0;
   transform: scale(0.72);
+  filter: blur(0px);
+  visibility: hidden;
+  pointer-events: none;
 }
 
+/* Hidden by default — only far-left and far-right slots get this */
+.rm-carousel__slot.is-hidden {
+  opacity: 0 !important;
+  pointer-events: none;
+  visibility: hidden;
+  transition:
+    opacity     0.5s ease,
+    visibility  0s   linear 0.5s;
+}
+
+/* Revealed when playing/paused/counting */
+.rm-carousel__slot.is-revealed {
+  visibility: visible;
+  transition:
+    transform 0.6s cubic-bezier(0.34, 1.15, 0.64, 1),
+    opacity   0.6s cubic-bezier(0.34, 1.15, 0.64, 1),
+    filter    0.6s ease;
+}
+
+/* Card content slides up + fades in whenever activeIndex changes */
 .rm-card {
   width: 200px;
   height: 260px;
   perspective: 1000px;
   cursor: pointer;
   transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.35s;
+}
+
+/* Entrance animation lives on the slot's inner wrapper, driven by stagger delay */
+.rm-carousel__slot__card {
+  animation: rm-card-enter 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  /* delay is inherited from the slot's transitionDelay via animation-delay */
+}
+
+@keyframes rm-card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .rm-card.is-active {
@@ -119,14 +164,16 @@
 }
 
 .rm-card__front {
-  background: #fff;
+  display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.09);
 }
 
 .rm-card__img {
   width: 100%;
-  height: 250px;
+  height: 100%;
   object-fit: cover;
   display: block;
   border-radius: 16px;
@@ -164,17 +211,17 @@
 .rm-card__back {
   transform: rotateY(180deg);
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
+  align-items: stretch;
+  justify-content: stretch;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+  padding: 0;
 }
 
 .rm-card__note {
   font-family: 'Baloo 2', cursive;
-  font-size: 4rem;
+  font-size: 2rem;
   font-weight: 800;
+  align-items: center;
   line-height: 1;
   animation: rm-pulse 2s ease-in-out infinite;
 }

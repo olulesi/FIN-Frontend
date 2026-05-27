@@ -2,26 +2,26 @@ import React, { useState, useEffect, useRef, useCallback } from 'react'
 import '../styles/RhythmMelody.css'
 
 // ─── 1. SWAP THESE WITH YOUR ACTUAL IMPORTS ───────────────────────────────────
-import doImg from '../assets/images/Rhythm/do.jpg';
-import reImg  from '../assets/images/Rhythm/re.jpg'
-import miImg  from '../assets/images/Rhythm/mi.jpg'
-import faImg  from '../assets/images/Rhythm/fa.jpg'
-import solImg from '../assets/images/Rhythm/sol.jpg'
+import Gbagbe from '../assets/images/Rhythm/Gbagbe.jpg';
+import Eshe  from '../assets/images/Rhythm/Eshe.jpg'
+import Tide  from '../assets/images/Rhythm/tiDe.jpg'
+import Wole  from '../assets/images/Rhythm/wole.jpg'
+import Sare from '../assets/images/Rhythm/sare.jpg'
 import beat from '../assets/audio/Rhythm/cruelSantinoBeat.mp3'
 //
 
 const AUDIO_SRC = beat // ← replace with: beat
 
 const CARDS = [
-  { note: 'DO',  color: '#FF6B6B', image: doImg },
-  { note: 'RE',  color: '#FF9F43', image:  reImg   },
-  { note: 'MI',  color: '#FECA57', image:  miImg  },
-  { note: 'FA',  color: '#48DBFB', image:  faImg },
-  { note: 'SOL', color: '#FF9FF3', image: solImg },
+  { note: 'GBAGBE', color: '#fff',     bg: '#E63946', image: Gbagbe }, // bold red
+  { note: 'ESHE',   color: '#fff',     bg: '#2A9D8F', image: Eshe   }, // teal
+  { note: 'TI DE',  color: '#1a1a2e', bg: '#F4D35E', image: Tide   }, // warm yellow
+  { note: 'WO LE',  color: '#fff',     bg: '#3A0CA3', image: Wole   }, // deep violet
+  { note: 'SARE',   color: '#fff',     bg: '#F77F00', image: Sare   }, // vivid orange
 ]
 
 
-function Card({ note, color, image, isActive, isFaint }) {
+function Card({ note, color, bg, image, isActive, isFaint }) {
   const [flipped, setFlipped] = useState(false)
 
   return (
@@ -30,47 +30,58 @@ function Card({ note, color, image, isActive, isFaint }) {
       onClick={() => setFlipped((f) => !f)}
     >
       <div className={`rm-card__inner ${flipped ? "is-flipped" : ""}`}>
-        {/* FRONT — image + note label */}
-        <div className="rm-card__face rm-card__front">
-          <img src={image} alt={note} className="rm-card__img" />
-        </div>
-
-        {/* BACK — big colored note word */}
-        <div
-          className="rm-card__face rm-card__back"
-          style={{
-            background: `linear-gradient(135deg,${color}22,${color}44)`,
-            borderColor: `${color}66`,
-          }}
-        >
+        {/* FRONT — distinct bg color + note label */}
+        <div className="rm-card__face rm-card__front" style={{ background: bg }}>
           <span className="rm-card__note" style={{ color }}>
             {note}
           </span>
-          <span className="rm-card__sub">Solfège</span>
+        </div>
+
+        {/* BACK — photo */}
+        <div className="rm-card__face rm-card__back">
+          <img src={image} alt={note} className="rm-card__img" />
         </div>
       </div>
     </div>
   );
 }
 
-function Carousel({ activeIndex, sliding }) {
-  const total = CARDS.length
-  const POS   = { '-2': 'far-left', '-1': 'left', '0': 'center', '1': 'right', '2': 'far-right' }
+function Carousel({ activeIndex, phase }) {
+  const total   = CARDS.length
+  const OFFSETS = [-2, -1, 0, 1, 2]
+  const POS     = { '-2': 'far-left', '-1': 'left', '0': 'center', '1': 'right', '2': 'far-right' }
+  const DELAY   = { '-2': 160, '-1': 80, '0': 0, '1': 80, '2': 160 }
+  const isActive = phase !== 'idle'
 
   return (
     <div className="rm-carousel">
-      <div className={`rm-carousel__track ${sliding ? 'is-sliding' : ''}`}>
-        {[-2, -1, 0, 1, 2].map(offset => {
-          const card = CARDS[(activeIndex + offset + total) % total]
+      <div className="rm-carousel__track">
+        {OFFSETS.map(offset => {
+          const card     = CARDS[(activeIndex + offset + total) % total]
+          const delay    = DELAY[offset]
+          const isFar    = Math.abs(offset) === 2
+          const revealed = !isFar || isActive
+
           return (
-            <div key={`${card.note}${offset}`} className={`rm-carousel__slot ${POS[offset]}`}>
-              <Card
-                note={card.note}
-                color={card.color}
-                image={card.image}
-                isActive={offset === 0}
-                isFaint={Math.abs(offset) >= 1}
-              />
+            <div
+              key={offset}
+              className={`rm-carousel__slot ${POS[offset]} ${revealed ? 'is-revealed' : 'is-hidden'}`}
+              style={{ transitionDelay: `${delay}ms` }}
+            >
+              <div
+                key={card.note}
+                className="rm-carousel__slot__card"
+                style={{ animationDelay: `${delay}ms` }}
+              >
+                <Card
+                  note={card.note}
+                  color={card.color}
+                  bg={card.bg}
+                  image={card.image}
+                  isActive={offset === 0}
+                  isFaint={Math.abs(offset) >= 1}
+                />
+              </div>
             </div>
           )
         })}
@@ -99,7 +110,7 @@ function Countdown({ active, onComplete }) {
       }, 800)
     }
     tick()
-  }, [active])
+  }, [active, onComplete])
 
   if (count === null) return <div className="rm-countdown--empty" />
 
@@ -212,24 +223,38 @@ export default function RhythmMelody() {
   }
 
   return (
-    <section className="rm">
-      <header className="rm__header">
-        <h2 className="rm__title">Rhythm <em>&amp;</em> Melody</h2>
-        <p className="rm__subtitle">Commonly Used Words</p>
-      </header>
+    <>
+      < hr />
+      <section className="rm">
+        <header className="rm__header">
+          <h2 className="rm__title">
+            Rhythm <em>&amp;</em> Melody
+          </h2>
+          <p className="rm__subtitle">Commonly Used Words</p>
+        </header>
 
-      <Carousel activeIndex={activeIndex} sliding={sliding && phase === 'playing'} />
+        <Carousel activeIndex={activeIndex} phase={phase} />
 
-      <div className="rm__controls-zone">
-        {phase === 'counting'
-          ? <Countdown active onComplete={handleCountdownDone} />
-          : <Controls phase={phase} onPlay={handlePlay} onPause={handlePause} onStop={handleStop} />
-        }
-        {phase === 'paused' && <span className="rm__badge">⏸ Paused</span>}
-      </div>
+        <div className="rm__controls-zone">
+          {phase === "counting" ? (
+            <Countdown active onComplete={handleCountdownDone} />
+          ) : (
+            <Controls
+              phase={phase}
+              onPlay={handlePlay}
+              onPause={handlePause}
+              onStop={handleStop}
+            />
+          )}
+          {phase === "paused" && <span className="rm__badge">⏸ Paused</span>}
+        </div>
 
-      <ProgressBar currentTime={currentTime} duration={duration} playing={phase === 'playing'} />
-
-    </section>
-  )
+        <ProgressBar
+          currentTime={currentTime}
+          duration={duration}
+          playing={phase === "playing"}
+        />
+      </section>
+    </>
+  );
 }

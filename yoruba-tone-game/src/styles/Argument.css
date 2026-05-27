@@ -298,8 +298,6 @@ hr {
   /* Make tables horizontally scrollable */
   .conjugation-table {
     display: block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
     white-space: nowrap;
     width: 100%;
   }
