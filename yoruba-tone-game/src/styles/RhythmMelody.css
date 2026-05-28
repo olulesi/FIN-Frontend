@@ -215,6 +215,7 @@
   justify-content: stretch;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
   padding: 0;
+  background: linear-gradient(120deg, #fff4e6 0%, #ffe0b5 100%); /* warm cream background */
 }
 
 .rm-card__note {
@@ -222,16 +223,23 @@
   font-size: 2rem;
   font-weight: 800;
   align-items: center;
+  color: #0a0a09; /* rich warm brown for excellent contrast */
   line-height: 1;
   animation: rm-pulse 2s ease-in-out infinite;
+  background: rgba(19, 18, 18, 0.5);
+  padding: 8px 12px;
+  border-radius: 20px;
+  display: inline-flex;
+  justify-content: center;
+  gap: 4px;
 }
 
 .rm-card__sub {
   font-size: 0.68rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.28);
+  color: #c4a47c; /* muted gold/cream */
 }
 
 @keyframes rm-pulse {

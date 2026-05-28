@@ -31,15 +31,18 @@ function Card({ note, color, bg, image, isActive, isFaint }) {
     >
       <div className={`rm-card__inner ${flipped ? "is-flipped" : ""}`}>
         {/* FRONT — distinct bg color + note label */}
-        <div className="rm-card__face rm-card__front" style={{ background: bg }}>
-          <span className="rm-card__note" style={{ color }}>
-            {note}
-          </span>
+        <div
+          className="rm-card__face rm-card__front"
+          style={{ background: bg }}
+        >
+          <img src={image} alt={note} className="rm-card__img" />
         </div>
 
         {/* BACK — photo */}
         <div className="rm-card__face rm-card__back">
-          <img src={image} alt={note} className="rm-card__img" />
+          <span className="rm-card__note" style={{ color }}>
+            {note}
+          </span>
         </div>
       </div>
     </div>
