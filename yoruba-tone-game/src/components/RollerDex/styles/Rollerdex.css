@@ -480,12 +480,15 @@
   height: auto;
   overflow-x: hidden;
     border-radius: 6px;
-  background: #fafafa;
+  background: #5f0606;
+    border: 1px solid #e0e0e0;
+  column-count: 2;
+  column-gap: 20px;
   }
 
   .permanent-lyrics-text {
-    font-size: 10px;
-    line-height: 1.3;
+    font-family: 'Georgia', serif;
+  font-size: 13px;
   }
 
   .permanent-music-controls {
