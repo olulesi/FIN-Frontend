@@ -476,7 +476,9 @@
   }
 
   .lyrics-scroll-container {
-    max-height: 70px;
+  margin: 0 0 8px 0;
+  height: auto;
+  overflow-x: hidden;
   }
 
   .permanent-lyrics-text {

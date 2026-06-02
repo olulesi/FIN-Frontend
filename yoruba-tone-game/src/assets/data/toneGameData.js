@@ -6,6 +6,7 @@ import opoileosaAudio from '../audio/opoileosa.mp3'
 import Ibarapa from '../audio/Ibarapa.mp3'
 import Morowore from '../audio/Morowore.mp3'
 import igba from '../audio/igba.mp3'
+
 //ERE
 import eredodo from '../audio/homonyms/ere/eredodo.mp3'
 import ereremi from '../audio/homonyms/ere/ereremi.mp3'
@@ -52,7 +53,6 @@ import okoPackedIt from '../images/homonyms/oko/oko-packed.jpg'
 import okoSpearImg from '../images/homonyms/oko/oko-spear.jpg'
 import okoHusbandImg from '../images/homonyms/oko/oko-husband.jpg'
 import okoVehicleImg from '../images/homonyms/oko/oko-vehicle.jpg'
-// import okoFarmImg from "../images/homonyms/oko/oko-farm.jpg";
 import okoStoneImg from '../images/homonyms/oko/oko-stone.jpg'
 import odoStreamImg from '../images/homonyms/odo/odo-stream.png'
 import odoMortarImg from '../images/homonyms/odo/odo-mortar.png'
@@ -69,6 +69,7 @@ import sunShiftImg from '../images/homonyms/sun/sun-shift.png'
 import erinLaughImg from '../images/homonyms/rin/rin-laugh.png'
 import rinCryImg from '../images/homonyms/rin/rin-cry.png'
 import rinWalkImg from '../images/homonyms/rin/rin-walk.png'
+
 
 // DATA
 export const gameData = [
