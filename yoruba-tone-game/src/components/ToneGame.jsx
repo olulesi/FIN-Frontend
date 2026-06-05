@@ -15,6 +15,9 @@ const shuffleArray = (array) => {
 const getHomonyms = () =>
   shuffleArray(gameData.filter((item) => item.category === "homonyns"));
 
+const getNames = () =>
+  shuffleArray(gameData.filter((item) => item.category === "Name"));
+
 const Game = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -25,6 +28,7 @@ const Game = () => {
   const [correctCount, setCorrectCount] = useState(0);
   const [wrongCount, setWrongCount] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState("homonyns");
+  const [shuffledNames, setShuffledNames] = useState(getNames);
   const [playbackRate, setPlaybackRate] = useState(1.0);
   const [attempts, setAttempts] = useState(0);
   const [isLocked, setIsLocked] = useState(false);
@@ -44,19 +48,20 @@ const Game = () => {
     setCurrentImage(null);
   };
 
-  useEffect(() => {
-    setCurrentWordIndex(0);
-    setCorrectCount(0);
-    setWrongCount(0);
-    resetWordState();
-    if (selectedCategory === "homonyns") {
-      setShuffledHomonyms(getHomonyms());
-    }
-  }, [selectedCategory]);
+useEffect(() => {
+  setCurrentWordIndex(0);
+  setCorrectCount(0);
+  setWrongCount(0);
+  resetWordState();
+  if (selectedCategory === "homonyns") setShuffledHomonyms(getHomonyms());
+  if (selectedCategory === "Name") setShuffledNames(getNames()); // ADD
+}, [selectedCategory]);
 
-  const filteredData = useMemo(() => {
-    return selectedCategory === "homonyns" ? shuffledHomonyms : gameData;
-  }, [selectedCategory, shuffledHomonyms]);
+const filteredData = useMemo(() => {
+  if (selectedCategory === "homonyns") return shuffledHomonyms;
+  if (selectedCategory === "Name") return shuffledNames; // ADD
+  return gameData;
+}, [selectedCategory, shuffledHomonyms, shuffledNames]);
 
   const currentWord = filteredData[currentWordIndex];
 
@@ -109,13 +114,14 @@ const Game = () => {
     audio.play().catch((e) => console.error("Audio play error:", e));
   };
 
-  const startOver = () => {
-    setCurrentWordIndex(0);
-    setCorrectCount(0);
-    setWrongCount(0);
-    resetWordState();
-    if (selectedCategory === "homonyns") setShuffledHomonyms(getHomonyms());
-  };
+ const startOver = () => {
+   setCurrentWordIndex(0);
+   setCorrectCount(0);
+   setWrongCount(0);
+   resetWordState();
+   if (selectedCategory === "homonyns") setShuffledHomonyms(getHomonyms());
+   if (selectedCategory === "Name") setShuffledNames(getNames()); // ADD
+ };
 
   const nextWord = () => {
     setCurrentWordIndex((prev) => (prev + 1) % filteredData.length);
@@ -166,6 +172,18 @@ const Game = () => {
               onChange={() => setSelectedCategory("homonyns")}
             />
             Homonyms
+          </label>
+
+          {/* Names - NEW */}
+          <label className="active-category">
+            <input
+              type="radio"
+              name="category"
+              value="Name"
+              checked={selectedCategory === "Name"}
+              onChange={() => setSelectedCategory("Name")}
+            />
+            Names
           </label>
         </div>
 
