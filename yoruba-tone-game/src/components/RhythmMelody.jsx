@@ -15,7 +15,7 @@ const AUDIO_SRC = beat // ← replace with: beat
 const CARDS = [
   { note: 'GBAGBE', color: '#fff',     bg: '#E63946', image: Gbagbe }, // bold red
   { note: 'ESHE',   color: '#fff',     bg: '#2A9D8F', image: Eshe   }, // teal
-  { note: 'TI DE',  color: '#1a1a2e', bg: '#F4D35E', image: Tide   }, // warm yellow
+  { note: 'TI DE',  color: '#e4e4ed', bg: '#F4D35E', image: Tide   }, // warm yellow
   { note: 'WO LE',  color: '#fff',     bg: '#3A0CA3', image: Wole   }, // deep violet
   { note: 'SARE',   color: '#fff',     bg: '#F77F00', image: Sare   }, // vivid orange
 ]

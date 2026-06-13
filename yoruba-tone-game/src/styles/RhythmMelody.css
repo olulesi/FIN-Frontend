@@ -211,11 +211,10 @@
 .rm-card__back {
   transform: rotateY(180deg);
   display: flex;
-  align-items: stretch;
-  justify-content: stretch;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  justify-content: center;
   padding: 0;
-  background: linear-gradient(120deg, #fff4e6 0%, #ffe0b5 100%); /* warm cream background */
+  background: #3B1F0E;
 }
 
 .rm-card__note {
