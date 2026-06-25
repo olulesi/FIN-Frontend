@@ -7,7 +7,7 @@ import Ibarapa from '../audio/Ibarapa.mp3'
 import Morowore from '../audio/Morowore.mp3'
 import igba from '../audio/igba.mp3'
 import Molade from '../audio/Name/Molade.mp3'
-import shola from '../audio/Name/shola.mp3'
+import shola from '../audio/Name/Sola.mp3'
 
 
 //ERE

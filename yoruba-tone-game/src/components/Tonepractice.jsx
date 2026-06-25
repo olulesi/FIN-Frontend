@@ -9,7 +9,7 @@ import Ibarapa from "../assets/audio/Ibarapa.mp3";
 import Morowore from "../assets/audio/Morowore.mp3";
 import Igba from "../assets/audio/igba.mp3";
 import Molade from "../assets/audio/Name/Molade.mp3";
-import shola from "../assets/audio/Name/shola.mp3";
+import Sola from "../assets/audio/Name/Sola.mp3";
 import Ayodeji from "../assets/audio/Name/Ayodeji.mp3";
 import Ayotunde from "../assets/audio/Name/Ayotunde.mp3";
 import Bolutife from "../assets/audio/Name/Bolutife.mp3";
@@ -69,13 +69,13 @@ const tonePracticeData = [
   },
   {
     words: ["A", "yọ̀", "dé", "jì"],
-    tones: ["DO", "RE", "RE", "DO"],
+    tones: ["RE", "DO", "MI", "DO"],
     audio: Ayodeji,
     category: "names",
   },
   {
     words: ["A", "yọ̀", "tún", "dé"],
-    tones: ["DO", "RE", "MI", "RE"],
+    tones: ["RE", "DO", "MI", "MI"],
     audio: Ayotunde,
     category: "names",
   },
@@ -98,8 +98,8 @@ const tonePracticeData = [
     category: "names",
   },
   {
-    words: ["Àì", "bí", "nú", "o", "lá"],
-    tones: ["DO", "MI", "RE", "RE", "MI"],
+    words: ["A", "ì", "bí", "nú", "o", "lá"],
+    tones: ["RE", "DO", "MI", "MI", "RE", "MI"],
     audio: Aibinuola,
     category: "names",
   },
@@ -111,7 +111,7 @@ const tonePracticeData = [
   },
   {
     words: ["Bó", "lá", "jọ̀", "kọ́"],
-    tones: ["MI", "MI", "DO", "DO", "MI"],
+    tones: ["MI", "MI", "DO", "MI"],
     audio: Bolajoko,
     category: "names",
   },
@@ -128,14 +128,14 @@ const tonePracticeData = [
     category: "names",
   },
   {
-    words: ["A", "dé", "ṣọ", "lá"],
-    tones: ["RE", "MI", "DO", "MI"],
+    words: ["A", "dé", "sọ", "lá"],
+    tones: ["RE", "MI", "RE", "MI"],
     audio: Adesola,
     category: "names",
   },
   {
-    words: ["A", "yọ̀", "ọlá"],
-    tones: ["DO", "RE", "MI"],
+    words: ["A", "yọ̀", "ọ", "lá"],
+    tones: ["RE", "DO", "RE", "MI"],
     audio: Ayoola,
     category: "names",
   },
@@ -147,7 +147,7 @@ const tonePracticeData = [
   },
   {
     words: ["À", "njọ", "lá", "o", "lú", "wa"],
-    tones: ["DO", "DO", "MI", "RE", "MI", "RE"],
+    tones: ["DO", "RE", "MI", "RE", "MI", "RE"],
     audio: Anjolaoluwa,
     category: "names",
   },
@@ -159,14 +159,14 @@ const tonePracticeData = [
   },
   {
     words: ["Mó", "lá", "dé"],
-    tones: ["RE", "DO", "MI"],
+    tones: ["MI", "MI", "MI"],
     audio: Molade,
     category: "names",
   },
   {
-    words: ["Sh", "ó", "lá"],
-    tones: ["DO", "MI", "DO"],
-    audio: shola,
+    words: ["Ṣọ", "lá"],
+    tones: ["RE", "MI"],
+    audio: Sola,
     category: "names",
   },
   {
@@ -177,13 +177,14 @@ const tonePracticeData = [
   },
   {
     words: ["A", "yọ̀", "dé", "lé"],
-    tones: ["DO", "RE", "MI", "MI"],
+    tones: ["RE", "DO", "MI", "MI"],
     audio: Ayodele,
     category: "names",
   },
   {
-    words: ["A", "fó", "ló", "rún", "sọ̀"],
-    tones: ["RE", "MI", "MI", "RE", "DO"],
+ 
+    words: ["A", "fọ", "ló", "rún", "sọ̀"],
+    tones: ["RE", "RE", "MI", "MI", "DO"],
     audio: Afolorunso,
     category: "names",
   },
